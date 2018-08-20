@@ -1,0 +1,76 @@
+<!--pages/user/comment/comment.wxml-->
+<view class="wrap"
+	  wx:for="{{order}}" 
+	  wx:key="orderItem">
+		  <view class="author">
+			    <view class="author_icon">
+			          <image 
+			              src="{{item.targetSeller.image}}" 
+			              class="author_icon_item" 
+			              style=" width:135rpx; height:135rpx;">
+			          </image>
+			    </view>
+
+			    <view class="author_title">
+				      <view class="title_item"
+				            id="changecolor">{{item.targetSeller.nickname}}
+				      </view>
+
+					  <view style="font-size:10pt; color:#666">
+					  	{{item.createdAt}}  {{item.times}}局
+					  </view>
+
+					  <view style="font-size:10pt; color:#666">
+					  	已支付 {{item.amount*item.times}}元
+					  </view>
+			    </view>
+
+			    <view class="author_confirm">
+				      <view class="title_item"
+				            id="changecolor">{{item.status}}
+				      </view>
+			    </view>
+		  </view>
+
+		  <view>
+		  	    <navigator wx:if="{{item.targetBuyer.objectId==user&&item.status=='已支付'}}"
+		  	    	       class="btn_submit"
+                           url="./cancel/cancel?objectId={{item.objectId}}&nickname={{item.targetSeller.nickname}}&image={{item.targetSeller.image}}&createdAt={{item.createdAt}}&times={{item.times}}&price={{item.amount}}">取消订单</navigator>
+
+		  	    <navigator wx:elif="{{item.targetBuyer.objectId==user&&item.status=='已接单'}}"
+		  	    	       class="btn_submit"
+                           url="./comment/comment?objectId={{item.objectId}}&to={{item.targetSeller.objectId}}&from={{item.targetBuyer.objectId}}&nickname={{item.targetSeller.nickname}}&image={{item.targetSeller.image}}&createdAt={{item.createdAt}}&times={{item.times}}&price={{item.amount}}">评价</navigator>
+
+		  	    <navigator wx:elif="{{item.targetBuyer.objectId==user&&item.status=='已完成'}}"
+		  	    	       class="btn_submit"
+                           >已完成</navigator>
+
+		  	    <navigator wx:elif="{{item.targetBuyer.objectId==user&&item.status=='已取消'}}"
+		  	    	       class="btn_submit"
+                           >已取消</navigator>
+
+		  	    <navigator wx:elif="{{item.targetBuyer.objectId!=user&&item.status=='已支付'}}"
+		  	    	       class="btn_submit"
+		  	    	       url="./ordertaking/ordertaking?objectId={{item.objectId}}&nickname={{item.targetSeller.nickname}}&image={{item.targetSeller.image}}&createdAt={{item.createdAt}}&times={{item.times}}&price={{item.amount}}&masterid={{item.targetMaster.objectId}}"
+                           >接单</navigator>
+
+		  	    <view wx:elif="{{item.targetBuyer.objectId!=user&&item.status=='已接单'}}"
+		  	    	       class="btn_submit"
+                           >已接单</view>
+
+		  	    <view wx:elif="{{item.targetBuyer.objectId!=user&&item.status=='已取消'}}"
+		  	    	       class="btn_submit"
+                           >已取消</view>
+
+		  	    <view wx:else
+		  	    	       class="btn_submit">已完成</view>
+		  </view>
+</view>
+
+
+
+
+
+
+
+

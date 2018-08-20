@@ -1,0 +1,235 @@
+
+    <view  class="navigator"
+    	   style="height:120rpx"
+    	   ontap = "setImage">
+	          <view class="userName"
+	          	    style="font-size: 11pt">封面照片</view>
+
+			    <block wx:if="{{image}}"
+			    	  class="userImage">
+			            <image src="{{image}}" 
+			                  style="width: 100rpx ; height: 100rpx ; border-radius:5rpx"
+			                  mode="aspectFill"></image>
+			    </block>
+
+			    <block wx:else
+			    	  class="userImage">
+			            <image src="{{user.image}}"
+			            	   style="width: 100rpx; height: 100rpx; border-radius:5rpx"
+			            	   mode="aspectFill"></image>
+			    </block>
+
+	          <view	class="icon" >  
+	                  <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+	                         style=" width:60rpx; height:60rpx"
+	                         mode="scaleToFill"></image>
+	          </view>
+	</view>
+    
+    <navigator  class="navigator"
+    	        url="./nickname/nickname">
+	          <view class="userName"
+	          	    style="font-size: 11pt">昵称</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.nickname}}</view>
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+
+    <navigator  class="navigator"
+    	        url="./wechatId/wechatId">
+	          <view class="userName"
+	          	    style="font-size: 11pt">微信或QQ账号</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.weChatID}}</view>
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">区服段位</view>
+				  <picker wx:if="{{display}}"
+				  	      mode="multiSelector" 
+				  	      bindchange="bindMultiPickerChange" 
+				  	      bindcolumnchange="bindMultiPickerColumnChange" 
+				  	      value="{{multiIndex}}" 
+				  	      range="{{multiArray}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{multiArray[0][multiIndex[0]]}}-{{multiArray[1][multiIndex[1]]}}
+						    </view>
+				  </picker>
+
+			  <picker wx:else
+			  	      mode="multiSelector"
+			  	      bindchange="bindMultiPickerChange" 
+			  	      bindcolumnchange="bindMultiPickerColumnChange" 
+			  	      value="{{user.rank}}" 
+			  	      range="{{multiArray}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{multiArray[0][user.rank[0]]}}-{{multiArray[1][user.rank[1]]}}
+					    </view>
+			  </picker>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+    <navigator  class="navigator"
+    	        url="./gamename/gamename">
+	          <view class="userName"
+	          	    style="font-size: 11pt">游戏ID</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.gameName}}</view>
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+
+    <navigator  class="navigator"
+    	        url="./cells/cells">
+	          <view class="userName"
+	          	    style="font-size: 11pt">手机号码</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.cells}}</view>
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+
+    <view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">性别</view>
+			  <picker wx:if="{{sex}}"
+			  	      bindchange="bindSexChange" 
+			  	      value="{{sex}}" 
+			  	      range="{{array}}" 
+			  	      class="userName2">
+					    <view class="picker"
+					    	  style="font-size: 11pt">
+					      {{array[sex]}}
+					    </view>
+			  </picker>
+
+			  <picker wx:elif="{{user.sex}}"
+			  	      bindchange="bindSexChange" 
+			  	      value="{{sex}}" 
+			  	      range="{{array}}" 
+			  	      class="userName2">
+					    <view class="picker"
+					    	  style="font-size: 11pt">
+					      {{array[user.sex]}}
+					    </view>
+			  </picker>
+
+			  <picker wx:else
+			  	      bindchange="bindSexChange" 
+			  	      value="{{sex}}" 
+			  	      range="{{array}}" 
+			  	      class="userName2">
+					    <view class="picker"
+					    	  style="font-size: 11pt">未设置
+					    </view>
+			  </picker>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+    <view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">生日</view>
+			  <picker wx:if="{{birthday}}"
+			  	      mode="date" 
+			  	      value="{{user.birthday}}" 
+			  	      start="1970-01-01" 
+			  	      end="2017-09-01" 
+			  	      bindchange="bindDateChange"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+						    <view class="picker">
+						              {{birthday}}
+						    </view>
+			  </picker>
+
+			  <picker wx:else
+			  	      mode="date" 
+			  	      value="{{user.birthday}}" 
+			  	      start="1970-01-01" 
+			  	      end="2017-09-01" 
+			  	      bindchange="bindDateChange"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+						    <view class="picker">
+						              {{user.birthday}}
+						    </view>
+			  </picker>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">城市</view>
+
+			  <picker wx:if="{{region}}"
+			  	      mode="region" 
+			  	      bindchange="bindRegionChange" 
+			  	      bindcolumnchange="bindRegionColumnChange" 
+			  	      value="{{user.region}}" 
+			  	      custom-item="{{customItem}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+			    <view class="picker">
+			      {{region[0]}}-{{region[1]}}-{{region[2]}}
+			    </view>
+			  </picker>
+
+			  <picker wx:else
+			  	      mode="region" 
+			  	      bindchange="bindRegionChange" 
+			  	      bindcolumnchange="bindRegionColumnChange" 
+			  	      value="{{user.region}}" 
+			  	      custom-item="{{customItem}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+			    <view class="picker">
+			      {{user.region[0]}}-{{user.region[1]}}-{{user.region[2]}}
+			    </view>
+			  </picker>
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+
+
+

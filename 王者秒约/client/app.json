@@ -1,0 +1,133 @@
+{
+  "pages":[
+    "pages/game/game",
+    "pages/game/detail/detail",
+    
+    "pages/lottery/lottery",
+    "pages/lottery/detail/lottery",
+    "pages/lottery/detail/detail",
+    "pages/lottery/detail/other",
+    "pages/lottery/today/today",
+    "pages/lottery/more/more",
+    "pages/lottery/get/get",
+    "pages/lottery/guide/guide",
+
+
+    "pages/product/product",
+
+    "pages/punch/punch",
+    "pages/punch/detail/detail",
+    "pages/punch/public/public",
+
+    "pages/news/news",
+    "pages/news/detail/detail",
+
+    "pages/index/index",
+    "pages/index/index/index",
+    "pages/index/detail/detail",
+    "pages/index/detail/order/order",
+    "pages/index/expert/expert",
+    "pages/index/expert/detail/detail",
+
+    "pages/message/message",
+    "pages/message/detail/detail",
+
+    "pages/trade/trade",
+    "pages/trade/publish/publish",
+    "pages/trade/detail/detail",
+
+    "pages/gamegroup/gamegroup",
+    "pages/gamegroup/detail/detail",
+
+    "pages/term/term",
+    "pages/term/detail/detail",    
+    "pages/term/rank/rank",
+    
+    "pages/user/user",
+    "pages/user/setting/setting",
+    "pages/user/setting/nickname/nickname",
+    "pages/user/setting/gamename/gamename",
+    "pages/user/setting/cells/cells",
+    "pages/user/setting/wechatId/wechatId",
+
+    "pages/user/cert/cert",
+    "pages/user/cert/xieyi",
+    "pages/user/cert/cert/cert",
+    "pages/user/cert/cert/covertitle/covertitle",
+    "pages/user/cert/cert/service/service",
+    "pages/user/cert/index/index",
+
+    "pages/user/wallet/wallet",
+    "pages/user/wallet/detail/detail",
+    "pages/user/wallet/account/account",
+    "pages/user/wallet/recharge/recharge",
+
+    "pages/user/comment/comment",
+    "pages/user/service/service",
+    "pages/user/share/share",
+    "pages/user/info/info",
+
+    "pages/user/login/login",
+
+    "pages/user/order/order",
+    "pages/user/order/cancel/cancel",
+    "pages/user/order/ordertaking/ordertaking",
+    "pages/user/order/comment/comment",
+    "pages/user/notice/notice",
+    "pages/user/goods/goods",
+    "pages/user/goods/sell/sell",
+    "pages/user/goods/buy/buy",
+    "pages/user/goods/publish/publish",
+    "pages/user/intergral/intergral",
+    "pages/user/intergral/spend/spend",
+    "pages/user/intergral/spend/detail/detail",
+    "pages/user/intergral/earn/earn"
+    
+  ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#f2f2f2",
+    "navigationBarBackgroundColor": "#fbfbfb",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#FD6C82",
+    "borderStyle": "#FFF",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/lottery/lottery",
+        "iconPath": "image/福利.png",
+        "selectedIconPath": "image/福利1.png",
+        "text": "福利"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "iconPath": "image/商城.png",
+        "selectedIconPath": "image/商城1.png",
+        "text": "产品"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "image/游戏.png",
+        "selectedIconPath": "image/游戏1.png",
+        "text": "资讯"
+      },
+      {
+        "pagePath": "pages/punch/punch",
+        "iconPath": "image/拼团.png",
+        "selectedIconPath": "image/拼团1.png",
+        "text": "打卡"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/个人中心.png",
+        "selectedIconPath": "image/个人中心1.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

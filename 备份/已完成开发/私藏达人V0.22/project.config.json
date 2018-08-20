@@ -1,0 +1,8 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"setting": {
+		"postcss": true,
+		"urlCheck": false
+	}
+}

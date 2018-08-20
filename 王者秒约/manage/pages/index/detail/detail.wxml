@@ -1,0 +1,90 @@
+<image 
+    src="{{user.targetUser.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title1">
+  <view class="wrap1">
+      <view  class="title_item1;" 
+             style="font-size:18pt;  margin-bottom: 8rpx;">
+             <span id="changestyle">{{user.title}}</span></view>
+      <view  style="font-size:11pt; color:#FD6C82; padding-bottom:30rpx; border-bottom:1px solid #f0f0f0; " 
+             class="title_item1">
+             <text style="color:#000000">{{user.targetUser.nickname}}</text>
+             <text>  {{multiArray[user.targetUser.rank[2]]}}  {{user.price}}.00元/局</text>
+             <text>  接单:{{user.numberOfOrder}}次</text>
+      </view>
+      <view  style="font-size:11pt;padding:20rpx 0rpx 30rpx 0rpx;" class="title_item1"> <text>{{user.serviceText}}</text></view>
+  </view>
+<view>
+    <view wx:if="{{user.userVideo}}">
+        <view  class="title_item1;" 
+               style="font-size:14pt;  margin:0rpx 0rpx 8rpx 20rpx;">
+               <span id="changestyle">{{user.targetUser.nickname}}个人视频</span></view>  
+        <video src="{{user.userVideo}}" style="width:710rpx; margin:20rpx"></video>
+    </view>
+
+    <view wx:if="{{user.userImages.images}}">
+        <view  class="title_item1;" 
+               style="font-size:14pt;  margin:0rpx 0rpx 8rpx 20rpx;">
+               <span id="changestyle">{{user.targetUser.nickname}}个人照片</span></view>  
+        <view wx:for="{{user.userImages.images}}" wx:key="images"> 
+            <image src="{{item}}" style="width:710rpx; margin:20rpx" mode="widthFix"></image>
+        </view>
+    </view>
+    <view wx:if="{{user.combatImages.images}}">
+        <view  class="title_item1;" 
+               style="font-size:14pt;  margin:0rpx 0rpx 8rpx 20rpx;">
+               <span id="changestyle">{{user.targetUser.nickname}}战绩截图</span></view>  
+        <view wx:for="{{user.combatImages.images}}" wx:key="images"> 
+            <image src="{{item}}" style="width:710rpx; margin:20rpx" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="author">
+        <view class="author_icon">
+              <image 
+                  src="{{user.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style=" width:135rpx; height:135rpx;">
+              </image>
+        </view>
+
+        <view class="author_title">
+            <view style="font-size:10pt; color:#666">微信昵称：{{user.targetUser.username}}</view>
+            <view wx:if="{{user.targetUser.gender == 1}}" style="font-size:10pt; color:#666">性别：男</view>
+            <view wx:elif="{{user.targetUser.gender == 2}}" style="font-size:10pt; color:#666">性别：女</view>
+            <view wx:else style="font-size:10pt; color:#666">性别：未知</view>
+            <view style="font-size:10pt; color:#666">用户ID：{{user.targetUser.id}}</view>
+            <view style="font-size:10pt; color:#666">微信或QQ号：{{user.targetUser.weChatID}}</view>
+            <view style="font-size:10pt; color:#666">手机号码：{{user.targetUser.cells}}</view>
+            <view style="font-size:10pt; color:#666">游戏账号：{{user.targetUser.gameName}}</view>
+            <view style="font-size:10pt; color:#666" wx:if="{{user.targetUser.mode ==  3}}">申请模式：普通陪练</view>
+            <view style="font-size:10pt; color:#666" wx:elif="{{user.targetUser.mode ==  2}}">申请模式：美女陪练</view>
+            <view style="font-size:10pt; color:#666" wx:elif="{{user.targetUser.mode ==  1}}">申请模式：职业陪练</view>
+            <view style="font-size:10pt; color:#666" wx:elif="{{user.targetUser.mode ==  4}}">申请模式：职业代练</view>
+            <view style="font-size:10pt; color:#666" wx:else>申请模式：未知</view>
+
+        </view>
+    </view>
+  </view>
+</view>
+
+
+<textarea placeholder="如果不通过，请输入不通过的原因。" 
+     confirm-type="send"
+     class="input"
+     bindconfirm="updateComment"
+     bindinput="updateComment"
+     bindblur="updateComment"/>
+
+<view style="height:80rpx"></view>
+
+<view class="button_wrap">
+		<button class="btn_submit"
+		        bindtap="bindDisagree">不通过</button>
+		<button class="btn_submit_right"
+		        bindtap="bindAgree">通过</button>
+</view>
+

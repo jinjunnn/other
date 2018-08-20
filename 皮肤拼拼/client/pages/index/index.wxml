@@ -1,0 +1,50 @@
+<view>
+    <view style="margin: 50rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">精选</view>
+                  <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                           url="./more/more">查看全部</navigator>
+            </view>
+    </view>
+
+    <view class="container">
+        <view wx:for="{{goodslist}}" wx:key="topicItem">
+
+          <navigator wx:if="{{confi}}" class="navigator" 
+                     url="../../pages/index/detail/detail?objectId={{item.objectId}}">
+              <view class="wrap">
+                <image  style="width: 320rpx; height: 240rpx; background-color: #eeeeee;" 
+                        mode="aspectFill" 
+                        src="{{item.image.url}}"></image>
+                <view  class="text_mini_title">
+                <text>{{item.title}}</text>
+                <text> · {{item.content}}</text>
+                </view>
+
+                <view style="display:-webkit-flex;display:flex;justify-content:space-between;margin-bottom:20rpx">
+                    <view style="color:#f8416a; font-size:12pt">￥{{contents}}元参团</view>
+                    <view style="color:#b2b2b2;text-decoration:line-through; font-size:10pt">￥{{item.price/10}}元</view>
+                </view>
+              </view>
+          </navigator>
+
+          <navigator class="navigator" url="../../pages/index/detail/sell?objectId={{item.objectId}}" wx:else>
+              <view class="wrap">
+                <image  style="width: 320rpx; height: 240rpx; background-color: #eeeeee;" 
+                        mode="aspectFill" 
+                        src="{{item.image.url}}"></image>
+                <view  class="text_mini_title">
+                <text>{{item.title}}</text>
+                <text> · {{item.content}}</text>
+                </view>
+
+                <view style="display:-webkit-flex;display:flex;justify-content:space-between;margin-bottom:20rpx">
+                    <view style="color:#f8416a; font-size:12pt">￥{{item.price/12.5}}元拼团</view>
+                    <view style="color:#b2b2b2;text-decoration:line-through; font-size:10pt">￥{{item.price/10}}元</view>
+                </view>
+              </view>
+          </navigator>
+        </view>
+    </view>
+</view>
+

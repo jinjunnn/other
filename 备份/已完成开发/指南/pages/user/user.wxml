@@ -1,0 +1,100 @@
+<!--pages/me/me.wxml-->
+
+<view class="container">
+     <navigator url="./profile/profile" >
+        <view class="box">
+          <view class="item_author_title">
+            <view style="font-size:20pt;" class="title_item">{{user.username}}</view>
+            <view style="font-size:13pt; margin-top:15rpx " class="title_item"><span id="changestyle">查看并编辑个人资料</span></view>
+          </view>
+          <view class="item_author_icon"
+                style=" width:120rpx; height:120rpx;">
+            <image src="{{user.userImage}}" 
+                  class="author_icon_item" 
+                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+                  mode="scaleToFill"></image>
+          </view>
+        </view>
+    </navigator>
+</view>
+
+
+<view class="author">
+    <navigator url="../list/follower/follower?objectId={{user.objectId}}"
+               class="author_title" >
+            <view style="font-size:10pt;" 
+                  class="title_item">{{followers}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">粉丝</view>
+    </navigator>
+    <navigator url="../list/followee/followee?objectId={{user.objectId}}"
+               class="author_title" >
+            <view style="font-size:10pt;" 
+                  class="title_item">{{followees}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">关注</view>
+    </navigator>
+     <navigator url="../list/article/article?objectId={{user.objectId}}" 
+
+              class="author_title">
+            <view style="font-size:10pt;" 
+                  class="title_item">{{articles}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">足迹</view>
+
+    </navigator>
+</view>
+
+<view class="form-wrap">
+  <navigator  url="./foto/foto" 
+              class="navigator">
+      <view   style="font-size:13pt;"
+              class="navigator_text">我的足迹</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/旗帜.png"></image>
+  </navigator>
+  <navigator url="./add/add" 
+             class="navigator">
+      <view  style="font-size:13pt;"
+             class="navigator_text">邀请好友</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/礼物.png"></image>
+
+  </navigator>
+  <navigator url="./betopicer/betopicer" 
+             class="navigator">
+      <view  style="font-size:13pt;"
+             class="navigator_text">成为达人</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/达人_1.png"></image>
+  </navigator>
+  <navigator url="./help/help" 
+             class="navigator">
+      <view  style="font-size:13pt;"
+             class="navigator_text">获取帮助</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/帮助.png"></image>
+  </navigator>
+
+  <navigator url="./feedback/feedback" 
+             class="navigator">
+      <view  style="font-size:13pt;"
+             class="navigator_text">向我们反馈</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/反馈.png"></image>
+  </navigator>
+
+    <navigator url="./business/business" 
+               class="navigator">
+      <view  style="font-size:13pt;"
+             class="navigator_text">商务合作</view>
+      <image  class="navigator_icon"
+              mode="{{item.mode}}" 
+              src="../../image/合作.png"></image>
+  </navigator>
+</view>

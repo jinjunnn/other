@@ -1,0 +1,16 @@
+    <view class="title">
+    有什么可以帮助到您？</view>
+
+<view class="container">
+
+    <view class="content">
+    请输入您的疑问，我们会尽快解答您的问题。</view>
+     <textarea
+        value="{{value}}" 
+        bindinput="updateValue"
+        placeholder="请输入您的问题"
+        placeholder-style="color:#888888;"  
+                />
+    <button bindtap="bindSubmit">确定</button>
+
+</view>

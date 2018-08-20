@@ -1,0 +1,7 @@
+<input placeholder="微信或者QQ账号" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setNickName"
+	   bindblur="setNickName"
+	   />

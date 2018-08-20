@@ -1,0 +1,19 @@
+<view class="container">
+    <view wx:for="{{teams}}" 
+    	  wx:key="teamsItem">    
+	    <navigator url="../../pages/term/detail/detail?objectId={{item.objectId}}"
+	    	       class="navigator">
+
+            <view class="wrap">
+		            <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+		                       mode="aspectFill" 
+		                       src="{{item.image.url}}"></image>
+
+
+		            <view style="font-size:11pt; margin: 0rpx 0rpx 20rpx 0rpx">
+		                       <text>{{item.shopName}}</text>
+		            </view>
+            </view>
+	    </navigator>
+	</view>
+</view>

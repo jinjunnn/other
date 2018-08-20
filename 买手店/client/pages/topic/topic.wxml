@@ -1,0 +1,66 @@
+<image style="width: 750rpx; height: 450rpx; background-color: #eeeeee;" 
+                         mode="aspectFill" 
+                         src="{{topic.image}}"></image>
+
+<view class="container">
+  <view class="title">
+    <view  class="title_item;" 
+           style="font-size:18pt;  margin-bottom: 8rpx;">
+           <span id="changestyle">{{topic.name}}</span></view>
+
+    <view  style="font-size:11pt;" 
+           class="title_item">{{topic.subname}}</view>
+  </view>
+
+  <navigator class="author"
+             url="../user/author/author?objectId={{topic.user.objectId}}">
+    <view class="author_title">
+      <view style="font-size:10pt;" 
+            class="title_item"
+            id="changecolor">时尚精选</view>
+      <view     class="text_title_wrap">
+          <span class="text_mini_title" ></span>
+          <span class="text_mini_title" >专辑编辑:{{topic.targetUser.username}}</span>
+      </view>
+    </view>
+
+    <view class="author_icon">
+          <image 
+              src="{{topic.targetUser.userImage}}" 
+              class="author_icon_item" 
+              style="border-radius: 50%; width:120rpx; height:120rpx;">
+          </image>
+    </view>
+  </navigator>
+
+  <view class="about">
+    <view style="font-size:9pt;" 
+          class="about_author">
+        <text class="about_author_style">关于{{topic.targetUser.username}}</text>
+    </view>
+
+    <view style="font-size:10pt;" 
+          class="about_content">{{topic.content}}</view>
+  </view>
+</view>
+<view class="itemwrap">
+    <view wx:for="{{itemlist}}" wx:key="itemlist">
+      <navigator class="navigator" 
+                 url="../item/item?objectId={{item.objectId}}">
+          <view class="wrap">
+            <image     style="width: 340rpx; height: 340rpx; background-color: #eeeeee;" 
+                       mode="{{item.image}}" 
+                       src="{{item.productGoods[0]}}"></image>
+            <view>
+		            <view style="font-size:11pt">{{item.name}}</view>
+		            <view style="font-size:8pt; color:#333333">{{item.subname}}</view>
+		            <view>
+			                <text style="font-size:10pt">￥{{item.price2}}.00    </text>
+			                <text style="font-size:8pt; color:#333333">    已售{{item.sells}}件</text>
+                    </view>
+            </view>
+
+          </view>
+      </navigator> 
+    </view>
+</view>

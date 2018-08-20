@@ -1,0 +1,72 @@
+<image 
+    src="{{options.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title">
+<view  class="title_item;" 
+       style="font-size:18pt;  margin-bottom: 8rpx;">
+       <span id="changestyle">{{options.title}}  {{options.summary}}皮肤</span></view>
+
+<view  style="font-size:12pt;" 
+       class="title_item"> 
+       <text>皮肤:{{options.content}}  </text>
+       <text style="font-size:12pt; color:#FD6C82" >价值:{{options.price/10}}元</text>
+     </view>
+
+<view  style="font-size:12pt;padding:20rpx 0rpx 10rpx 0rpx" 
+       class="title_item"> 
+       <text style="font-size:12pt;">抽奖规则:  </text>
+
+     </view>
+
+
+<view  style="font-size:11pt; padding:20rpx 0rpx 10rpx 0rpx" 
+       class="title_item"> 
+       <text style="font-size:11pt;" >这个是抽奖规则</text>
+
+     </view>
+
+
+
+</view>
+
+<view class="title2">中奖名单</view>
+
+<view wx:for="{{comment}}" wx:key="commentItem">
+  <view class="container">
+      <view class="author">
+        <view class="author_icon">
+              <image 
+                  src="{{item.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+        </view>
+
+        <view class="author_title">
+          <view class="title_item"
+                id="changecolor">{{item.targetUser.username}}
+          </view>
+
+        <view style="font-size:10pt; color:#666">
+          {{item.updatedAt}}
+        </view>
+        </view>
+      </view>
+  </view>
+</view>
+<view style="height=80rpx"></view>
+
+
+<view class="button_wrap">
+
+		<button class="btn_submit"
+		        bindtap="bindExchange">立即兑换</button>
+
+		<button class="btn_submit_right"
+		        bindtap="bindLucky">2元抽皮肤</button>
+</view>
+

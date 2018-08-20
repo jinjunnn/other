@@ -1,0 +1,156 @@
+<swiper indicator-dots="ture"
+        autoplay="true" 
+        interval="5000" 
+        duration="500"
+        style="height:500rpx; width:750rpx">
+<!-- 是否显示视频 -->
+<!--       <view wx:if="{{user.userVideo}}">
+          <view  class="title_item1;" 
+                 style="font-size:14pt;  margin-bottom: 8rpx;">
+                 <span id="changestyle">{{user.targetUser.nickname}}个人视频</span></view>  
+          <video src="{{user.userVideo}}" style="width:710rpx; margin:20rpx" objectFit="fill"></video>
+</view> -->
+    <swiper-item>
+          <image  src="{{user.targetUser.image}}" style="width:750rpx; height:500rpx" mode="aspectFill"></image>
+    </swiper-item>
+    <block wx:if="{{user.userImages.images}}" wx:for="{{user.userImages.images}}" wx:key="images"> 
+        <swiper-item>
+            <image src="{{item}}" style="width:750rpx; height:500rpx" mode="aspectFill"></image>
+        </swiper-item>
+    </block>
+    <block wx:if="{{user.combatImages.images}}" wx:for="{{user.combatImages.images}}" wx:key="images"> 
+        <swiper-item>
+            <image src="{{item}}" style="width:750rpx; height:500rpx" mode="scaleToFill"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+
+<view style="display: -webkit-flex; justify-content:space-around;">
+    <view style="flex:1.5">
+        <image  src="{{user.targetUser.image}}" 
+                style="width:100rpx; height:100rpx; border-radius:50%; margin:25rpx" 
+                mode="aspectFill"/>
+    </view>
+
+    <view style="flex:6">
+        <view style="display: -webkit-flex; justify-content:space-between; font-size:30rpx;margin:20rpx 20rpx 0rpx 0rpx">
+          <view style="display: -webkit-flex; justify-content:flex-start; ">
+                <view style="margin-right:20rpx; font-weight:bold;">{{user.targetUser.nickname}}</view>
+<!--                 <view class="age">
+                    <image src="/image/声音.png" class="ageIcon"></image>
+                    <view wx:if="{{user.age}}">{{user.age}}</view>
+                    <view wx:else>19</view>
+                </view> -->
+          </view>
+                <view style="color:#FD6C82"> 
+                    <text style="font-size:24rpx;">￥</text>
+                    <text style="font-size:32rpx;">{{user.price}}.00</text>
+                    <text style="font-size:24rpx;">/小时</text>
+                </view>
+        </view>
+
+        <view style="display: -webkit-flex; justify-content:flex-start; margin:10rpx 20rpx 20rpx 0rpx">
+                <image  src="{{user.targetUser.image}}" 
+                        style="width:24rpx; height:24rpx; margin-top:5rpx" 
+                        mode="aspectFill"/>
+
+            <view style="font-size:24rpx; color:#999999; margin-left:20rpx">大神LV3级</view>
+            <view style="font-size:24rpx; color:#999999; margin-left:20rpx">
+                <view wx:if="{{user.numberOfOrder}}">接单{{user.numberOfOrder}}次</view>
+                <view wx:else> 接单0次</view>
+            </view>
+        </view>
+
+        <view  class="tags">
+            <block wx:for="{{tags}}" wx:key="item">
+                <view class="tagsitem">{{item}}</view>
+            </block>
+        </view>
+
+<!--         <view bindtap="bindPlayAudio" 
+              class="playAudio" 
+              wx:if="{{!user.targetUser.audio}}"
+              data-audio="{{!user.targetUser.audio}}">
+            <image src="/image/声音.png" class="playAudioIcon"></image>
+            <view>8s</view>
+        </view> -->
+
+        <view style="font-size:24rpx;margin:20rpx 20rpx 20rpx 0rpx ">{{user.serviceText}}</view>    
+    </view>
+</view>
+
+<view style="width:750rpx; height:20rpx; background-color:#eeeeee;"></view>
+
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;width:600rpx">
+    <view style="height:12rpx; width:12rpx; background-color:#2fcdb4; margin:12rpx 20rpx 9rpx 0rpx; border-radius:50rpx"></view>
+    <view style="font-size:24rpx; font-weight:bold">游戏信息</view>
+</view>
+
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;">
+    <view style="width:150rpx; text-align:center; font-size:24rpx; color:#999999">最高实力:</view>
+    <view style="font-size:24rpx;">{{multiArray[2][user.targetUser.rank[2]]}}</view>
+</view>
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;">
+    <view style="width:150rpx; text-align:center; font-size:24rpx; color:#999999">接单平台:</view>
+    <view style="font-size:24rpx;" wx:if="{{user.targetUser.zone}}">{{user.targetUser.zone}}</view>
+    <view style="font-size:24rpx;" wx:else>{{multiArray[0][user.targetUser.rank[0]]}}-{{multiArray[1][user.targetUser.rank[1]]}}</view>
+</view>
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;">
+    <view style="width:150rpx; text-align:center; font-size:24rpx; color:#999999">擅长位置:</view>
+    <view style="font-size:28rpx;" wx:for="{{systems}}" wx:key="item">{{system[systems]}}</view>
+</view>
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;">
+    <view style="width:150rpx; text-align:center; font-size:24rpx; color:#999999">擅长英雄:</view>
+    <view style="font-size:28rpx;">{{heros}}</view>
+</view>
+<view style="width:750rpx; height:20rpx; background-color:#eeeeee;"></view>
+
+<view style="margin:20rpx; display: -webkit-flex; justify-content:flex-start;">
+    <view style="height:12rpx; width:12rpx; background-color:#2fcdb4; margin:12rpx 20rpx 9rpx 0rpx; border-radius:50rpx"></view>
+    <view style="font-size:24rpx; font-weight:bold; width:600rpx">评价信息:</view>
+</view>
+
+
+<view class="wrap2">
+    <view wx:for="{{comment}}" wx:key="commentItem">
+          <view class="container">
+          <view style="display: -webkit-flex;margin-top:30rpx;margin-bottom:30rpx;">
+              <view style="flex: 1;">
+                  <image src="{{item.targetFrom.userImage}}" 
+                      class="author_icon_item" 
+                      style="border-radius: 50%; width:50rpx; height:50rpx;"
+                      wx:if="{{item.targetFrom.userImage}}"></image>
+                  <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/23979c12745498965953.jpg" 
+                      class="author_icon_item" 
+                      style="border-radius: 50%; width:50rpx; height:50rpx;"
+                      wx:else></image>
+              </view>
+              <view style="flex:7">
+                  <view class="title_item" id="changecolor" wx:if="{{item.targetFrom.userName}}">{{item.targetFrom.userName}}</view>
+                  <view class="title_item" id="changecolor" wx:else>匿名用户</view>
+                  <view style="font-size:10pt; color:#666">{{item.updatedAt}}</view>
+              </view>
+          </view>
+
+          <view style="font-size:10pt; color:#666">{{item.comment}}</view>
+      </view>
+
+  </view>
+</view>
+
+
+<view style="height: 60rpx "></view>
+<view class="button_wrap">
+    <form bindsubmit="bindConversation" report-submit="true">
+        <button formType="submit" class="btn_submit">私信</button>
+    </form>
+
+    <form bindsubmit="bindBuy" report-submit="true">
+        <button formType="submit" class="btn_submit_right" bindgetuserinfo="bindgetuserinfo" 
+                open-type="getUserInfo" wx:if="{{confi}}">快约我</button>
+
+        <button formType="submit" class="btn_submit_right" bindgetuserinfo="bindFalse" open-type="getUserInfo" wx:else>快约我</button>
+    </form>
+</view>
+

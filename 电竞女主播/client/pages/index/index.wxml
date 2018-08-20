@@ -1,0 +1,91 @@
+    <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">秒约</view>
+            </view>
+              <view class="booking-wrap">
+                  <navigator class="booking-content"
+                             url="/pages/term/rank/rank">
+                      <image class="booking-item" src="{{confi.indexImage.dailian}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        职业代练
+                      </view>
+                  </navigator>
+
+                  <navigator class="booking-content"
+                             url="/pages/index/expert/expert">
+                      <image class="booking-item" src="{{confi.indexImage.peilian}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">职业陪打</view>
+                  </navigator> 
+
+                  <navigator class="booking-content"
+                             url="/pages/index/index/index?mode=2">
+                      <image class="booking-item" src="{{confi.indexImage.meinv}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        萌妹声优
+                      </view>
+                  </navigator>
+
+              </view>
+    </view>
+
+    <view wx:if="{{product[0]}}">
+        <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+                <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                      <view style="flex:5; color:#000000">产品</view>
+    <!-- 更多选项                  
+                      <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                               url="./more/more">查看全部</navigator> -->
+                </view>
+        </view>
+
+        <view style="margin: 0rpx 0rpx 30rpx 40rpx">
+                  <scroll-view scroll-x="true" 
+                               style=" white-space:nowrap">
+                    <block wx:for="{{product}}" wx:key="productitem">
+                        <view style="display: inline-block; margin:10rpx 10rpx 0rpx 0rpx"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid="{{item.objectid}}"
+                               data-urls="{{item.url}}"
+                               data-appid="{{item.appid}}">
+                              <image style=" width: 330rpx; height: 200rpx" src="{{item.image}}"></image>
+                              <view style="font-size:11pt">{{item.name}}</view>
+                        </view>
+                    </block>
+                  </scroll-view>  
+        </view>
+    </view>
+    <view style="margin: 50rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">精选</view>
+                  <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                           url="./more/more">查看全部</navigator>
+            </view>
+    </view>
+
+    <view class="container">
+        <view wx:for="{{topicList}}" wx:key="topicItem">
+          <navigator class="navigator" 
+                     url="../../pages/index/detail/detail?objectId={{item.objectId}}">
+              <view class="wrap">
+                <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                           mode="aspectFill" 
+                           src="{{item.targetUser.image}}"></image>
+                <view      wx:if="{{item.targetUser.nickname}}"
+                           class="text_mini_title">
+                <text>{{item.targetUser.nickname}}</text>
+                <text id="changecolor"> {{item.price}}元/局</text>
+                </view>
+                <view wx:else class="text_mini_title">
+                <text>{{item.targetUser.username}}</text>
+                <text id="changecolor"> {{item.price}}元/局</text>
+                </view>
+                <view class="text2">
+                <text >{{multiArray[item.targetUser.rank[2]]}}</text>
+                </view>
+              </view>
+          </navigator>
+        </view>
+    </view>

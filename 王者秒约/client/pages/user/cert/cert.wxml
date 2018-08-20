@@ -1,0 +1,10 @@
+<view style="margin: 40rpx 40rpx 30rpx 40rpx">
+          <view class="booking-wrap" wx:for="{{games}}" wx:key="item">
+              <navigator class="wraps"
+                         url="./index/index?mode=1">
+                  <image class="image" src="{{item.image.url}}" 
+                         ></image>
+                  <view class="text">{{item.game}}</view>
+              </navigator> 
+          </view>
+</view>

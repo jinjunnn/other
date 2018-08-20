@@ -1,0 +1,128 @@
+
+<swiper class="slide" 
+        indicator-dots=true
+        autoplay="{{autoplay}}"  
+        duration="500">
+
+  <block wx:for="{{article.images}}" wx:key="{{item}}">
+    <swiper-item >
+        <image  src="{{item}}" 
+                class="slide-image" 
+                style="width:100%; height:750rpx;"
+                mode="aspectFill">
+        </image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="container">
+  <view class="title">
+    <view style="font-size:18pt;font-weight:bold;" 
+          class="title_item1">
+      {{article.title}}
+    </view>
+    <view class="title_item2">
+            {{article.targetTopic.city}} · {{article.summary}}
+    </view>
+
+    <navigator 
+               url="../user/author/author?objectId={{article.targetUser.objectId}}">
+        <view class="author">
+            <view class="author_title">
+                <text >{{article.targetUser.username}} · {{article.targetUser.userTag}}</text>
+            </view>
+            <view class="author_null"></view>
+            <view class="author_icon">
+            <image 
+                src="{{article.targetUser.userImage}}" 
+                style="border-radius: 50%; width:40rpx; height:40rpx;">
+            </image>
+            </view>
+        </view>
+    </navigator>
+
+    <view style="font-size:8pt;font-weight:bold;" 
+          class="title_item3">特色推荐</view>
+  </view>
+  <view class="card">
+    <view class="rows">
+      <view class="rows_icon">
+        <image src="{{article.images[0]}}" 
+               class="card_icon_item" 
+               style=" width:120rpx; height:120rpx;"></image>
+      </view>
+
+      <navigator class="rows_title"
+                 url="../../pages/topic/topic?objectId={{article.targetTopic.objectId}}"> 
+        <view style="font-size:11pt;" 
+              class="rows_1">
+            {{article.targetTopic.title}}
+        </view>
+        <view style="font-size:11pt;color:#909090;" 
+              class="rows_2">
+                作者： {{article.targetTopic.user.username}}
+        </view>
+      </navigator>
+
+      <image src="../../image/大于号.png" 
+             class="rows_icon_right" 
+             style=" width:10rpx; height:25rpx;"></image>
+    </view>
+    <view style="font-size:11pt;" 
+          class="card_content">
+      <text
+         style="font-weight:bold;">为何而去 </text>{{article.why}}
+    </view>
+    <view style="font-size:11pt;" 
+          class="card_content1">
+      <text
+         style="font-weight:bold;">值得推荐 </text>{{article.what}}
+    </view>
+    <view style="font-size:13pt;" 
+          class="title_item4">58名达人推荐</view>
+  </view>
+  <map class="map" 
+      longitude="113.324520" 
+      latitude="23.099994" 
+      scale="14"  
+      bindcontroltap="controltap"  
+      bindmarkertap="markertap"  
+      bindregionchange="regionchange" 
+      show-location style="width: 100%; height: 300px;"> 
+  </map>
+  <view class="form-wrap">
+    <navigator url="" class="navigator cell">
+        <view class="son_1" style="font-size:12pt;">电话号码：</view>
+        <view class="son_2" style="font-size:12pt;text-align:right;">{{article.cell}}</view>
+    </navigator>
+    <navigator url="" class="navigator address">
+        <view class="son_1" style="font-size:12pt;">地  址：</view>
+        <view class="son_2" style="font-size:12pt;text-align:right;">{{article.address}}</view>
+    </navigator>
+    <navigator url="" class="navigator openinghour">
+        <view class="son_1" style="font-size:12pt;">营业时间：</view>
+        <view class="son_2" style="font-size:12pt;text-align:right;">{{article.openTime}}</view>
+    </navigator>
+  </view>
+  <button size="default" 
+          bindtap="setWishList"
+          hover-class="other-button-hover"
+          class="btn">
+<text wx:if="{{count !== 0}}"> 加入心愿单 </text>
+<text wx:else> 已经加入心愿单 </text>
+
+
+  </button>
+  <!-- <icon
+  type="{{count ? 'success_circle' : 'circle'}}" 
+  ontap="toggleLike"
+  class="tappable" 
+  size="24"/> -->
+
+  <image src="{{count ? '../../image/like.png' : '../../image/like_1.png'}}"
+         ontap="toggleLike"
+         class="tappable" >
+  </image>
+
+</view>
+

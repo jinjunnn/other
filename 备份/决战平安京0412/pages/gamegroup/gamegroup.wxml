@@ -1,0 +1,23 @@
+<image 
+    src="https://dn-WekN4hEa.qbox.me/8f2499a4085e4714646d.jpeg" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view  style="font-size:11pt; color:#000000; padding-bottom:20rpx; border-bottom:1rpx solid #f0f0f0; margin:20rpx" 
+     class="title_item1">
+     <view style="margin-bottom:10rpx">决战平安京无广告精品游戏群</view>
+     <view style="color:#606060">为了让玩家快速入门游戏、组CP,决战平安京秒约开设了￥2元的付费无广告精品群，2元的价格是为了阻止微商、广告，付给管理员以提高群的服务水准。每个群都有游戏大神，赶快加入吧。</view>
+</view>
+<view wx:for="{{topicList}}" wx:key="topicItem">
+		<view class="flex-wrap">
+				<image class="flex-image"
+				    src="{{item.image.url}}" 
+				    mode="widthFix">
+				</image>
+
+				<button class="flex-button1" bindtap="bindBuy" wx:if="{{!item.morethen500}}">加入</button>
+				<button class="flex-button2" bindtap="bindBuy2" wx:else>已满</button>
+		</view>
+</view>

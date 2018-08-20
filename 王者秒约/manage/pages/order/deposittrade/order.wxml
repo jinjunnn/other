@@ -1,0 +1,183 @@
+
+
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" 
+  duration="{{duration}}" style="height:200000rpx"
+  bindchange="bindChange">
+	  <block >
+		    <swiper-item>
+					<view class="wrap"
+						  wx:for="{{order}}" 
+						  wx:key="orderItem">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">{{item.targetUser.username}}</view>
+										  <view style="font-size:10pt; color:#666">  用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  订单ID：{{item.id}}</view>
+										  <view style="font-size:10pt; color:#666">  标题：{{item.title}}</view>
+										  <view style="font-size:10pt; color:#666">  内容：{{item.content}}</view>
+										  <view style="font-size:10pt; color:#666">  售价：{{item.amount}}元</view>
+										  <view style="font-size:10pt; color:#666">  订金：{{item.bond}}元</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+
+							  <view class="btn_wrap">
+					                <view class="btn_wrap">
+									  	    <view class="btn_submit" bindtap="bindConcel" data-id="{{item.objectId}}"
+									  	    	  data-amount="{{item.bond}}" data-user="{{item.targetUser.objectId}}">退款</view>
+									  	    <view class="btn_submit" bindtap="bindSubmit" data-user="{{item.objectId}}">强制下架</view>
+									</view>  
+							  </view>
+					</view>
+		    </swiper-item>
+
+		    <swiper-item>
+					<view class="wrap"
+						  wx:for="{{order}}" 
+						  wx:key="orderItem">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">{{item.targetUser.username}}</view>
+										  <view style="font-size:10pt; color:#666">  用户ID：TD{{item.targetuser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  订单ID：TD{{item.id}}</view>
+										  <view style="font-size:10pt; color:#666">  标题：{{item.title}}</view>
+										  <view style="font-size:10pt; color:#666">  内容：{{item.content}}</view>
+										  <view style="font-size:10pt; color:#666">  售价：{{item.amount}}元</view>
+										  <view style="font-size:10pt; color:#666">  订金：{{item.bond}}元</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+
+							  <view class="btn_wrap">
+					                <view class="btn_wrap">
+									  	    <view class="btn_submit" bindtap="bindConcel" data-id="{{item.objectId}}"
+									  	    	  data-amount="{{item.bond}}" data-user="{{item.targetUser.objectId}}">退款</view>
+									  	    <view class="btn_submit" bindtap="bindSubmit" data-user="{{item.objectId}}">强制下架</view>
+									  	    <view class="btn_submit" bindtap="bindUpShop" data-user="{{item.objectId}}">上架</view>
+									</view>  
+							  </view>
+					</view>
+		    </swiper-item>
+
+		    <swiper-item>
+					<view class="wrap"
+						  wx:for="{{order}}" 
+						  wx:key="orderItem">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">{{item.targetUser.username}}</view>
+										  <view style="font-size:10pt; color:#666">  用户ID：TD{{item.targetuser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  订单ID：TD{{item.id}}</view>
+										  <view style="font-size:10pt; color:#666">  标题：{{item.title}}</view>
+										  <view style="font-size:10pt; color:#666">  内容：{{item.content}}</view>
+										  <view style="font-size:10pt; color:#666">  售价：{{item.amount}}元</view>
+										  <view style="font-size:10pt; color:#666">  订金：{{item.bond}}元</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+
+							  <view class="btn_wrap">
+					                <view class="btn_wrap">
+									  	    <view class="btn_submit" bindtap="bindConcel" data-user="{{item.objectId}}">退款</view>
+									</view>  
+							  </view>
+					</view>
+		    </swiper-item>
+
+		    <swiper-item>
+					<view class="wrap"
+						  wx:for="{{order}}" 
+						  wx:key="orderItem">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">{{item.targetUser.username}}</view>
+										  <view style="font-size:10pt; color:#666">  用户ID：TD{{item.targetuser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  订单ID：TD{{item.id}}</view>
+										  <view style="font-size:10pt; color:#666">  标题：{{item.title}}</view>
+										  <view style="font-size:10pt; color:#666">  内容：{{item.content}}</view>
+										  <view style="font-size:10pt; color:#666">  售价：{{item.amount}}元</view>
+										  <view style="font-size:10pt; color:#666">  订金：{{item.bond}}元</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+
+							  <view class="btn_wrap">
+					                <view class="btn_wrap">
+									  	<!--     <view class="btn_submit" bindtap="bindSubmit" data-user="{{item.objectId}}">取消订单</view> -->
+									</view>  
+							  </view>
+					</view>
+		    </swiper-item>
+
+		    <swiper-item>
+					<view class="wrap"
+						  wx:for="{{order}}" 
+						  wx:key="orderItem">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">{{item.targetUser.username}}</view>
+										  <view style="font-size:10pt; color:#666">  用户ID：TD{{item.targetuser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  订单ID：TD{{item.id}}</view>
+										  <view style="font-size:10pt; color:#666">  标题：{{item.title}}</view>
+										  <view style="font-size:10pt; color:#666">  内容：{{item.content}}</view>
+										  <view style="font-size:10pt; color:#666">  售价：{{item.amount}}元</view>
+										  <view style="font-size:10pt; color:#666">  订金：{{item.bond}}元</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+
+							  <view class="btn_wrap">
+					                <view class="btn_wrap">
+									  	    <!-- <view class="btn_submit" bindtap="bindSubmit" data-user="{{item.objectId}}">取消订单</view> -->
+									</view>  
+							  </view>
+					</view>
+		    </swiper-item>
+	  </block>
+</swiper>

@@ -1,0 +1,35 @@
+<!--pages/user/wallet/account/account.wxml-->
+
+
+<view class="head">
+	<text class="text_content2">请绑定本人的支付宝账号</text>
+	<view class="wrap">
+
+		<text class="text_content">支付宝账号：</text>
+
+		<input placeholder="请输入支付宝账号"
+		       auto-focus
+		       class="input_content"
+		       bindblur="bindAccountInput"
+		       bindconfirm="bindAccountInput"
+		       />
+	</view>
+
+	<view class="wrap">
+
+		<text class="text_content">姓名：</text>
+
+		<input placeholder="您支付宝姓名"
+		       auto-focus
+		       class="input_content"
+		       bindblur="bindNameInput"
+		       bindconfirm="bindNameInput"
+		       />
+	</view>
+
+</view>
+
+<button type="primary" 
+	    size="default" 
+        bindtap="bindSetAccount"
+        style="margin:30rpx"> 绑定 </button>

@@ -1,0 +1,34 @@
+<!-- <view wx:for="{{topicList}}" wx:key="diaryItem">
+<navigator url="./detail/detail?objectId={{item.objectId}}&gameId={{item.gameId}}">
+     <view  class="navigator">
+         <image class="item" src="{{item.cover.url}}" ></image>
+     </view>
+     <view class="navigator" >
+         <view class="weui-article__h1">{{item.title}}</view>
+     </view> 
+</navigator>
+</view> -->
+
+<view wx:for="{{topicList}}" wx:key="diaryItem">
+    <view bindtap="tap" wx:if="{{confi.settings.indexPageItemSetting}}">
+         <view  class="navigator">
+             <image class="item" src="{{item.cover.url}}" ></image>
+         </view>
+         <view class="navigator" >
+             <view class="weui-article__h1">{{item.title}}</view>
+         </view> 
+    </view>
+    <view wx:else>
+         <view  class="navigator" >
+             <image class="item" src="{{item.cover.url}}" ></image>
+         </view>
+         <view class="navigator" >
+             <view class="weui-article__h1">{{item.title}}</view>
+         </view>
+    </view> 
+</view>
+   
+     
+
+
+

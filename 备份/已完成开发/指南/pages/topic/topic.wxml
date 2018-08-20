@@ -1,0 +1,84 @@
+<image 
+    src="{{topic.image.url}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+<view class="container">
+  <view class="title">
+    <view  class="title_item;" 
+           style="font-size:18pt;  margin-bottom: 8rpx;">
+           <span id="changestyle">{{topic.title}}</span></view>
+
+    <view  style="font-size:11pt;" 
+           class="title_item">{{topic.city}} · {{topic.summary}}</view>
+  </view>
+
+  <navigator class="author"
+             url="../user/author/author?objectId={{topic.user.objectId}}">
+    <view class="author_title">
+      <view style="font-size:10pt;" 
+            class="title_item"
+            id="changecolor">{{topic.user.userTag}}</view>
+      <view     class="text_title_wrap">
+          <span class="text_mini_title" >编者:</span>
+          <span class="text_mini_title" >{{topic.user.username}}</span>
+      </view>
+    </view>
+
+    <view class="author_icon">
+          <image 
+              src="{{topic.user.userImage}}" 
+              class="author_icon_item" 
+              style="border-radius: 50%; width:120rpx; height:120rpx;">
+          </image>
+    </view>
+  </navigator>
+
+  <view class="about">
+    <view style="font-size:9pt;" 
+          class="about_author">
+        <text class="about_author_style">关于{{topic.user.username}}</text>
+    </view>
+
+    <view style="font-size:10pt;" 
+          class="about_content">{{topic.user.userSummary}}</view>
+        <view style="font-size:14pt;" 
+              class="about_listtitle">作者最爱的好去处</view>
+  </view>
+
+  <view wx:for="{{articles}}" 
+        wx:key="articleItem">
+      <navigator class="navigator" 
+                 url="../../pages/article/article?articleObjectId={{item.objectId}}">
+          <view class="card">
+            <view class="rows">
+              <view class="rows_icon">
+                <image src="{{item.images[0]}}" 
+                       class="card_icon_item" 
+                       style=" width:116rpx; height:116rpx;"
+                       mode="aspectFill"></image>
+              </view>
+
+              <view class="rows_title"> 
+                <view style="font-size:10pt;" 
+                      class="rows_1">{{item.title}}</view>
+                <view style="font-size:10pt;color:#909090;" 
+                      class="rows_2">{{item.summary}}</view>
+              </view>
+
+              <image src="../../image/大于号.png" 
+                     class="rows_icon_right" 
+                     style=" width:10rpx; height:30rpx;"></image>
+            </view>
+
+            <view style="font-size:11pt;" 
+                  class="card_content">
+                <text class="card_content_text">
+                  {{item.why}}
+                </text>
+            </view>
+          </view>
+      </navigator> 
+  </view>
+</view>

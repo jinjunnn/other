@@ -1,0 +1,218 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" 
+  duration="{{duration}}" style="height:200000rpx"
+  bindchange="bindChange">
+  <block>
+    <swiper-item>
+		<view class="wrap"
+			  wx:for="{{order}}" 
+			  wx:key="orderItem">
+			    <navigator url="/pages/index/detail/detail?objectId={{item.objectId}}">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.image}}" 
+								              class="author_icon_item" 
+								              mode="aspectFill"
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">打手：{{item.targetUser.nickname}}</view>
+			                              <view class="title_item" id="changecolor" wx:if="{{item.targetUser.gender == 1}}">性别：男</view>
+			                              <view class="title_item" id="changecolor" wx:elif="{{item.targetUser.gender == 2}}">性别：女</view>
+			                              <view class="title_item" id="changecolor" wx:else>性别：未知</view>
+									      <view class="title_item" id="changecolor">用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  游戏名：{{item.targetUser.gameName}}</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+		                </navigator>
+
+				  <view class="btn_wrap">
+				  	    <view class="btn_wrap">
+				                <view class="btn_submit_left"  bindtap="bindDeleteUser" data-user="{{item.objectId}}">删除用户</view>
+		                </view> 
+
+		                <view class="btn_wrap">
+						  	    <view class="btn_submit" bindtap="bindPassFail" data-user="{{item.objectId}}">重新审核</view>
+						</view>  
+				  	    <view class="btn_wrap">
+				                <view class="btn_submit_left"  bindtap="bindAmendMode" 
+				                	  data-user="{{item.objectId}}" data-mode="3">修改普通模式</view>
+		                </view> 
+
+		                <view class="btn_wrap">
+						  	    <view class="btn_submit" bindtap="bindPriorDisplay" 
+						  	    	  data-user="{{item.objectId}}" wx:if="{{!item.prior}}">首页显示</view>
+						</view> 
+				  </view>
+		</view>
+    </swiper-item>
+
+
+    <swiper-item>
+		<view class="wrap"
+			  wx:for="{{order}}" 
+			  wx:key="orderItem">
+					    <navigator url="/pages/index/detail/detail?objectId={{item.objectId}}">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">打手：{{item.targetUser.username}}</view>
+			                              <view class="title_item" id="changecolor" wx:if="{{item.targetUser.gender == 1}}">性别：男</view>
+			                              <view class="title_item" id="changecolor" wx:elif="{{item.targetUser.gender == 2}}">性别：女</view>
+			                              <view class="title_item" id="changecolor" wx:else>性别：未知</view>
+									      <view class="title_item" id="changecolor">用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  游戏名：{{item.targetUser.gameName}}</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+		                </navigator>
+					  <view class="btn_wrap">
+					  	    <view class="btn_wrap">
+					                <view class="btn_submit_left"  bindtap="bindDeleteUser" data-user="{{item.objectId}}">删除用户</view>
+			                </view> 
+
+			                <view class="btn_wrap">
+							  	    <view class="btn_submit" bindtap="bindPassFail" data-user="{{item.objectId}}">重新审核</view>
+							</view>  
+					  	    <view class="btn_wrap">
+					                <view class="btn_submit_left"  bindtap="bindAmendMode" 
+					                	  data-user="{{item.objectId}}" data-mode="2">修改美女模式</view>
+			                </view> 
+
+			                <view class="btn_wrap">
+							  	    <view class="btn_submit" bindtap="bindPriorDisplay" 
+							  	    	  data-user="{{item.objectId}}" wx:if="{{!item.prior}}">首页显示</view>
+							</view> 
+					  </view>
+				
+		</view>
+    </swiper-item>
+
+    <swiper-item>
+		<view class="wrap"
+			  wx:for="{{order}}" 
+			  wx:key="orderItem">
+			    <navigator url="/pages/index/detail/detail?objectId={{item.objectId}}">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">打手：{{item.targetUser.username}}</view>
+			                              <view class="title_item" id="changecolor" wx:if="{{item.targetUser.gender == 1}}">性别：男</view>
+			                              <view class="title_item" id="changecolor" wx:elif="{{item.targetUser.gender == 2}}">性别：女</view>
+			                              <view class="title_item" id="changecolor" wx:else>性别：未知</view>
+									      <view class="title_item" id="changecolor">用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  游戏名：{{item.targetUser.gameName}}</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+		                </navigator>
+
+				  <view class="btn_wrap">
+				  	    <view class="btn_wrap">
+				                <view class="btn_submit_left"  bindtap="bindDeleteUser" data-user="{{item.objectId}}">删除用户</view>
+		                </view> 
+
+		                <view class="btn_wrap">
+						  	    <view class="btn_submit" bindtap="bindPassFail" data-user="{{item.objectId}}">重新审核</view>
+						</view>  
+
+		                <view class="btn_wrap">
+						  	    <view class="btn_submit" bindtap="bindConcelPriorDisplay" data-user="{{item.objectId}}">取消首页显示</view>
+						</view> 
+				  </view>
+		</view>
+    </swiper-item>
+
+    <swiper-item>
+		<view class="wrap"
+			  wx:for="{{order}}" 
+			  wx:key="orderItem">
+			    <navigator url="/pages/index/detail/detail?objectId={{item.objectId}}">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">打手：{{item.targetUser.username}}</view>
+			                              <view class="title_item" id="changecolor" wx:if="{{item.targetUser.gender == 1}}">性别：男</view>
+			                              <view class="title_item" id="changecolor" wx:elif="{{item.targetUser.gender == 2}}">性别：女</view>
+			                              <view class="title_item" id="changecolor" wx:else>性别：未知</view>
+									      <view class="title_item" id="changecolor">用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  游戏名：{{item.targetUser.gameName}}</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+		                </navigator>
+
+				  <view class="btn_wrap">
+
+				  </view>
+		</view>
+    </swiper-item>
+
+    <swiper-item>
+		<view class="wrap"
+			  wx:for="{{order}}" 
+			  wx:key="orderItem">
+			    <navigator url="/pages/index/detail/detail?objectId={{item.objectId}}">
+							  <view class="author">
+								    <view class="author_icon">
+								          <image 
+								              src="{{item.targetUser.userImage}}" 
+								              class="author_icon_item" 
+								              style=" width:135rpx; height:135rpx;">
+								          </image>
+								    </view>
+
+								    <view class="author_title">
+									      <view class="title_item" id="changecolor">打手：{{item.targetUser.username}}</view>
+			                              <view class="title_item" id="changecolor" wx:if="{{item.targetUser.gender == 1}}">性别：男</view>
+			                              <view class="title_item" id="changecolor" wx:elif="{{item.targetUser.gender == 2}}">性别：女</view>
+			                              <view class="title_item" id="changecolor" wx:else>性别：未知</view>
+									      <view class="title_item" id="changecolor">用户ID：{{item.targetUser.id}}</view>
+										  <view style="font-size:10pt; color:#666">  游戏名：{{item.targetUser.gameName}}</view>
+										  <view style="font-size:10pt; color:#666">  微信或QQ号：{{item.targetUser.weChatID}}</view>
+										  <view style="font-size:10pt; color:#666">  手机号码：{{item.targetUser.cells}}</view>
+								    </view>
+							  </view>
+		                </navigator>
+
+				  <view class="btn_wrap">
+
+				  </view>
+		</view>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+
+
+

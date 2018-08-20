@@ -1,0 +1,30 @@
+@import "../../user.wxss";
+page {
+  background-color: #f2f2f2;
+}
+.wrap{
+	margin: 20rpx;
+}
+.btn_submit{
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+/*  position: fixed;
+  bottom: 0;*/
+  height:7%;
+  width: 90%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+  margin: 5%;
+
+}
+.userName5{
+  font-size:11pt;
+  width:360rpx;
+  height: 80rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  text-align:right;
+}

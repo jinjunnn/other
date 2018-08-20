@@ -1,0 +1,66 @@
+@import "../../user/comment/comment.wxss";
+page {
+  background-color: #ffffff;
+}
+
+.slide-image{
+  height: 450rpx;
+}
+.title{
+  margin: 40rpx 20rpx 60rpx 20rpx;
+}
+.btn_submit{
+  flex: 2;
+  background-color: #FFFFFF;
+  border: none;
+  color: #1AA59a;
+  position: fixed;
+  bottom: 0;
+  height:7%;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.btn_submit_right{
+  flex: 2;
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left:225rpx;
+  height:7%;
+  width: 70%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.button_wrap{
+	display: -webkit-flex;
+}
+.title2{
+  margin: 60rpx 0rpx 0rpx 20rpx ;
+  font-size:14pt;
+}
+.title_item1{
+  border-top: #F0F0F0 20rpx solid;
+  border-bottom: #F0F0F0 20rpx solid;
+}
+.authors{
+  display:-webkit-flex;
+  flex-wrap:wrap;
+  margin:5rpx;
+}
+.images{
+
+}
+.title_text{
+  width:130rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  text-align:center;
+  font-size:10pt;
+}

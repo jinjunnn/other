@@ -1,0 +1,2 @@
+<!--pages/message/message.wxml-->
+<button bindtap="createConversation">点击设置以上按钮loading属性</button>

@@ -1,0 +1,65 @@
+<image src="http://possession-1254339356.cn-south.myqcloud.com/1505750823100-rJJNyuT9Z.jpg" 
+					    	class="place_item" />
+<image src="http://possession-1254339356.cn-south.myqcloud.com/1505750823100-rJJNyuT9Z.png" 
+					    	class="place_item" />
+<image src="http://possession-1254339356.cosgz.myqcloud.com/1505746180676-HkpWpI69Z.jpg" 
+					    	class="place_item" />
+
+<view wx:if = "{{images.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg2" 
+	        src= "../../image/添加照片.png">上传照片 </image>
+</view>
+
+<view wx:else
+	  class= "place">
+				  <block wx:for="{{images}}">
+					    <image src="{{item.url}}" 
+					    	class="place_item" />
+
+
+				  </block>
+</view>
+
+<view class="container">
+
+
+	<view class="title">
+	  	<text bindtap="openMap">{{title}}</text>
+	</view>
+
+
+	<view class="content">
+	 <input  
+	            value="{{summary}}" 
+	            bindinput="updateSummary"
+	 	        placeholder="描述：比如天安门广场附近的书店"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content">
+	 <input  
+	            value="{{why}}" 
+	            bindinput="updateWhy"
+	 	        placeholder="推荐的理由"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content">
+	 <input  
+	            value="{{what}}" 
+	            bindinput="updateWhat"
+	 	        placeholder="推荐的内容"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+
+</view>
+
+
+
+<button class="btn_submit"
+        type="primary" 
+        bindtap="submitTap">确定</button>

@@ -1,0 +1,42 @@
+<view style="margin:20rpx" wx:if="{{mode == 1}}">
+		<view>
+		    <view  class="videoContainor" wx:if="{{video}}">
+		        <video class="item" src="{{video.url}}" poster="{{video.cover.url}}" controls></video>
+		    </view>
+		    <view wx:else
+		    	  class="videoContainor">
+		        <image class="item" src="{{video.cover.url}}" ></image>
+		    </view>
+		</view>
+</view>
+
+<view style="margin:20rpx" wx:else>
+		<view>
+		    <view class="videoContainor">
+		        <image class="item" src="{{video.cover.url}}" ></image>
+		    </view>
+		</view>
+</view>
+
+
+<view>
+    <view class="videoContainer">
+    	<view class="weui-article__h1">{{video.title}}</view>
+        <view class="detail-article_date">{{video.content}}</view>  
+    </view>
+</view>
+
+<view style="margin-left:20rpx" class="scrollm">
+	<scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+	        <view style="display: inline-block" wx:for="{{comment}}" wx:key="diaryItem">
+		        <view style="margin-right:10rpx">
+		            <view data-path="{{item.path}}" bindtap="tap">
+		                <image style=" width: 350rpx; height: 240rpx" src="{{item.url.url}}"></image>
+		                <view class="detail-article__h3">{{item.title}}</view>
+		            </view>
+		        </view>
+	        </view>
+	</scroll-view>
+</view>
+
+

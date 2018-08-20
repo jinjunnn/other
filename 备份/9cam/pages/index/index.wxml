@@ -1,0 +1,126 @@
+
+    <view wx:if="{{!confi}}">
+        <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+                <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                      <view style="flex:5; color:#000000; ">游戏</view>
+                </view>
+                  <view class="booking-wrap">
+                      <navigator class="booking-content"
+                                 url="./expert/expert">
+                          <image class="booking-item" src="http://lc-IGXFL8L0.cn-n1.lcfile.com/9bff611abfbf36622771.jpg" 
+                                 ></image>
+                          <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx;padding:0rpx 0rpx 0rpx 20rpx">王者荣耀</view>
+                      </navigator> 
+                      <navigator class="booking-content"
+                                 url="./index/index?mode=2">
+                          <image class="booking-item" src="http://lc-IGXFL8L0.cn-n1.lcfile.com/69207f2de5ed5c5ab488.jpg" 
+                                 ></image>
+                          <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx;padding:0rpx 0rpx 0rpx 20rpx">
+                            QQ飞车
+                          </view>
+                      </navigator>
+                      <navigator class="booking-content"
+                                 url="./index/index?mode=3">
+                          <image class="booking-item" src="http://lc-IGXFL8L0.cn-n1.lcfile.com/c16e8bcafe48751f5f43.jpg" 
+                                 ></image>
+                          <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx;padding:0rpx 0rpx 0rpx 20rpx">
+                            绝地求生
+                          </view>
+                      </navigator>
+                  </view>
+        </view>
+
+
+
+
+        <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+                <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                      <view style="flex:5; color:#000000">产品</view>
+    <!-- 更多选项                  
+                      <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                               url="./more/more">查看全部</navigator> -->
+                </view>
+        </view>
+
+    
+        <view style="margin: 0rpx 0rpx 30rpx 40rpx" >
+                  <scroll-view scroll-x="true" 
+                               style=" white-space:nowrap">
+
+                        <navigator style="display: inline-block; margin:10rpx 10rpx 0rpx 0rpx"
+                                   url="../../pages/gamegroup/gamegroup">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/15cf0e43afdfaefb8432.png"></image>
+                              <view style="font-size:11pt">游戏群</view>
+                        </navigator>
+
+                        <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                                   url="../../pages/trade/trade">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/39ddaf8fa92ce16a167f.jpeg"></image>
+                              <view style="font-size:11pt">游戏交易</view>
+                        </navigator>
+
+                        <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                                   url="../../pages/user/intergral/intergral">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/ecd3ebfb2aa6a9bda088.jpeg"></image>
+                              <view style="font-size:11pt">积分好礼</view>
+                        </navigator>
+
+                        <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                                   url="../../pages/term/detail/detail?objectId=5a46583ee696c90062cda0ad">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/dab8ce42db2017fa3d73.jpeg"></image>
+                              <view style="font-size:11pt">百次卡</view>
+                        </navigator>
+
+                        <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                                   url="../../pages/term/detail/detail?objectId=5a4656be128fe1007ba6a7b3">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/6560fa651d06c9132e37.jpeg"></image>
+                              <view style="font-size:11pt">月卡会员</view>
+                        </navigator>
+
+                        <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                                   url="../../pages/term/detail/detail?objectId=5a4656c49f5454004549d22c">
+                              <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/fe230490c301dfc1e34e.jpeg"></image>
+                              <view style="font-size:11pt">赛季卡会员</view>
+                        </navigator>
+                  </scroll-view>  
+        </view>
+     
+        <view style="margin: 50rpx 40rpx 30rpx 40rpx">
+                <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                      <view style="flex:5; color:#000000">精选</view>
+                      <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                               url="./more/more">查看全部</navigator>
+                </view>
+        </view>
+
+        <view class="container">
+            <view wx:for="{{goodslist}}" wx:key="topicItem">
+              <navigator class="navigator" 
+                         url="../../pages/index/detail/detail?objectId={{item.objectId}}">
+                  <view class="wrap">
+                    <image  style="width: 320rpx; height: 240rpx; background-color: #eeeeee;" 
+                            mode="aspectFill" 
+                            src="{{item.image.url}}"></image>
+                    <view  class="text_mini_title">
+                    <text>{{item.title}}</text>
+                    <text> · {{item.content}}</text>
+                    </view>
+
+                    <view style="display:-webkit-flex;display:flex;justify-content:space-between;margin-bottom:20rpx">
+                        <view style="color:#f8416a; font-size:12pt">￥1元拼团</view>
+                        <view style="color:#b2b2b2;text-decoration:line-through; font-size:10pt">￥{{item.price/10}}元</view>
+                    </view>
+                  </view>
+              </navigator>
+            </view>
+        </view>
+    </view>
+
+    <view wx:else style="margin: 0rpx 20rpx 30rpx 20rpx">
+    <view>
+      <image style=" width: 710rpx; height: 410rpx" src="http://lc-IGXFL8L0.cn-n1.lcfile.com/a62269e60f2a29d17f41.jpg"></image>
+      <view style="font-size:14pt">今日主播介绍 Dae-婷小姐（虎牙主播）</view>
+      <view style="font-size:11pt">婷小姐给人一种怦然心动的感觉！“青春”、“清纯”是她带给小编的感受，婷小姐不仅颜值爆表，身材逆天，她媲美职业选手的游戏操作更使得无数粉丝拜倒在她的蕾丝裙下。
+        婷小姐不仅COS貂蝉美轮美奂，更是被称为国服第一貂蝉</view>
+    </view>
+    </view>

@@ -1,0 +1,29 @@
+<view class="wrap"
+	  wx:for="{{order}}" 
+	  wx:key="orderItem">
+
+		  <view class="author"
+		  	    >
+			    <view class="author_icon">
+			          <image 
+			              src="{{item.targetTrade.images[0]}}" 
+			              class="author_icon_item" 
+			              style=" width:135rpx; height:135rpx;">
+			          </image>
+			    </view>
+
+			    <view class="author_title">
+					  <view style="font-size:10pt; color:#666">{{item.targetTrade.title}}</view>
+				      <view class="title_item" id="changecolor">￥{{item.targetTrade.amount}}元</view>
+					  <view style="font-size:10pt; color:#666"></view>
+			    </view>
+		  </view>
+
+
+		  <view class="btn_wrap" >
+			    <view class="btn_submit_left"  wx:if="{{item.status == false}}">未确认</view>
+			    <view class="btn_submit_left"  wx:else>已确认</view>
+		  </view>
+
+
+</view>

@@ -1,0 +1,38 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+    <view wx:for="{{topicList}}" wx:key="topicItem">
+      <navigator class="navigator" 
+                 url="../../pages/index/detail/detail?user={{item.targetUser.objectId}}&objectId={{item.objectId}}&price={{item.price}}&city={{item.city}}&title={{item.title}}&nickname={{item.targetUser.nickname}}&username={{item.targetUser.username}}&serviceText={{item.serviceText}}&image={{item.image}}&tag={{item.tag}}&rank={{item.targetUser.rank[2]}}&gamename={{item.targetUser.gameName}}">
+          <view class="wrap">
+            <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                       mode="{{item.image}}" 
+                       src="{{item.image}}"></image>
+
+            <view      wx:if="{{item.targetUser.nickname}}"
+                       class="text_mini_title">
+<!--        <text>{{item.city}} · </text> -->
+            <text>{{item.targetUser.nickname}}</text>
+            <text      id="changecolor"> {{item.price}}元/局</text>
+            </view>
+
+
+            <view      wx:else
+                       class="text_mini_title">
+<!--        <text>{{item.city}} · </text> -->
+            <text>{{item.targetUser.username}}</text>
+            <text      id="changecolor"> {{item.price}}元/局</text>
+            </view>
+<!--             <view class="text1">
+            <text >{{item.tag}}</text>
+            </view> -->
+            <view class="text2">
+            <text >{{multiArray[item.targetUser.rank[2]]}}</text>
+            </view>
+          </view>
+      </navigator> 
+    </view>
+</view>
+<!-- 
+    <button 
+        bindtap="navigator"
+        class="btn"> 写指南 + </button> -->

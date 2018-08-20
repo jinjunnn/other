@@ -1,0 +1,81 @@
+<view style="margin:0rpx 10rpx 0rpx 10rpx">
+	<view style="margin: 0rpx 20rpx 30rpx 20rpx">
+	    <view>
+	          <view style="padding:0rpx 0rpx 10rpx 0rpx;font-size:14pt;display:-webkit-flex;">
+	          	    <view style="flex:5;font-size:40rpx;">每日免费抽奖</view>
+	                <navigator style="flex:1;text-align:right; font-size:12pt"
+	                	       url="./more/more">更多</navigator>
+	          </view>
+
+	          <scroll-view scroll-x="true" 
+	                       style=" white-space:nowrap" >
+	                <navigator style="display: inline-block;margin:10rpx 20rpx 0rpx 0rpx;" 
+	                           wx:for="{{list}}" 
+	                           wx:key="diaryItem" url="../../pages/lottery/today/today?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&content={{item.content}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&confi={{item.confi}}&deadline={{item.deadline}}&deadlineTime={{item.deadlineTime}}">
+		                    <image style=" width: 660rpx; height: 440rpx; border-radius: 10rpx;" src="{{item.image.url}}"></image>
+		                    <view style="font-size:11pt;display:-webkit-flex;display:flex;justify-content:space-between" 
+		                    	  wx:if="{{d < item.deadline}}"> 
+		                    	<view style="color:#4688f1">等待开奖 </view>  
+		                    	<view style="text-align:right">    截止时间:{{item.deadlineTime}}</view>
+		                    </view>
+		                    <view style="font-size:11pt;display:-webkit-flex;display:flex;justify-content:space-between" wx:else> 
+		                    	<view style="color:#e8453c">已结束</view>  
+		                    	<view style="viewtext-align:right">    开奖时间:{{item.deadlineTime}}</view>
+		                    </view>
+
+		                <view class="today1">{{item.title}} · {{item.content}}  {{item.price}}点券</view>
+
+	                </navigator>
+	          </scroll-view>  
+
+	    </view>
+	</view>
+
+	<view >
+	<view class="wrap">
+		<view style="padding:0rpx 0rpx 10rpx 0rpx;font-size:40rpx;">秒抽专区</view>
+		<view class="wrap_1">
+		    <view wx:for="{{goodslist}}" 
+		    	  wx:key="goodsItem">    
+			    <navigator wx:if="{{lotteryTimes >= times}}" 
+			    	  url="../../pages/lottery/detail/detail?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&confi={{item.confi}}&image1={{item.image1.url}}">
+						<view class="item_1">
+							    <image class="img"
+					                   src="{{item.image.url}}"></image>
+							    <view class="text_wrap">
+							      <view style="display:-webkit-flex;display:flex;justify-content:space-between">
+							      	<view class="text_content">{{item.content}}</view>
+							      	<view class="text_coin">价值{{item.price}}点券 </view> 
+							            </view>
+							      <view class="text_coins" 
+							      	    style="display:-webkit-flex;display:flex;justify-content:flex-start">
+							      	  <view>抽奖{{item.timesLottery}}次</view>
+							          <view>,中奖{{item.timesGet}}次</view>
+							      </view>
+							    </view>
+						</view>
+			    </navigator>
+
+			    <navigator wx:else url="../../pages/lottery/detail/other?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&confi={{item.confi}}&image1={{item.image1.url}}">
+						<view class="item_1">
+							    <image class="img"
+					                   src="{{item.image.url}}"></image>
+							    <view class="text_wrap">
+							      <view style="display:-webkit-flex;display:flex;justify-content:space-between">
+							      	<view class="text_content">{{item.content}}</view>
+							      	<view class="text_coin">价值{{item.price}}点券 </view> 
+							            </view>
+							      <view class="text_coins" 
+							      	    style="display:-webkit-flex;display:flex;justify-content:flex-start">
+							      	  <view>抽奖{{item.timesLottery}}次</view>
+							          <view>,中奖{{item.timesGet}}次</view>
+							      </view>
+							    </view>
+						</view>
+			    </navigator>
+			</view>
+		</view>
+	</view>
+
+	</view>
+</view>

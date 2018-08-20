@@ -1,0 +1,2 @@
+/* pages/order/deposittrade/order.wxss */
+@import "../../lotteryGet/lotteryGet.wxss";

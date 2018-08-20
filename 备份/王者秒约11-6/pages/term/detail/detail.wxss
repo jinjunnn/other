@@ -1,0 +1,39 @@
+
+page {
+  background-color: #ffffff;
+}
+
+.slide-image{
+  height: 450rpx;
+}
+.title{
+  margin: 40rpx 30rpx 60rpx 30rpx;
+}
+
+.btn_submit_right{
+  flex: 2;
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  height:7%;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.title_content{
+  width:670rpx;
+  margin: 20rpx 30rpx 120rpx 30rpx;
+  text-align:justify;
+  text-justify:kashida;
+  line-height:200%
+}
+.text_subtitle{
+  text-align:justify;
+  text-justify:kashida;
+  line-height:200%
+}
+

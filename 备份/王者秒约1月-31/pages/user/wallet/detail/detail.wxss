@@ -1,0 +1,33 @@
+page {
+  background-color: #f2f2f2;
+}
+.container{
+	margin:30rpx;
+	width:650rpx;
+	height:690rpx;
+	background-color: #ffffff;
+	border-radius: 5rpx
+}
+.wrap{
+    display:-webkit-flex;
+    margin:30rpx;
+}
+.left-part{
+	padding: 20rpx;
+    flex:3.5;
+}
+.right-part{
+	flex:6.5;
+	padding: 20rpx;
+
+}
+.input-icon{
+	flex:1.5;
+	padding:20rpx;
+}
+.input-content{
+	flex:8.5;
+	height: 80rpx;
+	font-size: 40pt;
+	padding:20rpx;
+}

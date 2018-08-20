@@ -1,0 +1,112 @@
+<view wx:if="{{!user.depositPass}}">
+		<view  class="navigator">
+		          <view class="userName"
+		          	    style="font-size: 11pt">游戏大区</view>
+
+				  <picker bindchange="bindPickerChange1" 
+						  value="{{index1}}" 
+						  range="{{array1}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{array1[index1]}}
+						    </view>
+				  </picker>
+
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+		<view  class="navigator">
+		          <view class="userName"
+		          	    style="font-size: 11pt">当前段位</view>
+
+				  <picker bindchange="bindPickerChange2" 
+						  value="{{index2}}" 
+						  range="{{array2}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{array2[index2]}}
+						    </view>
+				  </picker>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+		<view  class="navigator">
+		          <view class="userName"
+		          	    style="font-size: 11pt">局数</view>
+
+				  <picker bindchange="bindPickerChange3" 
+						  value="{{index3}}" 
+						  range="{{array3}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{array3[index3]}}
+						    </view>
+				  </picker>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+	<view style="height:120rpx"></view>
+	<view class="button_wrap">
+		
+		<button open-type="contact"
+			    class="btn_submit">客服</button>
+
+
+		<block wx:if="{{p1 > p2}}">
+			<button class="btn_submit_right"
+			        bindtap="bindBuy">￥ 0元</button>
+		</block>
+
+		<block wx:else>
+			<button class="btn_submit_right"
+			        bindtap="bindBuy">￥{{priceIndex[index2]*index3 +priceIndex[index2]}}元</button>
+		</block>
+
+	</view>
+</view>
+
+
+<view wx:else>
+
+	<view wx:for="{{order}}" 
+	      wx:key="orderItem"
+	      style="background-color:#ffffff; padding:15rpx">
+        <view class="author" >
+			    <view class="author_icon">
+			          <image src="{{item.targetBuyer.image}}" 
+			                 class="author_icon_item" 
+			                 style=" width:135rpx; height:135rpx;">
+			          </image>
+			    </view>
+
+			    <view class="author_title">
+				      <view style="font-size:10pt; " id="changecolor">{{item.targetBuyer.nickname}}</view>
+					  <view style="font-size:10pt; color:#666">{{item.createdAt}}</view>
+					  <view style="font-size:10pt; color:#666">{{item.zone}}游戏名:{{item.targetBuyer.gameName}}</view>
+					  <view style="font-size:10pt; color:#666">{{item.rank}}{{item.times}}局总价{{item.amount2}}元</view>
+			    </view>
+
+			    <view class="author_confirm">
+				      <view class="title_item" id="changecolor">编号:{{item.code}}</view>
+			    </view>
+        </view>
+        <button style="width:180rpx; background-color:#FD6C82; color:#ffffff; position: relative;left: 220rpx"
+        	    data-order="{{item.objectId}}"
+        	    data-price="{{item.amount2}}"
+        	    bindtap="bindOrder">接单</button>
+  </view>
+</view>

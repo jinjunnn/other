@@ -1,0 +1,11 @@
+<!--pages/gamegroup/detail/detail.wxml-->
+<view style="margin: auto; width: 80%; font-size:11pt">
+		<view style="margin:20rpx 0rpx 20rpx 0rpx; text-align: center;">电竞玩家公众号</view>
+
+		<image     src="https://lc-WekN4hEa.cn-n1.lcfile.com/41f2b2d3f31952fd2d33.jpg" 
+				    class="slide-image" 
+				    style="width:100%; "
+				    mode="widthFix">
+		</image>
+		<view style="margin:20rpx 0rpx 20rpx 0rpx; text-align: center;">截图后，扫码关注电竞玩家公众号</view>
+</view>

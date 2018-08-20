@@ -1,0 +1,16 @@
+<view class="container">
+    <view wx:for="{{topicList}}" wx:key="topicItem">
+      <navigator class="navigator" 
+                 url="/pages/article/article?topic={{item.title}}&user={{item.user.objectId}}">
+          <view class="wrap">
+
+<!-- 后续从这里修改topic主图 -->
+<!--             <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                       mode="{{item.image}}" 
+                       src="{{item.image.url}}"></image> -->
+            <text >{{item.title}}</text>
+          </view>
+      </navigator> 
+    </view>
+
+</view>

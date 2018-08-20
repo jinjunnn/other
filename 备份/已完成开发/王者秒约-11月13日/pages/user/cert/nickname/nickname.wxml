@@ -1,0 +1,7 @@
+<textarea placeholder="简单介绍一下自己的常用职业和英雄吧" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setServiceText"
+	   bindblur="setServiceText"
+	   />

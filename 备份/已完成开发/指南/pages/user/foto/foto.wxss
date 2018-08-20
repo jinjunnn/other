@@ -1,0 +1,13 @@
+/* pages/user/foto/foto.wxss */
+.container{
+  margin:60rpx;
+}
+.title{
+  font-size: 20pt;
+  font-weight:700;
+  padding-bottom: 20rpx; 
+}
+.content{
+  font-size:13pt;
+  padding-bottom: 50rpx;
+}

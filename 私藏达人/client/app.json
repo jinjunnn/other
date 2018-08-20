@@ -1,0 +1,75 @@
+{
+  "pages":[
+
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/publish/map/map",
+    "pages/goods/goods",
+    "pages/goods/detail/detail",
+    "pages/goods/winning/winning",
+    "pages/article/article",
+    "pages/wish/wish",
+    "pages/topic/topic",
+    "pages/user/user",
+    "pages/user/coins/coins",
+    "pages/user/coins/help/help",
+    "pages/user/coins/earn/earn",
+    "pages/user/profile/profile",
+    "pages/user/author/author",
+    "pages/user/foto/foto",
+    "pages/user/add/add",
+    "pages/user/betopicer/betopicer",
+    "pages/user/help/help",
+    "pages/user/feedback/feedback",
+    "pages/user/business/business",
+    "pages/list/follower/follower",
+    "pages/list/followee/followee",
+    "pages/list/article/article"
+  ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "私藏达人",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#FD6C82",
+    "borderStyle": "#FFF",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/topic.png",
+        "selectedIconPath": "image/topic_1.png",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/wish/wish",
+        "iconPath": "image/like_2.png",
+        "selectedIconPath": "image/like_1.png",
+        "text": "心愿单"
+      },
+      {
+        "pagePath": "pages/publish/map/map",
+        "iconPath": "image/加号.png",
+        "selectedIconPath": "image/加号_1.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "iconPath": "image/商城.png",
+        "selectedIconPath": "image/商城_1.png",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/我的.png",
+        "selectedIconPath": "image/我的_1.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

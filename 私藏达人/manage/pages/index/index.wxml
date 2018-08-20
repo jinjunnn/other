@@ -1,0 +1,15 @@
+<view class="form-wrap">
+  <navigator url="../topic/topic" class="navigator">发布专题</navigator>
+  <navigator url="../article/article" class="navigator">发布文章</navigator>
+  <navigator url="../goods/goods" class="navigator">发布商品</navigator>
+  <navigator url="../coins/coins" class="navigator">发COIN</navigator>
+  <navigator url="../topicer/topicer" class="navigator">达人管理</navigator>
+  <navigator url="../user/user" class="navigator user">账户登录</navigator>
+  <navigator url="../pay/pay" class="navigator pay">打赏</navigator>
+
+
+
+
+
+
+</view>

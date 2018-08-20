@@ -1,0 +1,93 @@
+@import "../../user/comment/comment.wxss";
+page {
+  background-color: #ffffff;
+}
+
+.slide-image{
+  height: 450rpx;
+}
+.btn_submit{
+  flex: 2;
+  background-color: #FFFFFF;
+  border: none;
+  color: #1AA59a;
+  position: fixed;
+  bottom: 0;
+  height:7%;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.btn_lottery{
+  background-color: #FD6C82;
+  border: none;
+  margin:0rpx 225rpx 30rpx 225rpx;
+  width:300rpx;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 15rpx;
+}
+.btn_submit_right{
+  flex: 2;
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left:225rpx;
+  height:7%;
+  width: 70%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.button_wrap{
+	display: -webkit-flex;
+}
+
+.choujiang{
+  position: fixed;
+  bottom: 350rpx;
+  left:225rpx;
+  height:300rpx;
+  width: 300rpx;
+}
+.get{
+  position: fixed;
+  bottom: 96%;
+  left:84%;
+  color:#ffffff;
+  font-size:24rpx;
+}
+.condition1{
+  height:500rpx;
+  width:400rpx;
+  background-color:#F11F3D;
+  position: fixed;
+  bottom: 550rpx;
+  left:175rpx;  
+  text-align: center;
+  opacity:0.6;
+  padding-top:20rpx;
+  border-radius: 10rpx;
+  margin:10rpx;
+}
+.condition2{
+  height:140rpx;
+  width:670rpx;
+  background-color:#333333;
+  position: fixed;
+  bottom: 20rpx;
+  left:20rpx; 
+  color:#fff;
+  font-size:18rpx; 
+  text-align: left;
+  opacity:0.7;
+  padding:20rpx;
+  border-radius: 5rpx;
+}

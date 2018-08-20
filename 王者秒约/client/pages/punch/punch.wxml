@@ -1,0 +1,150 @@
+<!-- 关注公众号 -->
+<view style="font-size:24rpx; background-color:#070707; opacity:0.5; color:white; padding:28rpx;display:-webkit-flex; justify-content:space-between;"
+	  bindtap="bindOpenPublic">
+	<view>关注【电竞玩家】微信公众号可领取礼包</view>
+	<view>去关注></view>
+</view>
+
+<!-- 打卡签到 -->
+<view style="height:400rpx; background-color:#f7f7f7; color:black">
+	<view style="padding:60rpx 60rpx 20rpx 60rpx">{{month}}月</view>
+	<view style="font-size:32rpx; display:-webkit-flex; justify-content:space-around; margin:0rpx 40rpx 40rpx 40rpx">
+		<view wx:for="{{days}}" wx:key="item">{{item}}</view>
+	</view>
+	<view style="display:-webkit-flex; justify-content:space-between;">
+		<view >
+			<view style="margin:30rpx 0rpx 0rpx 60rpx; font-size:40rpx">{{intergal}}</view>
+			<view style="margin-left:60rpx; font-size:24rpx">积分</view>
+		</view>
+		<view>
+			<view style="height:60rpx; width:180rpx; margin:40rpx 60rpx; line-height:60rpx; text-align: center; color:#c4953b;"
+				    bindtap="bindQiandao"
+				    wx:if="{{signin==0}}">签到</view>
+			<view style="height:60rpx; width:180rpx; margin:40rpx 60rpx; line-height:60rpx; text-align: center; color:#c4953b;"
+				    wx:else>已签到</view>
+		</view>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+<!-- 分享给好友 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindShare">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			分享给好友</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">随机获得积分奖励
+		</view>
+
+	</view>
+	<view style="flex:14">
+			<button style="height:60rpx; width:120rpx; margin:60rpx 40rpx; line-height:60rpx; text-align: center; background-color:#c4953b; color:white;"
+				    open-type="share">分享</button>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+<!-- 免费抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindLottery">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			免费皮肤抽奖</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">每日最多20套皮肤免费发放</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/e8e9be1ee36f7ce5218f.jpeg"></image>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+<!-- 积分抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindIntergal">
+
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			积分夺宝</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">100积分一次超高的中奖概率
+		</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/1057f389025467bc1998.jpeg"></image>
+	</view>
+</view>
+<view style="height:20rpx; background-color:#eee"></view>
+
+
+<view style="display:-webkit-flex; flex-wrap:wrap"
+	  >
+	<!-- 社交立减金 -->
+	<view style="width:374rpx; height:240rpx; text-align:center; border-bottom: 1rpx solid #eee; border-right: 1rpx solid #eee;"
+		  bindtap="bindShangfen">
+		<view style="font-size:28rpx; font-weight: bold; margin:30rpx 0rpx 0rpx 0rpx">职业上分</view>
+		<view style="font-size:20rpx; color:#666; margin:10rpx 0rpx 0rpx 0rpx">已有 <text style="color:#FD6C82">{{confi.rankOrderTimes}}</text> 人成功上分</view>
+		<image style="height:100rpx; width:100rpx; margin:10rpx 137rpx 0rpx 137rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/7dcad048d532a17189cd.png"></image>
+	</view>
+
+	<view style="width:374rpx; height:240rpx; text-align:center; border-bottom: 1rpx solid #eee; border-right: 1rpx solid #eee;"
+		  bindtap="bindPeiwan">
+		<view style="font-size:28rpx; font-weight: bold; margin:30rpx 0rpx 0rpx 0rpx">大神陪打</view>
+		<view style="font-size:20rpx; color:#666; margin:10rpx 0rpx 0rpx 0rpx">拒绝无聊  大神和美女陪你打游戏</view>
+		<image style="height:100rpx; width:100rpx; margin:10rpx 137rpx 0rpx 137rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/a2374df237cb88569481.png"></image>
+	</view>
+
+	<view style="width:374rpx; height:240rpx; text-align:center; border-bottom: 1rpx solid #eee; border-right: 1rpx solid #eee;"
+		  bindtap="bindPifu">
+		<view style="font-size:28rpx; font-weight: bold; margin:30rpx 0rpx 0rpx 0rpx">折扣皮肤</view>
+		<view style="font-size:20rpx; color:#666; margin:10rpx 0rpx 0rpx 0rpx">苹果皮肤低至7折起</view>
+		<image style="height:100rpx; width:100rpx; margin:10rpx 137rpx 0rpx 137rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/f2333a45d608364657d4.png"></image>
+	</view>
+
+	<view style="width:374rpx; height:240rpx; text-align:center; border-bottom: 1rpx solid #eee; border-right: 1rpx solid #eee;"
+		  bindtap="bindZhanghao">
+		<view style="font-size:28rpx; font-weight: bold; margin:30rpx 0rpx 0rpx 0rpx">精选账号</view>
+		<view style="font-size:20rpx; color:#666; margin:10rpx 0rpx 0rpx 0rpx">转移号 成品号 满级号全都有</view>
+		<image style="height:100rpx; width:100rpx; margin:10rpx 137rpx 0rpx 137rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/deaf17a644e76b74badf.png"></image>
+	</view>
+
+</view>
+<view style="height:20rpx; background-color:#eee"></view>
+<!-- 产品 -->
+<!-- 社交立减金 -->
+<view style="display:-webkit-flex; height:180rpx">
+
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			社交立减金 最高立减<text style="color:red">99元</text></view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">金额越高随机立减金额越高</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/0c4fb33a3736f38031bb.png"></image>
+	</view>
+</view>
+
+<view style="height:2rpx; background-color:#eee"></view>
+<!-- 积分兑换 -->
+<view style="display:-webkit-flex; height:180rpx">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			积分兑换皮肤</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">请关注'电竞玩家'公众号参与积分兑换皮肤</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/99bddc010c07f22ffb87.png"></image>
+	</view>
+</view>
+<view style="height:20rpx; background-color:#eee"></view>
+
+<view>
+	
+</view>
+
+
+<view>
+	
+</view>

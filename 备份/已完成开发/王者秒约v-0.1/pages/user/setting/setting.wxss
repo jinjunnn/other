@@ -1,0 +1,4 @@
+@import "../user.wxss";
+.userName{
+  flex: 90;
+}

@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/video/video",
+    "pages/video/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "9cam",
+    "navigationBarTextStyle":"black"
+  }
+}

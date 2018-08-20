@@ -1,0 +1,23 @@
+<view wx:for="{{articles}}" wx:key="item">
+
+	  <navigator  url="../../article/article?articleObjectId={{item.objectId}}"
+	              class="navigator">
+		<image     style="width: 130rpx; height: 130rpx;" 
+			       class="image"
+		           mode="aspectFill	" 
+		           src="{{item.images[0]}}"></image>
+	    <view  class="text">
+			<view   class="text_item"
+				    id="changestyle"
+				>{{item.title}}</view>
+
+	        <view   class="text_item"
+	        	    id="changecolor"
+	        	>{{item.summary}}</view>
+		</view>
+		<image 
+			       class="add"
+		           mode="{{item.image}}" 
+		           src="../../../image/大于号.png"></image>
+	  </navigator>
+</view>

@@ -1,0 +1,26 @@
+<!--pages/list/follower/follower.wxml-->
+
+
+ 
+<view wx:for="{{followers}}" wx:key="item">
+
+	  <navigator  url="../../user/author/author?objectId={{item.objectId}}" 
+	              class="navigator">
+		<image     style="width: 130rpx; height: 130rpx; background-color: #eeeeee;border-radius: 50%;" 
+			       class="image"
+		           mode="{{item.image}}" 
+		           src="{{item.userImage}}"></image>
+	    <view  class="text">
+			<view   class="text_item">{{item.username}}</view>
+	        <view   class="text_item"
+	        	    id="changecolor">{{item.userTag}}</view>
+	        <view   class="text_item2"
+	        	    id="changecolor2">{{item.userSummary}}</view>
+		</view>
+		<image 
+		           class="add"
+		           mode="{{item.image}}" 
+		           src="../../../image/大于号.png"></image>
+	  </navigator>
+</view>
+

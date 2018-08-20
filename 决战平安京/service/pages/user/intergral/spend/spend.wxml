@@ -1,0 +1,23 @@
+<!--pages/goods/goods.wxml-->
+<view class="plate">
+	<view class="wrap_text">
+	  <text class="text_title">热门专区</text>
+	<!--   <text class="text_title">更多</text> -->
+	</view>
+	    <view class="wrap">
+		    <view wx:for="{{goodslist}}" 
+		    	  wx:key="goodsItem">    
+			    <navigator url="./detail/detail?title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.images[0]}}">
+						  <view class="cell">
+							    <image class="img"
+					                   src="{{item.images[0]}}"></image>
+							    <view class="text_wrap">
+							      <view><text class="text_content">{{item.title}}</text></view>
+							      <view><text class="text_coins">积分兑换</text></view>
+							    </view>
+						  </view>
+			    </navigator>
+			</view>
+	    </view>
+</view>
+

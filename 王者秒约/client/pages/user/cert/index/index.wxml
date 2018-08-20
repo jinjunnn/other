@@ -1,0 +1,285 @@
+
+<view class="topNav" >
+	<view class="itemWrap" wx:for="{{settings}}" wx:for-index="idx" wx:for-item="item">
+		<view class="itemcoler1" wx:if="{{idx < mode}}">{{item[0]}}</view>
+		<view class="item1" wx:else>{{item[0]}}</view>
+		<view class="itemcoler2" wx:if="{{idx < mode}}">{{item[1]}}</view>
+		<view class="item2" wx:else>{{item[1]}}</view>
+	</view>
+
+</view>
+
+<view wx:if="{{mode==1}}">
+	
+    <view class="tishi">{{tishi}}</view>
+	<view style="font-size:11pt; margin:20rpx;">
+		    <navigator  class="navigator"
+		    	        url="../../setting/realname/realname?title=请输入真实姓名&key=realname">
+			          <view class="userName"
+			          	    style="font-size: 11pt">真实姓名</view>
+		              <view class="userName2"
+		              	    style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">{{user.realname}}</view>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</navigator>
+
+		    <view  class="navigator"
+		    	        url="../../setting/realname/realname?title={{master.objectId}}&key=realname">
+			          <view class="userName"
+			          	    style="font-size: 11pt">证件类型</view>
+		              <view class="userName2"
+		              	    style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">身份证</view>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</view>
+
+		    <navigator  class="navigator"
+		    	        url="../../setting/realname/realname?title=请输入证件号码&key=idcard">
+			          <view class="userName"
+			          	    style="font-size: 11pt">证件号码</view>
+		              <view class="userName2"
+		              	    style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">{{user.idcard}}</view>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</navigator>
+
+	<!-- 	    <view  class="navigator">
+			          <view class="userName"
+			          	    style="font-size: 11pt">手机号码</view>
+		              <view class="userName2"
+		              	    style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">{{user.phone}}</view>
+			          <view	class="icon" >            
+				            <button open-type="getPhoneNumber" 
+				            	    style=" width:160rpx; height:60rpx" 
+				            	    bindgetphonenumber="ongetphonenumber">手机号授权</button>
+			          </view>
+			</view> -->
+	</view>
+
+	<view style="background-color:#ffffff; margin:20rpx; height:450rpx; width:710rpx; font-size:24rpx">
+		<view style="font-size:24rpx; margin:0rpx 20rpx 30rpx 20rpx; padding-top:20rpx ">手持证件照片</view>
+		<view style="height:300rpx; width:670rpx; border:1rpx dashed #eee; margin:0rpx 0rpx 0rpx 20rpx"
+			  bindtap="bindUpdateImage">
+			<view wx:if="{{!user.idcardimage}}">
+				<image src="/image/加号.png"
+					   style="height:90rpx; width:90rpx; margin:90rpx 290rpx 0rpx 290rpx"/>
+			    <view style="text-align:center">点击上传</view>
+		    </view>
+			<view wx:elif="{{image}}">
+				<image src="{{user.idcardimage}}"
+					   style="height:300rpx; width:670rpx;"/>
+		    </view>
+
+			<view wx:else>
+				<image src="{{user.idcardimage}}"
+					   style="height:300rpx; width:670rpx;"/>
+		    </view>
+		</view>
+	</view>
+
+	<button style="width:550rpx; background-color:#2fcdb4; height:80rpx; border-radius:40rpx; color:white; margin-top:30rpx"
+		    bindtap="bindFirst">下一步</button>
+</view>
+
+<view wx:elif="{{mode==2}}">
+	<view style="font-size:11pt; margin:20rpx;">
+		    <view  class="navigator"
+		    	        url="../../setting/realname/realname?title=请输入真实姓名&key=realname">
+			          <view class="userName"
+			          	    style="font-size: 11pt">游戏</view>
+		              <view class="userName2"
+		              	    style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">王者荣耀</view>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</view>
+
+		    <view  class="navigator"
+		    	        url="../../setting/realname/realname?title={{master.objectId}}&key=realname">
+			          <view class="userName"
+			          	    style="font-size: 11pt">平台大区</view>
+					  <picker bindchange="bindZone" 
+					  	      value="{{zoneIndex}}" 
+					  	      range="{{zone}}" 
+					  	      wx:if="{{zoneIndex}}"
+					  	      style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">
+							    <view class="picker"
+							    	  style="font-size: 11pt">{{zone[zoneIndex]}}
+							    </view>
+					  </picker>
+					  <picker bindchange="bindZone" 
+					  	      value="{{zoneIndex}}" 
+					  	      range="{{zone}}" 
+					  	      wx:else
+					  	      style="font-size:11pt;white-space:nowrap; width:360rpx;overflow:hidden;text-overflow:ellipsis;text-align:right;color:#666666">
+							    <view class="picker"
+							    	  style="font-size: 11pt">未设置
+							    </view>
+					  </picker>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</view>
+
+		    <view  class="navigator"
+		    	        url="../../setting/realname/realname?title=请输入证件号码&key=idcard">
+			          <view class="userName"
+			          	    style="font-size: 11pt">最高实力</view>
+					  <picker bindchange="bindRank" 
+					  	      value="{{rankIndex}}" 
+					  	      range="{{rank}}" 
+					  	      class="userName2"
+					  	      wx:if="{{rankIndex}}">
+							    <view class="picker"
+							    	  style="font-size: 11pt">{{rank[rankIndex]}}
+							    </view>
+					  </picker>
+					  <picker bindchange="bindRank" 
+					  	      value="{{rankIndex}}" 
+					  	      range="{{rank}}" 
+					  	      class="userName2"
+					  	      wx:else>
+							    <view class="picker"
+							    	  style="font-size: 11pt">未设置
+							    </view>
+					  </picker>
+			          <view	class="icon" >            
+				           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</view>
+	</view>
+
+	<view style="background-color:#ffffff; margin:20rpx; height:450rpx; width:710rpx; font-size:24rpx">
+		<view style="font-size:24rpx; margin:0rpx 20rpx 30rpx 20rpx; padding-top:20rpx ">手持证件照片</view>
+		<view style="height:300rpx; width:670rpx; border:1rpx dashed #eee; margin:0rpx 0rpx 0rpx 20rpx"
+			  bindtap="bindUpdateRankImage">
+
+			<view wx:if="{{user.rankImage}}">
+				<image src="{{user.rankImage}}"
+					   style="height:300rpx; width:670rpx;"/>
+		    </view>
+
+			<view wx:elif="{{rankimage}}">
+				<image src="{{rankimage}}"
+					   style="height:300rpx; width:670rpx;"/>
+		    </view>
+
+			<view wx:elif="{{!user.rankImage}}">
+				<image src="/image/加号.png"
+					   style="height:90rpx; width:90rpx; margin:90rpx 290rpx 0rpx 290rpx"/>
+			    <view style="text-align:center">点击上传</view>
+		    </view>
+		</view>
+	</view>
+	<navigator style="font-size:20rpx; margin:20rpx; color:#2fcdb4"
+		       url="../xieyi">点击下一步视为同意大神协议</navigator>
+
+	<button style="width:550rpx; background-color:#2fcdb4; height:80rpx; border-radius:40rpx; color:white; margin-top:30rpx"
+		    bindtap="bindTwo">下一步</button>
+</view>
+
+<view wx:elif="{{mode==3}}">
+	<view style="height:20rpx; width:750rpx; background-color:#eee"></view>
+
+	<view style="background-color:white; height:200rpx; width:750rpx; padding:40rpx;">
+        <view style="font-size:24rpx">上传形象照片(1-9张)</view>
+
+        <view style="height:150rpx; width:150rpx; margin:20rpx 10rpx 20rpx 0rpx; display: -webkit-flex"
+        	  bindtap="bindUpdateUserImages"
+        	  wx:if="{{master.userImages}}">
+        	<view  wx:for="{{master.userImages.images}}"
+        		   wx:key="item">
+                <view style="height:150rpx; width:150rpx;">
+        	  	    <image src="{{item}}" style="height:150rpx; width:150rpx;"/>
+				</view>
+		    </view>
+        </view>
+
+        <view style="height:150rpx; width:150rpx; margin:20rpx 10rpx 20rpx 0rpx;display: -webkit-flex; "
+        	  bindtap="bindUpdateUserImages"
+        	  wx:elif="{{userImage}}">
+        	<view  wx:for="{{userImage.images}}"
+        		   wx:key="item">
+                <view style="height:150rpx; width:150rpx;">
+        	  	    <image src="{{item}}" style="height:150rpx; width:150rpx;"/>
+				</view>
+		    </view>
+        </view>
+
+        <view style="height:150rpx; width:150rpx; border:1rpx dashed #eee; margin:20rpx 10rpx 20rpx 0rpx"
+        	  bindtap="bindUpdateUserImages"
+        	  wx:else>
+        	  	<image src="/image/加号.png"
+					   style="height:75rpx; width:75rpx; margin:37.5rpx"/>
+        </view>
+    </view>
+
+    <view style="height:20rpx; width:750rpx; background-color:#eee"></view>
+
+	<view style="background-color:white; height:150rpx; width:750rpx; padding:40rpx;">
+        <view style="font-size:24rpx">录制一段语音介绍(5-60秒)</view>
+        <view wx:if="{{userAudio}}" style="display: -webkit-flex;">
+	        <view class="playAudio"
+	        	  bindtap="bindPlayAudio">
+	            播放
+	        </view>
+	        <view bindtap="bindConcelAudio" 
+	              style="font-size:24rpx; width:100rpx; line-height: 140rpx; height:140rpx; text-align:center;">重新录制</view>
+        </view>
+        <view class="playAudio"
+        	  bind:touchstart="bindStartAudio"
+        	  bind:touchend="bindEndAudio"
+        	  wx:else>
+            开始录制
+        </view>
+    </view>
+
+<!--     <view style="height:20rpx; width:750rpx; background-color:#eee"></view>
+    <view style="background-color:white; height:240rpx; width:750rpx; padding:40rpx;">
+	    <view style="font-size:24rpx; padding-bottom:20rpx;">设置陪玩标签(1-3个)</view>
+        <view  style="display:-webkit-flex; justify-content:flex-start; flex-wrap:wrap ">
+            <block wx:for="{{tags}}" wx:key="item">
+                <view class="tags">{{item}}</view>
+            </block>
+        </view>
+	</view> -->
+
+
+	<view style="height:20rpx; width:750rpx; background-color:#eee"></view>
+    <view style="background-color:white; height:240rpx; width:750rpx; padding:40rpx;">
+	      <view style="font-size:24rpx; padding-bottom:20rpx;">一句话简述</view>
+		  <form bindsubmit="bindFormSubmit">
+		    <textarea placeholder="简要介绍"
+		    	      style="width:670rpx; height:200rpx; font-size:24rpx; background-color:#eee"
+		    	      bindinput="updateContent"/>
+		  </form>
+	</view>
+	<button style="width:550rpx; background-color:#2fcdb4; height:80rpx; border-radius:40rpx; color:white; margin-top:30rpx"
+		    bindtap="bindThree">下一步</button>
+</view>
+
+<view wx:elif="{{mode==4}}">
+	<view style="background-color:white; height:700rpx; width:750rpx;">
+	    <view style="font-size:24rpx; text-align:center;padding:10rpx">您已经提交成功</view>
+	    <view style="font-size:24rpx; text-align:center;padding:10rpx">请您截图添加官方审核微信群</view>
+	    <image src="{{qrcode}}"
+	    	   style="height:550rpx; width:450rpx; margin:30rpx 150rpx; 30rpx 150rpx"/>
+    </view>
+	<button style="width:550rpx; background-color:#2fcdb4; height:80rpx; border-radius:40rpx; color:white; margin-top:30rpx"
+		    bindtap="bindFour">完成</button>
+</view>

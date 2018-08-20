@@ -1,0 +1,76 @@
+
+<view class="container">
+     <navigator url="./profile/profile" >
+        <view class="box">
+          <view class="item_author_title">
+            <view style="font-size:20pt;" class="title_item">{{author.username}}</view>
+          </view>
+
+          <view class="item_author_icon"
+                style=" width:120rpx; height:120rpx;">
+            <image src="{{author.userImage}}" 
+                  class="author_icon_item" 
+                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+                  mode="aspectFill"></image>
+          </view>
+        </view>
+
+    </navigator>
+    
+    <view class="followeeself"
+          wx:if="{{m==objectId}}"></view>    
+    <view class="followee"
+          bindtap="toggleFollow"
+          wx:elif="{{count > 0}}">已关注</view>
+    <view class="unfollowee"
+          wx:else
+          bindtap="toggleFollow">+关注</view>
+
+  <view style="font-size:11pt; margin-top:30rpx " 
+        class="title_item">
+            <span id="changestyle">{{author.userSummary}}</span>
+  </view>
+</view>
+
+
+<view class="author">
+    <navigator url="../../list/follower/follower?objectId={{author.objectId}}"
+               class="author_title" >
+            <view style="font-size:10pt;" 
+                  class="title_item">{{followers}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">粉丝</view>
+    </navigator>
+    <navigator url="../../list/followee/followee?objectId={{author.objectId}}"
+               class="author_title" >
+            <view style="font-size:10pt;" 
+                  class="title_item">{{followees}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">关注</view>
+    </navigator>
+    <navigator url="../../list/article/article?objectId={{author.objectId}}" 
+              class="author_title">
+            <view style="font-size:10pt;" 
+                  class="title_item">{{likes}}</view>
+            <view style="font-size:10pt;" 
+                  class="title_item">足迹</view>
+    </navigator>
+</view>
+
+<view class="image_wraps">
+<view class="image_list">
+        <view wx:for="{{articles}}" wx:key="articleItem">
+            <navigator class="image_navigator" 
+                       url="../../../pages/article/article?articleObjectId={{item.targetArticle.objectId}}">
+                <view class="image_wrap">
+                    <image style="width: 208rpx; height: 208rpx; background-color: #eeeeee;" 
+                            mode="aspectFill" 
+		                    src="{{item.targetArticle.images[0]}}"></image>
+                    <text class="text_mini_title">{{item.targetArticle.title}}  </text>
+                    <text class="text_mini_author">·{{item.targetArticle.targetUser.username}}</text>
+                </view>
+             </navigator> 
+        </view>
+</view>
+
+</view>

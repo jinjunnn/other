@@ -1,0 +1,53 @@
+<view class="container">
+    <view wx:for="{{member}}" wx:key="item">
+
+
+      <navigator wx:if="{{item[3][0].user==item[6]}}"
+      	         class="navigator" 
+                 url="./detail/detail?conversationId={{item[1]}}&image={{item[3][1].image}}">
+          <view class="wrap">
+
+            <image     style="width: 90rpx; height: 100rpx;" 
+                       mode="aspectFill" 
+                       src="{{item[3][1].image}}"
+                       class="image"></image>
+            <view      wx:if="{{item[5]==1}}"
+                       class="dot1"></view>
+            <view      wx:else
+                       class="dot2"></view>  
+            <view      class="content">
+		            <view class="title">{{item[3][1].name}}</view>
+		            <view class="text">{{item[2].text}}</view>
+            </view>
+
+            <view class="date">
+                    <text >{{item[4]}}</text>
+            </view>
+          </view>
+      </navigator> 
+
+      <navigator wx:else
+      	         class="navigator" 
+                 url="./detail/detail?conversationId={{item[1]}}&image={{item[3][0].image}}">
+          <view class="wrap">
+
+            <image     style="width: 90rpx; height: 100rpx;" 
+                       mode="aspectFill" 
+                       src="{{item[3][0].image}}"
+                       class="image"></image>
+            <view      wx:if="{{item[5]!==0}}"
+                       class="dot1"></view>
+            <view      wx:else
+                       class="dot2"></view>           
+            <view      class="content">
+		            <view class="title">{{item[3][0].name}}</view>
+                    <view class="text">{{item[2].text}}</view>
+            </view>
+
+            <view class="date">
+                    <text >{{item[4]}}</text>
+            </view>
+          </view>
+      </navigator> 
+    </view>
+</view>

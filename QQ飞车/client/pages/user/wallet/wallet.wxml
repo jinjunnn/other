@@ -1,0 +1,49 @@
+<view class="head">
+	<navigator url="../../list/follower/follower?objectId={{author.objectId}}"
+	           class="author_title" >
+	        <view style="font-size:10pt;" 
+	              class="title_item">总余额(元)</view>
+	        <view style="font-size:10pt;" 
+	              class="title_item">{{coins}}</view>
+	</navigator>
+
+	<view class="author">
+	    <navigator url="../../list/follower/follower?objectId={{author.objectId}}"
+	               class="author_title" >
+	            <view style="font-size:10pt;" 
+	                  class="title_item">总收入(元)</view>
+	            <view style="font-size:10pt;" 
+	                  class="title_item">{{user.incomes}}</view>
+	    </navigator>
+	    <navigator url="../../list/followee/followee?objectId={{author.objectId}}"
+	               class="author_title" >
+	            <view style="font-size:10pt;" 
+	                  class="title_item">已提现(元)</view>
+	            <view style="font-size:10pt;" 
+	                  class="title_item">{{user.withdraw}}</view>
+	    </navigator>
+	    <navigator url="../../list/article/article?objectId={{author.objectId}}" 
+	              class="author_title">
+	            <view style="font-size:10pt;" 
+	                  class="title_item">总支出(元)</view>
+	            <view style="font-size:10pt;" 
+	                  class="title_item">{{user.expenses}}</view>
+	    </navigator>
+	</view>
+</view>
+<!-- 交易记录-->
+<view class="content3">交易记录</view> 
+
+<view class="wrap2"
+	    wx:for="{{records}}" 
+	    wx:key="recordsItem">
+    <view class="content1">
+    {{item.payFor}}</view>    
+    <view class="content2">
+    {{item.amount}}</view>
+</view>
+
+
+
+<button class="btn_submit_right"
+        bindtap="bindWithdrawals">提现</button>

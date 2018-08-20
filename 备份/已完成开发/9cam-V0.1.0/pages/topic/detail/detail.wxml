@@ -1,0 +1,24 @@
+<import src="../../../style/footer.wxml" />
+
+<view wx:for="{{diaryList}}" wx:key="diaryItem">
+<view class="videoContainer">
+<video class="videoShow" 
+       src="{{item.video}}"
+       poster="{{item.cover}}"
+       controls></video>
+</view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1"> {{item.title}}</view>
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="detail-article__h3">
+                       {{item.content}}
+                    </view>
+                     <view class="detail-article_date">{{item.createdAt}} 
+                      </view>  
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<!--pages/user/notice/notice.wxml-->
+<view class= "wrap"
+      wx:for="{{notices}}" 
+      wx:key="noticesItem">
+	  <view class = "title">{{item.From}}
+	  </view>
+	  <view class = "content">{{item.message}}
+	  </view>
+	  <view class = "date">{{item.createdAt}}
+	  </view>
+</view>

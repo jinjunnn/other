@@ -1,0 +1,9 @@
+<!--pages/user/setting/nickname/nickname.wxml-->
+<input placeholder="请输入用户名" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setNickName"
+       bindinput="updateDraft" 
+	   value="{{draft}}" 
+	   />

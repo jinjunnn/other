@@ -1,0 +1,69 @@
+
+<view wx:if = "{{images.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg" 
+	        src= "../../image/添加照片.png">上传照片 </image>
+</view>
+
+<view wx:else
+	  class= "place">
+				  <block wx:for="{{images}}">
+
+					    <image src="{{item}}" 
+					    	class="place_item" />
+<!-- 					    使用腾讯云存储
+					    <image src="{{item.url}}" 
+					    	class="place_item" /> -->
+
+
+				  </block>
+</view>
+
+<view class="container">
+
+
+	<view class="title">
+		 <image style="width: 30px; height: 30px; background-color: #ffffff;" 
+		 	    mode="" 
+		 	    src="/image/地点.png"></image>
+	  	<text bindtap="openMap"
+	  		  class="title_text">{{title}}</text>
+	</view>
+
+
+	<view class="content">
+	 <input  
+	            value="{{summary}}" 
+	            bindinput="updateSummary"
+	            bindblur="updateSummary"
+	 	        placeholder="添加标题"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content1">
+	 <textarea  
+	            value="{{why}}" 
+	            auto-height
+	            bindinput="updateWhy"
+	 	        placeholder="说说你的心得吧~"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content1">
+	 <textarea  
+	            value="{{what}}" 
+	            auto-height
+	            bindinput="updateWhat"
+	 	        placeholder="说说你推荐具体的内容吧~"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+
+</view>
+
+
+
+<button class="btn_submit"
+        bindtap="submitTap">确定</button>

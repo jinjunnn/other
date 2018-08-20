@@ -1,0 +1,42 @@
+<!--pages/index/detail/index.wxml-->
+<import src="../../../style/footer.wxml"  />
+<view >
+   <view class="videoContainor">
+   <video class="item" src="{{rows.video}}" poster="{{rows.cover}}"controls ></video>
+      </view>
+      <view class="videoContainer">
+        <view class="weui-article__h1"> {{rows.title}}</view>  
+        <view class="detail-article__h3">{{rows.content}}</view>
+        <view class="detail-article_date">{{rows.createdAt}}</view>  
+   </view>
+   </view>
+    <!--广告预留
+    1、在daily增加一个字段，定义每一个视频的类目
+    2、广告选择该类目的另外5个最近播放视频
+  <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+       <view style="display: inline-block">
+        <image style="margin: 35rpx;  width: 200rpx; height: 300rpx" src="{{rows.src2}}"></image></view>
+        <view style="display: inline-block">
+        <image style="margin: 35rpx;  width: 200rpx; height: 300rpx" src="{{rows.src2}}"></image></view>
+         <view style="display: inline-block">
+        <image style="margin: 35rpx;  width: 200rpx; height: 300rpx" src="{{rows.src2}}"></image></view>
+         <view style="display: inline-block">
+        <image style="margin: 35rpx;  width: 200rpx; height: 300rpx" src="{{rows.src2}}"></image></view>
+         <view style="display: inline-block">
+        <image style="margin: 35rpx;  width: 200rpx; height: 300rpx" src="{{rows.src2}}"></image></view>
+    </scroll-view>      
+-->
+ <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+      <view style="display: inline-block" wx:for="{{adList}}" wx:key="diaryItem">
+      <view style="margin: 35rpx;">
+          <navigator navigator url="/pages/ad/ad?objectId={{item.objectId}}">
+              <image style=" width: 360rpx; height: 270rpx" src="{{item.src}}">
+              </image>
+              <view class="detail-article__h3">{{item.title}}</view>
+        </navigator>
+        </view>
+      </view>
+</scroll-view>      
+
+
+

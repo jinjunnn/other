@@ -1,0 +1,10 @@
+<!--pages/ad/ad.wxml-->
+<import src="../../style/footer.wxml"  />
+
+<view class="imageContainer">
+      <image class="imageShow" src="{{rows.src}}"></image>
+</view>
+<view class="imageContainer">
+      <view class="weui-article__h1">{{rows.content}}</view>  
+</view>
+ 

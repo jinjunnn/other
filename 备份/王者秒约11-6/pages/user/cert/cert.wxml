@@ -1,0 +1,261 @@
+<!--pages/user/cert/cert.wxml-->
+<view class="wrap" 
+	  style="font-size: 11pt">
+      <view style="margin:10rpx 0rpx 20rpx 0rpx">如果您的封面不是您本人露脸照，请更换</view>
+	  <view url="./setting/setting" 
+	  	    class="navigator user"
+	  	    bindtap="bindChangeImage">
+	          <view class="userImage"
+	                style=" width:120rpx; height:120rpx;">
+		            <image wx:if="{{master[0].image}}"
+		            	   src="{{master[0].image}}" 
+		                   class="author_icon_item" 
+		                   style=" width:120rpx; height:120rpx;border-radius:10rpx"
+		                   mode="scaleToFill"></image>
+
+		            <image wx:elif="{{image}}"
+		            	   src="{{image}}" 
+		                   class="author_icon_item" 
+		                   style=" width:120rpx; height:120rpx;border-radius:10rpx"
+		                   mode="scaleToFill"></image>
+
+		            <image wx:else
+		            	   src="{{master[0].targetUser.image}}" 
+		                   class="author_icon_item" 
+		                   style=" width:120rpx; height:120rpx;border-radius:10rpx"
+		                   mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName"
+	          	    style="font-size: 11pt">{{master[0].targetUser.nickname}}</view>
+
+	          <view	class="icon1" >            
+		           <image src="../../../image/前进.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </view>
+</view>
+<view class="wrap"
+	  style="font-size: 11pt">
+        <view style="margin:10rpx 0rpx 20rpx 0rpx">请设置您的陪打信息</view>
+
+	    <navigator  class="navigator"
+	    	        url="./gamename/gamename?objectId={{master[0].objectId}}">
+		          <view class="userName"
+		          	    style="font-size: 11pt">游戏昵称</view>
+	              <view class="userName2"
+	              	    style="font-size:11pt;Width:360rpx;overflow:hidden;text-align:right;">{{master[0].gameName}}</view>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</navigator>
+
+		<view  class="navigator">
+		          <view class="userName"
+		          	    style="font-size: 11pt">段位</view>
+				  <picker wx:if="{{multiIndex}}"
+				  	      mode="multiSelector" 
+				  	      bindchange="bindMultiPickerChange" 
+				  	      bindcolumnchange="bindMultiPickerColumnChange" 
+				  	      value="{{multiIndex}}" 
+				  	      range="{{multiArray}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+						    </view>
+				  </picker>
+				  <picker wx:else
+				  	      mode="multiSelector" 
+				  	      bindchange="bindMultiPickerChange" 
+				  	      bindcolumnchange="bindMultiPickerColumnChange" 
+				  	      value="{{multiIndex}}" 
+				  	      range="{{multiArray}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{multiArray[0][master[0].targetUser.rank[0]]}}，{{multiArray[1][master[0].targetUser.rank[1]]}}，{{multiArray[2][master[0].targetUser.rank[2]]}}
+						    </view>
+				  </picker>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+	    <view  class="navigator">
+		          <view class="userName"
+		          	    style="font-size: 11pt">设置价格</view>
+
+				  <picker bindchange="bindPriceChange" 
+				  	      value="{{priceIndex}}" 
+				  	      range="{{priceArray}}" 
+				  	      class="userName2">
+
+						    <view wx:if="{{priceIndex}}"
+						    	  class="picker"
+						    	  style="font-size: 11pt">
+						      {{priceArray[priceIndex]}}元/局
+						    </view>
+
+						    <view wx:else
+						    	  class="picker"
+						    	  style="font-size: 11pt">
+						      {{priceArray[master[0].priceIndex]}}元/局
+						    </view>
+
+				  </picker>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+
+<!-- 陪打标签：暂时不开发
+	    <navigator  class="navigator"
+	    	        url="./tags/tags">
+		          <view class="userName">陪打标签</view>
+	              <view class="userName2">{{master[0].tags}}</view>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</navigator> -->
+	    <navigator  class="navigator"
+	    	        url="./covertitle/covertitle?objectId={{master[0].objectId}}">
+		          <view class="userName"
+		          	    style="font-size: 11pt">封面标题</view>
+	              <view class="userName2"
+	              	    style="font-size: 11pt;Width:360rpx;overflow:hidden;text-align:right;">{{master[0].title}}</view>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</navigator>
+
+	    <navigator  class="navigator"
+	    	        url="./nickname/nickname?objectId={{master[0].objectId}}">
+		          <view class="userName"
+		          	    style="font-size: 11pt">服务说明</view>
+	              <view class="userName2"
+	              	    style="font-size: 11pt;Width:360rpx;overflow:hidden;text-align:right;">{{master[0].serviceText}}</view>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</navigator>
+</view>
+
+<view class="wrap"
+	  style="font-size: 11pt">
+        <view style=" margin:10rpx 0rpx 20rpx 0rpx">设置个人信息</view>
+	    <view   class="navigator"
+	    	    bindtap="bindChangeUserImage">
+		          <view class="userName">上传个人照片</view>
+
+	              	    <view class="userName2"
+	              	          wx:if="{{master[0].userImage}}">已上传</view>	   
+
+	              	    <view class="userName2"
+	              	          wx:elif="{{userImage}}">已上传</view>
+
+		                <view class="userName2"
+		              	      wx:else>未上传</view>	
+
+		        <view class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		        </view>
+		</view>
+
+	    <view   class="navigator"
+	    	    bindtap="bindChangeCombatImage">
+		          <view class="userName">上传战绩截图</view>
+
+	              	    <view class="userName2"
+	              	          wx:if="{{master[0].combatImage}}">已上传</view>	   
+
+	              	    <view class="userName2"
+	              	          wx:elif="{{combatImage}}">已上传</view>
+
+		                <view class="userName2"
+		              	      wx:else>未上传</view>	
+
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+	    <view   class="navigator"
+	    	    bindtap="bindChangeVideo">
+		          <view class="userName">上传战绩视频</view>
+	              	    <view class="userName2"
+	              	          wx:if="{{master[0].video}}">已上传</view>	   
+
+	              	    <view class="userName2"
+	              	          wx:elif="{{video}}">已上传</view>
+
+		                <view class="userName2"
+		              	      wx:else>选填</view>	
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+	    <view   class="navigator"
+	    	    bindtap="bindChangeAudio">
+		          <view class="userName">上传个人音频</view>
+	              <view class="userName2">选填</view>
+		          <view	class="icon" >            
+			           <image src="../../../image/前进.png" 
+			                  style=" width:60rpx; height:60rpx"
+			                  mode="scaleToFill"></image>
+		          </view>
+		</view>
+
+</view>
+<view class="wrap"
+	  style="font-size: 11pt">
+        <view style=" margin:10rpx 0rpx 20rpx 0rpx">设置接单时间</view>
+
+		    <view  class="navigator">
+			          <view class="userName"
+			          	    style="font-size: 11pt">接单时间</view>
+					  <picker bindchange="bindOrderTimeChange" 
+					  	      value="{{orderTimeIndex}}" 
+					  	      range="{{orderTimeArray}}" 
+					  	      class="userName2">
+						    <view wx:if="{{orderTime}}"
+						    	  class="picker"
+						    	  style="font-size: 11pt">
+						      {{orderTimeArray[orderTime]}}
+						    </view>
+
+						    <view wx:else
+						    	  class="picker"
+						    	  style="font-size: 11pt">
+						      {{orderTimeArray[master[0].orderTime]}}
+						    </view>
+					  </picker>
+			          <view	class="icon" >            
+				           <image src="../../../image/前进.png" 
+				                  style=" width:60rpx; height:60rpx"
+				                  mode="scaleToFill"></image>
+			          </view>
+			</view>
+</view>
+<button class="btn_submit"
+        bindtap="submitTap">确定</button>

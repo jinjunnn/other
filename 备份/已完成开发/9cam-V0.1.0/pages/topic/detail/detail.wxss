@@ -1,0 +1,9 @@
+/* pages/topic/detail/detail.wxss */
+.videoShow{
+  
+  width:100%
+}
+.videoContainer{
+  width: auto;
+  margin: 20rpx;
+}

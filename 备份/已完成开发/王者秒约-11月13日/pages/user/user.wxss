@@ -1,0 +1,50 @@
+page {
+  background-color: #f2f2f2;
+}
+.navigator {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 0 12px;
+  height: 46px;
+  line-height: 46px;
+}
+
+.user {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 0 12px;
+  height: 80px;
+  line-height: 80px;
+}
+.userName{
+  flex: 15;
+
+}
+.userImage{
+  flex: 5;
+
+}
+.userImage1{
+  flex: 2;
+  position:relative;
+  top:15rpx;
+
+}
+.icon{
+  flex: 1;
+  position:relative;
+  left:5rpx;
+  top:16rpx;
+}
+.icon1{
+  flex: 1;
+  position:relative;
+  left:5rpx;
+  top:23rpx;
+}

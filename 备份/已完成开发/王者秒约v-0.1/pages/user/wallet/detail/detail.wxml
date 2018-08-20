@@ -1,0 +1,32 @@
+<!--pages/user/wallet/detail/detail.wxml-->
+<view class= "container">
+    <view class= "wrap">
+		<view class="left-part"
+			  style="font-size:11pt">支付宝账户</view>
+		<view class = "right-part">
+              <view style="font-size:11pt; color:FD6C82">18312538628</view>
+              <view style="font-size:11pt; color:#999999">提现手续费10%</view>
+
+		</view>
+	</view>
+	<view style="font-size:11pt; padding-left:50rpx ">提现金额</view>
+	<view class= "wrap">
+		<view class= "input-icon"
+			  style="font-size:20pt">￥</view>
+	    <input class="input-content"
+	    	   style="font-size:40pt"
+	    	   focus=true
+		       bindblur="bindAmount"
+		       bindconfirm="bindAmount"
+	    	   />
+	</view>
+    <view style="font-size:11pt; color:#999999; border-top: 1px solid #eee; padding:20rpx 0rpx 0rpx 30rpx">可提现余额￥{{user.coins}}元。</view>
+    <button type="primary" 
+	    size="default" 
+        bindtap="bindSubmit"
+        style="margin:30rpx"> 提现 </button>
+    <view style="font-size:9pt; color:#999999; text-align:center">每周周一24点前到账前一周的提现订单。</view>
+
+
+
+</view>

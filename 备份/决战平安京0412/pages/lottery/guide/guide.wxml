@@ -1,0 +1,18 @@
+<!--pages/lottery/guide/guide.wxml-->
+<view style="margin:20rpx">
+		<view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">1.进入[我的]-[通知中心]</view>
+		<image style="width:710rpx ; height:1000rpx" src="https://dn-WekN4hEa.qbox.me/f113b0446567aafb83a7.jpeg"></image>
+
+		<view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">2.截屏获奖信息</view>
+		<image style="width:710rpx; height:1000rpx" src="https://dn-WekN4hEa.qbox.me/5104b4f54c87530b8377.jpeg"></image>
+
+		<view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">3.进入[我的]-[设置]</view>
+		<image style="width:710rpx ; height:1000rpx" src="https://dn-WekN4hEa.qbox.me/43dd164e0f7c40da4b4c.jpeg"></image>
+
+		<view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">4.开放微信头像，微信昵称信息</view>
+		<image style="width:710rpx ; height:1000rpx" src="https://dn-WekN4hEa.qbox.me/eb9c6d1ded53c6bba7e1.jpeg"></image>
+
+		<view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">5.返回微信，加客服微信：100099118，根据截屏信息索要皮肤。</view>
+		<image style="width:710rpx ; height:1000rpx" src="https://dn-WekN4hEa.qbox.me/e49492556fdeefedf758.jpeg"></image>
+        <view style="font-size:13pt; color:red; margin:20rpx 0rpx 20rpx 0rpx">6.如有任何问题，请点击[我的]-[联系客服]，与客服取得联系。</view>
+</view>

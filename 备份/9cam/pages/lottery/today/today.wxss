@@ -1,0 +1,80 @@
+@import "../../user/comment/comment.wxss";
+page {
+  background-color: #ffffff;
+}
+.title{
+  background-color:#333333;
+  position:relative;
+  top:-155rpx;
+  height:100rpx;
+  opacity:0.8;
+  color:#ffffff;
+  font-size:36rpx;
+  line-height: 100rpx;   
+  padding:0rpx 0rpx 0rpx 20rpx;
+}
+.btn_submit{
+  flex: 2;
+  background-color: #FFFFFF;
+  border: none;
+  color: #1AA59a;
+  position: fixed;
+  bottom: 0;
+  height:7%;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.btn_submit_right{
+  flex: 2;
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left:225rpx;
+  height:7%;
+  width: 70%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.button_wrap{
+	display: -webkit-flex;
+}
+.title2{
+  margin: 60rpx 0rpx 20rpx 40rpx ;
+  font-size:14pt;
+  font-weight:bold;
+}
+.authors{
+  display:-webkit-flex;
+  flex-wrap:wrap;
+  margin:5rpx;
+}
+.title_item1{
+  position:relative;
+}
+.title_text{
+  width:130rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  text-align:center;
+  font-size:10pt;
+}
+.lottery_time{
+  display:-webkit-flex;
+  font-size:11pt;
+  display:flex;
+  justify-content:space-between;
+}
+.lottery_user_swiper{
+  margin:5rpx 40rpx 5rpx 40rpx;
+  display:-webkit-flex;
+  font-size:11pt;
+  display:flex;
+  justify-content:space-between;
+}

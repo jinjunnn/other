@@ -1,0 +1,17 @@
+<!--pages/user/service/service.wxml-->
+<view class="wrap">
+    <view class="content">您好，请问有什么可以帮助您的？以下常见问题解答：</view>
+    <view class="content">（1）申请成为大神，可以在[我的]-[大神认证]进行申请，1-3个工作日完成审核。</view>
+    <view class="content">（2）申请成为大神注意:小程序封面头像、生活照应当为本人真实照片，否则不予通过。</view>
+    <view class="content">（3）余额满100元可以提现，每周一18：00前提现将在周一晚上统一处理，最迟周二到账；每周一18：00后申请顺延至下一周周一进行处理。</view>
+    <view class="content">（3）业务合作，请添加微信JINJUNNN进行咨询，添加请备注公司/职务信息</view>
+
+
+</view>
+
+
+
+
+
+<button open-type="contact"
+	    class="btn_submit">进入客服会话</button>

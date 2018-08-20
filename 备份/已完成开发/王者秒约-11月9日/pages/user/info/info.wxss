@@ -1,0 +1,29 @@
+
+/* pages/user/info/info.wxss */
+.wrap{
+	margin:30rpx;
+}
+.container{
+	margin: 30rpx 0rpx 30rpx 0rpx;
+}
+.title{
+	font-size: 12pt;
+}
+.content{
+	font-size: 11pt;
+	color: #666666;
+}
+.btn_submit{
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+/*  position: fixed;
+  bottom: 0;*/
+  height:7%;
+  width: 90%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+  margin: 5%;
+}

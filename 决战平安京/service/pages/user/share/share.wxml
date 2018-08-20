@@ -1,0 +1,17 @@
+<!--pages/user/add/add.wxml-->
+    <view class="title">
+    领取积分，兑换史诗级永久皮肤</view>
+
+
+<view class="container">
+
+    <view class="content">
+    成功邀请1名好友成为认证大神可以赠送500积分，攒积分直接兑换史诗级皮肤或者抽奖抽皮肤。</view>
+<!--     <view class="content">
+    一旦好友在三个月内通过指南在线下消费并通过小程序付款，您即可获得200元的基金</view> -->
+		<button 
+        open-type="share"
+        class="btn"> 邀请好友 +</button>
+
+
+</view>

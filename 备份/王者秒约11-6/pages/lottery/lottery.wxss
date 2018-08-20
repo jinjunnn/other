@@ -1,0 +1,38 @@
+
+.plate{
+  background-color: #ffffff;
+  margin: 20rpx 0rpx 50rpx 0rpx;
+}
+.wrap{
+  margin:20rpx 20rpx 20rpx 20rpx;
+
+}
+.img{
+  height: 400rpx;
+  width: 710rpx;
+}
+.text_wrap{
+
+}
+.text_title{
+  font-size:11pt;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  
+}
+.text_content{
+  font-size:13pt;
+}
+.text_coins{
+  margin: 0rpx 0rpx 50rpx 0rpx;
+  font-size:11pt;
+  color:#999999;
+}
+.wrap_text{
+  display: -webkit-flex;
+  justify-content: space-between;
+}
+.text_name{
+
+  font-size:13pt;
+  color:#FD6C82;
+}

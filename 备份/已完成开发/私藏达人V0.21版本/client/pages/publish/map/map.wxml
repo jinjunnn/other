@@ -1,0 +1,24 @@
+<!--pages/publish/map/map.wxml-->
+<view class="searchBar">
+	<input 
+		  	placeholder="输入地点" 
+		  	placeholder-style="padding-left:20rpx"
+		  	bindinput="updateTitle"
+		  	bindconfirm="updateTitle"
+		  	value="{{title}}" 
+		  	confirm-type="search"
+	      style="height:80rpx"
+		  	placeholder-style="color:#888888;" 
+		        />
+</view>
+
+<view wx:for="{{addresses}}" wx:key="addersses">
+  <navigator class="navigator" 
+             url="/pages/publish/publish?title={{item.title}}&city={{item.city}}&district={{item.district}}&address={{item.address}}&lat={{item.location.lat}}&lng={{item.location.lng}}">
+        <view   style="font-size:13pt;"
+              class="text"><text>{{item.title}}</text></view>
+  </navigator> 
+
+
+
+</view>

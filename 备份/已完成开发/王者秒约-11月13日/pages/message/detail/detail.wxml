@@ -1,0 +1,50 @@
+<view class="page-wrap">
+    <scroll-view class="chat-container"
+                 scroll-y 
+                 scroll-top="{{scrollTop}}">
+
+        <view wx:for="{{messages}}" 
+              wx:key="messagesItem">
+
+                  <view wx:if="{{item.from==user.objectId}}"
+                        class="item_wrap-right">
+                            <view class="content-right">
+
+                              <view class="text-right">{{item.text}}</view>
+
+                            </view>  
+                            <image class="avatar-right" 
+                                   src="{{user.userImage}}" 
+                                   mode="aspectFill"></image>                           
+                  </view>
+
+                  <view wx:else
+                        class="item_wrap-lift">
+                            <image class="avatar-left" 
+                                   src="{{options.image}}" 
+                                   mode="aspectFill"></image>
+
+                            <view class="content-left">
+                              <view class="text-left">{{item.text}}</view>
+                            </view>
+                  </view>
+        </view>
+    </scroll-view>
+
+    <view class="input-panel">
+        <input 
+               value="{{content}}" 
+               confirm-type="send"
+               bindinput="updateContent"
+               bindblur="updateContent"
+               bindConfirm="bindSendMessage"
+               class="send-input"></input>
+        <view bindtap="bindSendMessage" class="send-btn">发送</view>
+    </view>
+</view>
+
+
+
+
+
+

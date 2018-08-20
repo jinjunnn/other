@@ -1,0 +1,18 @@
+
+
+	    <view class="wrap">
+		    <view wx:for="{{goodslist}}" 
+		    	  wx:key="goodsItem">    
+			    <navigator url="../../pages/lottery/detail/detail?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}">
+							    <image class="img"
+					                   src="{{item.image.url}}"></image>
+							    <view class="text_wrap">
+							      <view>
+							      	<text class="text_name">{{item.content}}</text>
+							      	<text class="text_content">{{item.title}}·{{item.summary}}皮肤 </text> 
+							            </view>
+							      <view class="text_coins"><text >抽奖{{item.timesLottery}}次，其中有{{item.timesGet}}次中奖。</text></view>
+							    </view>
+			    </navigator>
+			</view>
+	    </view>

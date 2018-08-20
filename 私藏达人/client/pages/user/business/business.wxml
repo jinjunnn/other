@@ -1,0 +1,27 @@
+    <view class="title">
+    终于等到您，我们一直在等待！</view>
+
+<view class="container">
+    <view class="content">联系电话：18312538628</view>
+    <view class="content">邮箱：ttcmedia@163.com</view>
+	 <textarea
+        value="{{value}}" 
+        bindinput="updateValue"
+        placeholder="请填写您的合作计划"
+        placeholder-style="color:#888888;"  
+	            />
+	 <input
+	 	class="phoneNumber"
+        phoneNumber="{{phoneNumber}}" 
+        bindinput="updateMobilePhoneNumber"
+        placeholder="联系电话："
+        placeholder-style="color:#888888;"  
+	            />
+
+
+
+
+
+    <button bindtap="bindSubmit">确定</button>
+
+</view>

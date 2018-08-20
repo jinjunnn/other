@@ -1,0 +1,118 @@
+<image src="{{image}}" style="width:750rpx; height:600rpx;"></image>
+
+
+<view class="wrap">
+	<view class="game_wrap">
+		<image class="gameimage" src="/image/王者icon.png"></image>
+		<picker class="name"
+			    bindchange="bindGameNameChange" 
+				value="{{gameIndex}}" 
+				range="{{games}}">{{games[gameIndex]}}</picker>
+		<image class="iconless" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+	</view>
+
+	<view class="btn_wrap">
+		<button wx:if="{{mode==1}}" class="btn">代练</button>
+		<button wx:else class="btn1" bindtap="transforMode1">代练</button>
+		<button wx:if="{{mode==2}}" class="btn">陪练</button>
+		<button wx:else class="btn1" bindtap="transforMode2">陪练</button>
+	</view>
+</view>
+
+<view class="choosewrap">
+	<view class="first_item">
+		<picker class="name_game1"
+			    bindchange="bindZoneChange" 
+				value="{{zoneIndex}}" 
+				range="{{zones}}">{{zones[zoneIndex]}}</picker>
+
+		<image class="iconless2" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+	</view>
+
+    <view style="display:-webkit-flex;" wx:if="{{mode==1}}"> 
+		<view class="first_item3">
+			<picker mode="multiSelector"
+			  	    bindchange="bindBeginChange"
+			  	    bindcolumnchange="bindMultiPickerBeginChange" 
+			  	    value="{{beginIndex}}" 
+			  	    range="{{beginRank}}"
+			  	    class="name_game2">
+					    <view class="picker" wx:if="{{beginIndex[0]==0&&beginIndex[1]==0}}">
+					      当前段位
+					    </view>
+					    <view class="picker" wx:else>
+					      {{beginRank[0][beginIndex[0]]}}-{{beginRank[1][beginIndex[1]]}}
+					    </view>
+			</picker>
+			<image class="iconless2" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+		</view>
+		<view class="first_item2">
+			<picker mode="multiSelector"
+			  	    bindchange="bindEndChange"
+			  	    bindcolumnchange="bindMultiPickerEndChange" 
+			  	    value="{{endIndex}}" 
+			  	    range="{{endRank}}"
+			  	    class="name_game2">
+					    <view class="picker" wx:if="{{endIndex[0]==0&&endIndex[1]==0}}">
+					      目标段位
+					    </view>
+					    <view class="picker" wx:else>
+					      {{endRank[0][endIndex[0]]}}-{{endRank[1][endIndex[1]]}}
+					    </view>
+			</picker>
+			<image class="iconless2" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+		</view>
+	</view>
+
+    <view style="display:-webkit-flex;" wx:elif="{{mode==2}}"> 
+		<view class="first_item3">
+			<picker bindchange="bindBeginPriceChange"
+			  	    value="{{peilianindex}}" 
+			  	    range="{{peilianrank}}"
+			  	    class="name_game2">
+					    <view class="picker">
+					      {{peilianrank[peilianindex]}}
+					    </view>
+			</picker>
+			<image class="iconless2" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+		</view>
+		<view class="first_item2">
+			<picker bindchange="bindTimesChange"
+			  	    value="{{timeIndex}}" 
+			  	    range="{{times}}"
+			  	    class="name_game2">
+					    <view class="picker">
+					      {{times[timeIndex]}}局
+					    </view>
+			</picker>
+			<image class="iconless2" src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png"></image>
+		</view>
+	</view>
+
+    <view wx:if="{{mode==1}}">
+		<view style="text-align: center;font-size:24rpx; padding:30rpx"
+			  wx:if="{{p2-p1>0}}">合计金额：<text style="font-size: 36rpx">{{p2-p1}}元</text></view>
+
+		<view style="text-align: center;font-size:24rpx; padding:30rpx"
+			  wx:else>合计金额：<text style="font-size: 36rpx">0元</text></view>
+    </view>
+
+    <view wx:if="{{mode==2}}">
+		<view style="text-align: center;font-size:24rpx; padding:30rpx">
+			合计金额：<text style="font-size: 36rpx">{{pricePeilian[peilianindex] * timeIndex + pricePeilian[peilianindex] *3}}元</text></view>
+    </view>
+
+</view>
+
+<button class="submit" 
+	    wx:if="{{mode==1}}" 
+	    open-type="getUserInfo" 
+	    bindgetuserinfo="bindgetuserinfo"
+	    bindtap="bindDLOrder">立即上分</button>
+<button class="submit" 
+	    wx:if="{{mode==2}}" 
+	    open-type="getUserInfo" 
+	    bindtap="bindPLOrder"
+	    bindgetuserinfo="bindgetuserinfo">立即上分</button>
+
+

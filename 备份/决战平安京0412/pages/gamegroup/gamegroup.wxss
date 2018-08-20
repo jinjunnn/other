@@ -1,0 +1,33 @@
+/* pages/gamegroup/gamegroup.wxss */
+.flex-wrap{
+  display: -webkit-flex;
+  justify-content:space-between;
+      align-items:center;
+}
+.flex-wrap{
+  display: -webkit-flex;
+  justify-content:space-between;
+      align-items:center;
+}
+.flex-image{
+  flex:5;
+  align-items:center;
+}
+.flex-button1{
+  flex:1;
+    margin:0rpx 40rpx 0rpx 40rpx;
+    inline-height:50rpx;
+    font-size:30rpx;
+    background-color:#FD6C82;
+    color:#ffffff;
+    vertical-align:middle;
+}
+.flex-button2{
+  flex:1;
+    margin:0rpx 40rpx 0rpx 40rpx;
+    inline-height:50rpx;
+    font-size:30rpx;
+    background-color:#999999;
+    color:#ffffff;
+    vertical-align:middle;
+}

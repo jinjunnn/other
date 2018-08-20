@@ -1,0 +1,50 @@
+<!--pages/user/profile/profile.wxml-->
+
+<view class="container">
+        <view class="box">
+          <view class="item_author_title">
+            <view style="font-size:20pt;" class="title_item">{{user.username}}</view>
+            <view style="font-size:13pt; margin-top:15rpx " class="title_item"><span id="changestyle">{{user.city}}</span></view>
+          </view>
+          <view class="item_author_icon"
+                style=" width:120rpx; height:120rpx;">
+            <image src="{{user.userImage}}" 
+                  class="author_icon_item"
+                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+                  mode="scaleToFill"></image>
+          </view>
+        </view>
+</view>
+
+<textarea 
+      bindinput="updateUserSummary"
+      bindblur="updateSummary"
+      value="{{user.userSummary}}" 
+      maxlength="60"
+      class="text_summary"
+          />
+
+
+<view class="form-wrap">  
+  <view      class="profile_navigator">
+      <view  class="profile_navigator_text">达人奖金</view>
+      <view  class="profile_text">请先获得达人资格</view>
+  </view>
+
+  <view      class="profile_navigator">
+      <view  class="profile_navigator_text">手机号码</view>
+      <input  class="profile_text"
+              bindblur="updateMobilePhoneNumber"
+              bindinput="upMobilePhoneNumber"
+              value="{{user.mobilePhoneNumber}}" 
+              ></input>
+
+  </view>
+
+  <view      class="profile_navigator">
+      <view  class="profile_navigator_text">注册时间</view>
+      <view  class="profile_text">{{user.createdAt}}</view>
+
+  </view>
+
+</view>

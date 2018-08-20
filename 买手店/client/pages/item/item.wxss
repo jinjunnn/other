@@ -1,0 +1,62 @@
+.btn_submit{
+  flex: 2;
+  background-color: #FFFFFF;
+  border: none;
+  color: #1AA59a;
+  position: fixed;
+  bottom: 0;
+  height:7%;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.btn_submit_right{
+  flex: 2;
+  background-color: #FD6C82;
+  border: none;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left:225rpx;
+  height:7%;
+  width: 70%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}
+.button_wrap{
+	display: -webkit-flex;
+}
+
+
+/*
+
+自定义底部弹出框           
+
+*/
+.commodity_screen {
+  width: 100%;
+  height: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 1;
+  color: #888888;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: #999999;
+  padding-top: 20rpx;
+}

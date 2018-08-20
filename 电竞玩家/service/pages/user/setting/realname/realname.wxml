@@ -1,0 +1,8 @@
+<!--pages/user/setting/nickname/nickname.wxml-->
+<input placeholder="{{info.title}}" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setNickName"
+	   bindblur="setNickName"
+	   />

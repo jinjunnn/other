@@ -1,0 +1,42 @@
+.navigator {
+  display: flex;
+  background: white;
+  border-bottom: 1px solid #eee;
+  margin:20rpx;
+  line-height: 25px;
+  height : 145rpx;
+}
+.text{
+  flex:17.7;
+  font-size:11pt;
+}
+.image{
+  flex: 4.34;
+  position:relative;
+}
+.add{
+  flex: 1.5;
+  position:relative;
+  margin-top:45rpx;
+  height: 45rpx;
+  width: 30rpx;
+}
+.text_item{
+	margin:0rpx 20rpx 0rpx 20rpx;
+}
+.text_item2{
+  margin:0rpx 20rpx 0rpx 20rpx;
+  width:260px;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+#changestyle{
+  font-weight:bold;
+}
+#changecolor{
+  color: #1AA59a;
+}
+#changecolor2{
+  color: #AAA;
+}

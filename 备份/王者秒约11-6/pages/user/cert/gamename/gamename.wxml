@@ -1,0 +1,7 @@
+<input placeholder="请输入您的游戏名称" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setServiceText"
+	   bindblur="setServiceText"
+	   />

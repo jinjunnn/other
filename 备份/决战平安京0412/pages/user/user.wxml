@@ -1,0 +1,203 @@
+<view class="form-wrap">
+  <navigator url="./setting/setting" class="navigator user">
+          <view class="userImage"
+                style=" width:120rpx; height:120rpx;">
+	            <image wx:if="{{user.image}}"
+	            	  src="{{user.image}}" 
+	                  style=" width:120rpx; height:120rpx;border-radius:50%"
+	                  mode="scaleToFill"></image>
+
+	            <image wx:elif="{{user.userImage}}" 
+	            	  src="{{user.userImage}}" 
+	                  style=" width:120rpx; height:120rpx;border-radius:50%"
+	                  mode="scaleToFill"></image>
+
+	            <image wx:else
+	            	  src="https://dn-WekN4hEa.qbox.me/795e6e940819af75bb6b.png" 
+	                  style=" width:120rpx; height:120rpx;border-radius:50%"
+	                  mode="scaleToFill"></image>
+          </view>
+          <view class="userName"
+          	    wx:if="{{user.nickname}}"
+          	    style="width:200rpx;overflow:hidden;text-overflow:ellipsis;">{{user.nickname}}</view>
+          <view class="userName"
+          	    wx:elif="{{user.gender}}"
+          	    style="width:200rpx;overflow:hidden;text-overflow:ellipsis;">{{user.username}}</view>
+          <view wx:else
+          	    class="userName"
+          	    style="width:200rpx;overflow:hidden;text-overflow:ellipsis;">未命名</view>
+          <view	class="icon1" >            
+	           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+	                  style=" width:60rpx; height:60rpx"
+	                  mode="scaleToFill"></image>
+          </view>
+  </navigator>
+</view>
+
+<view class="form-wrap">
+	  <navigator url="./cert/cert" class="navigator">
+
+	          <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/d206f3fc36f81eb6aa95.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+
+	          <view class="userName">大神认证</view>
+
+              <view style="color:#E72012;font-size:12pt; color:red">认证送20元现金</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+</view>
+
+<view class="form-wrap">
+	  <navigator url="./wallet/wallet" class="navigator">
+	          <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/2e0487b8dab9526e325b.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">我的钱包</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+	  <navigator url="./order/order" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/21342fc7230c72e8f662.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">我的订单</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+
+	  <navigator url="./notice/notice" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/533c3c7fa3189d2ad32e.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">通知中心</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+
+	  <navigator url="./comment/comment" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/df91f9c595dffdb55632.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">我的评价</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+	  <navigator url="./intergral/intergral" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/7ea0576d04727f71ea63.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">积分中心</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+</view>
+
+<view class="form-wrap">
+	  <view  class="navigator"
+	  	     bindtap="setting">      
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/37104f6011a9c66546cf.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">设置</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </view>
+
+	  <navigator url="./service/service" class="navigator">      
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/9d09ffec8696c9a9d377.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">联系客服</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+	  <navigator url="./share/share" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/d33b17146d2ab6a296a1.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">邀请好友</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+	  <navigator url="./info/info" class="navigator">
+	  	      <view class="userImage1">
+		            <image src="https://dn-WekN4hEa.qbox.me/028a8d2a507844df91cd.png" 
+		                  class="author_icon_item" 
+		                  style=" width:50rpx; height:50rpx;"
+		                  mode="scaleToFill"></image>
+	          </view>
+	          <view class="userName">常见问题</view>
+
+	          <view	class="icon" >            
+		           <image src="https://dn-WekN4hEa.qbox.me/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	  </navigator>
+
+</view>

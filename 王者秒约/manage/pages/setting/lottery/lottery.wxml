@@ -1,0 +1,3 @@
+
+<button class="btn_submit_right"
+		        bindtap="bindConfirm">开奖</button>

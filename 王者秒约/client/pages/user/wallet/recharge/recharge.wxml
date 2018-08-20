@@ -1,0 +1,21 @@
+<!--pages/user/wallet/recharge/recharge.wxml-->
+<view style="margin:20rpx">
+	<view style="margin-bottom:20rpx; font-size:30rpx">账户余额：0.00元</view>
+
+	<view >
+		<view style="margin-bottom:20rpx; font-size:30rpx">充值金额</view>
+		<view style="margin-bottom:20rpx; font-size:24rpx" bindtap="bindDisplayNotice">充值说明</view>
+	</view>
+
+	<view>
+		<view style="width:200rpx; background-color: #333333; height: 100rpx; ">6元</view>
+		<view style="">18元</view>
+		<view style="">30元</view>
+		<view style="">68元</view>
+		<view style="">128元</view>
+		<view style="">648元</view>
+	</view>
+
+
+
+</view>

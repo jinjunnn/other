@@ -1,0 +1,45 @@
+<!-- noscroll是用来控制浮层底层根目录不滚动 -->
+
+<!-- <view  class="noscroll"> -->
+	<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+	  <view style="height:700rpx">
+	      <view style="font-size:18pt;  margin-bottom:20rpx;">拼团奖品</view>
+	      <image src="{{product.image.url}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill">
+	      </image>
+          <view style="display:-webkit-flex;display:flex;justify-content:space-between; height:100rpx" >
+		      <view  style="font-size:18pt; color:#f8416a;padding-top:20rpx">{{product.price/12.5}}元开团 </view>
+		  </view>
+
+
+	      <view  style="font-size:12pt;"> 
+	             <text>{{product.title}}·{{product.content}}  价值{{product.price}}点券</text>
+	      </view>
+	  </view>
+	</view>
+
+	<view style="height:30rpx; background-color:#eeeeee; "></view>
+	<view style="margin:40rpx 40rpx 0rpx 40rpx">
+	  <view class="title_item1"> 
+	         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明</view>
+	         <view style="font-size:11pt;text-align:justify;text-justify:kashida;line-height:130%">
+	          <view>1:拼团时效为24小时，24小时拼团未成功，系统将自动退还您的支付金额到您小程序个人账户。</view>
+	          <view>2:拼团成功时间在21：00前，当日发货，拼团成功时间在21：00后次日发货。</view> 
+	        </view>         
+	  </view>
+	</view>
+	  <view>
+
+	    <view style="height:120rpx"></view>
+	    <view>
+	        <view style="height:120rpx"></view>
+	        <view class="button_wrap">
+	        	<form bindsubmit="bindBuy" report-submit="true">
+	                <button class="btn_submit" formType="submit">单独购买</button>
+	            </form>
+	                <form bindsubmit="bindFullBuy" report-submit="true">
+	            <button class="btn_submit_right" formType="submit">{{product.price/12.5}}元开团</button>
+	            </form>
+	        </view>
+	    </view>
+	  </view>

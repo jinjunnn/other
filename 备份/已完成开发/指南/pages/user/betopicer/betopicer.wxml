@@ -1,0 +1,17 @@
+    <view class="title">
+    一起来为当达人做好准备吧。</view>
+
+<view class="container">
+
+    <view class="content">
+    您好，为了保障内容的质量，目前我们仅向一部分优质的达人开放TOPIC类目。不管您是吃货、时尚人士、旅行专家或网络红人等，均可申请我们的达人认证。认证后，您可以开通话题权限，您的话题下的内容也可以优先的展现。请在下述的输入框做简单的自我介绍。内容可以包括但不限于您喜欢的领域，您目前在微信、微博、自媒体或直播平台的粉丝等。</view>
+     <textarea style="height:400rpx;"
+        value="{{value}}" 
+        bindinput="updateValue"
+        placeholder="请做简单的自我介绍"
+        placeholder-style="color:#888888;"  
+                />
+
+
+</view>
+    <button bindtap="bindSubmit">确定</button>

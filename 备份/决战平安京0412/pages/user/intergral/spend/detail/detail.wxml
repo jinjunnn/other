@@ -1,0 +1,28 @@
+<image 
+    src="{{options.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title">
+<view  class="title_item;" 
+       style="font-size:18pt;  margin-bottom: 8rpx;">
+       <span id="changestyle">{{options.title}}</span></view>
+
+<view  style="font-size:11pt; color:red" 
+       class="title_item">{{options.price}}积分</view>
+
+<view  style="font-size:11pt;" 
+       class="title_item"> {{options.content}}</view>
+</view>
+
+
+<view class="button_wrap">
+
+		<button class="btn_submit"
+		        bindtap="123">立即购买</button>
+
+		<button class="btn_submit_right"
+		        bindtap="bindExchange">积分兑换</button>
+</view>

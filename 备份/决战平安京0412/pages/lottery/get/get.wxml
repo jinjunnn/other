@@ -1,0 +1,34 @@
+<view class="title2">中奖名单</view>
+
+<view wx:for="{{comment}}" wx:key="commentItem">
+  <view class="container">
+      <view class="author">
+        <view class="author_icon">
+              <image wx:if="{{item.targetUser.userImage}}"
+                  src="{{item.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+              <image wx:else
+                  src="{{item.targetUser.image}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+        </view>
+
+        <view class="author_title">
+          <view class="title_item"
+                id="changecolor">{{item.targetUser.username}}
+          </view>
+
+<!--         <view style="font-size:10pt; color:#666">
+          {{item.updatedAt}}
+        </view> -->
+        </view>
+      </view>
+  </view>
+</view>
+<view style="height=80rpx">
+  
+
+</view>

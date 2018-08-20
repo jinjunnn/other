@@ -1,0 +1,24 @@
+<!--pages/wish/wish.wxml-->
+<view class="text_title">心愿单</view>
+<view class="text_subtitle">收藏我的喜欢灵感和兴趣。</view>
+<!-- <view class="btn"> -->
+		<button 
+        open-type="share"
+        class="btn"> 邀请好友 + </button>
+<!-- </view> -->
+<view class="wraps">
+<view class="list">
+        <view wx:for="{{articles}}" wx:key="item">
+            <navigator class="navigator" 
+                       url="../../pages/article/article?articleObjectId={{item.targetArticle.objectId}}">
+                <view class="wrap">
+                    <image style="width: 208rpx; height: 208rpx; background-color: #eeeeee;" 
+                            mode="aspectFill" 
+                            src="{{item.targetArticle.images[0]}}"></image>
+                    <text class="text_mini_title">{{item.targetArticle.title}}  </text>
+                    <text class="text_mini_author">作者:{{item.targetArticle.targetUser.username}}</text>
+                </view>
+             </navigator> 
+        </view>
+</view>
+</view>

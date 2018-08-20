@@ -1,0 +1,21 @@
+.detail-article__h3 {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 60rpx;
+}
+
+.detail-article_date {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 80rpx;
+}
+.videoContainer{
+  margin: 20rpx;
+  width: auto;
+}
+.item{
+  width:100%;
+}
+.scrollm{
+
+}

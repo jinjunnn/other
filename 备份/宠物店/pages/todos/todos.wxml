@@ -1,0 +1,91 @@
+<view class="container">
+    <view class="box">
+          <view class="item_author_title">
+            <view style="font-size:20pt;" class="title_item">First Pet</view>
+            <view style="font-size:13pt; margin-top:15rpx " class="title_item"><span id="changestyle">宠物店</span></view>
+          </view>
+          <view class="item_author_icon"
+                style=" width:120rpx; height:120rpx;">
+            <image src="{{image}}" 
+                  class="author_icon_item" 
+                  style=" width:120rpx; height:120rpx;border-radius:50%"
+                  mode="scaleToFill"></image>
+          </view>
+    </view>
+
+    <view>
+          <view style="padding:30rpx 0rpx 15rpx 0rpx; font-size:12pt">预约服务</view>
+          <view class="booking-wrap">
+            <view class="booking-item"><text style="color:#ffffff; padding:30rpx">洗澡</text></view>
+            <view class="booking-item"><text style="color:#ffffff; padding:30rpx">美容</text></view>
+            <view class="booking-item"><text style="color:#ffffff; padding:30rpx">SPA</text></view>
+          </view>
+    </view>
+</view>
+
+<view style="margin: 0rpx 20rpx 30rpx 50rpx">
+    <view>
+          <view style="padding:0rpx 0rpx 10rpx 0rpx;font-size:12pt">服务介绍</view>
+
+          <scroll-view scroll-x="true" 
+                       style=" white-space:nowrap" >
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           wx:for="{{imgUrls}}" 
+                           wx:key="diaryItem" url="/pages/ad/ad?objectId={{item.objectId}}">
+                    <image style=" width: 320rpx; height: 220rpx" src="{{item.img}}">
+                    </image>
+                    <view style="font-size:11pt">{{item.text}}</view>
+                </navigator>
+          </scroll-view>  
+
+    </view>
+</view>
+
+<view style="margin: 40rpx 50rpx 30rpx 50rpx;border-top: 1px dashed #eee">
+    <view class="text-wrap">
+      <image class="text-icon" src="../../image/地址.png"></image>
+      <view class="text-content">深圳市福田区益田路700号</view>
+      <image class="text-right-icon" src="../../image/大于号.png"></image>
+    </view>
+
+    <view class="text-wrap">
+      <image class="text-icon" src="../../image/时间.png"></image>
+      <view class="text-content">10：00-21：00</view>
+      <image class="text-right-icon" src="../../image/大于号.png"></image>
+    </view>
+
+    <view class="text-wrap">
+      <image class="text-icon" src="../../image/电话.png"></image>
+      <view class="text-content">18327364343</view>
+      <image class="text-right-icon" src="../../image/大于号.png"></image>
+    </view>
+
+    <view class="text-wrap">
+      <image class="text-icon" src="../../image/图片.png"></image>
+      <view class="text-content">门店图片</view>
+      <image class="text-right-icon" ></image>
+    </view>
+
+    <view class="image-wrap">
+      <image class="shop-image" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <image class="shop-image" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <image class="shop-image" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <image class="shop-image" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <image class="shop-image" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+
+
+    </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+

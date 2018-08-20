@@ -1,0 +1,131 @@
+<image 
+    src="{{term.image.url}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="container">
+		<view class="title">
+				<view  class="title_item;" 
+				       style="font-size:18pt;  margin-bottom: 8rpx;">
+				       <span id="changestyle">{{term.title}}</span></view>
+				<view  style="font-size:11pt;" 
+				       class="title_item">{{term.subtitle}}</view>
+		</view>
+        <view class="author">
+				<view class="author_title">
+						    <view style="font-size:10pt;" 
+						        class="title_item"
+						        id="changecolor">{{term.tags}}</view>
+						    <view     class="text_title_wrap"
+						    	      wx:if="{{term.targetUser.attributes.nickname}}">
+						        <span class="text_mini_title" >队长:</span>
+						        <span class="text_mini_title" >{{term.targetUser.nickname}}</span>
+						    </view>
+						    <view     wx:else
+						    	      class="text_title_wrap">
+						        <span class="text_mini_title" >队长:</span>
+						        <span class="text_mini_title" >{{term.targetUser.username}}</span>
+						    </view>
+				</view>
+
+				<view class="author_icon">
+				        <image wx:if="{{term.targetUser.image}}"
+					          src="{{term.targetUser.image}}" 
+					          class="author_icon_item" 
+					          style="border-radius: 50%; width:120rpx; height:120rpx;">
+				        </image>
+				        <image wx:else
+					          src="{{term.targetUser.userImage}}" 
+					          class="author_icon_item" 
+					          style="border-radius: 50%; width:120rpx; height:120rpx;">
+				        </image>
+				</view>
+        </view>
+
+		<view class="about">
+				<view style="font-size:9pt;" 
+				      class="about_author"
+				      wx:if="{{term.targetUser.nickname}}">
+				    <text class="about_author_style">{{term.targetUser.nickname}}</text>
+				</view>
+				<view style="font-size:9pt;" 
+				      class="about_author"
+				      wx:else>
+				    <text class="about_author_style">关于{{term.targetUser.username}}</text>
+				</view>
+				<view style="font-size:10pt;" 
+				      class="about_content">{{term.aboutTerm}}</view>
+				<view style="font-size:14pt;" 
+                      class="about_listtitle">成员</view>
+		</view>
+
+		<view wx:for="{{teamer}}" 
+		      wx:key="item">
+		            <view class="rows">
+		              <view class="rows_icon"
+		              	    wx:if="{{item.targetUser.image}}">
+		                <image src="{{item.targetUser.image}}" 
+		                       class="card_icon_item" 
+		                       style=" width:116rpx; height:116rpx;border-radius: 16rpx;"
+		                       mode="aspectFill"></image>
+		              </view>
+		              <view class="rows_icon"
+		              	    wx:else>
+		                <image src="{{item.targetUser.userImage}}" 
+		                       class="card_icon_item" 
+		                       style=" width:116rpx; height:116rpx;border-radius: 16rpx;"
+		                       mode="aspectFill"></image>
+		              </view>
+
+		              <view class="rows_title"> 
+		                <view style="font-size:11pt;" 
+		                      class="rows_1">{{item.targetUser.username}}</view>
+		                <view style="font-size:10pt;color:#909090;" 
+		                      class="rows_2">{{item.title}}</view>
+		              </view>
+
+		              <image src="../../../image/前进.png" 
+		                     class="rows_icon_right" 
+		                     style=" width:11rpx; height:30rpx;"></image>
+		            </view>
+		            <view class="ccontent"> 
+		              <text >
+		                {{item.serviceText}}
+		              </text>
+		            </view>
+		</view>
+</view>
+
+
+
+<view wx:for="{{term.imgs}}" wx:key="item">
+    <image src="{{item}}"
+           style="width:750rpx;"
+           mode="widthFix"></image>
+</view>
+
+
+<view style="height:120rpx"></view>
+<view class="button_wrap">
+	<button open-type="contact"
+		    class="btn_submit"
+		    bindtap="bindSendSMS">客服</button>
+
+<!-- mode=1 排位订单
+     mode=2 会员订单
+       -->
+	<button wx:if="{{term.mode == 1}}"
+		    class="btn_submit_right"
+	        bindtap="bindRankBuy">下单</button>
+	<button wx:else
+		    class="btn_submit_right"
+	        bindtap="bindBuy">￥{{term.price}}元  立刻入团</button>
+</view>
+
+
+
+
+
+

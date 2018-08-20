@@ -1,0 +1,66 @@
+	<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+	  <view style="height:700rpx">
+	      <view style="font-size:18pt;  margin-bottom:20rpx;">拼团奖品</view>
+	      <image src="{{itemlist[0].targetGroupOrder.targetLottery.image.url}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill">
+	      </image>
+          <view style="display:-webkit-flex;display:flex;justify-content:space-between; height:100rpx" >
+		      <view  style="font-size:18pt; color:#f8416a;padding-top:20rpx">￥1.00元 </view>
+<!-- 		      <view  style="width:90rpx; height:90rpx;" >
+		      	    <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/196bb37ea4f98cb13a4c.png"
+		      	    	   style="width:60rpx; height:60rpx;" 
+		      	    	   mode="aspectFill"></image> 
+		      	    <view style="font-size:10pt;position:relative;top:-20rpx">分享</view>
+		      </view> -->
+		  </view>
+
+
+	      <view  style="font-size:12pt;"> 
+	             <text>{{itemlist[0].targetGroupOrder.targetLottery.title}}·{{itemlist[0].targetGroupOrder.targetLottery.content}}  价值{{itemlist[0].targetGroupOrder.targetLottery.price}}点券</text>
+	      </view>
+	  </view>
+	</view>
+    <view style="height:30rpx; background-color:#eeeeee; "></view>
+
+        <view style="display:-webkit-flex;flex-wrap:wrap;margin:5rpx;">
+                  <view wx:for="{{array}}"  wx:for-index="idx"
+                        style="margin:10rpx;width:100rpx">
+                        <view >
+                                <image wx:if="{{itemlist[idx]}}"
+                                    src="{{itemlist[idx].targetUser.userImage}}" 
+                                    style="border-radius:50%; width:90rpx; height:90rpx; margin:0rpx 20rpx 0rpx 20rpx">
+                                </image>
+
+                                <view wx:else
+                                	class="user_images"><text class="user_images_text">?</text>
+                                </view>
+                        </view>
+                  </view>
+    </view>
+    <view style="margin:40rpx" wx:if="{{isThisUserBuyOrNot}}">
+    	<form bindsubmit="bindFullBuy" report-submit="true">
+            <button  type="warn" size="default" open-type="share" formType="submit"> 邀请好友参团</button>
+        </form>
+    <view style="font-size:28rpx; text-align:center;margin:20rpx 0rpx 20rpx 0rpx">分享到三个百人游戏群后，成团概率高达98%</view>
+    </view>
+
+    <view style="margin:40rpx" wx:elif="{{itemlist[0].targetGroupOrder.persons >= 6}}">
+    	<form bindsubmit="bindFullBuy" report-submit="true">
+            <button  type="warn" size="default" bindtap="bindBackToUserPage" formType="submit"> 已成团 </button>
+        </form>
+    <view style="font-size:28rpx; text-align:center;margin:20rpx 0rpx 20rpx 0rpx">点击按钮查看拼团结果。</view>
+    </view>
+
+    <view style="margin:40rpx" wx:elif="{{itemlist[0].targetGroupOrder.overdue > nowtime}}">
+    	<form bindsubmit="bindFullBuy" report-submit="true">
+            <button  type="warn" size="default" bindtap="bindBuy" formType="submit"> 立即参团 </button>
+        </form>
+    <view style="font-size:28rpx; text-align:center;margin:20rpx 0rpx 20rpx 0rpx">分享到三个百人游戏群后，成团概率高达98%</view>
+    </view>
+
+    <view style="margin:40rpx" wx:else>
+    	<form bindsubmit="bindFullBuy" report-submit="true">
+            <button  type="warn" size="default" bindtap="bindBackToIndexPage" formType="submit"> 已过期 </button>
+        </form>
+    <view style="font-size:28rpx; text-align:center;margin:20rpx 0rpx 20rpx 0rpx">超低价格开团获取皮肤。</view>
+    </view>

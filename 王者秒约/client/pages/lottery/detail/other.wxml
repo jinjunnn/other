@@ -1,0 +1,50 @@
+<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+    <view style="height:650rpx">
+        <view style="font-size:18pt;  margin-bottom:20rpx;">{{options.content}}</view>
+            <image src="{{options.image}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill"></image>
+        <view> 
+            <text>{{options.title}}·{{options.content}}  价值{{options.price}}点券</text>
+        </view>
+    </view>
+</view>
+<button bindtap="bindLottery" class="btn_lottery">积分夺宝</button>
+<view style="height:30rpx; background-color:#eeeeee; "></view>
+
+
+<view style="margin:40rpx 40rpx 0rpx 40rpx">
+  <view class="title_item1"> 
+         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明  </view>
+         <view style="font-size:11pt;text-align:justify;text-justify:kashida;line-height:130%">
+          <view>1:抽奖概率:抽奖概率经腾讯审核按照皮肤价格的8折计算，本款皮肤抽奖概率为1：{{options.price/12.5}}。</view>
+          <view>2:奖励发放形式:中奖后请保留中奖截图，添加微信公众号《电竞天堂》进行索要，或根据通知提示添加客服人员微信。 </view> 
+          <view>3:幸运值:每日登录、分享等行为会随机产生幸运值，幸运值可以用来抽奖，当幸运值达到3480即送3480元游戏点券。</view>
+          <view>4:隐私声明:皮肤抽奖需要获得您授权微信名称和微信头像信息，平台仅将您的名称与头像用于皮肤抽奖公示，以方便向用户公开中奖用户信息。</view> 
+        </view>         
+  </view>
+</view>
+
+<view style="margin: 60rpx 0rpx 0rpx 20rpx ;font-size:14pt;">中奖名单</view>
+
+<view wx:for="{{comment}}" wx:key="commentItem">
+  <view class="container">
+      <view class="author">
+        <view class="author_icon">
+              <image 
+                  src="{{item.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+        </view>
+        <view class="author_title">
+          <view class="title_item"
+                id="changecolor">{{item.targetUser.username}}
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+
+
+<view style="height=180rpx">
+</view>

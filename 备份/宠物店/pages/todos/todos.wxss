@@ -1,0 +1,73 @@
+.container{
+  margin: 0 30rpx 50rpx 30rpx;
+}
+.box{
+  display: -webkit-flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #eee;
+  padding-bottom:30rpx;
+}
+.item_author_title{
+  margin-top: 15rpx;
+  flex: 4;
+}
+.item_author_add{
+  flex:1;
+}
+.item_author_icon{
+  flex: 1;
+  flex-basis: -350rpx;
+  border-radius: 50%;
+  height:120rpx;
+  width:120rpx;
+  padding-top: 10rpx;
+}
+.author_icon_item{
+  margin-top: 10rpx;
+}
+.booking-wrap{
+  display: -webkit-flex;
+  justify-content:space-between;
+}
+.booking-item{
+  background-color: #F55A67;
+  border-radius: 10rpx;
+  width:200rpx;
+  height: 200rpx;
+  font-size: 12pt;
+}
+.scroll{
+}
+.scroll-item{
+  width:200rpx;
+  height: 200rpx;
+}
+.text-wrap{
+  display: -webkit-flex;
+  padding:20rpx 0rpx 20rpx 0rpx;
+}
+.text-icon{
+  flex:1;
+  height: 40rpx;
+  width: 500rpx;
+}
+.text-content{
+  flex:14;
+  font-size: 12pt;
+  color: #666666;
+  padding-left: 15rpx;
+}
+.text-right-icon{
+  flex:1;
+  height: 40rpx;
+}
+.shop-image{
+  width:200rpx;
+  height: 200rpx;
+  margin:10rpx;
+}
+.image-wrap{
+  display: -webkit-flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}

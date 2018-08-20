@@ -1,0 +1,46 @@
+<image 
+    src="{{options.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title">
+		<view  class="text_title;" 
+		       style="font-size:18pt;  margin-bottom: 8rpx;">
+		       <span id="changestyle">{{options.title}}</span></view>
+
+		<view  style="font-size:11pt; color:red ; padding:10rpx 0rpx 20rpx 0rpx" 
+		       class="text_price"> 
+		      		<text style="font-size:12pt; color:#f3433d;padding:0rpx 0rpx 0rpx 15rpx;">￥</text>
+		      		<text style="font-size:18pt; color:#f3433d">{{options.price}}</text>
+		      		<text style="font-size:11pt; color:#f3433d;padding:0rpx 0rpx 0rpx 15rpx;">元</text>
+		</view>
+
+		<view  style="font-size:12pt;" 
+		       class="text_subtitle"> {{options.subtitle}}</view>
+</view>
+
+<!-- <view>
+
+		<image 
+		    src="{{options.images[1]}}" 
+		    class="slide-image" 
+		    style="width:100%"
+		    mode="widthFix">
+		</image>
+</view> -->
+
+
+<view  style="font-size:11pt;" 
+       class="title_content"> {{options.content}}</view>
+<view style="height:120rpx">
+</view>
+
+
+
+
+<button class="btn_submit_right"
+        bindtap="bindBuy">立即加入</button>
+
+

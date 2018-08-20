@@ -1,0 +1,18 @@
+
+
+<import src="../../style/footer.wxml" />
+
+<block wx:for="{{topicList}}" wx:key="topicItem">
+  <view class="topic-view">
+    <navigator navigator url="/pages/topic/detail/detail?title={{item.title}}">
+      <image class="topic-view-item" src="{{item.img}}"></image>
+      <view class="detail-article__h3">{{item.title}}</view>
+    </navigator>
+  </view>
+</block>
+
+
+
+
+
+

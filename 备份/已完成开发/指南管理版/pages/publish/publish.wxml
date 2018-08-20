@@ -1,0 +1,83 @@
+<view wx:if = "{{images.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg" 
+	        src= "../../image/添加照片.png">上传照片 </image>
+</view>
+<view wx:else
+	  class= "place">
+				  <block wx:for="{{images}}">
+					    <image src="{{item}}" 
+					    	class="place_item" />
+				  </block>
+</view>
+
+<view class="container">
+	<view class="title">
+	  <input 
+			  	placeholder="请输入推荐标题" 
+			  	bindinput="updateTitle"
+			  	value="{{title}}" 
+                style="height:80rpx"
+			  	placeholder-style="color:#888888;" 
+	  	        />
+	</view>
+
+	<view class="content">
+	 <input  
+	            value="{{summary}}" 
+	            bindinput="updateSummary"
+	 	        placeholder="描述：比如天安门广场附近的书店"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content">
+	 <input  
+	            value="{{why}}" 
+	            bindinput="updateWhy"
+	 	        placeholder="推荐的理由"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content">
+	 <input  
+	            value="{{what}}" 
+	            bindinput="updateWhat"
+	 	        placeholder="推荐的内容"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+  <view class="content">
+	 <input  
+	            value="{{cell}}" 
+	            bindinput="updatePhoneNumber"
+	 	        placeholder="电话号码"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+
+  <view class="content">
+	 <input  
+	            value="{{address}}" 
+	            bindinput="updatePlace"
+	 	        placeholder="地理位置"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+
+  <view class="content">
+	 <input  
+	            value="{{openTime}}" 
+	            bindinput="updateOpenTime"
+	 	        placeholder="营业时间"
+	            placeholder-style="color:#888888;"  
+	            />
+  </view>
+</view>
+
+
+
+<button class="btn_submit"
+        type="primary" 
+        bindtap="submitTap">确定</button>

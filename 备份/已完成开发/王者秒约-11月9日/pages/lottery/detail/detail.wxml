@@ -1,0 +1,78 @@
+<image 
+    src="{{options.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title">
+    <view  class="title_item;" 
+           style="font-size:18pt;  margin-bottom: 8rpx;">
+           <span id="changestyle">{{options.title}}  {{options.summary}}皮肤</span></view>
+
+    <view  style="font-size:12pt;" 
+           class="title_item"> 
+           <text>皮肤:{{options.content}}  </text>
+           <text style="font-size:12pt; color:#FD6C82" >价值:{{options.price/10}}元</text>
+         </view>
+</view>
+
+<view  style="font-size:12pt;padding:20rpx 30rpx 20rpx 30rpx" 
+       class="title_item1"> 
+       <view style="font-size:12pt;">抽奖规则:  </view>
+       <view style="font-size:12pt;text-align:justify;text-justify:kashida;line-height:200%">
+        1:抽奖概率完全按照皮肤价格设定，比如28元的皮肤，抽奖概率为1/28。  
+      </view>
+       <view style="font-size:12pt;text-align:justify;text-justify:kashida;line-height:200%">
+        2:奖励发放形式:中奖后由工作人员以皮肤赠送形式发放。  
+      </view>
+       <view style="font-size:12pt;text-align:justify;text-justify:kashida;line-height:200%">
+        3:抽奖声明:我司发放的皮肤均由正规途径由腾讯直接购买，用户可放心使用。  
+      </view>      
+</view>
+
+<view class="title2">中奖名单</view>
+
+<view wx:for="{{comment}}" wx:key="commentItem">
+  <view class="container">
+      <view class="author">
+        <view class="author_icon">
+              <image 
+                  src="{{item.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+        </view>
+
+        <view class="author_title">
+          <view class="title_item"
+                id="changecolor">{{item.targetUser.username}}
+          </view>
+
+        <view style="font-size:10pt; color:#666">
+          {{item.updatedAt}}
+        </view>
+        </view>
+      </view>
+  </view>
+</view>
+<view style="height=80rpx">
+  
+
+</view>
+
+
+<view class="button_wrap">
+
+		<button class="btn_submit"
+		        bindtap="bindExchange">立即购买</button>
+
+		<button wx:if="{{options.confi}}"
+            class="btn_submit_right"
+		        bindtap="bindLucky">积分抽皮肤</button>
+
+    <button wx:else
+            class="btn_submit_right"
+            bindtap="bindLucky">1元抽皮肤</button>
+</view>
+

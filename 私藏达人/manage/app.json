@@ -1,0 +1,25 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/todos/todos",
+    "pages/pay/pay",
+    "pages/coins/coins",
+    "pages/goods/goods",
+    "pages/article/article",
+    "pages/article/map/map",
+    "pages/article/topic/topic",
+    "pages/topic/topic",
+    "pages/topicer/topicer",
+    "pages/user/user"
+
+  ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "私藏达人",
+    "navigationBarTextStyle":"black"
+  }
+
+}

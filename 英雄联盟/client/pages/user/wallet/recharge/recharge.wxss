@@ -1,0 +1,45 @@
+/* pages/user/wallet/recharge/recharge.wxss */
+.pricewrap{
+	display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.price{
+	margin-bottom: 30rpx;
+	width:200rpx; 
+	background-color:#FD6C82; 
+	height: 72.5rpx; 
+	text-align: center; 
+	line-height: 50rpx; 
+	border-radius: 10rpx; 
+	color:#fff; 
+	font-size: 40rpx; 
+	padding-top: 27.5rpx;
+}
+
+.price2{
+	margin-bottom: 30rpx;
+	width:200rpx; 
+	background-color:#cccccc; 
+	height: 72.5rpx; 
+	text-align: center; 
+	line-height: 50rpx; 
+	border-radius: 10rpx; 
+	color:#fff; 
+	font-size: 40rpx; 
+	padding-top: 27.5rpx;
+}
+.btn_submit_right{
+  background-color: #FD6C82;
+  margin-top: 80rpx;
+  margin-left: 30rpx;
+  border: none;
+  color: white;
+  height:80rpx;
+  width: 650rpx;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0px;
+}

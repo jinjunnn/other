@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/top/top",
+    "pages/manage/manage",
+    "pages/manage/gamegroup/gamegroup",
+    "pages/manage/expertgroup/expertgroup",
+    "pages/manage/mastergroup/mastergroup",
+    "pages/manage/adduser/adduser",
+    "pages/manage/adduserimage/adduserimage",
+    "pages/manage/addusername/addusername",
+    "pages/manage/deleteuser/deleteuser",
+    "pages/manage/master/order",
+    
+    "pages/order/order",
+    "pages/order/expertpei/order",
+    "pages/order/expertdai/order",
+    "pages/order/peilian/order",
+    "pages/order/trade/order",
+    "pages/order/deposit/order",
+    "pages/order/deposittrade/order",
+    "pages/order/gamegroup/order",
+    "pages/order/complete/order",
+
+    "pages/index/index",
+    "pages/index/detail/detail",
+
+    "pages/lotteryGet/lotteryGet",
+
+    "pages/setting/setting",
+    "pages/setting/newid/newid",
+    "pages/setting/notice/notice",
+    "pages/setting/test/test",
+    "pages/setting/lottery/lottery",  
+    "pages/setting/settings/setting"
+
+  ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#f2f2f2",
+    "navigationBarBackgroundColor": "#fbfbfb",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  }
+}

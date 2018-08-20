@@ -1,0 +1,28 @@
+<view style="margin: auto; width: 80%; font-size:11pt"
+	  wx:if="{{!master.pass}}">
+		<view style="margin:20rpx 0rpx 20rpx 0rpx">客服审核</view>
+
+		<image     src="{{customQRCode}}" 
+				    class="slide-image" 
+				    style="width:100%; "
+				    mode="widthFix">
+		</image>
+		<view style="margin:20rpx 0rpx 20rpx 0rpx">您好，恭喜您初审通过，请扫描客服人员微信二维码添加客服，进行人工审核。请未添加客服的陪练导师尽快加客服微信，对2018年5月1日仍未添加客服微信的陪练导师，取消陪练资格。 </view>
+</view>
+<view wx:elif="{{master.status ==3}}">
+        <view style="margin: auto; width: 80%; font-size:11pt">
+			<view style="margin:20rpx 0rpx 20rpx 0rpx">恭喜您获得大神认证资格，如需修改资料请联系客服。</view>
+			<image     src="{{customQRCode}}" 
+					    class="slide-image" 
+					    style="width:100%; "
+					    mode="widthFix">
+			</image>
+	    </view>
+		<button class="btn_submit"
+	    bindtap="submitTapNavToProfile">已认证 去我的主页</button>
+</view>
+
+<view style="margin: auto; width: 80%; font-size:11pt"
+	  wx:else>
+		<view style="margin:20rpx 0rpx 20rpx 0rpx">您的认证资格已被取消，请联系客服咨询。</view>
+</view>

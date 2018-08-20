@@ -1,0 +1,21 @@
+/* pages/index/detail/index.wxss */
+
+.detail-article__h3 {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: .34em;
+}
+
+.detail-article_date {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: .34em;
+  border-bottom: 1px solid #D9D9D9;
+}
+.videoContainer{
+  margin: 20rpx;
+  width: auto;
+}
+.item{
+  width:100%;
+}

@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="title">
+    您暂时还没有足迹</view>
+    <view class="content">
+    为保证内容质量，此功能采取邀请加入制度，等内容成熟将进一步开放。</view>
+
+<image 
+    style=" margin:300rpx 0rpx 0rpx 170rpx; height: 300rpx; width: 260rpx"
+    src="http://ac-nt5ldwqg.clouddn.com/9b5dde8e35ca031e4c63.png"></image>
+
+</view>

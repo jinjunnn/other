@@ -1,0 +1,11 @@
+<!--pages/gamegroup/detail/detail.wxml-->
+<view style="margin: auto; width: 80%; font-size:11pt">
+		<view style="margin:20rpx 0rpx 20rpx 0rpx">王者荣耀秒约陪打车队群</view>
+
+		<image     src="{{expertGroupRQImage}}" 
+				    class="slide-image" 
+				    style="width:100%; "
+				    mode="widthFix">
+		</image>
+		<view style="margin:20rpx 0rpx 20rpx 0rpx">您好，欢迎您下单。请扫二维码加入陪打车队群。发组队链接到群中，进行组队即可。如果群二维码失效，请添加客服人员微信：ybao1003 </view>
+</view>

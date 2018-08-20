@@ -1,0 +1,151 @@
+    
+    <swiper indicator-dots="true" style="width:750rpx; height:150rpx"
+      autoplay="true" interval="5000" duration="500">
+        <block wx:for="{{banner}}">
+            <swiper-item>
+                <image src="{{item}}" style="width:750rpx; height:150rpx"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <navigator style="width:750rpx; height:150rpx; display:-webkit-flex;"
+               url="/pages/index/dailian/dailian"
+               wx:if="{{confi.detailDisplay}}">
+         <view style="flex:3">
+              <image src="http://lc-XFs1iY3e.cn-n1.lcfile.com/7bddd3420b6be3bf883b.jpg" 
+                     style="width:90rpx; height:90rpx;margin:30rpx; border-radius: 50%"/>
+         </view>
+         <view style="flex:13;">
+            <view style="font-size:32rpx;height:40rpx;margin:40rpx 10rpx 0rpx 0rpx; color:#2fcdb4; font-weight: bold;">专业上分</view>
+            <view style="font-size:22rpx;height:30rpx;margin:0rpx 10rpx 40rpx 0rpx">电竞玩家官方认证大神带你上分</view>
+         </view>
+         <view style="flex:7; font-size:22rpx; line-height:150rpx; text-align:center;">
+          <text style="color:#2fcdb4;font-weight: bold;">{{confi.price.ordertimes}}</text>人已上分</view>
+         <view style="flex:2"><image src="/image/前进.png" style="width:30rpx; height:30rpx;margin:60rpx 30rpx 60rpx 10rpx;"/>
+         </view>
+    </navigator>
+
+    <view style="width:750rpx; height:20rpx; background-color:#eeeeee;">
+    </view>
+
+
+<!--     <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">秒约</view>
+            </view>
+              <view class="booking-wrap">
+                  <navigator class="booking-content"
+                             url="/pages/index/dailian/dailian">
+                      <image class="booking-item" src="{{confi.indexImage.dailian}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        职业代练
+                      </view>
+                  </navigator>
+
+                  <navigator class="booking-content"
+                             url="/pages/index/expert/expert">
+                      <image class="booking-item" src="{{confi.indexImage.peilian}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">职业陪打</view>
+                  </navigator> 
+
+                  <navigator class="booking-content"
+                             url="/pages/index/index/index?mode=2">
+                      <image class="booking-item" src="{{confi.indexImage.meinv}}" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        萌妹声优
+                      </view>
+                  </navigator>
+
+              </view>
+    </view> -->
+    <view style="font-size:28rpx; line-height:150rpx; text-align:center; height:100rpx; width:750rpx; font-weight:bold">秒约陪玩大神</view>
+
+<!--     <view wx:if="{{product[0]}}">
+        <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+                <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                      <view style="flex:5; color:#000000">产品</view>
+    更多选项                  
+                      <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                               url="./more/more">查看全部</navigator>
+                </view>
+        </view>
+
+        <view style="margin: 0rpx 0rpx 30rpx 40rpx">
+                  <scroll-view scroll-x="true" 
+                               style=" white-space:nowrap">
+                    <block wx:for="{{product}}" wx:key="productitem">
+                        <view style="display: inline-block; margin:10rpx 10rpx 0rpx 0rpx"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid="{{item.objectid}}"
+                               data-urls="{{item.url}}"
+                               data-appid="{{item.appid}}">
+                              <image style=" width: 330rpx; height: 200rpx" src="{{item.image}}"></image>
+                              <view style="font-size:11pt">{{item.name}}</view>
+                        </view>
+                    </block>
+                  </scroll-view>  
+        </view>
+    </view>
+    <view style="margin: 50rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">精选</view>
+                  <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                           url="./more/more">查看全部</navigator>
+            </view>
+    </view> -->
+
+    <view style="display:-webkit-flex; justify-content:space-around; font-size:24rpx; margin:10rpx 0rpx 10rpx 0rpx">
+        <view style="color:#2fcdb4" wx:if="{{mode == 0}}">职能排序</view>
+        <view style="color:#666666" bindtap="bindChangeMode" data-mode="0" wx:else>职能排序</view>
+        <view style="color:#2fcdb4" wx:if="{{mode == 1}}">人气</view>
+        <view style="color:#666666" bindtap="bindChangeMode" data-mode="1" wx:else>人气</view>
+        <view style="color:#2fcdb4" wx:if="{{mode == 2}}">新鲜</view>
+        <view style="color:#666666" bindtap="bindChangeMode" data-mode="2" wx:else>新鲜</view>
+        <view style="color:#2fcdb4" wx:if="{{mode == 3}}">大神</view>
+        <view style="color:#666666" bindtap="bindChangeMode" data-mode="3" wx:else>大神</view>
+    </view>
+
+
+    <view class="container">
+        <view wx:for="{{topicList}}" wx:key="topicItem">
+          <navigator class="navigator" 
+                     url="../../pages/index/detail/detail?objectId={{item.objectId}}">
+              <view class="wrap">
+                    <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                               mode="aspectFill" 
+                               src="{{item.targetUser.image}}"></image>
+
+                    <view      wx:if="{{item.targetUser.nickname}}" class="text_mini_title1">
+                        <view>{{item.targetUser.nickname}}</view>
+                        <view style="color:#666; font-size:20rpx; padding:5rpx;border-radius:5rpx; border: 1rpx solid #666;"> 王者荣耀</view>
+                    </view>
+
+                    <view wx:else class="text_mini_title1">
+                        <view>{{item.targetUser.username}}</view>
+                        <view style="color:#666; font-size:20rpx; padding:5rpx;border-radius:5rpx; border: 1rpx solid #666;"> 王者荣耀</view>
+                    </view>
+              </view>
+
+              <view bindtap="bindPlayAudio" 
+                    class="playAudio" 
+                    wx:if="{{item.targetUser.audio}}"
+                    data-audio="{{item.targetUser.audio}}">
+                  <image src="/image/声音.png" class="playAudioIcon"></image>
+                  <view>{{}}s</view>
+              </view>
+
+              <view class="text_mini_title2">
+                    <view style="color:#666; font-size:20rpx;margin-top:8rpx">接单{{item.orderTime}}次</view>
+                    <view id="changecolor"> 
+                        <text style="font-size:20rpx;">￥</text>
+                        <text style="font-size:28rpx;">{{item.price}}.00</text>
+                        <text style="font-size:20rpx;">/小时</text>
+                    </view>
+              </view>
+          </navigator>
+
+        </view>
+    </view>

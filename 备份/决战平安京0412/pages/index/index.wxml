@@ -1,0 +1,122 @@
+<view style="margin: 0rpx 40rpx 30rpx 40rpx">
+        <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+              <view style="flex:5; color:#000000">秒约</view>
+        </view>
+          <view class="booking-wrap">
+              <navigator class="booking-content"
+                         url="./index/index?mode=1">
+                  <image class="booking-item" src="https://dn-WekN4hEa.qbox.me/dd7a95251225aef67906.jpg" 
+                         ></image>
+                  <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">职业陪打</view>
+              </navigator> 
+              <navigator class="booking-content"
+                         url="./index/index?mode=2">
+                  <image class="booking-item" src="https://dn-WekN4hEa.qbox.me/6ae43bc0706cf6f4984b.jpg" 
+                         ></image>
+                  <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                    萌妹声优
+                  </view>
+              </navigator>
+              <navigator class="booking-content"
+                         url="./index/index?mode=3">
+                  <image class="booking-item" src="https://dn-WekN4hEa.qbox.me/5c033eccb91a39e4915c.jpg" 
+                         ></image>
+                  <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                    常规陪打
+                  </view>
+              </navigator>
+          </view>
+</view>
+
+
+
+
+<view style="margin: 0rpx 40rpx 30rpx 40rpx">
+        <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+              <view style="flex:5; color:#000000">产品</view>
+              <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                       url="./more/more">查看全部</navigator>
+        </view>
+</view>
+
+
+<view style="margin: 0rpx 0rpx 30rpx 40rpx">
+          <scroll-view scroll-x="true" 
+                       style=" white-space:nowrap" >
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           url="../../pages/lottery/lottery"
+                           open-type="switchTab">
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/872e5f48de0aaca272c5.jpeg"></image>
+                      <view style="font-size:11pt">每日免费皮肤</view>
+                </navigator>
+
+                <navigator style="display: inline-block; margin:10rpx 10rpx 0rpx 0rpx"
+                           url="../../pages/gamegroup/gamegroup">
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/84259f6f14d651a5fc81.png"></image>
+                      <view style="font-size:11pt">游戏群</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;"
+                          url="../../pages/trade/trade"
+                          open-type="switchTab">
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/c639e2f8019862ec3a68.png"></image>
+                      <view style="font-size:11pt">游戏交易</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;">
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/9682c6a4e48fcd4159c7.png"></image>
+                      <view style="font-size:11pt">职业代练</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           url="../../pages/user/intergral/intergral">
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/ecd3ebfb2aa6a9bda088.jpeg"></image>
+                      <view style="font-size:11pt">积分好礼</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           >
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/8be85696b7da4dbf55d3.png"></image>
+                      <view style="font-size:11pt">百次卡</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           >
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/9869cedfd2291cd4b1f5.png"></image>
+                      <view style="font-size:11pt">月卡会员</view>
+                </navigator>
+
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           >
+                      <image style=" width: 330rpx; height: 200rpx" src="https://dn-WekN4hEa.qbox.me/85715809a74accac0cec.png"></image>
+                      <view style="font-size:11pt">赛季卡会员</view>
+                </navigator>
+          </scroll-view>  
+</view>
+
+
+<view class="container">
+    <view wx:for="{{topicList}}" wx:key="topicItem">
+      <navigator class="navigator" 
+                 url="./detail/detail?objectId={{item.objectId}}">
+          <view class="wrap">
+            <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                       mode="aspectFill" 
+                       src="{{item.targetUser.image}}"></image>
+            <view      wx:if="{{item.targetUser.nickname}}"
+                       class="text_mini_title">
+            <text>{{item.targetUser.nickname}}</text>
+            <text id="changecolor"> {{item.price}}元/局</text>
+            </view>
+            <view wx:else class="text_mini_title">
+            <text>{{item.targetUser.username}}</text>
+            <text id="changecolor"> {{item.price}}元/局</text>
+            </view>
+            <view class="text2">
+            <text >{{multiArray[item.targetUser.rank[2]]}}</text>
+            </view>
+          </view>
+      </navigator> 
+    </view>
+</view>
+

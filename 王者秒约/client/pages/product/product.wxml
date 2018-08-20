@@ -1,0 +1,62 @@
+
+<view style="height:2rpx; background-color:#eee"></view>
+<!-- 免费抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindShangfen">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			职业上分</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">已有 <text style="color:#FD6C82">{{confi.rankOrderTimes}}</text> 人成功上分</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/b54a2d68c16e02e6ba6c.jpeg"></image>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+
+<!-- 免费抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindPeiwan">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			大神陪打</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">拒绝无聊  大神和美女陪你打游戏</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/fa2d02dec58bd3b46524.jpeg"></image>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+<!-- 免费抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindPifu">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			折扣皮肤</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">苹果皮肤低至7折起</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/733027ab83f4fbf70809.jpeg"></image>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>
+
+<!-- 免费抽奖 -->
+<view style="display:-webkit-flex; height:180rpx"
+	  bindtap="bindZhanghao">
+	<view style="flex:61;">
+		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
+			精选账号</view>
+		<view style="font-size:24rpx; color:#666; margin:10rpx 0rpx 0rpx 40rpx">转移号 成品号 满级号全都有</view>
+
+	</view>
+	<view style="flex:14">
+		<image style="height:100rpx; margin:40rpx 40rpx 20rpx 20rpx; width:100rpx; border-radius: 5rpx;" src="https://lc-WekN4hEa.cn-n1.lcfile.com/a1529e267f47fd3a6551.jpeg"></image>
+	</view>
+</view>
+<view style="height:2rpx; background-color:#eee"></view>

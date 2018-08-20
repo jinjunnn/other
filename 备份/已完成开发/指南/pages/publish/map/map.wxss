@@ -1,0 +1,9 @@
+/* pages/publish/map/map.wxss */
+.searchBar{
+	margin: 10rpx 20rpx 10rpx 20rpx;
+	border:1px solid;
+    border-radius:5px;
+}
+.text{
+	margin:15rpx;
+}

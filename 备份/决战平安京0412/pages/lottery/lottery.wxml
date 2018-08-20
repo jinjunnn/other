@@ -1,0 +1,52 @@
+<view style="margin: 0rpx 20rpx 30rpx 20rpx">
+    <view>
+          <view style="padding:0rpx 0rpx 10rpx 0rpx;font-size:14pt;display:-webkit-flex;">
+          	    <view style="flex:5; color:#FD6C82">每日免费皮肤抽奖</view>
+                <navigator style="flex:1;text-align:right; font-size:12pt"
+                	       url="./more/more">更多</navigator>
+          </view>
+
+          <scroll-view scroll-x="true" 
+                       style=" white-space:nowrap" >
+                <navigator style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                           wx:for="{{list}}" 
+                           wx:key="diaryItem" url="../../pages/lottery/today/today?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&confi={{item.confi}}&deadline={{item.deadline}}&deadlineTime={{item.deadlineTime}}">
+	                    <image style=" width: 680rpx; height: 410rpx" src="{{item.image.url}}"></image>
+	                    <view style="font-size:11pt">{{item.title}}</view>
+
+
+                    <view wx:if="{{d < item.deadline}}">
+	                    <view class="today">截止时间:{{item.deadlineTime}}</view>
+                    </view>
+
+
+                    <view wx:else>
+	                    <view class="today1">活动已经结束</view>
+                    </view>
+                </navigator>
+          </scroll-view>  
+
+    </view>
+</view>
+
+	    <view class="wrap">
+	    	<view style="padding:0rpx 0rpx 10rpx 0rpx;font-size:14pt;color:#FD6C82">皮肤与式神抽奖区</view>
+	    	<view class="wrap_1">
+			    <view wx:for="{{goodslist}}" 
+			    	  wx:key="goodsItem">    
+				    <navigator url="../../pages/lottery/detail/detail?objectId={{item.objectId}}&title={{item.title}}&summary={{item.summary}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&confi={{item.confi}}&image1={{item.image1.url}}">
+				    	    <view class="item_1">
+								    <image class="img"
+						                   src="{{item.image.url}}"></image>
+								    <view class="text_wrap">
+								      <view>
+								      	<text class="text_name">{{item.title}}</text>
+								      	<text class="text_content">·{{item.content}}</text> 
+								            </view>
+								      <view class="text_coins"><text >{{item.timesLottery}}次抽奖,{{item.timesGet}}次中奖</text></view>
+								    </view>
+						    </view>
+				    </navigator>
+				</view>
+			</view>
+	    </view>

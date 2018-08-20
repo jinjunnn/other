@@ -1,0 +1,115 @@
+
+<view style="background-color:#ffffff">
+		<view class="container">
+		     <navigator url="./setting/setting" >
+		        <view class="box">
+		          <view class="item_author_title">
+		            <view style="font-size:20pt;" class="title_item" wx:if="{{user.gender}}">{{user.username}}</view>
+		            <view style="font-size:13pt; margin-top:5rpx " class="title_item"><span id="changestyle">门牌号：{{user.id}}</span></view>
+		            <view style="font-size:13pt; margin-top:5rpx " class="title_item"><span id="changestyle">查看并编辑个人资料</span></view>
+		          </view>
+		          <view class="item_author_icon"
+		                style=" width:120rpx; height:120rpx;">
+			            <image wx:if="{{user.image}}"
+			            	  src="{{user.image}}" 
+		                  class="author_icon_item" 
+		                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+			                  mode="scaleToFill"></image>
+
+			            <image wx:elif="{{user.userImage}}" 
+			            	  src="{{user.userImage}}" 
+		                  class="author_icon_item" 
+		                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+			                  mode="scaleToFill"></image>
+
+			            <image wx:else
+			            	  src="https://lc-WekN4hEa.cn-n1.lcfile.com/795e6e940819af75bb6b.png" 
+		                  class="author_icon_item" 
+		                  style=" width:120rpx; height:120rpx;border-radius: 50%"
+			                  mode="scaleToFill"></image>
+		          </view>
+		        </view>
+		    </navigator>
+		</view>
+
+		<view class="author">
+		    <view url="../list/follower/follower?objectId={{user.objectId}}"
+		          class="author_title" 
+		          bindtap="bindWealth">
+		            <view style="font-size:10pt;" 
+		                  class="title_item">{{user.expenses}}</view>
+		            <view style="font-size:10pt;" 
+		                  class="title_item">财气值</view>
+		    </view>
+		    <view url="../list/followee/followee?objectId={{user.objectId}}"
+		               class="author_title" 
+		               bindtap="bindHappy">
+		            <view style="font-size:10pt;" 
+		                  class="title_item">{{user.happyCoins}}</view>
+		            <view style="font-size:10pt;" 
+		                  class="title_item">福气值</view>
+		    </view>
+		     <view url="../list/article/article" class="author_title"
+		     	   bindtap="bindSocial">
+		            <view style="font-size:10pt;" 
+		                  class="title_item">{{user.Intergal/10}}</view>
+		            <view style="font-size:10pt;" 
+		                  class="title_item">社交值</view>
+		    </view>
+		</view>
+</view>
+
+<view class="item_wrap">
+	<navigator url="./wallet/wallet" 
+		       class="item_item" 
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/2e0487b8dab9526e325b.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">我的钱包</view>
+	</navigator>
+
+	<navigator url="./notice/notice" 
+		       class="item_item" 
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/533c3c7fa3189d2ad32e.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">通知</view>
+	</navigator>
+
+	<navigator  url="./intergral/intergral"
+				class="item_item" 
+				style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/7ea0576d04727f71ea63.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">积分</view>
+	</navigator>
+
+	<navigator class="item_item" 
+		       url="./service/service"
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/9d09ffec8696c9a9d377.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">联系客服</view>
+	</navigator>
+
+	<navigator class="item_item" 
+		       url="./share/share"
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/d33b17146d2ab6a296a1.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">邀请好友</view>
+	</navigator>
+
+	<navigator class="item_item" 
+		       url="./info/info"
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-bottom:0.5rpx solid #eeeeee; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/028a8d2a507844df91cd.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">常见问题</view>
+	</navigator>
+
+	<view class="item_item" 
+		       bindtap="setting"
+		       style="background-color:#fff; height:185rpx; width:185rpx; border-right:0.5rpx solid #eeeeee;">
+		<image src="https://lc-WekN4hEa.cn-n1.lcfile.com/37104f6011a9c66546cf.png" class="item_image"></image>
+		<view style="font-size:24rpx;  text-align:center;">设置</view>
+	</view>
+
+	<navigator class="item_item" style="background-color:#fff; height:185rpx; width:185rpx; ">
+		
+	</navigator>
+</view>

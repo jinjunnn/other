@@ -1,0 +1,24 @@
+
+
+	    <view class="wrap">
+		    <view wx:for="{{teams}}" 
+		    	  wx:key="teamsItem">    
+			    <navigator url="../../pages/term/detail/detail?objectId={{item.objectId}}&title={{item.title}}&subtitle={{item.subtitle}}&price={{item.price}}&content={{item.content}}&image={{item.image.url}}&images={{item.images}}"
+			    	       class="itemWrap">
+			    	            <view class="imgWrap">
+									    <image class="img"
+							                   src="{{item.image.url}}"></image>
+							    </view>
+							    <view class="text_wrap">
+								      <view>
+								      	<view class="text_name">{{item.title}}</view>
+								      	<view class="text_content">
+								      		<text style="font-size:11pt; color:#f3433d;padding:0rpx 0rpx 0rpx 15rpx;">￥</text>
+								      		<text style="font-size:14pt; color:#f3433d"> {{item.price}} </text>
+								      	</view> 
+								      </view>
+
+							    </view>
+			    </navigator>
+			</view>
+	    </view>

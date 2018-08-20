@@ -1,0 +1,64 @@
+
+.plate{
+  background-color: #ffffff;
+  margin: 20rpx 0rpx 50rpx 0rpx;
+}
+.wrap{
+  margin:20rpx 20rpx 20rpx 20rpx;
+
+}
+.img{
+  height: 240rpx;
+  width: 350rpx;
+}
+.wrap_1{
+  display:-webkit-flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+.item_1{
+  flex:1;
+}
+.text_wrap{
+  max-width:350rpx;
+}
+.text_title{
+  font-size:11pt;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  
+}
+.text_content{
+  font-size:11pt;
+}
+.text_coins{
+  margin: 0rpx 0rpx 50rpx 0rpx;
+  font-size:11pt;
+  color:#999999;
+}
+.wrap_text{
+  display: -webkit-flex;
+  justify-content: space-between;
+}
+.text_name{
+
+  font-size:11pt;
+  color:#FD6C82;
+}
+.today{
+  background-color:#FD6C82;
+  position:relative;
+  top:-82rpx;
+  opacity:0.8;
+  color:#ffffff;
+  font-size:24rpx;
+  text-align:center;
+}
+.today1{
+  background-color:#727272;
+  position:relative;
+  top:-82rpx;
+  opacity:0.8;
+  color:#ffffff;
+  font-size:24rpx;
+  text-align:center;
+}

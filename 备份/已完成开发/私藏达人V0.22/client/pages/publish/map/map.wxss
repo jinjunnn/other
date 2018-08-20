@@ -1,0 +1,16 @@
+/* pages/publish/map/map.wxss */
+.searchBar{
+	margin: 10rpx 20rpx 10rpx 20rpx;
+	border:1px solid;
+    border-radius:5px;
+    border-color: #1AA59a;
+}
+.text{
+	margin:0rpx 0rpx 0rpx 25rpx;
+	color:#222222;
+	border-bottom-style:solid;
+	border-width:1rpx;
+	border-color:#eeeeee;
+	line-height: 90rpx;
+	vertical-align:middle;
+}

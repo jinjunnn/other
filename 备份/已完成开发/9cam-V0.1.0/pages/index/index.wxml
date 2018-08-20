@@ -1,0 +1,23 @@
+<import src="../../style/footer.wxml" />
+
+<view wx:for="{{diaryList}}" wx:key="diaryItem">
+     <view class="navigator">
+         <video class="item" src="{{item.video}}" poster="{{item.cover}}"  controls ></video></view>
+     <navigator class="navigator" url="/pages/index/detail/index?objectId={{item.objectId}}">
+         <view class="weui-article__h1">{{item.title}}</view>
+      <view class="height">
+         <view class="detail-article__h3">{{item.content}}</view>
+      </view>
+         <view class="detail-article_date">{{item.updatedAt}}</view>
+     </navigator> 
+</view>
+
+
+   
+     
+
+
+
+
+
+  

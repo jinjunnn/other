@@ -1,0 +1,49 @@
+<view style="margin: 0rpx 40rpx 30rpx 40rpx" wx:if="{{game[0]}}">
+        <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+              <view style="flex:5; color:#000000">游戏</view>
+        </view>
+</view>
+
+<view class="booking-wrap">
+    <view wx:for="{{game}}" 
+    	  wx:key="gameItem">    
+            <view bindtap="bindNavTradeIndexPage"
+                  data-gameid="{{item.gameId}}">
+                <image class="booking-item" src="{{item.image.url}}"></image>
+                <view style="font-weight:bold; color:#000000; font-size:28rpx; text-align:center;">{{item.name}}</view>
+            </view>
+	</view>
+</view>
+
+
+
+<view style="margin: 0rpx 40rpx 30rpx 40rpx">
+        <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+              <view style="flex:5; color:#000000">精选</view>
+              <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                       url="./more/more">查看全部</navigator>
+        </view>
+</view>
+
+<view class="wrap1">
+    <view wx:for="{{teams}}" 
+    	  wx:key="teamsItem">    
+	    <navigator url="../../pages/trade/detail/detail?objectId={{item.objectId}}&title={{item.title}}"
+	    	       class="navigator">
+
+            <view class="wrap">
+		            <image     style="width: 370rpx; height: 370rpx; background-color: #eeeeee;" 
+		                       mode="aspectFill" 
+		                       src="{{item.images[0]}}"></image>
+		            <view style="font-size:11pt; margin: 0rpx 0rpx 10rpx 0rpx; padding-left:10rpx">
+		                       <text>{{item.title}}</text>
+		            </view>
+		            <view style="font-size:11pt; margin: 0rpx 0rpx 20rpx 0rpx; color:red; padding-left:10rpx">
+		                       <text>￥{{item.amount}}元</text>
+		            </view>
+            </view>
+	    </navigator>
+	</view>
+</view>
+
+<button bindtap="navigator" class="btn"> 我要寄售 </button>

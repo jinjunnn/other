@@ -1,0 +1,37 @@
+<!--pages/user/comment/comment.wxml-->
+<view class="wrap">
+		  <view class="author">
+			    <view class="author_icon">
+			          <image 
+			              src="{{options.image}}" 
+			              class="author_icon_item" 
+			              style=" width:135rpx; height:135rpx;">
+			          </image>
+			    </view>
+
+			    <view class="author_title">
+				      <view class="title_item"
+				            id="changecolor">{{options.nickname}}
+				      </view>
+
+					  <view style="font-size:10pt; color:#666">
+					  	{{options.createdAt}}  {{options.times}}局
+					  </view>
+
+					  <view style="font-size:10pt; color:#666">
+					  	已支付 {{options.price*options.times}}元
+					  </view>
+			    </view>
+
+			    <view class="author_confirm">
+				      <view class="title_item"
+				            id="changecolor">{{options.status}}
+				      </view>
+			    </view>
+		  </view>
+</view>
+
+    <button type="primary" 
+	        size="default" 
+            bindtap="bindSubmit"
+            style="margin:30rpx;background-color: #FD6C82;"> 接单 </button>

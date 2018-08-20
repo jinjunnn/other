@@ -1,0 +1,41 @@
+<!--pages/user/comment/comment.wxml-->
+<view class="wrap"
+	  wx:for="{{order}}" 
+	  wx:key="orderItem">
+
+		  <view class="author"
+		  	    >
+			    <view class="author_icon">
+			          <image 
+			              src="{{item.targetLottery.image.url}}" 
+			              mode="aspectFill"
+			              class="author_icon_item" 
+			              style=" width:180rpx; height:135rpx;">
+			          </image>
+			    </view>
+
+			    <view class="author_title">
+				      <view class="title_item" id="changecolor">{{item.targetLottery.title}} {{item.targetLottery.content}}</view>
+				      <view style="font-size:10pt; color:#666">订单ID:{{item.id}}</view>
+					  <view style="font-size:10pt; color:#666">实付金额:{{item.amount}}元</view>
+					  <view style="font-size:10pt; color:#666"
+					  	    wx:if="{{(item.overdue < nowtime)&&(item.get==1)}}">订单状态:一等奖</view>
+					  <view style="font-size:10pt; color:#666"
+					  	    wx:elif="{{(item.overdue < nowtime)&&(item.get==2)}}">订单状态:二等奖</view>
+					  <view style="font-size:10pt; color:#666"
+					  	    wx:elif="{{item.overdue < nowtime}}">订单状态:未成团，已退款</view>
+					  <view style="font-size:10pt; color:#666"
+					  	    wx:else>订单状态:进行中</view>
+			    </view>
+		  </view>
+		  
+
+</view>
+
+
+
+
+
+
+
+

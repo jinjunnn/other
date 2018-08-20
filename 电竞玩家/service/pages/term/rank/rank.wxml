@@ -1,0 +1,173 @@
+<image style="width:750rpx; height:420rpx; margin:0rpx 0rpx 30rpx 0rpx" src="{{image}}"></image>
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">起始段位</view>
+	          	<picker bindchange="bindRankBegin" 
+					  value="{{indexBegin}}" 
+					  range="{{multiArray}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{multiArray[indexBegin]}}
+					    </view>
+			    </picker>
+<!-- 这个是原来的逻辑按照星付的 -->
+<!-- 			  <picker mode="multiSelector"
+			  	      bindchange="bindMultiPickerChange1" 
+			  	      bindcolumnchange="bindMultiPickerColumnChange1" 
+			  	      value="{{multiIndex1}}" 
+			  	      range="{{multiArray1}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{multiArray1[0][multiIndex1[0]]}}-{{multiArray1[1][multiIndex1[1]]}}-{{multiArray1[2][multiIndex1[2]]}}
+					    </view>
+			  </picker> -->
+
+	          <view	class="icon" >            
+		           <image src="../../../image/前进.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">目标段位</view>
+	          	<picker bindchange="bindRankEnd" 
+					  value="{{indexEnd}}" 
+					  range="{{multiArray}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{multiArray[indexEnd]}}
+					    </view>
+			    </picker>
+<!-- 这个是原来的逻辑按照星付的 -->
+<!-- 			  <picker mode="multiSelector"
+			  	      bindchange="bindMultiPickerChange2" 
+			  	      bindcolumnchange="bindMultiPickerColumnChange2" 
+			  	      value="{{multiIndex2}}" 
+			  	      range="{{multiArray2}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{multiArray2[0][multiIndex2[0]]}}-{{multiArray2[1][multiIndex2[1]]}}-{{multiArray2[2][multiIndex2[2]]}}
+					    </view>
+			  </picker> -->
+
+	          <view	class="icon" >            
+		           <image src="../../../image/前进.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">英雄数量</view>
+
+			  <picker bindchange="bindPickerChange1" 
+					  value="{{index1}}" 
+					  range="{{array1}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{array1[index1]}}
+					    </view>
+			  </picker>
+
+	          <view	class="icon" >            
+		           <image src="../../../image/前进.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">铭文等级</view>
+
+			  <picker bindchange="bindPickerChange2" 
+					  value="{{index2}}" 
+					  range="{{array2}}"
+			  	      class="userName2"
+			  	      style="font-size: 11pt">
+					    <view class="picker">
+					      {{array2[index2]}}
+					    </view>
+			  </picker>
+
+	          <view	class="icon" >            
+		           <image src="../../../image/前进.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+
+    <navigator  class="navigator"
+    	        url="../../user/setting/wechatId/wechatId">
+	          <view class="userName"
+	          	    style="font-size: 11pt">微信或QQ账号</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.weChatID}}</view>
+	          <view	class="icon" >            
+		           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+	<view  class="navigator">
+	          <view class="userName"
+	          	    style="font-size: 11pt">区服信息</view>
+
+				  <picker bindchange="bindZoneChange" 
+				  	      value="{{zoneIndex}}" 
+				  	      range="{{zoneArray}}"
+				  	      class="userName2"
+				  	      style="font-size: 11pt">
+						    <view class="picker">
+						      {{zoneArray[zoneIndex]}}
+						    </view>
+				  </picker>
+
+	          <view	class="icon" >            
+		           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</view>
+    <navigator  class="navigator"
+    	        url="../../user/setting/gamename/gamename">
+	          <view class="userName"
+	          	    style="font-size: 11pt">游戏ID</view>
+
+              <view class="userName2"
+              	    style="font-size: 11pt">{{user.gameName}}</view>
+	          <view	class="icon" >            
+		           <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
+		                  style=" width:60rpx; height:60rpx"
+		                  mode="scaleToFill"></image>
+	          </view>
+	</navigator>
+
+<view style="height:120rpx"></view>
+<view class="button_wrap">
+	<button open-type="contact"
+		    bindtap="bindSendSMS"
+		    class="btn_submit">客服</button>
+	<block wx:if="{{indexBegin >= indexEnd}}">
+		<button class="btn_submit_right"
+		        bindtap="bindBuy">￥ 0元</button>
+	</block>
+
+	<block wx:else>
+		<button class="btn_submit_right"
+		        bindtap="bindBuy">￥{{(price[indexEnd] - price[indexBegin])}}元</button>
+	</block>
+
+</view>
+
+
+

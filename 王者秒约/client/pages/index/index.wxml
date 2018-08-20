@@ -1,0 +1,171 @@
+
+<view wx:if="{{!confi}}">
+    <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">秒约</view>
+            </view>
+            
+              <view class="booking-wrap">
+                  <view class="booking-content"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/index/expert/expert">
+                      <image class="booking-item" src="https://lc-WekN4hEa.cn-n1.lcfile.com/dd7a95251225aef67906.jpg" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">职业陪打</view>
+                  </view> 
+                  <view class="booking-content"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/index/index?mode=2">
+                      <image class="booking-item" src="https://lc-WekN4hEa.cn-n1.lcfile.com/6ae43bc0706cf6f4984b.jpg" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        萌妹声优
+                      </view>
+                  </view>
+                  <view class="booking-content"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/index/index?mode=3">
+                      <image class="booking-item" src="https://lc-WekN4hEa.cn-n1.lcfile.com/5c033eccb91a39e4915c.jpg" 
+                             ></image>
+                      <view style="font-weight:bold; color:#ffffff; font-size:32rpx; padding:10rpx; position:relative; top:-210rpx">
+                        常规陪打
+                      </view>
+                  </view>
+              </view>
+    </view>
+
+
+
+
+    <view style="margin: 0rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">产品</view>
+                  <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                           url="./more/more">查看全部</navigator>
+            </view>
+    </view>
+
+
+    <view style="margin: 0rpx 0rpx 30rpx 40rpx">
+              <scroll-view scroll-x="true" 
+                           style=" white-space:nowrap">
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/term/rank/rank">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/fec6d7647599b068fd84.jpeg"></image>
+                          <view style="font-size:11pt">职业代练</view>
+                    </view>
+                    
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/lottery/lottery"
+                               open-type="switchTab">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/872e5f48de0aaca272c5.jpeg"></image>
+                          <view style="font-size:11pt">每日免费皮肤</view>
+                    </view>
+
+                    <view style="display: inline-block; margin:10rpx 10rpx 0rpx 0rpx"
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/gamegroup/gamegroup">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/15cf0e43afdfaefb8432.png"></image>
+                          <view style="font-size:11pt">游戏群</view>
+                    </view>
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/trade/trade">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/39ddaf8fa92ce16a167f.jpeg"></image>
+                          <view style="font-size:11pt">游戏交易</view>
+                    </view>
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid=""
+                               data-urls="/pages/user/intergral/intergral">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/ecd3ebfb2aa6a9bda088.jpeg"></image>
+                          <view style="font-size:11pt">积分好礼</view>
+                    </view>
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid="5a46583ee696c90062cda0ad"
+                               data-urls="/pages/term/detail/detail?objectId=">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/dab8ce42db2017fa3d73.jpeg"></image>
+                          <view style="font-size:11pt">百次卡</view>
+                    </view>
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid="5a4656be128fe1007ba6a7b3"
+                               data-urls="/pages/term/detail/detail?objectId=">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/6560fa651d06c9132e37.jpeg"></image>
+                          <view style="font-size:11pt">月卡会员</view>
+                    </view>
+
+                    <view style="display: inline-block;margin:10rpx 10rpx 0rpx 0rpx;" 
+                               bindtap="bindOpenOtherProgress"
+                               data-objectid="5a4656c49f5454004549d22c"
+                               data-urls="/pages/term/detail/detail?objectId=">
+                          <image style=" width: 330rpx; height: 200rpx" src="https://lc-WekN4hEa.cn-n1.lcfile.com/fe230490c301dfc1e34e.jpeg"></image>
+                          <view style="font-size:11pt">赛季卡会员</view>
+                    </view>
+              </scroll-view>  
+    </view>
+
+
+
+
+    <view style="margin: 50rpx 40rpx 30rpx 40rpx">
+            <view style="padding:0rpx 0rpx 20rpx 0rpx;font-size:16pt;display:-webkit-flex;">
+                  <view style="flex:5; color:#000000">精选</view>
+                  <navigator style="flex:1.5;text-align:right; font-size:12pt; padding-top:20rpx; color:#666666"
+                           url="./more/more">查看全部</navigator>
+            </view>
+    </view>
+
+    <view class="container">
+        <view wx:for="{{topicList}}" wx:key="topicItem">
+          <view class="navigator" 
+                     bindtap="bindOpenOtherProgress"
+                     data-objectid="{{item.objectId}}"
+                     data-urls="/pages/index/detail/detail?objectId=">
+              <view class="wrap">
+                <image     style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" 
+                           mode="aspectFill" 
+                           src="{{item.targetUser.image}}"></image>
+                <view      wx:if="{{item.targetUser.nickname}}"
+                           class="text_mini_title">
+                <text>{{item.targetUser.nickname}}</text>
+                <text id="changecolor"> {{item.price}}元/局</text>
+                </view>
+                <view wx:else class="text_mini_title">
+                <text>{{item.targetUser.username}}</text>
+                <text id="changecolor"> {{item.price}}元/局</text>
+                </view>
+                <view class="text2">
+                <text >{{multiArray[item.targetUser.rank[2]]}}</text>
+                </view>
+              </view>
+          </view>
+        </view>
+    </view>
+</view>
+
+
+<view wx:else style="margin: 0rpx 20rpx 30rpx 20rpx">
+    <view>
+      <image style=" width: 710rpx; height: 410rpx" src="http://lc-igxfl8l0.cn-n1.lcfile.com/63a8953522eb1ecba56f.jpg"></image>
+      <view style="font-size:14pt">每日版本强势英雄简介</view>
+      <view style="font-size:11pt">我觉得兰陵王应该算是最适合新手进阶打野位置的英雄，也是铂金黄金段位最好上分的英雄之一，推荐各位想转型打野的童鞋入手。为什么这样说？大家都知道新手打野有个最大的痛点——害怕去抓人。简单来说，就是对自己的伤害不自信，感觉哪里都抓不了。而兰陵王的特性恰好可以让新手完美避开这个痛点，只需要着重研究一些套路，就能很好地转型到打野，上手这个位置。可以说，兰陵王是一个非常暴力的英雄，基础伤害极高，CD极短，连招简单无脑，前中期只要不会特别劣势，都能一套秒脆皮，给新手一个完美的秒杀体验，让打野小白自信心暴涨，相信自己的伤害，激发自己的抓人欲望，学会gank和支援。
+</view>
+
+    </view>
+</view>

@@ -1,0 +1,67 @@
+<image 
+    src="{{options.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title1">
+  <view class="wrap1">
+      <view  class="title_item1;" 
+             style="font-size:18pt;  margin-bottom: 8rpx;">
+             <span id="changestyle">{{options.title}}</span></view>
+
+      <view  style="font-size:11pt; color:#FD6C82; padding-bottom:30rpx; border-bottom:1px solid #f0f0f0; " 
+             class="title_item1">{{options.nickname}}  {{options.price}}.00元/局  {{multiArray[options.rank]}}</view>
+
+      <view  style="font-size:11pt;padding:20rpx 0rpx 30rpx 0rpx;" 
+             class="title_item1"> 
+             <text>{{options.serviceText}}</text></view>
+  </view>
+</view>
+
+<view class="wrap2">
+    <view class="title">评价</view>
+
+    <view wx:for="{{comment}}" wx:key="commentItem">
+          <view class="container"
+                >
+          <view class="author">
+            <view class="author_icon">
+                  <image 
+                      src="{{item.targetFrom.image}}" 
+                      class="author_icon_item" 
+                      style="border-radius: 50%; width:90rpx; height:90rpx;">
+                  </image>
+            </view>
+
+            <view class="author_title">
+              <view class="title_item"
+                    id="changecolor">{{item.targetFrom.username}}
+              </view>
+
+            <view style="font-size:10pt; color:#666">
+              {{item.createdAt}}
+            </view>
+            </view>
+          </view>
+
+          <view style="font-size:10pt; color:#666">
+            {{item.comment}}
+          </view>
+      </view>
+
+  </view>
+</view>
+
+
+
+<view class="button_wrap">
+
+		<button class="btn_submit"
+		        bindtap="bindConversation">私信</button>
+
+		<button class="btn_submit_right"
+		        bindtap="bindBuy">下单</button>
+</view>
+

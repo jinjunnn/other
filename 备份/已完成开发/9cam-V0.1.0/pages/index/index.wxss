@@ -1,0 +1,23 @@
+/**index.wxss**/
+.navigator{
+  margin:20rpx;
+  width: auto;
+}
+.detail-article__h3 {
+  font-weight: 400;
+  font-size: 15px;
+  text-overflow:ellipsis;
+}
+.height{
+  height:3em; 
+  overflow:hidden; 
+}
+.detail-article_date {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: .34em;
+
+}
+.item{
+  width:100%;
+}

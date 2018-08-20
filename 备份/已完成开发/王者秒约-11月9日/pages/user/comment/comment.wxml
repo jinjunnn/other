@@ -1,0 +1,34 @@
+<!--pages/user/comment/comment.wxml-->
+<view class="wrap">
+	  <view class="title">评价</view>
+
+    <view wx:for="{{comment}}" wx:key="commentItem">
+		      <view class="container"
+		      	    >
+				  <view class="author">
+				    <view class="author_icon">
+				          <image 
+				              src="{{item.targetFrom.image}}" 
+				              class="author_icon_item" 
+				              style="border-radius: 50%; width:90rpx; height:90rpx;">
+				          </image>
+				    </view>
+
+				    <view class="author_title">
+				      <view class="title_item"
+				            id="changecolor">{{item.targetFrom.username}}
+				      </view>
+
+					  <view style="font-size:10pt; color:#666">
+					  	{{item.createdAt}}
+					  </view>
+				    </view>
+				  </view>
+
+				  <view style="font-size:10pt; color:#666">
+				  	{{item.comment}}
+				  </view>
+			</view>
+
+	</view>
+</view>

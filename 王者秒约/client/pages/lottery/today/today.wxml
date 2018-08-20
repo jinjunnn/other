@@ -1,0 +1,154 @@
+<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+  <view style="height:550rpx">
+      <view style="font-size:18pt;  margin-bottom:20rpx;">本期奖品</view>
+      <image src="{{options.image}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill">
+      </image>
+      <view  class="title"> 
+             <text>{{options.title}}·{{options.content}}  价值{{options.price}}点券</text>
+      </view>
+  </view>
+  <block>
+        <view wx:if="{{d > options.deadline}}" class="lottery_time">
+            <view style="color:#e8453c">已结束</view>
+            <view>开奖时间{{options.deadlineTime}}</view>
+        </view>        
+        <view wx:else class="lottery_time">
+            <view style="color:#FD6C82">等待开奖</view>
+            <view>开奖时间{{options.deadlineTime}}</view>
+        </view>
+  </block>
+</view>
+<view style="height:4rpx; background-color: #eee;"></view>
+
+<view wx:if="{{d > options.deadline}}">
+        <view style="font-size:14pt;font-weight:bold;margin: 60rpx 0rpx 40rpx 40rpx ;">中奖名单</view>
+        <view class="authors">
+                <view wx:for="{{commentGet}}" 
+                      wx:key="commentItem"
+                      style="margin:10rpx;width:125rpx">
+                              <image 
+                                  src="{{item.targetUser.userImage}}" 
+                                  class="images" 
+                                  style="border-radius: 50%; width:90rpx; height:90rpx; margin:0rpx 20rpx 0rpx 20rpx">
+                              </image>
+
+                            <view class="title_text"
+                                id="changecolor">{{item.targetUser.userName}}</view>
+                </view>
+        </view>
+</view>        
+<view wx:else>
+    <view style="font-size:14pt; text-align: center; margin:40rpx 0rpx 40rpx 0rpx">开奖倒计时</view>
+    <view style="font-size:14pt; text-align: center; margin:40rpx 0rpx 40rpx 0rpx">
+        <text style="font-size:28pt;">{{countDownHour}}  </text>时：
+        <text style="font-size:28pt;">{{countDownMinute}}  </text>分：
+        <text style="font-size:28pt;">{{countDownSecond}}  </text>秒
+    </view>
+
+    <swiper indicator-dots="{{indicatorDots}}" style="height:100rpx"
+      autoplay="true" interval="2000" duration="500" vertical="true">
+      <block wx:for="{{indexArray}}" wx:for-index="idx">
+        <swiper-item>
+          <view style="font-size:30rpx">
+            <view wx:for="{{[1,2]}}" wx:for-index="i" class="lottery_user_swiper">
+              <view><text style="color:#FD6C82">{{comment[idx*2+i].targetUser.username}}</text>参与了抽奖</view>
+              <view>刚刚</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+</view>
+
+
+<view style="height:4rpx; background-color:#eeeeee; "></view>
+
+<view bindtap="bindtapAd">
+    <ad unit-id="adunit-7e3aeb3ef839ad67"></ad>
+<view style="text-align:right; font-size:24rpx;color:#1AA59a; font-weight:bold; padding:20rpx" wx:if="{{1}}">如果您喜欢广告内容，请点击广告支持我们，我们会随机赠送积分奖励，最高赠送8888积分可以直接兑换888点券的皮肤!</view>
+</view>
+
+
+<view style="height:4rpx; background-color: #eee;"></view>
+
+
+<view style="margin:20rpx 40rpx 20rpx 40rpx">
+  <view class="title_item1"> 
+         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明  </view>
+         <view style="font-size:11pt;text-align:justify;text-justify:kashida;line-height:130%">
+          <view>1:每日00:00分，开放免费皮肤抽奖，每当抽奖人数满100人，则随机发放1个皮肤，每日皮肤赠送的上线为20个。</view>
+          <view>2:中奖的小伙伴请与微信客服联系，领取奖励。 </view> 
+          <view>3:每次采用分享方式抽奖将随机获得积分奖励，100积分可抵1元现金用于皮肤兑换。</view>  
+          <view>4:皮肤领取失效开奖后的48小时内，过期后免费抽奖福利作废。</view>
+          <view>5:我司发放的皮肤均由正规途径从腾讯直接购买，抽奖最终解释权归平台所有。</view>
+        </view>         
+  </view>
+</view>
+
+<view style="height:4rpx; background-color: #eee;"></view>
+  <view>
+          <view class="title2">抽奖名单</view>
+          <view class="authors">
+                  <view wx:for="{{comment}}" 
+                        wx:key="commentItem"
+                        style="margin:10rpx;width:125rpx">
+                                <image 
+                                    src="{{item.targetUser.userImage}}" 
+                                    class="images" 
+                                    style="border-radius: 50%; width:90rpx; height:90rpx; margin:0rpx 20rpx 0rpx 20rpx">
+                                </image>
+
+                              <view class="title_text4">{{item.targetUser.userName}}</view>
+                  </view>
+          </view>
+          <view style="text-align:center; font-size:9pt; color:#333333">下拉加载更多</view>
+          <view style="height:120rpx"></view>
+
+
+    <view wx:if="{{d < options.deadline}}">
+          <view class="button_wrap"
+                wx:if="{{count == 0}}">
+              <form bindsubmit="bindLucky" report-submit="true">
+                  <button formType="submit" 
+                          class="btn_submit" 
+                          bindgetuserinfo="bindgetuserinfo" 
+                          open-type="getUserInfo">仅抽奖</button>
+              </form>
+
+              <form bindsubmit="bindLuckyShare" report-submit="true">
+                  <button formType="submit" 
+                          class="btn_submit_right"
+                          bindgetuserinfo="bindgetuserinfo"  
+                          open-type="share">抽奖并分享给好友</button>
+              </form>
+
+          </view>
+
+          <view wx:else
+                class="button_wrap">
+              <form report-submit="true">
+                  <button formType="submit" 
+                          class="btn_submit">已抽奖</button>
+              </form>
+
+              <form report-submit="true">
+                  <button formType="submit" 
+                          class="btn_submit_right" 
+                          open-type="share">分享给好友</button>
+              </form>
+          </view>
+    </view>
+    <view wx:else>
+        <view style="height:120rpx"></view>
+        <view class="button_wrap">
+            <button class="btn_submit"
+                    >已结束</button>
+            <button class="btn_submit_right"
+                    open-type="share"
+                    bindgetuserinfo="bindgetuserinfo" 
+                    >分享给好友</button>
+        </view>
+    </view>
+  </view>
+

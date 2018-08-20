@@ -1,0 +1,96 @@
+<view wx:if = "{{images1.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg1" 
+	        src= "https://dn-WekN4hEa.qbox.me/ed7b3bdf7d7fee007f29.png">上传照片 </image>
+</view>
+<view wx:else class= "place">
+		  <block wx:for="{{images1}}" wx:key="{{item}}">
+			    <image src="{{item}}" class="place_item" />
+		  </block>
+</view>
+
+<view wx:if = "{{images2.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg2" 
+	        src= "https://dn-WekN4hEa.qbox.me/ed7b3bdf7d7fee007f29.png">上传照片 </image>
+</view>
+<view wx:else class= "place">
+		  <block wx:for="{{images2}}" wx:key="{{item}}">
+			    <image src="{{item}}" class="place_item" />
+		  </block>
+</view>
+
+<view wx:if = "{{images3.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg3" 
+	        src= "https://dn-WekN4hEa.qbox.me/ed7b3bdf7d7fee007f29.png">上传照片 </image>
+</view>
+<view wx:else class= "place">
+		  <block wx:for="{{images3}}" wx:key="{{item}}">
+			    <image src="{{item}}" class="place_item" />
+		  </block>
+</view>
+
+
+<view class="container">
+
+  <view class="content">
+		 <input  value="{{name}}"
+		            bindinput="updateName"
+		 	        placeholder="请输入标题"
+		            placeholder-style="color:#888888;"
+		            style="background-color:#ffffff; padding:10rpx; border-radius:10rpx;"
+		            />
+  </view>
+
+  <view class="content">
+		 <input  value="{{subname}}"
+		            bindinput="updateSubname"
+		 	        placeholder="请输入副标题"
+		            placeholder-style="color:#888888;"
+		            style="background-color:#ffffff; padding:10rpx; border-radius:10rpx;"
+		            />
+  </view>
+  <view class="content">
+		 <input     value="{{price1}}" type="number"
+		            bindinput="updatePrice1"
+		 	        placeholder="请输入标准价格"
+		            placeholder-style="color:#888888;"  
+		            style="background-color:#ffffff; padding:10rpx; border-radius:10rpx;"
+		            />
+  </view>
+  <view class="content">
+		 <input     value="{{price2}}" type="number"
+		            bindinput="updatePrice2"
+		 	        placeholder="请输入折扣价"
+		            placeholder-style="color:#888888;"  
+		            style="background-color:#ffffff; padding:10rpx; border-radius:10rpx;"
+		            />
+  </view>
+  <view class="content">
+		 <input     value="{{amount}}" type="number"
+		            bindinput="updateAmount"
+		 	        placeholder="请输入待售商品数量"
+		            placeholder-style="color:#888888;"  
+		            style="background-color:#ffffff; padding:10rpx; border-radius:10rpx;"
+		            />
+  </view>
+  <view class="content">
+		 <textarea  value="{{content}}" 
+		            bindinput="updateContent"
+		 	        placeholder="请详细的描述您的产品细节描述"
+		            placeholder-style="color:#888888;" 
+		            style="background-color:#ffffff; padding:10rpx; margin-bottom:120rpx; border-radius:10rpx; width:630rpx; height:200rpx" 
+		            />
+  </view>
+</view>
+<view style="height:160rpx"></view>
+<button class="btn_submit"
+        type="primary" 
+        bindtap="submitTap">确定</button>

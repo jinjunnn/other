@@ -1,0 +1,77 @@
+<!-- noscroll是用来控制浮层底层根目录不滚动 -->
+
+<!-- <view  class="noscroll"> -->
+	<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+	  <view style="height:700rpx">
+	      <view style="font-size:18pt;  margin-bottom:20rpx;">拼团奖品</view>
+	      <image src="{{product.image.url}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill">
+	      </image>
+          <view style="display:-webkit-flex;display:flex;justify-content:space-between; height:100rpx" >
+		      <view  style="font-size:18pt; color:#f8416a;padding-top:20rpx">￥1.00元 </view>
+		      <view  style="width:90rpx; height:90rpx;" >
+		      	    <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/196bb37ea4f98cb13a4c.png"
+		      	    	   style="width:60rpx; height:60rpx;" 
+		      	    	   mode="aspectFill"></image> 
+		      	    <view style="font-size:10pt;position:relative;top:-20rpx">分享</view>
+		      </view>
+		  </view>
+
+
+	      <view  style="font-size:12pt;"> 
+	             <text>{{product.title}}·{{product.content}}  价值{{product.price}}点券</text>
+	      </view>
+	  </view>
+	</view>
+     
+<!-- 	开奖倒计时   -->
+<!-- 	<view>
+	    <view style="font-size:14pt; text-align: center; margin:40rpx 0rpx 40rpx 0rpx">开奖倒计时</view>
+	    <view style="font-size:14pt; text-align: center; margin:40rpx 0rpx 40rpx 0rpx">
+	        <text style="font-size:28pt;">{{countDownHour}}  </text>时：
+	        <text style="font-size:28pt;">{{countDownMinute}}  </text>分：
+	        <text style="font-size:28pt;">{{countDownSecond}}  </text>秒
+	    </view>
+
+	    <swiper indicator-dots="{{indicatorDots}}" style="height:100rpx"
+	      autoplay="true" interval="2000" duration="500" vertical="true">
+	      <block wx:for="{{indexArray}}" wx:for-index="idx">
+	        <swiper-item>
+	          <view style="font-size:30rpx">
+	            <view wx:for="{{[1,2]}}" wx:for-index="i" class="lottery_user_swiper">
+	              <view><text style="color:#4688f1">{{comment[idx*2+i].targetUser.username}}</text>参与了抽奖</view>
+	              <view>刚刚</view>
+	            </view>
+	          </view>
+	        </swiper-item>
+	      </block>
+	    </swiper>
+	</view> -->
+	<view style="height:30rpx; background-color:#eeeeee; "></view>
+	<view style="margin:40rpx 40rpx 0rpx 40rpx">
+	  <view class="title_item1"> 
+	         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明  </view>
+	         <view style="font-size:11pt;text-align:justify;text-justify:kashida;line-height:130%">
+	          <view>1:获奖结果将实时公布，请前往微信公众号"电竞天堂"查看。</view>
+	          <view>2:活动结束后，姜葱拼单成功的所有订单中，随机抽取中奖者。</view> 
+	          <view>3:一等奖为{{product.title}}·{{product.content}}，1元拼单的中奖概率为0.2%，3折拼单中奖概率为2%。</view>  
+	          <view>4:二等奖赠送拼单金额等额的玩币，并赠送一定数量的幸运值。如用户选择退款，则按照付款金额全额退款。拼团未成功的款项将自动原路返还。拼团成功至少获得二等奖。</view>
+	          <view>5:中奖的商品预计在活动结束的三个工作日内发放。。</view>
+	        </view>         
+	  </view>
+	</view>
+	  <view>
+
+	    <view style="height:120rpx"></view>
+	    <view>
+	        <view style="height:120rpx"></view>
+	        <view class="button_wrap">
+	        	<form bindsubmit="bindBuy" report-submit="true">
+	                <button class="btn_submit" formType="submit">1元拼团</button>
+	            </form>
+	            <form bindsubmit="bindFullBuy" report-submit="true">
+	            <button class="btn_submit_right" formType="submit">{{product.groupSell}}元拼团</button>
+	            </form>
+	        </view>
+	    </view>
+	  </view>

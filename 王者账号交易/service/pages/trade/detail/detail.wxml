@@ -1,0 +1,78 @@
+<image 
+    src="{{trade.images[0]}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="container">
+		<view class="title">
+				<view  class="title_item;" 
+				       style="font-size:18pt;  margin-bottom: 8rpx;">
+				       <span id="changestyle">{{trade.title}}</span></view>
+				<view  class="title_item;" 
+				       style="font-size:18pt;  margin-bottom: 8rpx;">
+				       <span id="changeredstyle">￥{{trade.amount}} 元</span></view>
+				<view  style="font-size:11pt;" 
+				       class="title_item">{{trade.content}}</view>
+		</view>
+
+        <view class="author">
+				<view class="author_title">
+						    <view style="font-size:12pt;" 
+						        class="title_item">卖家：{{trade.targetUser.username}}</view>
+						    <view     class="text_title_wrap"
+						    	      style="font-size:12pt">
+						        <span id="changecolor">平台担保交易</span>
+
+						    </view>
+
+				</view>
+
+				<view class="author_icon">
+				        <image wx:if="{{trade.targetUser.image}}"
+					          src="{{trade.targetUser.image}}" 
+					          class="author_icon_item" 
+					          style="border-radius: 50%; width:120rpx; height:120rpx;">
+				        </image>
+				        <image wx:else
+					          src="{{trade.targetUser.userImage}}" 
+					          class="author_icon_item" 
+					          style="border-radius: 50%; width:120rpx; height:120rpx;">
+				        </image>
+				</view>
+        </view>
+
+</view>
+
+
+<view wx:for="{{trade.images}}" wx:key="item">
+    <image src="{{item}}"
+           style="width:750rpx;"
+           mode="widthFix"></image>
+</view>
+
+
+<view style="margin:20rpx; background-color:#FD6C82; padding:20rpx; border-radius:10rpx; opacity:0.5;">
+	<view style="font-size:36rpx; padding:10rpx; color:#ffffff">温馨提示</view>
+	<view style="font-size:20rpx; padding:10rpx; color:#ffffff">1：您正在进行由电竞道具城提供平台担保的交易，电竞道具城小程序是时代文化集团旗下平台。</view>
+	<view style="font-size:20rpx; padding:10rpx; color:#ffffff">2：你的付款将由电竞道具城代收。在您收货后48小时，再将您的资金付款至卖方账号。</view>
+	<view style="font-size:20rpx; padding:10rpx; color:#ffffff">3：买方违约造成的卖方损失，买方将承担20%违约金，请您在购买前确定了解所购买的产品的全面信息。</view>
+</view>
+
+<view style="height:120rpx"></view>
+<view class="button_wrap">
+	<button open-type="contact"
+		    bindtap="bindSendSMS"
+		    class="btn_submit">客服</button>
+
+	<button class="btn_submit_right"
+	        bindtap="bindBuy">下单</button>
+
+</view>
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+.container{
+  margin:60rpx;
+}
+.title{
+  height :305rpx;
+  background-color: #128488;
+  padding : 60rpx;
+  color : #FFFFFF;
+  font-size: 20pt;
+  font-weight:700;
+  padding-bottom: 20rpx; 
+}
+.content{
+  font-size:13pt;
+  padding-bottom: 50rpx;
+}
+.btn{
+  position: relative;
+  left: -200rpx;
+  font-size: 11pt;
+  color: #1AA59a;
+  width: 180rpx;
+  height: 80rpx;
+  padding: 5rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #1AA59a;
+}

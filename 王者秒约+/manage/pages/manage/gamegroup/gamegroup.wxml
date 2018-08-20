@@ -1,0 +1,17 @@
+<view wx:if = "{{images.length < 1}}"
+	  class= "place"> 
+		<image
+			class= "place_holder"
+	        ontap= "upImg" 
+	        src= "https://dn-WekN4hEa.qbox.me/ed7b3bdf7d7fee007f29.png">上传照片 </image>
+</view>
+<view wx:else class= "place">
+		  <block wx:for="{{images}}" wx:key="{{item}}">
+			    <image src="{{item}}" class="place_item" />
+		  </block>
+</view>
+
+<view style="height:120rpx"></view>
+<button class="btn_submit"
+        type="primary" 
+        bindtap="submitTap">确定</button>

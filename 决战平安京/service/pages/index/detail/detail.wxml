@@ -1,0 +1,131 @@
+<image 
+    src="{{user.targetUser.image}}" 
+    class="slide-image" 
+    style="width:100%; "
+    mode="widthFix">
+</image>
+
+<view class="title1">
+  <view class="wrap1">
+      <view  class="title_item1;" 
+             style="font-size:18pt;  margin-bottom: 8rpx;">
+             <span id="changestyle">{{user.title}}</span></view>
+      <view  style="font-size:11pt; color:#FD6C82; padding-bottom:30rpx; border-bottom:1px solid #f0f0f0; " 
+             class="title_item1">
+             <text style="color:#000000">{{user.targetUser.nickname}}</text>
+             <text>   {{user.price}}.00元/局  接单:{{user.numberOfOrder}}次</text>
+             <view>
+                 <text>{{multiArray[0][user.targetUser.rank[0]]}}  {{multiArray[1][user.targetUser.rank[1]]}} </text>
+             </view>
+      </view>
+      <view  style="font-size:11pt;padding:20rpx 0rpx 30rpx 0rpx;" 
+             class="title_item1"> 
+             <text>{{user.serviceText}}</text></view>
+  </view>
+  <view>
+      <view wx:if="{{user.userVideo}}">
+          <view  class="title_item1;" 
+                 style="font-size:14pt;  margin-bottom: 8rpx;">
+                 <span id="changestyle">{{user.targetUser.nickname}}个人视频</span></view>  
+          <video src="{{user.userVideo}}" style="width:710rpx; margin:20rpx" objectFit="fill"></video>
+      </view>
+
+      <view wx:if="{{user.userImages.images}}">
+          <view  class="title_item1;" 
+                 style="font-size:14pt;  margin:0rpx 0rpx 8rpx 20rpx;">
+                 <span id="changestyle">{{user.targetUser.nickname}}个人照片</span></view>  
+          <view wx:for="{{user.userImages.images}}" wx:key="images"> 
+              <image src="{{item}}" style="width:710rpx; margin:20rpx" mode="widthFix"></image>
+          </view>
+      </view>
+      <view wx:if="{{user.combatImages.images}}">
+          <view  class="title_item1;" 
+                 style="font-size:14pt;  margin:0rpx 0rpx 8rpx 20rpx;">
+                 <span id="changestyle">{{user.targetUser.nickname}}战绩截图</span></view>  
+          <view wx:for="{{user.combatImages.images}}" wx:key="images"> 
+              <image src="{{item}}" style="width:710rpx; margin:20rpx" mode="widthFix"></image>
+          </view>
+      </view>
+  </view>
+
+
+</view>
+<!-- about 作者-->
+<view wx:if="{{user.userInfo}}">
+    <view class="about">
+        <view style="font-size:9pt;" 
+              class="about_author">
+            <text class="about_author_style">关于{{user.targetUser.nickname}}</text>
+        </view>
+
+        <view style="font-size:10pt;" 
+              class="about_content">{{user.userInfo}}</view>
+    </view>
+</view>    
+
+<view wx:if="{{user.userImages.images}}">
+    <view wx:for="{{user.userImages.images}}" wx:key="item">
+        <image src="{{item}}"
+               class="userImages"
+               mode="widthFix"></image>
+    </view>
+</view>
+
+<view wx:if="{{user.combatImages.images}}">
+    <view wx:for="{{user.combatImages.images}}" wx:key="item">
+        <image src="{{item}}"
+               class="userImages"
+               mode="widthFix"></image>
+    </view>
+</view>
+
+
+
+
+<view class="wrap2">
+    <view class="title">评价</view>
+
+    <view wx:for="{{comment}}" wx:key="commentItem">
+          <view class="container"
+                >
+          <view class="author">
+            <view class="author_icon">
+                  <image 
+                      src="{{item.targetFrom.userImage}}" 
+                      class="author_icon_item" 
+                      style="border-radius: 50%; width:90rpx; height:90rpx;">
+                  </image>
+            </view>
+
+            <view class="author_title">
+              <view class="title_item"
+                    id="changecolor">{{item.targetFrom.username}}
+              </view>
+
+            <view style="font-size:10pt; color:#666">
+              {{item.updatedAt}}
+            </view>
+            </view>
+          </view>
+
+          <view style="font-size:10pt; color:#666">
+            {{item.comment}}
+          </view>
+      </view>
+
+  </view>
+</view>
+
+<view style="height : 60rpx "></view>
+
+<view class="button_wrap">
+
+		<button class="btn_submit"
+		        bindtap="bindConversation"
+            bindgetuserinfo="bindgetuserinfo"
+            open-type="getUserInfo">私信</button>
+
+		<button class="btn_submit_right"
+		        bindtap="bindBuy">快约我</button>
+</view>
+

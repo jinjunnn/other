@@ -1,0 +1,17 @@
+<!--pages/user/add/add.wxml-->
+    <view class="title">
+    送出￥200，获得￥200</view>
+
+
+<view class="container">
+
+    <view class="content">
+    好友通过您的链接注册账号后，将会获得￥200的基金。</view>
+    <view class="content">
+    一旦好友在三个月内通过指南在线下消费并通过小程序付款，您即可获得200元的基金</view>
+		<button 
+        open-type="share"
+        class="btn"> 邀请好友 +</button>
+
+
+</view>

@@ -1,0 +1,8 @@
+/* pages/punch/punch.wxss */
+.color{
+	background-color: #2fcdb4;
+	line-height: 60rpx;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 5rpx;
+}

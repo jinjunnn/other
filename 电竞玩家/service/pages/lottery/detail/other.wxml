@@ -1,0 +1,50 @@
+<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+    <view style="height:650rpx">
+        <view style="font-size:18pt;  margin-bottom:20rpx;">{{options.content}}</view>
+            <image src="{{options.image}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill"></image>
+        <view> 
+            <text>{{options.title}}·{{options.content}}  价值{{options.price}}点券</text>
+        </view>
+    </view>
+</view>
+<button bindtap="bindLottery" class="btn_lottery">幸运抽奖</button>
+<view style="height:30rpx; background-color:#eeeeee; "></view>
+
+
+<view style="margin:40rpx 40rpx 0rpx 40rpx">
+  <view class="title_item1"> 
+         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明</view>
+         <view style="font-size:9pt;text-align:justify;text-justify:kashida;line-height:130%">
+            <view>1:活动规则:积分夺宝活动是完全免费的活动，每{{options.price}}次抽奖会随机产生一个幸运获奖用户。</view>
+            <view>2:奖励发放形式:中奖后请保留中奖截图，添加微信公众号《电竞天堂》进行索要，或根据通知提示添加客服人员微信。 </view> 
+            <view>3:幸运值:用户可以通过每日登陆签到、分享给好友等随机获得幸运值，10幸运值可以参与一次幸运抽奖。</view>
+            <view>4:隐私声明:幸运需要获得您授权微信名称和微信头像信息，平台仅将您的名称与头像用于皮肤抽奖公示，以方便向用户公开中奖用户信息。</view> 
+        </view>         
+  </view>
+</view>
+
+<view style="margin: 60rpx 0rpx 0rpx 20rpx ;font-size:14pt;">中奖名单</view>
+
+<view wx:for="{{comment}}" wx:key="commentItem">
+  <view class="container">
+      <view class="author">
+        <view class="author_icon">
+              <image 
+                  src="{{item.targetUser.userImage}}" 
+                  class="author_icon_item" 
+                  style="border-radius: 50%; width:90rpx; height:90rpx;">
+              </image>
+        </view>
+        <view class="author_title">
+          <view class="title_item"
+                id="changecolor">{{item.targetUser.username}}
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+
+
+<view style="height=180rpx">
+</view>

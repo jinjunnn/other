@@ -1,0 +1,22 @@
+ <!--pages/user/help/help.wxml-->
+    <view class="title">
+    我们的表现如何？</view>
+
+<view class="container">
+
+    <view class="content">
+    我们想了解您喜欢哪些方面，以及您认为我们可以在哪些方面做得更好。我们可能无法逐条回复反馈，但我们会认真阅读您的反馈。如果您的建议或者意见给了我们很大的帮助，我们会一次性发放奖励到您的奖励金账户。</view>
+	 <textarea
+        value="{{value}}" 
+        bindinput="updateValue"
+        placeholder="请输入您的建议或意见"
+        placeholder-style="color:#888888;"  
+	            />
+    <button bindtap="bindSubmit">确定</button>
+
+</view>
+
+
+
+
+

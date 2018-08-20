@@ -1,0 +1,17 @@
+/* pages/index/groupOrder/groupOrder.wxss */
+
+.user_images{
+	border-radius:50%; 
+	width:30rpx; 
+	height:30rpx; 
+	border:1rpx dotted #666666; 
+	padding:30rpx 30rpx 30rpx 30rpx; 
+	font-size:30rpx;
+	margin:0rpx 20rpx 0rpx 20rpx;
+}
+.user_images_text{
+	position: relative;
+	left: 5rpx;
+	top:-5rpx;
+	color:#666666;
+}

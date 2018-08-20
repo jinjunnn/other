@@ -1,0 +1,8 @@
+<!--pages/user/setting/nickname/nickname.wxml-->
+<input placeholder="请输入您的游戏名称，方便大神找到您。" 
+	   auto-focus
+	   confirm-type="send"
+	   class="input"
+	   bindconfirm="setNickName"
+	   bindblur="setNickName"
+	   />

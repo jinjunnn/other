@@ -1,0 +1,50 @@
+<!-- noscroll是用来控制浮层底层根目录不滚动 -->
+
+<!-- <view  class="noscroll"> -->
+	<view style="margin:0rpx 40rpx 0rpx 40rpx">
+
+	  <view style="height:700rpx">
+	      <view style="font-size:18pt;  margin-bottom:20rpx;">拼团奖品</view>
+	      <image src="{{product.image.url}}" style="width:100%; height:440rpx;border-radius: 10rpx;" mode="scaleToFill">
+	      </image>
+          <view style="display:-webkit-flex;display:flex;justify-content:space-between; height:100rpx" >
+		      <view  style="font-size:18pt; color:#f8416a;padding-top:20rpx">￥1.00元 </view>
+
+		  </view>
+
+
+	      <view  style="font-size:12pt;"> 
+	             <text>{{product.title}}·{{product.content}}  价值{{product.price}}点券</text>
+	      </view>
+	  </view>
+	</view>
+     
+	<view style="height:30rpx; background-color:#eeeeee; "></view>
+	<view style="margin:40rpx 40rpx 0rpx 40rpx">
+	  <view class="title_item1"> 
+	         <view style="font-size:14pt; font-weight:bold; margin-bottom：30rpx">参与说明  </view>
+	         <view style="font-size:11pt;text-align:justify;text-justify:kashida;line-height:130%">
+	          <view>活动截止时间{{product.pintuanDeadline}}</view>
+	          <view>1:拼团结果实时通知，请您在拼道具小程序-我的-订单中查看，也可以关注公众号【电竞天堂】获得更多中奖信息。</view>
+	          <view>2:拼团活动结束后，将从所有拼团成功的用户中随机抽取中奖者。</view> 
+	          <view>3:一等奖为{{product.title}}·{{product.content}}，共30名。二等奖全额退款到小程序个人账户，3折拼团用户将额外赠送一张上分体验卡，可以在小程序【电竞玩家】中使用。</view>  
+	          <view>4:小程序个人账户余额可以在【电竞玩家】【王者秒约】【拼皮肤】等多款小程序中使用。</view>
+	          <view>5:中奖的商品预计在活动结束的三个工作日内发放。</view>
+	        </view>         
+	  </view>
+	</view>
+	  <view>
+
+	    <view style="height:120rpx"></view>
+	    <view>
+	        <view style="height:120rpx"></view>
+	        <view class="button_wrap">
+	        	<form bindsubmit="bindBuy" report-submit="true">
+	                <button class="btn_submit" formType="submit">1元拼团</button>
+	            </form>
+	            <form bindsubmit="bindFullBuy" report-submit="true">
+	            <button class="btn_submit_right" formType="submit">{{product.groupSell}}元拼团</button>
+	            </form>
+	        </view>
+	    </view>
+	  </view>

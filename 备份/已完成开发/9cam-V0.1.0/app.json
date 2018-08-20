@@ -1,0 +1,50 @@
+
+  {
+    "pages": [
+   
+    
+    "pages/index/index",
+    "pages/index/detail/index",
+    "pages/account/account",
+    "pages/account/feedback/feedback",
+     "pages/account/release/release",
+    "pages/interface/interface",
+    "pages/interface/code/code",
+    "pages/topic/topic",
+    "pages/topic/detail/detail",
+    "pages/sendSms/sendSms",
+    "pages/login/login",
+    "pages/getOpenId/getOpenId",
+    "pages/register/register",
+    "pages/picasa/picasa",
+    "pages/pay/pay",
+    "pages/ad/ad"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "9cam"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#FD6C82",
+    "borderStyle": "#FFF",
+    "backgroundColor": "#ffffff",
+    "list": [
+     
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/video.png",
+        "selectedIconPath": "image/videoHL.png",
+        "text": "视频"
+      },
+      {
+        "pagePath": "pages/topic/topic",
+        "iconPath": "image/topic.png",
+        "selectedIconPath": "image/topicHL.png",
+        "text": "专题"
+      }
+    ]
+  }
+}
