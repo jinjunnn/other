@@ -22,18 +22,21 @@ App({
 
   onShow: function (options) {
     this.login()
+    this.getSettings('5b7aae359f54540031b18cb1')
 
   },
 
-  // setConfi(){
-  //   var that = this;
-  //   var query = new AV.Query('Confi');
-  //   query.get('5a6492c61b69e60066f379a7').then(function (confi) {
-  //        that.globalData.confi = confi.attributes
-  //   }, function (error) {
-  //     // 异常处理
-  //   });
-  // },
+  getSettings(i){
+    var that = this;
+    var query = new AV.Query('Setting');
+    query.get(i).then(function (settings) {
+         console.log(settings)
+         that.globalData.settings = settings.attributes;
+
+    }, function (error) {
+      // 异常处理
+    });
+  },
 
   login: function () {
     var that = this;
@@ -58,11 +61,11 @@ App({
                       }
                       console.log(paramsJson)
                       AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
-                        console.log('data=')
-                        console.log(data)
-                        console.log(data.openid)
-                        console.log(data.unionid)
-                        console.log(data.token)
+                        // console.log('data=')
+                        // console.log(data)
+                        // console.log(data.openid)
+                        // console.log(data.unionid)
+                        // console.log(data.token)
                         AV.User.loginWithAuthDataAndUnionId({
                           uid: data.openid,
                           access_token: data.token,
@@ -70,26 +73,24 @@ App({
                           unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
                           asMainAccount: false,
                         }).then(function (usr) {
-                          console.log("我是user=")
                           console.log(usr)
-                          console.log(res.userInfo)
+
+                          console.log(res)
+
                           that.globalData.userInfo = res.userInfo
                           typeof cb == "function" && cb(that.globalData.userInfo)
-                          var nickName = res.nickName;
-                          var avatarUrl = res.avatarUrl;
-                          var city = res.city;
-                          var gender = res.gender;
-                          var province = res.province;
-                          const user = AV.User.current();
-                          user.set('username', nickName);
-                          user.set('userImage', avatarUrl);
-                          user.set('city', city);
-                          user.set('province', province);
-                          user.set('gender', gender);
-                          user.save().then(()=>{
+                           console.log(res)
+                           console.log(res.userInfo)
+                           console.log(res.userInfo.nickName)
+                           const user = AV.User.current();
+                           user.set('wxname', res.userInfo.nickName);
+                           user.set('userImage', res.userInfo.avatarUrl);
+                           user.set('city', res.userInfo.city);
+                           user.set('province', res.userInfo.province);
+                           user.save().then(() => {
+                                
                             that.globalData.hasLogin = true;
-                            that.update()
-                          });
+                          }).catch(console.error);
                         }).catch(console.error);
                       }).catch(console.error);
                     },
@@ -108,7 +109,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    confi:null,
+    settings:null,
     hasLogin: false,
   }
 })

@@ -11,16 +11,24 @@ Page({
 
   },
   onShow: function () {
-    common.querySetting( '用户中心','登录用户中心需要获取您的用户名作为登录名。')
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: './login/login'
+      })
+    }else{
     var that = this;
     var query = new AV.Query('_User');
     query.get(User.current().id).then(function (user) {
-          that.setData({
-            user
-          })
-    }, function (error) {
+      that.setData({
+        user
+      })
+    },
+    function (error) {
+      
       // 异常处理
     });
+    }
+
   },
   setting(){
 		wx.openSetting({

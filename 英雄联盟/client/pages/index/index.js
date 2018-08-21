@@ -24,8 +24,11 @@ Page({
     var that = this;
     var query = new AV.Query('Confi');
     query.get(objectId).then(function (confi) {
-         console.log(confi.attributes.lotteryDisplay)
-         that.setData({confi:confi.attributes.lotteryDisplay})
+
+         that.setData({
+           confi:confi.attributes.lotteryDisplay,
+           hasLogin: app.globalData.hasLogin,
+          })
     }, function (error) {
       // 异常处理
     });
@@ -48,7 +51,12 @@ Page({
   },
 
   onShow: function () {
+            var that = this;
+            that.setData({
+              hasLogin: app.globalData.hasLogin,
+            })
     this.queryMaster()
+
   },
   onHide: function () {
     page_index = 0;

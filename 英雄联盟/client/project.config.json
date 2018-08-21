@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
-	"appid": "wx4af5627b21d7b379",
-	"projectname": "%E8%B4%A6%E5%8F%B7%E4%B8%AD%E5%BF%83",
+	"appid": "wx6efbe0ee407317f0",
+	"projectname": "moba",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

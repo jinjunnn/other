@@ -61,7 +61,7 @@ page {
 }
 
 .container{
-  margin: 0 30rpx 50rpx 30rpx;
+  margin: 0 0rpx 10rpx 30rpx;
 }
 .author{
   display: -webkit-flex;

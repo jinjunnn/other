@@ -53,7 +53,7 @@
     "pages/user/service/service",
 
     "pages/user/share/share",
-
+    "pages/user/login/login",
     "pages/user/info/info",
 
     "pages/user/order/order",
@@ -93,6 +93,7 @@
         "selectedIconPath": "image/主页1.png",
         "text": "主播"
       },
+
       {
         "pagePath": "pages/user/user",
         "iconPath": "image/个人中心.png",

@@ -26,7 +26,6 @@ App({
   },
 
   onShow: function (options) {
-
     this.login()
     this.setConfi()
   },
@@ -42,77 +41,67 @@ App({
   },
   login: function () {
     var that = this;
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var code = res.code
-          // 获取用户信息
-          wx.getSetting({
-            withCredentials:true,
-            long:'zh_CN',
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+
+          console.log('用户没有授权')
+        } else {
+          wx.login({
             success: res => {
-
-                wx.getUserInfo({
-                  withCredentials: true,
-                  success: res => {
-                    // 可以将 res 发送给后台解码出 unionId
-                    console.log('登录'+ code)
-                    console.log('res=')
-                    console.log(res)
-                    var paramsJson = {
-                        code:code,
-                        res:res,
-                        }
-                    AV.Cloud.run('wxLogin',paramsJson).then(function(data) {
-                      console.log('data=')
-                      console.log(data)
-                      console.log(data.openid)
-                      console.log(data.unionId)
-                      console.log(data.token)
-                                AV.User.signUpOrlogInWithAuthDataAndUnionId({
-                                uid: data.openid,
-                                access_token: data.token,
-                              }, 'weapp_moba', data.unionId, {
-                                unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
-                                asMainAccount: false,
-                              }).then(function(usr) {
-
-                                that.globalData.userInfo = res.userInfo
-                                typeof cb == "function" && cb(that.globalData.userInfo)
-                                    var nickName = res.userInfo.nickName;
-                                    var avatarUrl = res.userInfo.avatarUrl;
-                                    var city = res.userInfo.city;
-                                    var gender = res.userInfo.gender;
-                                    var province = res.userInfo.province;
-
-                                    const user = AV.User.current();
-                                    user.set('userName', nickName);
-                                    user.set('userImage',avatarUrl);
-                                    user.set('city', city);
-                                    user.set('province',province);
-                                    user.set('gender',gender);      
-                                    user.save();
-                              }).catch(console.error);
-                    }).catch(console.error);
-                  },
-                  fail: res => {
-                    // wx.showLoading({
-                    //   title: '未登录',
-                    //   mask:true,
-                    // })
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId unionId
+              var code = res.code
+              console.log(code)
+              wx.getUserInfo({
+                withCredentials: true,
+                success: res => {
+                  var paramsJson = {
+                    code: code,
+                    res: res,
                   }
-                })
-            },
-            fail: res => {
+                  console.log(paramsJson)
+                  AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
+
+                    AV.User.loginWithAuthDataAndUnionId({
+                      uid: data.openid,
+                      access_token: data.token,
+                    }, 'weapp_moba', data.unionid, {
+                        unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
+                        asMainAccount: false,
+                      }).then(function (usr) {
+
+                        that.globalData.userInfo = res.userInfo
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+
+                        const user = AV.User.current();
+                        user.set('wxname', res.userInfo.nickName);
+                        user.set('userImage', res.userInfo.avatarUrl);
+                        user.set('city', res.userInfo.city);
+                        user.set('province', res.userInfo.province);
+                        user.save().then(() => {
+
+                          that.globalData.hasLogin = true;
+                        }).catch(console.error);
+                      }).catch(console.error);
+                  }).catch(console.error);
+                },
+                fail: res => {
+                  wx.showLoading({
+                    title: '未登录',
+                    mask: true,
+                  })
+                }
+              })
             }
-          })
+          });
+        }
       }
-    });
+    })
   },
   realtime: realtime,
   globalData: {
     userInfo: null,
     confi:null,
+    hasLogin: false,
   }
 })

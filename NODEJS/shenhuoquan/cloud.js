@@ -115,7 +115,7 @@ AV.Cloud.define('wxLogin', (request, response) => {
                               const userinfo = {
                                 openid: openId,
                                 token: token,
-                                unionid: data.unionId,
+                                unionid: data.unionid,
                               }
                               response.success(userinfo);
 

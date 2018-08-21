@@ -2,6 +2,7 @@ const AV = require('../../../utils/av-live-query-weapp-min');
 const { User, Query, Cloud } = require('../../../utils/av-live-query-weapp-min');
 const common = require('../../../model/common')
 const Order = require('../../../model/order');
+var app = getApp()
 var that = this;
 var coins;
 //抽奖的次数
@@ -27,9 +28,7 @@ Page({
       condition: 1,
   },
 
-  onLoad: function (options) {
-    common.querySetting( '皮肤抽奖','抽奖需获得您的昵称和头像信息，用以在中奖名单中公布。')
-    
+  onLoad: function (options) {    
     var that = this;
     objectId = options.objectId
     var query = new AV.Query('Lottery');
@@ -70,17 +69,25 @@ Page({
   },
   //点击抽奖
   bindLucky: function () {
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: '../../user/login/login'
+      })
+    } else {
         console.log(objectId)
         console.log(price)
-    this.setData({ condition:1});
-    var that = this;
-    if (cost <= coins) {
-      that.luckyDraw()
-      return false;
-    } 
-    else {
-      that.donate()
+        this.setData({
+          condition: 1
+        });
+        var that = this;
+        if (cost <= coins) {
+          that.luckyDraw()
+          return false;
+        } else {
+          that.donate()
+        }
     }
+
   },
   //创建抽奖订单
   donate() {

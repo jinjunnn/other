@@ -8,7 +8,13 @@ Page({
   data: {
   },
   onLoad: function() {
-    console.log(app.globalData.hasLogin)
+    console.log(app.globalData.settings)
+    console.log(AV.User.current())
+    this.setData({
+      settings: app.globalData.settings,
+      user: AV.User.current(),
+
+    })
     if (!app.globalData.hasLogin) {
       wx.navigateTo({
         url: './login/login'
