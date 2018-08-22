@@ -1,7 +1,7 @@
-var app = getApp()
 const {User} = require('../../../utils/av-live-query-weapp-min');
 const common = require('../../../model/common');
 const AV = require('../../../utils/av-live-query-weapp-min');
+var app = getApp()
 
 Page({
   onLoad: function () {

@@ -45,15 +45,19 @@ Page({
       value
     },
   }) {
-
     if (!value) return;
+    this.setData({
+      title: value
+    });
+    let that = this;
     qqmapsdk.getSuggestion({
     keyword: value,
     region: city,
     region_fix: '0',
     success: function (res) {
-      console.log(res.data);
-      address = res;
+        that.setData({
+          addresses: res.data
+        });
     },
     fail: function (res) {
       console.log(res);
@@ -61,9 +65,7 @@ Page({
     complete: function (res) {
     }
   })
-  this.setData({
-    addresses: address.data
-  });
+
 
   },
   /**

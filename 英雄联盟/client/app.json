@@ -93,7 +93,6 @@
         "selectedIconPath": "image/主页1.png",
         "text": "主播"
       },
-
       {
         "pagePath": "pages/user/user",
         "iconPath": "image/个人中心.png",
