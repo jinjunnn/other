@@ -13,16 +13,25 @@ Page({
 
   },
   onShow: function () {
-    var that = this;
-    var query = new AV.Query('_User');
-    query.get(User.current().id).then(function (user) {
+
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: './login/login'
+      })
+    } else {
+      var that = this;
+      var query = new AV.Query('_User');
+      query.get(User.current().id).then(function (user) {
           that.setData({
-            user:user,
-            confi:app.globalData.confi.lotteryDisplay,
+            user
           })
-    }, function (error) {
-      // 异常处理
-    });
+        },
+        function (error) {
+
+          // 异常处理
+        });
+    }
+
   },
   setting(){
 		wx.openSetting({

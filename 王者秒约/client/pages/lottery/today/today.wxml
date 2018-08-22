@@ -52,7 +52,7 @@
         <swiper-item>
           <view style="font-size:30rpx">
             <view wx:for="{{[1,2]}}" wx:for-index="i" class="lottery_user_swiper">
-              <view><text style="color:#FD6C82">{{comment[idx*2+i].targetUser.username}}</text>参与了抽奖</view>
+              <view><text style="color:#FD6C82">{{comment[idx*2+i].targetUser.userName}}</text>参与了抽奖</view>
               <view>刚刚</view>
             </view>
           </view>
@@ -66,7 +66,7 @@
 
 <view bindtap="bindtapAd">
     <ad unit-id="adunit-7e3aeb3ef839ad67"></ad>
-<view style="text-align:right; font-size:24rpx;color:#1AA59a; font-weight:bold; padding:20rpx" wx:if="{{1}}">如果您喜欢广告内容，请点击广告支持我们，我们会随机赠送积分奖励，最高赠送8888积分可以直接兑换888点券的皮肤!</view>
+<!-- <view style="text-align:right; font-size:24rpx;color:#1AA59a; font-weight:bold; padding:20rpx" wx:if="{{1}}">如果您喜欢广告内容，请点击广告支持我们，我们会随机赠送积分奖励，最高赠送8888积分可以直接兑换888点券的皮肤!</view> -->
 </view>
 
 

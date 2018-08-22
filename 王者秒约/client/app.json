@@ -1,7 +1,6 @@
 {
   "pages":[
-    "pages/game/game",
-    "pages/game/detail/detail",
+
     
     "pages/lottery/lottery",
     "pages/lottery/detail/lottery",
@@ -12,6 +11,8 @@
     "pages/lottery/get/get",
     "pages/lottery/guide/guide",
 
+    "pages/game/game",
+    "pages/game/detail/detail",
 
     "pages/product/product",
 
@@ -24,6 +25,7 @@
 
     "pages/index/index",
     "pages/index/index/index",
+    "pages/index/login/login",
     "pages/index/detail/detail",
     "pages/index/detail/order/order",
     "pages/index/expert/expert",
@@ -92,6 +94,7 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
   },
+  "functionalPages": true,
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#FD6C82",

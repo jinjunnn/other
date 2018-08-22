@@ -61,11 +61,7 @@ App({
                       }
                       console.log(paramsJson)
                       AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
-                        // console.log('data=')
-                        // console.log(data)
-                        // console.log(data.openid)
-                        // console.log(data.unionid)
-                        // console.log(data.token)
+
                         AV.User.loginWithAuthDataAndUnionId({
                           uid: data.openid,
                           access_token: data.token,
@@ -73,15 +69,10 @@ App({
                           unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
                           asMainAccount: false,
                         }).then(function (usr) {
-                          console.log(usr)
-
-                          console.log(res)
 
                           that.globalData.userInfo = res.userInfo
                           typeof cb == "function" && cb(that.globalData.userInfo)
-                           console.log(res)
-                           console.log(res.userInfo)
-                           console.log(res.userInfo.nickName)
+
                            const user = AV.User.current();
                            user.set('wxname', res.userInfo.nickName);
                            user.set('userImage', res.userInfo.avatarUrl);
@@ -90,6 +81,7 @@ App({
                            user.save().then(() => {
                                 
                             that.globalData.hasLogin = true;
+                            console.log('用户已登录')
                           }).catch(console.error);
                         }).catch(console.error);
                       }).catch(console.error);

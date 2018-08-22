@@ -1,14 +1,13 @@
-<!--pages/user/login/login.wxml-->
 
 
 <view class="container">
-  <view class="userinfo">
-    <block>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="https://lc-WekN4hEa.cn-n1.lcfile.com/a661954a5b010fd599b7.jpg" background-size="cover"></image>
 
-		<button open-type="getUserInfo"
-			    bindgetuserinfo="onGotUserInfo"
-			    style="width:400rpx;margin-bottom:400rpx">授权登录</button>
-    </block>
+  <view class="page-body">
+    <view class="page-section">
+      <block>
+        <text class="page-body-text">每个微信号中仅需登录一次</text>
+        <button class="page-body-button" type="primary"  open-type="getUserInfo" bindgetuserinfo="login">微信登录</button>
+      </block>
+    </view>
   </view>
 </view>

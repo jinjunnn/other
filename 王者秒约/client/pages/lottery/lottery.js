@@ -14,26 +14,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // common.querySetting( '皮肤抽奖','抽奖需获得您的昵称和头像信息，用以在中奖名单中公布。')
-    this.queryConfi()
+
+    this.queryConfi('5a6492c61b69e60066f379a7')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     wx.setNavigationBarTitle({ title: '皮肤抽奖'});
+
+  },
+
+  //查询用户是否有过本次抽奖,这个方法是用来验证用户身份，用于快速通过审核。
+  findCurrentUserLottery(){
     var query = new AV.Query('LotteryToday');
     query.equalTo('targetUser', AV.Object.createWithoutData('_User', AV.User.current().id))
     query.find().then(goodslist => this.setData({
-      lotteryTimes:goodslist.length
+      lotteryTimes: goodslist.length
     })).catch(console.error);
   },
+
+    //bindEnterLotteryTodayPage切换到免费抽奖页面
+    bindEnterLotteryTodayPage(){
+      wx.navigateTo({
+        url: 'test?id=1'
+      })
+
+    },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var d = new Date()
+    this.findLotterys()
+    this.setData({
+      hasLogin: app.globalData.hasLogin
+    })
+  },
 
+  //查询抽奖表
+  findLotterys(){
+    var d = new Date()
     var query = new AV.Query('Lottery');
     query.ascending('confi');
     query.equalTo('displayOrNot', true)
@@ -41,7 +61,6 @@ Page({
     query.find().then(goodslist => this.setData({
       goodslist
     })).catch(console.error);
-
     var query1 = new AV.Query('Lottery');
     query1.equalTo('display', 1);
     query1.descending('deadline');
@@ -49,7 +68,8 @@ Page({
     query1.find().then(list => this.setData({
       list,
       d,
-    })).catch(console.error)},
+    })).catch(console.error)
+  },
 
   onHide: function () {
     page_index = 0;
@@ -62,6 +82,8 @@ Page({
   onPullDownRefresh: function () {
   },
 
+
+  //小程序切换
   bindOpenOtherProgress(e){
     console.log(e.currentTarget.dataset.objectid)
     wx.navigateToMiniProgram({
@@ -76,11 +98,11 @@ Page({
       }
     })
   },
-
-  queryConfi(){
+  //查询配置  confi  表
+  queryConfi(id){
     var that = this;
     var query = new AV.Query('Confi');
-    query.get('5a6492c61b69e60066f379a7').then(function (confi) {
+    query.get(id).then(function (confi) {
       that.setData({
         confi:confi.attributes.lotteryDisplay,
         appId:confi.attributes.targetLotteryAppId,
@@ -90,7 +112,7 @@ Page({
       // 异常处理
     });
   },
-
+  //加载更多内容
   reFrish: function () {
     var page_size = 6;
     // 分页

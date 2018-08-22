@@ -19,13 +19,6 @@ const realtime = new Realtime({
 App({
   onLaunch: function (options) {
     console.log(options)
-    this.setConfi()
-    if (options) {
-      if (options.referrerInfo) {
-      referrerInfo = options.referrerInfo;
-      this.setAppId(options.referrerInfo.appId)
-      }     
-    }
   },
   onHide: function () {
 
@@ -33,26 +26,14 @@ App({
 
   onShow: function () {
     this.login()
-    this.getUserInfo()
   },
-  setAppId(appid){
-      var query = new AV.Query('AppId');
-      query.equalTo('appId', appid);
-      query.find().then(function (results) {
-          if (results.length) {
-                var todo = AV.Object.createWithoutData('AppId',results[0].id);
-                todo.increment('times',1);
-                todo.save();
-          } else {
-                var AppId = AV.Object.extend('AppId');
-                var appId = new AppId();
-                appId.set('times',1);
-                appId.set('appId',appid);
-                appId.save()
-          }
-      }, function (error) {
-      });
+
+  //获取并记录用户来源
+  getUserSource(){
+
   },
+
+  //设置配置信息
   setConfi(){
     var that = this;
     var query = new AV.Query('Confi');
@@ -62,103 +43,83 @@ App({
       // 异常处理
     });
   },
-
+  //初始化应用后，登录，如果用户没有注册过，则返回没有没有授权，app.hasLogin用户维护用户的登录状态。
   login: function () {
-    console.log('登录成功')
-    return AV.Promise.resolve(AV.User.current()).then(user =>
-      user ? (user.isAuthenticated().then(authed => authed ? user : null)) : null
-    ).then(user => user ? user : AV.User.loginWithWeapp());
-  },
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
 
-  getUserInfo: function (cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: true,
-        success: function (res) {
-          console.log(res)
-          wx.checkSession({
-            success: function(){
-                        console.log('sessionKey有效')
-                        var encryptedData = res.encryptedData;
-                        var iv = res.iv;
-                        var paramsJson = {
-                            sessionKey:AV.User.current().attributes.authData.lc_weapp.session_key,
-                            user:AV.User.current().id,
-                            encryptedData: encryptedData,
-                            iv: iv,
-                            }
-                        AV.Cloud.run('setUserInfo' ,paramsJson).then(function(data) {
-                                that.globalData.userInfo = res.userInfo
-                                typeof cb == "function" && cb(that.globalData.userInfo)
-                                    var nickName = res.userInfo.nickName;
-                                    var avatarUrl = res.userInfo.avatarUrl;
-                                    var city = res.userInfo.city;
-                                    var gender = res.userInfo.gender;
-                                    var province = res.userInfo.province;
-
-                                    console.log(nickName)
-
-                                    var user = AV.Object.createWithoutData('_User', AV.User.current().id);
-                                    user.set('username', nickName);
-                                    user.set('userImage',avatarUrl);
-                                    user.set('city', city);
-                                    user.set('province',province);
-                                    user.set('gender',gender);      
-                                    user.save().catch(console.error);
-                        }, function(err) {
-                          console.log('err='+err)
-                        });
-            },
-            fail: function(){
-                        console.log('sessionKey过期')
-               AV.User.loginWithWeapp().then(()=>{
-                        console.log('sessionKey有效')
-                        var encryptedData = res.encryptedData;
-                        var iv = res.iv;
-                        var paramsJson = {
-                            sessionKey:AV.User.current().attributes.authData.lc_weapp.session_key,
-                            user:AV.User.current().id,
-                            encryptedData: encryptedData,
-                            iv: iv,
-                            }
-                        AV.Cloud.run('setUserInfo' ,paramsJson).then(function(data) {
-                                    console.log('data=')
-                                    console.log(data)
-
-                                    that.globalData.userInfo = res.userInfo
-                                    typeof cb == "function" && cb(that.globalData.userInfo)
-                                    var nickName = res.userInfo.nickName;
-                                    var avatarUrl = res.userInfo.avatarUrl;
-                                    var city = res.userInfo.city;
-                                    var gender = res.userInfo.gender;
-                                    var province = res.userInfo.province;
-
-                                    var user = AV.Object.createWithoutData('_User', AV.User.current().id);
-                                    user.set('userName', nickName);
-                                    user.set('userImage',avatarUrl);
-                                    user.set('city', city);
-                                    user.set('province',province);
-                                    user.set('gender',gender);      
-                                    user.save().catch(console.error);
-                        }, function(err) {
-                          console.log('err='+err)
-                        });
-               })
-            }
+          console.log('用户没有授权')
+        } else {
+          wx.showToast({
+            title: '授权登录中',
+            icon: 'loading',
+            duration: 5000
           })
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              var code = res.code
+              console.log(code)
+              wx.getUserInfo({
+                withCredentials: true,
+                success: res => {
+                  // 可以将 res 发送给后台解码出 unionId
+                  var paramsJson = {
+                    code: code,
+                    res: res,
+                  }
+                  AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
 
+                    AV.User.loginWithAuthDataAndUnionId({
+                      uid: data.openid,
+                      access_token: data.token,
+                    }, 'weapp_old', data.unionid, {
+                      unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
+                      asMainAccount: false,
+                    }).then(function (usr) {
+
+                      that.globalData.userInfo = res.userInfo
+                      typeof cb == "function" && cb(that.globalData.userInfo)
+
+                      var nickName = res.userInfo.nickName;
+                      var avatarUrl = res.userInfo.avatarUrl;
+                      var city = res.userInfo.city;
+                      var gender = res.userInfo.gender;
+                      var province = res.userInfo.province;
+
+                      var user = AV.Object.createWithoutData('_User', AV.User.current().id);
+                      user.set('userName', nickName);
+                      user.set('userImage', avatarUrl);
+                      user.set('city', city);
+                      user.set('province', province);
+                      user.set('gender', gender);
+                      user.save().then(()=>{
+                      that.globalData.hasLogin = true;
+                      console.log('用户已登录')
+                      }).catch(console.error);
+                    }).catch(console.error);
+                  }).catch(console.error);
+                },
+                fail: res => {
+                  wx.showLoading({
+                    title: '未登录',
+                    mask: true,
+                  })
+                }
+              })
+            }
+          });
         }
-      })
-    }
+      }
+    })
   },
   
   realtime: realtime,
   globalData: {
     userInfo: null,
     confi:null,
+    hasLogin: false,
   }
 })
