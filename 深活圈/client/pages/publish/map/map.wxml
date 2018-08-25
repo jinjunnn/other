@@ -1,4 +1,6 @@
-<!--pages/publish/map/map.wxml-->
+<!--  -->
+
+
 <view class="searchBar">
 	<input 
 		  	placeholder="输入地点" 
@@ -13,11 +15,10 @@
 </view>
 
 <view wx:for="{{addresses}}" wx:key="item">
-  <navigator class="navigator"  open-type="navigateBack"
-             url="/pages/publish/publish?item={{item}}">
+  <view class="navigator" id="tapTest" data-item="{{item}}" bindtap="bindTransItem">
         <view   style="font-size:13pt;"
               class="text"><text>{{item.title}}</text></view>
-  </navigator> 
+  </view> 
 
 
 </view>

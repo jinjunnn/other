@@ -14,46 +14,58 @@ var lng;
 Page({
 
   data: { 
+    item:null,
+    selAddress: null,
     height: 20, 
-    images:[],
-    article:[], 
-    title: '请输入地点', 
-    summary: '', 
-    what: '',
-    why: '',
-    editDraft: null, 
-
-    mode:1,
-    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '手工圈', '跑步圈', '其他'],
-    tagIndex: 0,
-    date:"选择日期",
-    time:"选择时间",
+    images:[],//上传的照片
+    title: '', //post的标题
+    editDraft: null, //编辑的文件
+    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '手工圈', '跑步圈', '其他'],//tags
+    tagIndex: null,//TAGS INDEX
+    date:null,//如果没有显示选择日期，如果有，显示具体的日期
+    time:null,//如果没有选择时间，如果有显示具体的时间
+    deadlineDate:null,//报名截止日期
+    deadlineTime:null,//报名截止时间
+    budget:null,
+    booking_fee:null,
+    miniPerson:[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+    miniPersonIndex:null,
+    maxiPerson: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,25,30,40,50,100],
+    maxiPersonIndex: null,
+    location:null,
     icons:{
-      arrow: 'https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png',
-      title:'',
-      date:'',
-      time:'',
-      person:'',
-      budget:'', //预算
-      booking_fee:'',//订金
-      tag:'',
-      location:''
+      arrow: 'https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png',//箭头符号的地址
+      title:'',//post标题title的icons
+      date:'',//日期的icons
+      time:'',//时间的ICONS
+      deadlineDate:'',//日期的icons
+      deadlineTime:'',//时间的icons
+      person:'',//人的icons
+      budget:null, //预算的icons
+      booking_fee:null,//订金的isons
+      tag:'',//标签的icons
+      location:null//地址的icons
     }
   },
 
   onLoad: function (options) {
-        this.upImg()
+        // this.upImg()//上传图片
 
   },
 
   //选择标签
-  bindSetTag() {
-    console.log('选择标签')
+  bindSetTag(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      tagIndex: e.detail.value
+    })
   },
 
   //设置地理位置信息
   bindSetLocation(){
-    console.log('设置地理位置')
+    wx.navigateTo({
+      url: './map/map'
+    })
   },
 
   //将标题储存
@@ -70,44 +82,68 @@ Page({
   },
 
   //设置日期
-  bindSetDate(){
-console.log('设置日期')
+  bindSetDate(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
   },
 
   //设置时间
-  bindSetTime() {
-console.log('设置时间')
+  bindSetTime(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
+    })
   },
 
 
   //设置最小人数
-  bindSetMiniPerson(){
-console.log('设置最小人数')
+  bindSetMiniPerson(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      miniPersonIndex: e.detail.value
+    })
   },
 
   //设置最多人数
-  bindSetMaxiPerson(){
-console.log('设置最多人数')
+  bindSetMaxiPerson(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      maxiPersonIndex: e.detail.value
+    })
   },
 
   //设置预算
-  bindSetBudget(){
-console.log('设置预算')
+  bindSetBudget(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      budget: e.detail.value
+    })
   },
 
   //设置订金
-  bindSetBookingFee(){
-console.log('设置订金')
+  bindSetBookingFee(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      booking_fee: e.detail.value
+    })
   },
 
   //设置报名截止日期
-  bindSetDeadlineDate(){
-console.log('设置报名截止日期')
+  bindSetDeadlineDate(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      deadlineDate: e.detail.value
+    })
   },
 
   //设置报名截止时间
-  bindSetDeadlineTime() {
-console.log('设置报名截止时间')
+  bindSetDeadlineTime(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      deadlineTime: e.detail.value
+    })
   },
   //添加并存储内容
   bindUpdateContent: function ({
@@ -122,47 +158,79 @@ console.log('设置报名截止时间')
     });
   },
 
-  bindgetuserinfo(){
-
-  },
-
   //上传订单
   bindSubmitPost(){
-    console.log('上传订单')
-  // var summary = this.data.summary
-  // var what = this.data.what
-  // var why = this.data.why
-  // var cell = this.data.cell
-  // var likes = this.data.likes
-  // var images = this.data.images
-  // if (!title) {
-  //   common.showTip("地点不能为空", "loading");
-  // } else if (!summary) {
-  //   common.showTip("标题不能为空", "loading");
-  // } else if (!images) {
-  //   common.showTip("请上传图片", "loading");
-  // } else {
-  //   new Article({
-  //     address: address,
-  //     cell: cell,
-  //     lat: Number(lat),
-  //     lng: Number(lng),
-  //     city: city,
-  //     district: district,
-  //     likes: 0,
-  //     summary: summary,
-  //     title: title,
-  //     what: what,
-  //     why: why,
-  //     images: this.data.images,
-  //     targetUser: AV.User.current(),
-  //   }).save().then((article) => {
-  //     wx.navigateTo({
-  //       url: '../list/article/article'
-  //     })
-  //   }).catch(console.error);
 
-  // }
+    let d1 = this.data.date + 'T' + this.data.time  + ':00.000+08:00';
+    let d2 = this.data.deadlineDate + 'T' + this.data.deadlineTime  + ':00.000+08:00';
+    let dating = new Date(Date.parse(d1));
+    let deadline = new Date(Date.parse(d1));
+    console.log(d1)
+    console.log(d2)
+
+  if (!this.data.title) {
+    common.showTip("请输入主题", "loading");
+  } else if (!this.data.images) {
+    common.showTip("请上传图片", "loading");
+
+  } else if (!this.data.tagIndex) {
+    common.showTip("请选择标签", "loading");
+  // } else if (!this.data.location) {
+  //   common.showTip("请选择地点", "loading");
+
+  } else if (!this.data.date) {
+    common.showTip("请选择活动日期", "loading");
+  } else if (!this.data.time) {
+    common.showTip("请选择活动时间", "loading");
+
+  } else if (!this.data.miniPersonIndex) {
+    common.showTip("最低报名人数", "loading");
+  } else if (!this.data.maxiPersonIndex) {
+    common.showTip("最高报名人数", "loading");
+
+  } else if (!this.data.budget) {
+    common.showTip("请输入预算", "loading");
+  } else if (!this.data.booking_fee) {
+    common.showTip("请输入订金", "loading");
+
+  } else if (!this.data.deadlineDate) {
+    common.showTip("请选择报名截止日期", "loading");
+  } else if (!this.data.deadlineTime) {
+    common.showTip("请选择报名截止时间", "loading");
+
+  } else if (!this.data.content) {
+    common.showTip("请输入活动内容", "loading");
+
+  } else if (d1 > d2) {
+    common.showTip("报名截止时间超出", "loading");
+
+
+  } else {
+
+    var Post = AV.Object.extend('Post');
+    var post = new Post();
+    post.set('title', this.data.title);
+    post.set('tag', this.data.tags[this.data.tagIndex]);
+
+    post.set('images', this.data.images);
+    post.set('location', this.data.location);
+    post.set('dating', dating);
+    post.set('miniPersonIndex', this.data.miniPerson[this.data.miniPersonIndex]);
+    post.set('maxiPersonIndex', this.data.maxiPerson[this.data.maxiPersonIndex]);
+    post.set('budget', this.data.budget);
+    post.set('booking_fee', this.data.booking_fee);
+    post.set('deadline', deadline);
+    post.set('content', this.data.content);
+    post.set('targetUser', AV.User.current());
+
+    post.save().then(function (todo) {
+      console.log('objectId is ' + todo.id);
+    }, function (error) {
+      console.error(error);
+    });
+
+
+  }
   },
 
 
@@ -194,8 +262,17 @@ console.log('设置报名截止时间')
   
   },
 
-  onShow: function () {
-
+  onShow: function (options) {
+        let that = this;
+        let pages = getCurrentPages();
+        let currPage = pages[pages.length - 1];
+        if (currPage.data.selAddress == "") {
+          that.getUserAddress(that.data.userId);
+        } else {
+          that.setData({ //将携带的参数赋值
+            address: currPage.data.item
+          });
+        }
   },
 
   /**
@@ -205,7 +282,7 @@ console.log('设置报名截止时间')
   
   },
 
-  /**
+  /**s
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {

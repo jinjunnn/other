@@ -30,10 +30,6 @@ Page({
 
   //用户点击授权用户信息页面，授权成功，调用lean注册和登录接口进行登录；授权失败
   onGotUserInfo(e){
-    console.log(123)
-    console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
 
       wx.getSetting({
         success: (res) => {

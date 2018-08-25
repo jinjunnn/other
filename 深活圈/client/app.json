@@ -1,15 +1,11 @@
 {
   "pages":[
-
-
-
+    "pages/postlist/postlist",
+    "pages/postlist/content/content",
+    "pages/postlist/map/map",
     "pages/publish/publish",
     "pages/publish/order/order",
     "pages/publish/map/map",
-
-
-    "pages/postlist/postlist",
-    "pages/postlist/content/content",
 
     "pages/user/user",
     "pages/user/share/share",
@@ -22,6 +18,13 @@
     "pages/user/intergral/spend/detail/detail",
     "pages/user/intergral/earn/earn"
   ],
+  "functionalPages": true,
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  },
   "window":{
     "enablePullDownRefresh": true,
     "backgroundTextStyle":"dark",

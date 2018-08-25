@@ -8,6 +8,16 @@ var qqmapsdk;
 var address;
 var city;
 
+let plugin = requirePlugin("myPlugin");
+let routeInfo = {
+  startLat: 39.90469, //起点纬度 选填
+  startLng: 116.40717, //起点经度 选填
+  startName: "我的位置", // 起点名称 选填
+  endLat: 39.94055, // 终点纬度必传
+  endLng: 116.43207, //终点经度 必传
+  endName: "来福士购物中心", //终点名称 必传
+  mode:"car" //算路方式 选填
+};
 
 Page({
 
@@ -40,6 +50,23 @@ Page({
 
   },
 
+
+  //返回数据
+  bindTransItem(e){
+        let pages = getCurrentPages(); //当前页面
+        let prevPage = pages[pages.length - 2]; //上一页面
+        prevPage.setData({ //直接给上移页面赋值
+          item: e.currentTarget.dataset.item,
+          selAddress: 'yes'
+        });
+        wx.navigateBack({ //返回
+          delta: 1
+        })
+  },
+
+
+
+  //查询数据
   updateTitle({
     detail: {
       value
@@ -55,6 +82,7 @@ Page({
     region: city,
     region_fix: '0',
     success: function (res) {
+      console.log(res.data)
         that.setData({
           addresses: res.data
         });

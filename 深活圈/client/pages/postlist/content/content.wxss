@@ -1,1 +1,168 @@
-/* pages/postlist/content/content.wxss */
+/* pages/detail/detail.wxss */
+
+.slide {
+    width: 100%;
+    height: 750rpx;
+    z-index: 0;
+}
+
+.title {
+    margin: 50rpx 20rpx 40rpx 20rpx;
+    display: -webkit-flex;
+}
+
+.title_item2 {
+    margin-top: 15rpx;
+    margin-bottom: 40rpx;
+    font-size: 11pt;
+}
+
+.title_item3 {
+    margin-bottom: 45rpx;
+}
+
+.rows {
+    display: -webkit-flex;
+    margin-top: 40rpx;
+}
+
+.rows_title {
+    flex: 20;
+    padding-left: 20rpx;
+}
+
+.rows_icon {
+    flex: 4;
+}
+
+.rows_icon_right {
+    flex: 1;
+    margin-top: 8rpx;
+}
+
+.rows_1 {
+    padding-left: 10rpx;
+}
+
+.rows_2 {
+    padding-left: 10rpx;
+    padding-top: 10rpx;
+}
+.card{
+    margin:30rpx;
+}
+.card_content {
+    padding-top: 20rpx;
+    padding-bottom: 40rpx;
+}
+
+.card_content1 {
+    padding-top: 20rpx;
+    padding-bottom: 40rpx;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #EEE;
+}
+
+.title_item4 {
+    margin-top: 50rpx;
+    margin-bottom: 50rpx;
+}
+
+.map {
+    margin-bottom: 40rpx;
+}
+
+.navigator {
+    display: -webkit-flex;
+    background: white;
+    border-bottom: 1px solid #eee;
+    padding: 0 12px;
+    height: 46px;
+    line-height: 46px;
+}
+
+.son_1 {
+    flex: 1.4;
+}
+
+.son_2 {
+    flex: 5;
+    text-align: right;
+}
+
+.tappable {
+    position: absolute;
+    height: 50rpx;
+    width: 50rpx;
+    left: 680rpx;
+    top: 30rpx;
+    z-index: 1;
+}
+
+.btn {
+    margin-top: 10px;
+    width:400rpx;
+    background-color: #F85B61;
+    border-color: #F85B61;
+    color: #FFF;
+    height:100rpx;
+    line-height:100rpx;
+    vertical-align:middle;
+}
+.author_wrap{
+    margin: 30rpx 30rpx 30rpx 30rpx;
+}
+.author {
+  display: -webkit-flex;
+  
+}
+.author_title {
+    margin-top: 15rpx;
+    flex: 5;
+}
+
+.author_icon {
+    flex: 1;
+}
+
+.author_icon_item {
+    margin-top: 10rpx;
+}
+
+.about_author {
+    position: relative;
+    left: 40rpx;
+    top: 10rpx;
+}
+
+.about_author_style {
+    background-color: #FFF;
+    border: 0rpx 20rpx 0rpx 20rpx;
+    padding: 0rpx 20rpx 0rpx 20rpx;
+    font-weight: bold;
+}
+
+.about_content {
+    color:#666;
+}
+
+.about_listtitle {
+    margin-top: 90rpx;
+    margin-bottom: 66rpx;
+}
+.text_mini_title {
+    font-weight: bold;
+    color: black;
+    font-size: 11pt;
+}
+.text_title_wrap {
+    margin-top: 15rpx;
+}
+.summary{
+    display: -webkit-flex;
+    background-color: antiquewhite;
+    padding: 30rpx 30rpx 30rpx 10rpx;
+    font-size: 24rpx;
+    opacity:0.5;
+}

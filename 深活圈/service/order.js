@@ -42,7 +42,7 @@ class Order extends AV.Object {
     return new Promise((resolve, reject) => {
       // 参数文档： https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_1
       wxpay.createUnifiedOrder({
-        openid: this.user.get('authData').weapp_moba.uid,
+        openid: this.user.get('authData').weapp_shenhuoquan.uid,
         body: this.productDescription,
         out_trade_no: this.tradeId,
         total_fee: this.amount,
@@ -116,7 +116,7 @@ class Order extends AV.Object {
   sendNotice() {
     if (this.orderMode == 0) {
             const data = {
-              touser: this.user.get('authData').lc_weapp.openid,
+              touser: this.user.get('authData').weapp_shenhuoquan.uid,
               template_id: '1yQqhgnC5KXVm-f-ja0W5sUGZvSiQU-_YG7Rz1gFdgQ',
               form_id: this.prepayId,
               page:'pages/lottery/lottery',
@@ -149,7 +149,7 @@ class Order extends AV.Object {
         return;
     } else {
             const data = {
-              touser: this.user.get('authData').lc_weapp.openid,
+              touser: this.user.get('authData').weapp_shenhuoquan.uid,
               template_id: 'D4Chi9j3dl-aUdiFLIiHbAP_HYGcxHi-oX9zlUzyBNE',
               form_id: this.prepayId,
               page:'pages/lottery/lottery',

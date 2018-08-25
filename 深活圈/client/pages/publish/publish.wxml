@@ -18,15 +18,16 @@
 				<view class="game_wrap">
 								<image class="gameimage" src="{{icons.tag}}"></image>
 								<picker class="name" bindchange="bindSetTag" value="{{tagIndex}}" range="{{tags}}">
-												{{tags[tagIndex]}}
+												<text wx:if="{{!tagIndex}}">请选择标签</text>
+												<text wx:else>{{tags[tagIndex]}}</text>
 								</picker>
 								<image class="iconless" src="{{icons.arrow}}"></image>
 				</view>
 				<view class="btn_wrap">
 								<image class="gameimage" src="{{icons.location}}"></image>
 								<view class="name" bindtap="bindSetLocation">
-									<text wx:if="{{!location}}">选择地点</text>
-									<text wx:else>{{location}}</text>
+									<text wx:if="{{!item.title}}">选择地点</text>
+									<text wx:else>{{item.title}}{{item.title}}</text>
 								</view>
 								<image class="iconless" src="{{icons.arrow}}"></image>
 				</view>
@@ -68,7 +69,8 @@
 									start="06:00" 
 									end="24:00"
 									bindchange="bindSetTime">
-						<view class="picker">活动时间</view>
+						<view class="picker" wx:if="{{!time}}">活动时间</view>
+						<view class="picker" wx:else>{{time}}</view>
 						</picker>
 						<image class="iconless2" src="{{icons.arrow}}"></image>
 					</view>
@@ -101,7 +103,10 @@
 	            <view class="first_item">
 	            				<image class="iconless1" src="{{icons.budget}}"></image>
 	            				<view class="name_game1">预算</view>
-	            				<input class="name_game3" placeholder="请选择人均预算" bindinput="bindSetBudget"></input>
+	            				<input class="name_game3" 
+								       placeholder="请选择人均预算" 
+									   bindinput="bindSetBudget"
+									   type="number"></input>
 	            				<image class="iconless2" src="{{icons.arrow}}"></image>
 	            </view>
 
@@ -109,7 +114,10 @@
 	            <view class="first_item">
 	            				<image class="iconless1" src="{{icons.booking_fee}}"></image>
 	            				<view class="name_game1">订金</view>
-	            				<input class="name_game3" placeholder="请设置订金" bindinput="bindSetBookingFee"></input>
+	            				<input class="name_game3" 
+								       placeholder="请设置订金" 
+									   bindinput="bindSetBookingFee"
+									   type="number">元</input>
 	            				<image class="iconless2" src="{{icons.arrow}}"></image>
 				</view>
 				
@@ -118,14 +126,16 @@
 					<view class="first_item3">
 						<image class="iconless1" src="{{icons.date}}"></image>
 						<picker mode="date" class="name_game2" value="{{deadlineDate}}" start="2018-08-01" end="2019-12-31" bindchange="bindSetDeadlineDate">
-							<view class="picker">报名截止日期</view>
+							<view class="picker" wx:if="{{!deadlineDate}}">报名截止日期</view>
+							<view class="picker" wx:else>{{deadlineDate}}</view>
 						</picker>
 						<image class="iconless2" src="{{icons.arrow}}"></image>
 					</view>
 					<view class="first_item2">
 						<image class="iconless1" src="{{icons.time}}"></image>
 						<picker mode="time" class="name_game2" value="{{deadlineTime}}" start="06:00" end="24:00" bindchange="bindSetDeadlineTime">
-										<view class="picker">报名截止时间</view>
+							<view class="picker" wx:if="{{!deadlineTime}}">报名截止时间</view>
+							<view class="picker" wx:else>{{deadlineTime}}</view>
 						</picker>
 						<image class="iconless2" src="{{icons.arrow}}"></image>
 					</view>

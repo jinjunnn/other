@@ -1,2 +1,23 @@
-<!--pages/postlist/postlist.wxml-->
-<text>pages/postlist/postlist.wxml</text>
+<!-- pages/index/index.wxml -->
+<view class="container">
+    <view wx:for="{{postList}}" wx:key="item">
+        <navigator class="navigator" url="./content/content?objectId={{item.objectId}}">
+            <view class="wrap">
+                <image style="width: 320rpx; height: 320rpx; background-color: #eeeeee;" mode="{{item.images[0]}}" src="{{item.images[0]}}"></image>
+                <view class="text_mini_title">
+                    <text id="changestyle">{{item.title}}</text>
+                    <!-- <text id="changecolor">{{item.user.userTag}}</text> -->
+                </view>
+                <view class="text1">
+                    <text>{{item.tag}}</text>
+                </view>
+                <view class="text2">
+                    <text>{{item.targetUser.wxname}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- <button 
+        bindtap="navigator"
+        class="btn"> 写指南 + </button> -->

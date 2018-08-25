@@ -1,2 +1,114 @@
-<!--pages/postlist/content/content.wxml-->
-<text>pages/postlist/content/content.wxml</text>
+<swiper class="slide"  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" duration="500">
+    <block wx:for="{{post.images}}" wx:key="{{item}}">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" style="width:100%; height:750rpx;" mode="aspectFill"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class="title">
+    <view style="margin:30rpx">
+        <image src="{{icons.tags.food}}"
+                 style="height:120rpx; width:120rpx;border-radius: 50%; flex:210">
+        </image>
+    </view>
+
+    <view  style="flex:570rpx">
+        <view style="font-size:18pt;font-weight:bold;" class="title_item1">熊猫生活馆</view>
+        <view style="display: -webkit-flex;">
+            <image  src="{{icons.tags.food}}"
+                    style="height:45rpx; width:30rpx; flex:30;margin:10rpx"></image>
+            <view  style="flex:300;  font-size: 27rpx; margin-top:9rpx">{{post.title}}</view>
+        </view>
+        <view style="display: -webkit-flex;">
+            <image src="{{icons.tags.food}}" style="height:45rpx; width:30rpx; flex:30;margin:10rpx"></image>
+            <view  style="flex:300;  font-size: 27rpx; margin-top:9rpx">{{post.title}}</view>
+        </view>
+    </view>
+</view>
+
+<view style="height:10rpx; background-color:#eee"></view>
+
+<view class="author_wrap">
+    <navigator class="author" url="../user/author/author?objectId={{post.targetUser.objectId}}">
+        <view class="author_title">
+            <view style="font-size:10pt;" class="title_item" id="changecolor">
+                {{post.tag}}
+            </view>
+            <view class="text_title_wrap">
+                <span class="text_mini_title">发起人:</span>
+                <span class="text_mini_title">{{post.targetUser.wxname}}</span>
+            </view>
+        </view>
+        <view class="author_icon">
+            <image src="{{post.targetUser.userImage}}" class="author_icon_item" style="border-radius: 50%; width:120rpx; height:120rpx;"></image>
+        </view>
+    </navigator>
+
+    <view class="about">
+        <view style="font-size:10pt;" class="about_content">{{post.targetUser.summary}}</view>
+    </view>
+</view>
+
+<view class="summary">
+    <image style="width:24rpx; height:24rpx; margin:8rpx 10rpx 0rpx 30rpx; flex;0.5" src="{{icons.notification}}"></image>
+    <view style="flex:10">{{summary}}</view>
+</view>
+
+<view class="card">
+    <view style="font-size:11pt;" class="card_content">
+        <text style="font-weight:bold;">参与者</text>
+    </view>
+</view>
+
+<view style="margin:30rpx">
+    <view wx:for="{{bookers}}" wx:key="bookersItem" style="display: -webkit-flex; margin:20rpx">
+        <image style="border-radius: 50%; width:80rpx; height:80rpx;" src="{{item.targetUser.userImage}}"></image>
+        <view style="font-size:24rpx; margin:28rpx 28rpx 28rpx 60rpx">{{item.targetUser.wxname}}</view>
+    </view>
+</view>
+
+<view style="height:10rpx; background-color:#eee"></view>
+
+<view class="card">
+    <view style="font-size:11pt;" class="card_content">
+        <text style="font-weight:bold;">活动详情</text>
+        <view>{{post.content}}</view>
+    </view>
+</view>
+
+<map class="map" longitude="{{article.lng}}" latitude="{{article.lat}}" scale="14" markers="{{markers}}" bindcontroltap="controltap" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+<button bindtap="bindMap">地图插件</button>
+<view class="form-wrap">
+    <navigator url="" class="navigator openinghour">
+        <view class="son_1" style="font-size:11pt;">活动时间：</view>
+        <view class="son_2" style="font-size:11pt;text-align:right;">{{post.dating}}</view> 
+    </navigator>
+    <navigator url="" class="navigator openinghour">
+        <view class="son_1" style="font-size:11pt;">报名截止：</view>
+        <view class="son_2" style="font-size:11pt;text-align:right;">{{post.deadline}}</view>
+    </navigator>
+    <navigator url="" class="navigator openinghour">
+        <view class="son_1" style="font-size:11pt;">活动预算：</view>
+        <view class="son_2" style="font-size:11pt;text-align:right;">{{post.budget}}元</view>
+    </navigator>
+    <navigator url="" class="navigator openinghour">
+        <view class="son_1" style="font-size:11pt;">活动定金</view>
+        <view class="son_2" style="font-size:11pt;text-align:right;">{{post.booking_fee}}元</view>
+    </navigator>
+</view>
+
+<view style="height:150rpx; display: -webkit-flex; margin:30rpx; justify-content:space-between;">
+    <image style="width:100rpx; height:100rpx; margin:20rpx 40rpx 0rpx 20rpx; flex;0.5" src="{{icons.notification}}"></image>
+    <image style="width:100rpx; height:100rpx; margin:20rpx 40rpx 0rpx 0rpx; flex;0.5" src="{{icons.notification}}"></image>
+    <button size="default" 
+            hover-class="other-button-hover" 
+            class="btn"
+            open-type="{{opentype}}" 
+            bindgetphonenumber="bindGetPhoneNumber"
+            bindgetuserinfo="bindGetUserInfo">
+        <text wx:if="{{!isBooker}}">立即报名</text>
+        <text wx:else>已报名</text>
+    </button>
+    <view style="height:30rpx"></view>
+</view>

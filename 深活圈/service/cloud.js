@@ -109,8 +109,9 @@ AV.Cloud.define('wxLogin', (request, response) => {
         getAccessToken().then(function(token) {
                               const userinfo = {
                                 openid: openId,
-                                token: token,
+                                token: sessionKey,
                                 unionid: data.unionId,
+
                               }
                               response.success(userinfo);
 
@@ -121,6 +122,33 @@ AV.Cloud.define('wxLogin', (request, response) => {
                         });
 });
 
+/**
+ * 解密用户的手机号码
+ */
+AV.Cloud.define('getPhoneNumber', (request, response) => {
+
+    console.log("请求的数据"+request.params.res)
+    console.log("我是params")
+    console.log(request)
+    const appId = process.env.WEIXIN_APPID;
+    const sessionKey = request.currentUser.get('authData').weapp_shenhuoquan.access_token;
+    const encryptedData = request.params.res.encryptedData;
+    const iv = request.params.res.iv;
+    console.log('appid是：'+appId)
+    console.log("sessionKey是" + sessionKey)
+    console.log("encryptedData是" + encryptedData)
+    console.log("iv"+iv)
+    if (!request.currentUser) {
+      return response.error(new Error('用户未登录'));
+    }
+    var pc = new WXBizDataCrypt(appId, sessionKey)
+    var data = pc.decryptData(encryptedData, iv)
+    console.log('解密后unionid: ', data)
+
+    response.success(data);
+
+
+});
 //发送模板消息
 AV.Cloud.define('sendTemplateMessage', function(request) {
           var query = new AV.Query('FormId');

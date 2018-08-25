@@ -1,66 +1,67 @@
-// pages/postlist/postlist.js
+// pages/index/index.js
+const AV = require('../../utils/av-live-query-weapp-min');
+const bind = require('../../utils/live-query-binding');
+var app = getApp()
+var that = this;
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    topicList: [],
+    page_index: 0,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  },
   onReady: function () {
-  
+    that = this;
+    var query = new AV.Query('Post');
+    query.limit(8);
+    query.include('targetUser');
+    query.find().then(postList => this.setData({
+      postList
+    })).catch(console.error);
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
+  },
   onHide: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
+  },
   onUnload: function () {
-  
-  },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  },
   onPullDownRefresh: function () {
-  
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  },
+  navigator() {
+    wx.navigateTo({
+      url: '../publish/publish'
+    })
+  },
+  reFrish: function () {
+    var page_size = 8;
+    // 分页
+    var topicQuery = new AV.Query('Topic');
+    topicQuery.descending('createdAt');
+    topicQuery.limit(page_size);
+    topicQuery.skip(this.data.page_index * page_size);
+    // 查询所有数据
+    topicQuery.include('user'); // 关键代码，用 include 告知服务端需要返回的关联属性对应的对象的详细信息，而不仅仅是 objectId
+    topicQuery.find().then(results => this.setData({
+      topicList: this.data.topicList.concat(results)
+    })).catch(console.error);
+  },
   onReachBottom: function () {
-  
+    this.setData({
+      page_index: ++this.data.page_index
+    });
+    this.reFrish();
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

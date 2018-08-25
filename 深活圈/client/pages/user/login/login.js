@@ -18,6 +18,12 @@ Page({
 
           console.log('用户没有授权')
         } else {
+
+          wx.showToast({
+            title: '授权登录中',
+            icon: 'loading',
+            duration:8000
+          })
           wx.login({
             success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -52,9 +58,9 @@ Page({
                           user.set('city', res.userInfo.city);
                           user.set('province', res.userInfo.province);
                           user.save().then(() => {
-
                           app.globalData.hasLogin = true
                           console.log('修改了登录状态为' + app.globalData.hasLogin)
+                          wx.hideToast() 
                           wx.navigateBack({
                             delta: 1
                           })
