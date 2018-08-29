@@ -55,6 +55,7 @@ Page({
                           const user = AV.User.current();
                           user.set('wxname', res.userInfo.nickName);
                           user.set('userImage', res.userInfo.avatarUrl);
+                          user.set('gender', res.userInfo.gender);
                           user.set('city', res.userInfo.city);
                           user.set('province', res.userInfo.province);
                           user.save().then(() => {

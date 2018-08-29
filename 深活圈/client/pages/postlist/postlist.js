@@ -2,7 +2,6 @@
 const AV = require('../../utils/av-live-query-weapp-min');
 const bind = require('../../utils/live-query-binding');
 var app = getApp()
-var that = this;
 Page({
 
   data: {
@@ -13,17 +12,18 @@ Page({
 
   },
   onReady: function () {
-    that = this;
+
+  },
+
+  onShow: function () {
+    let that = this;
     var query = new AV.Query('Post');
     query.limit(8);
+    query.descending('createdAt');
     query.include('targetUser');
     query.find().then(postList => this.setData({
       postList
     })).catch(console.error);
-  },
-
-  onShow: function () {
-
   },
   onHide: function () {
 

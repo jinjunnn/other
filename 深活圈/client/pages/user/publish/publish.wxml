@@ -1,0 +1,14 @@
+ 
+ <view  wx:for="{{postList}}" wx:key="item">
+    <view   class="wrap" bind:tap="bindSubmit"  data-objectid="{{item.objectId}}">
+        <view>
+            <image style="width:200rpx;height:140rpx" src="{{item.images[0]}}" />
+        </view>
+        <view  style="width:490rpx;height:100rpx; font-size:24rpx;  margin-left:30rpx">
+            <view  style="width:490rpx;  overflow:hidden;"> {{item.title}}</view>
+            <view  style="width:490rpx;  overflow:hidden;">时间：{{item.dating}}</view>
+            <view  style="width:490rpx;  overflow:hidden;">地址：{{item.address}}</view>
+            <view  style="width:490rpx;  overflow:hidden;">发起者手机号码：{{item.targetUser.phone}}</view>
+        </view>
+    </view>
+</view>

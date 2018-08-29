@@ -87,7 +87,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: app.globalData.confi.userSharePage.title,
-      path: app.globalData.confi.userSharePage.path,
+      path: 'pages/postlist/postlist',
       imageUrl:app.globalData.confi.userSharePage.imageUrl,
       success: function(res) {
           var shareTickets = res.shareTickets;

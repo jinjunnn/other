@@ -3,12 +3,15 @@
     "pages/postlist/postlist",
     "pages/postlist/content/content",
     "pages/postlist/map/map",
+    "pages/postlist/success/success",
+
     "pages/publish/publish",
     "pages/publish/order/order",
     "pages/publish/map/map",
 
     "pages/user/user",
     "pages/user/share/share",
+    "pages/user/publish/publish", 
     "pages/user/order/order",
     "pages/user/comment/comment",
     "pages/user/notice/notice",
@@ -47,8 +50,8 @@
       },
       {
         "pagePath": "pages/publish/publish",
-        "iconPath": "image/主页.png",
-        "selectedIconPath": "image/主页1.png",
+        "iconPath": "image/发布1.png",
+        "selectedIconPath": "image/发布.png",
         "text": "发布活动"
       },
       {

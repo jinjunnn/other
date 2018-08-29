@@ -216,91 +216,11 @@ var app = getApp();
       success: fun
     })
   }
-  //设置用户权限
-  function  setting(){
-    wx.openSetting({
-      success: (res) => {
-                    if (res.confirm) {
-                            wx.openSetting({
-                              success: (res) => {
-                                      //调用应用实例的方法获取全局数据
-                                      app.getUserInfo(function (userInfo) {
-                                        console.log(userInfo)
-                                        var nickName = userInfo.nickName;
-                                        var avatarUrl = userInfo.avatarUrl;
-                                        var city = userInfo.city;
-                                        var gender = userInfo.gender;
-                                        var province = userInfo.province;
-                                        const user = AV.User.current();
-                                        user.set('username', nickName);
-                                        user.set('userImage',avatarUrl);
-                                        user.set('city', city);
-                                        user.set('province',province);
-                                        user.set('gender',gender);      
-                                        // 保存到云端
-                                        user.save();
-                                      })
-                              }
-          })
-        }
-      }
-    })
-  }
-  //查询用户的授权数据
-  function querySetting(title, content){
-    wx.getSetting({
-          success(res) {
-            if (!res.authSetting['scope.userInfo']) {
-                wx.showModal({
-                  title: title,
-                  content: content,
-                  success: function(res) {
-                    if (res.confirm) {
-                            wx.openSetting({
-                              success: (res) => {
-                                        app.login()
-                              }
-                            })
-                    } else if (res.cancel) {
-                      console.log('用户点击取消')
-                    }
-                  }
-                })
-          }
-        }
-      })
-  }
-  //查询用户的授权数据，用户取消返回‘我的页面’
-  function querySettingMustTrue(title, content){
-    wx.getSetting({
-          success(res) {
-            if (!res.authSetting['scope.userInfo']) {
-                wx.showModal({
-                  title: title,
-                  content: content,
-                  success: function(res) {
-                    if (res.confirm) {
-                            wx.openSetting({
-                              success: (res) => {
-                                        app.login()
-                              }
-                            })
-                    } else if (res.cancel) {
-                          wx.switchTab({
-                            url: '/pages/user/user'
-                          })
-                    }
-                  }
-                })
-          }
-        }
-      })
-  }
-module.exports.querySettingMustTrue = querySettingMustTrue;  
+
+
+
 module.exports.amendIntergal = amendIntergal;  
 module.exports.sendSMS = sendSMS;
-module.exports.querySetting = querySetting;
-module.exports.setting = setting;
 module.exports.addFormId = addFormId;
 module.exports.amendDeposit = amendDeposit;
 module.exports.amandIntergal = amandIntergal;

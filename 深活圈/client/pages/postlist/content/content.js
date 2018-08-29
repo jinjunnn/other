@@ -2,7 +2,8 @@
 const AV = require('../../../utils/av-live-query-weapp-min');
 const bind = require('../../../utils/live-query-binding');
 const common = require('../../../model/common');
-var app = getApp()
+var app = getApp();
+var objectId;
 
 
 Page({
@@ -14,24 +15,45 @@ Page({
     markers: [],
     indicatorDots:true,
     icons:{
-      notification: 'https://wx.qlogo.cn/mmopen/vi_32/rG1ZplIRNqr0UW7F14jg6iaRpacxKKia91eA1m9ib21mvic9bf3WxqcHsfzYic2KBBRsjnibW1JjZjibn5RdhazV3oEzw/132',
+      address: '../../../image/地点.png',
+      time: '../../../image/时间.png',
+      male: '../../../image/男.png',
+      female: '../../../image/女.png',
+      share: '../../../image/分享.png',
+      homepage: '../../../image/首页.png',
+      budget: '../../../image/预算.png',
+      deadline: '../../../image/截止.png',
+      notification: '../../../image/喇叭.png',
+      booking_fee: '../../../image/订金.png',
       tags:{
-        food: 'https://wx.qlogo.cn/mmopen/vi_32/rG1ZplIRNqr0UW7F14jg6iaRpacxKKia91eA1m9ib21mvic9bf3WxqcHsfzYic2KBBRsjnibW1JjZjibn5RdhazV3oEzw/132',
+        food: 'https://wx.qlogo.cn/mmopen/vi_32/rG1ZplIRNqr0UW7F14jg6iaRpacxKKia91eA1m9ib21mvic9bf3WxqcHsfzYic2KBBRsjnibW1JjZjibn5RdhazV3oEzw/132'
       },
     },
     summary:'报名成功后不可随意爽约，除了会扣信誉值，爽约1次将得到警告；爽约2次将暂停使用权限。聚会组队成功将以短信通知参与者。',
+    hasphonenumber:null,
   },
   onLoad: function (options) {
     let that = this;
-    let objectId = options.objectId;
+    objectId = options.objectId;
+    that.parseUserBookedOrNot(options.objectId);
     that.parsePost(options.objectId);
     that.parseBooking(options.objectId);
 
   },
-
+  //进入到MAP页面
   bindMap(){
+      let routeInfo = {
+        startLat: 39.90469, //起点纬度 选填
+        startLng: 116.40717, //起点经度 选填
+        startName: "我的位置", // 起点名称 选填
+        endLat: 39.94055, // 终点纬度必传
+        endLng: 116.43207, //终点经度 必传
+        endName: "来福士购物中心", //终点名称 必传
+        mode: "car" //算路方式 选填
+      }
+      console.log(routeInfo)
       wx.navigateTo({
-        url: '../map/map'
+        url: '../map/map?routeInfo=' + routeInfo
       })
   },
 
@@ -44,18 +66,10 @@ Page({
     query.include('targetTag');
     query.get(id).then(function (post) {
 
-      // //创建一个数组，并将位置信息储存在数组[0]中
-      // var markers = [{
-      //   iconPath: "/image/地图标记.png",
-      //   id: 0,
-      //   latitude: article._serverData.lat,
-      //   longitude: article._serverData.lng,
-      //   width: 50,
-      //   height: 50
-      // }];
       that.setData({
-        post
-        // markers: markers,
+        post:post,
+        deadline: post.attributes.deadline.toLocaleString(),
+        dating: post.attributes.dating.toLocaleString(),
       })
     }, function (error) {});
   },
@@ -73,29 +87,32 @@ Page({
               })
         })
   },
+  //查询我自己有没有报名
+  parseUserBookedOrNot(id) {
+    let that = this;
+    let queryBooking = new AV.Query('Booking');
+    queryBooking.equalTo('targetPost', AV.Object.createWithoutData('Post', id));
 
+    let queryUser = new AV.Query('Booking');
+    queryUser.equalTo('targetUser', AV.User.current());
+
+    let query = AV.Query.and(queryBooking, queryUser);
+    query.count().then(function (hasBooked) {
+      that.setData({
+        hasBooked
+      })
+    })
+  },
   submit(){
     let that = this;
-        if (!app.globalData.hasLogin) {
-          wx.navigateTo({
-            url: '../../user/login/login'
-          })
-        }  else if(condition){
-        
-        
-      }   else {
-              let amount = Number(that.data.post.booking_fee);
-              let method = '预定' + that.data.post.title;
-              console.log(amount)
-              console.log(method)
-              that.donate(1,"haha")
-        }
+    let amount = Number(that.data.post.attributes.booking_fee);
+    let method = AV.User.current().attributes.wxname + AV.User.current().attributes.phone + '预定' + that.data.post.attributes.title;
+    console.log(AV.User.current().attributes.wxname)
+    console.log(amount)
+    console.log(method)
+    that.donate(amount,method)
   },
 
-  //  获取用户的手机号码
-  bindgetuserinfo(e){
-
-  },
   //  获取用户的手机号码
   bindGetPhoneNumber(e){
         let paramsJson = {
@@ -114,12 +131,32 @@ Page({
           }
         })
   },
+  //返回首页
+  bindBackHomePage(){
+        wx.reLaunch({
+          url: '../postlist'
+        })
+  },
 
+  bindShare(){
+
+  },
 
   //提交到云引擎  解密换回手机号码。
    getPhoneNumber(e){
+    let that = this;
+    let amount = Number(that.data.post.attributes.booking_fee);
+    let method = AV.User.current().attributes.wxname + AV.User.current().attributes.phone + '预定' + that.data.post.attributes.title;
+
             AV.Cloud.run('getPhoneNumber', e).then(function (data) {
-                     console.log(data)
+                      console.log(data.phoneNumber)
+                      const user = AV.User.current();
+                      user.set('phone', data.phoneNumber);
+                      user.save().then(() => {
+                            that.donate(amount, method)
+                      }).catch(console.error);
+                     //这里写代码，把手机号码data.phoneNumber存到用户账号中then（）
+
               })
   },
   //创建抽奖订单
@@ -132,7 +169,7 @@ Page({
     })
     let paramsJson = {
       productDescription: method,
-      amount: amount * 1,
+      amount: amount * 100,
     }
     AV.Cloud.run('order', paramsJson).then((data) => {
       wx.hideToast();
@@ -154,79 +191,28 @@ Page({
       wx.hideToast();
     })
   },
-
+  //记录用户的预定信息
   booking(id){
     console.log('进入booking流程')
+    let that = this;
     let Booking = AV.Object.extend('Booking');
     let booking = new Booking();
     booking.set('targetPost', AV.Object.createWithoutData('Post', id));
     booking.set('targetUser', AV.User.current());
     booking.save().then(function (todo) {
-      console.log('objectId is ' + todo.id);
+      let c = '报名成功';
+      that.parseBooking(objectId);
+      common.showModal(c, '报名成功');
+      that.setData({
+        hasBooked : true
+      })
+      // wx.navigateTo({
+      //   url: '../success/success'
+      // })
     }, function (error) {
       console.error(error);
     });
   },
-  // toggleLike: function () {
-  //   if (this.data.count == 0) {
-  //     var status = new AV.Status();
-  //     var targetArticle = AV.Object.createWithoutData('Article', this.options.articleObjectId);
-  //     status.set('targetArticle', targetArticle);
-  //     status.send().then(function () {}, function (err) {
-  //       console.dir(err);
-  //     });
-  //     var query = AV.Status.statusQuery(AV.User.current());
-  //     query.find().then(function (statuses) {});
-  //     var count = this.data.count + 1;
-  //     this.setData({
-  //       count
-  //     })
-  //   } else {
-  //     const queryUser = new AV.Query('_Status')
-  //     var queryUser = AV.Status.statusQuery(AV.User.current());
-  //     const queryArticle = new AV.Query('_Status')
-  //     queryArticle.equalTo('targetArticle', AV.Object.createWithoutData('Article', this.options.articleObjectId));
-  //     var query = AV.Query.and(queryUser, queryArticle);
-  //     query.find().then(function (statuses) {
-  //       var like = AV.Object.createWithoutData('_Status', statuses[0].id);
-  //       like.destroy().then(function (success) {}, function (error) {});
-  //     });
-  //     var count = this.data.count - 1;
-  //     this.setData({
-  //       count
-  //     })
-  //   }
-  // },
-  // setWishList() {
-  //   if (this.data.count == 0) {
-  //     var status = new AV.Status();
-  //     var targetArticle = AV.Object.createWithoutData('Article', this.options.articleObjectId);
-  //     status.set('targetArticle', targetArticle);
-  //     status.send().then(function () {}, function (err) {
-  //       console.dir(err);
-  //     });
-  //     var query = AV.Status.statusQuery(AV.User.current());
-  //     query.find().then(function (statuses) {});
-  //     var count = this.data.count + 1;
-  //     this.setData({
-  //       count
-  //     })
-  //   } else {
-  //     const queryUser = new AV.Query('_Status')
-  //     var queryUser = AV.Status.statusQuery(AV.User.current());
-  //     const queryArticle = new AV.Query('_Status')
-  //     queryArticle.equalTo('targetArticle', AV.Object.createWithoutData('Article', this.options.articleObjectId));
-  //     var query = AV.Query.and(queryUser, queryArticle);
-  //     query.find().then(function (statuses) {
-  //       var like = AV.Object.createWithoutData('_Status', statuses[0].id);
-  //       like.destroy().then(function (success) {}, function (error) {});
-  //     });
-  //     var count = this.data.count - 1;
-  //     this.setData({
-  //       count
-  //     })
-  //   }
-  // },
 
   onReady: function () {
 
@@ -238,18 +224,17 @@ Page({
   onShow: function () {
        let that = this;
        if (!AV.User.current()) {
-         that.setData({
-           opendata: 'getUserInfo'
-         })
          wx.navigateTo({
            url: '../../user/login/login'
          })
        } else if (!Boolean(AV.User.current().attributes.phone)) {
          that.setData({
-           opendata: 'getPhoneNumber'
+           hasphonenumber: false
          })
        } else {
-
+         that.setData({
+           hasphonenumber: true
+         })
        }
   },
 

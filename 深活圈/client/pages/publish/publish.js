@@ -32,19 +32,19 @@ Page({
     miniPersonIndex:null,
     maxiPerson: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,25,30,40,50,100],
     maxiPersonIndex: null,
-    location:null,
     icons:{
       arrow: 'https://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png',//箭头符号的地址
-      title:'',//post标题title的icons
-      date:'',//日期的icons
-      time:'',//时间的ICONS
-      deadlineDate:'',//日期的icons
-      deadlineTime:'',//时间的icons
-      person:'',//人的icons
-      budget:null, //预算的icons
-      booking_fee:null,//订金的isons
-      tag:'',//标签的icons
-      location:null//地址的icons
+      title: '../../image/主题.png', //post标题title的icons
+      date: '../../image/活动日期.png', //日期的icons
+      time: '../../image/活动时间.png', //时间的ICONS
+      deadlineDate: '../../image/截止日期.png', //日期的icons
+      deadlineTime: '../../image/截止时间.png', //时间的icons
+      miniperson: '../../image/人数少.png', //最低人数人的icons
+      maxiperson: '../../image/人数多.png', //最高人的icons
+      budget: '../../image/预算.png', //预算的icons
+      booking_fee: '../../image/订金.png', //订金的isons
+      tag:'../../image/话题.png',//标签的icons
+      location: '../../image/地点.png'
     }
   },
 
@@ -190,8 +190,8 @@ Page({
 
   } else if (!this.data.budget) {
     common.showTip("请输入预算", "loading");
-  } else if (!this.data.booking_fee) {
-    common.showTip("请输入订金", "loading");
+  // } else if (!this.data.booking_fee) {
+  //   common.showTip("请输入订金", "loading");
 
   } else if (!this.data.deadlineDate) {
     common.showTip("请选择报名截止日期", "loading");
@@ -201,30 +201,38 @@ Page({
   } else if (!this.data.content) {
     common.showTip("请输入活动内容", "loading");
 
-  } else if (d1 > d2) {
+  } else if (d2 > d1) {
     common.showTip("报名截止时间超出", "loading");
-
-
+  } else if (this.data.miniPersonIndex > this.data.maxiPersonIndex) {
+    common.showTip("最高报名人数过少", "loading");
   } else {
 
     var Post = AV.Object.extend('Post');
     var post = new Post();
+    let geo = new AV.GeoPoint(this.data.item.location.lat,this.data.item.location.lng);
+
+    console.log(location)
     post.set('title', this.data.title);
     post.set('tag', this.data.tags[this.data.tagIndex]);
-
+    post.set('geo', geo);
+    post.set('location', location);
+    post.set('shopName', this.data.item.title);
+    post.set('address', this.data.item.address);
     post.set('images', this.data.images);
-    post.set('location', this.data.location);
     post.set('dating', dating);
     post.set('miniPersonIndex', this.data.miniPerson[this.data.miniPersonIndex]);
     post.set('maxiPersonIndex', this.data.maxiPerson[this.data.maxiPersonIndex]);
     post.set('budget', this.data.budget);
-    post.set('booking_fee', this.data.booking_fee);
+    // post.set('booking_fee', this.data.booking_fee);
     post.set('deadline', deadline);
     post.set('content', this.data.content);
     post.set('targetUser', AV.User.current());
 
     post.save().then(function (todo) {
-      console.log('objectId is ' + todo.id);
+          common.showTip("报名成功", "success");
+          wx.switchTab({
+            url: '../postlist/postlist'
+          })
     }, function (error) {
       console.error(error);
     });
@@ -263,6 +271,8 @@ Page({
   },
 
   onShow: function (options) {
+
+    //这段代码是将map来回的数据存储到data中
         let that = this;
         let pages = getCurrentPages();
         let currPage = pages[pages.length - 1];

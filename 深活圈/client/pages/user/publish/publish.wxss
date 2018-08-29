@@ -1,0 +1,7 @@
+/* pages/user/publish/publish.wxss */
+.wrap{
+    margin:20rpx;
+    display: -webkit-flex;
+    height: 160rpx;
+}
+

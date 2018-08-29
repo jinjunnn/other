@@ -55,6 +55,7 @@ App({
                     withCredentials: true,
                     success: res => {
                       // 可以将 res 发送给后台解码出 unionId
+                      console.log(res)
                       var paramsJson = {
                         code: code,
                         res: res,
@@ -75,6 +76,7 @@ App({
 
                            const user = AV.User.current();
                            user.set('wxname', res.userInfo.nickName);
+                           user.set('gender', res.userInfo.gender);
                            user.set('userImage', res.userInfo.avatarUrl);
                            user.set('city', res.userInfo.city);
                            user.set('province', res.userInfo.province);

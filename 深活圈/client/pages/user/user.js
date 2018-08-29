@@ -6,6 +6,9 @@ var app = getApp()
 
 Page({
   data: {
+    icons:{
+      qrcode: "../image/qrcode.png"
+    }
   },
   onLoad: function() {
     console.log(app.globalData.settings)

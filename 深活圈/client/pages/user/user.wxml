@@ -36,24 +36,19 @@
 
 
 <view class="form-wrap">
-	  <navigator url="./wallet/wallet" class="navigator">
+	  <navigator url="./order/order" class="navigator">
+	  				<view class="userImage1">
+	  								<image src="http://lc-WekN4hEa.cn-n1.lcfile.com/21342fc7230c72e8f662.png" class="author_icon_item" style=" width:50rpx; height:50rpx;" mode="scaleToFill"></image>
+	  				</view>
+	  				<view class="userName">我参与的活动</view>
+	  				<view class="icon">
+	  								<image src="http://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" style=" width:60rpx; height:60rpx" mode="scaleToFill"></image>
+	  				</view>
+	  </navigator>
+
+	  <navigator url="./publish/publish" class="navigator">
 	          <view class="userImage1">
 		            <image src="http://lc-WekN4hEa.cn-n1.lcfile.com/2e0487b8dab9526e325b.png" 
-		                  class="author_icon_item" 
-		                  style=" width:50rpx; height:50rpx;"
-		                  mode="scaleToFill"></image>
-	          </view>
-	          <view class="userName">我参与的活动</view>
-
-	          <view	class="icon" >            
-		           <image src="http://lc-WekN4hEa.cn-n1.lcfile.com/06ba759ae13616b49b55.png" 
-		                  style=" width:60rpx; height:60rpx"
-		                  mode="scaleToFill"></image>
-	          </view>
-	  </navigator>
-	  <navigator url="./order/order" class="navigator">
-	  	      <view class="userImage1">
-		            <image src="http://lc-WekN4hEa.cn-n1.lcfile.com/21342fc7230c72e8f662.png" 
 		                  class="author_icon_item" 
 		                  style=" width:50rpx; height:50rpx;"
 		                  mode="scaleToFill"></image>
@@ -66,6 +61,7 @@
 		                  mode="scaleToFill"></image>
 	          </view>
 	  </navigator>
+
 
 	  <navigator url="./notice/notice" class="navigator">
 	  	      <view class="userImage1">
@@ -135,6 +131,6 @@
 </view>
 
 <view>
-	<image src="{{settings.appImages.qrcode}}"
+	<image src="{{icons.qrcode}}"
 		style=" width:200rpx; height:200rpx; margin: 30rpx 275rpx 0rpx 275rpx"></image>
 </view>

@@ -1,37 +1,18 @@
-<!--pages/user/comment/comment.wxml-->
-<view class="wrap"
-	  wx:for="{{order}}" 
-	  wx:key="orderItem">
-
-		  <view class="author"
-		  	    >
-			    <view class="author_icon">
-			          <image 
-			              src="{{item.targetLottery.image.url}}" 
-			              mode="aspectFill"
-			              class="author_icon_item" 
-			              style=" width:180rpx; height:135rpx;">
-			          </image>
-			    </view>
-
-			    <view class="author_title">
-				      <view class="title_item" id="changecolor">{{item.targetLottery.title}} {{item.targetLottery.content}}</view>
-				      <view style="font-size:10pt; color:#666">订单ID:{{item.id}}</view>
-					  <view style="font-size:10pt; color:#666">实付金额:{{item.amount}}元</view>
-					  <view style="font-size:10pt; color:#666"
-					  	    wx:if="{{(item.overdue < nowtime)&&(item.get==1)}}">订单状态:一等奖</view>
-					  <view style="font-size:10pt; color:#666"
-					  	    wx:elif="{{(item.overdue < nowtime)&&(item.get==2)}}">订单状态:二等奖</view>
-					  <view style="font-size:10pt; color:#666"
-					  	    wx:elif="{{item.overdue < nowtime}}">订单状态:未成团，已退款</view>
-					  <view style="font-size:10pt; color:#666"
-					  	    wx:else>订单状态:进行中</view>
-			    </view>
-		  </view>
-		  
-
-</view>
-
+ <view wx:for="{{booking}}" wx:key="item">
+	    <view wx:if="{{item.targetPost}}">
+ 				<view class="wrap" bind:tap="bindSubmit" data-objectid="{{item.targetPost.objectId}}">
+ 								<view>
+ 												<image style="width:200rpx;height:140rpx" src="{{item.targetPost.images[0]}}" />
+ 								</view>
+ 								<view style="width:490rpx;height:100rpx; font-size:24rpx;  margin-left:30rpx">
+ 												<view style="width:490rpx;  overflow:hidden;">{{item.targetPost.title}}</view>
+ 												<view style="width:490rpx;  overflow:hidden;">时间：{{item.targetPost.dating}}</view>
+ 												<view style="width:490rpx;  overflow:hidden;">地址：{{item.targetPost.address}}</view>
+ 												<view style="width:490rpx;  overflow:hidden;">发起者手机号码：{{item.targetPost.targetUser.phone}}</view>
+ 								</view>
+				 </view>
+	    </view>
+ </view>
 
 
 

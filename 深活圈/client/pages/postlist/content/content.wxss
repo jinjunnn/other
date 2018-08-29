@@ -89,6 +89,8 @@
 .son_2 {
     flex: 5;
     text-align: right;
+    width:20rpx;
+    overflow:hidden;
 }
 
 .tappable {
@@ -110,6 +112,18 @@
     line-height:100rpx;
     vertical-align:middle;
 }
+
+.btnbooked {
+    margin-top: 10px;
+    width: 400rpx;
+    background-color: #888;
+    border-color: #888;
+    color: #FFF;
+    height: 100rpx;
+    line-height: 100rpx;
+    vertical-align: middle;
+}
+
 .author_wrap{
     margin: 30rpx 30rpx 30rpx 30rpx;
 }

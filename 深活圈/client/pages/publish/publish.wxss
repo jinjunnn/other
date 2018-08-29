@@ -31,10 +31,17 @@ page {
   border-radius: 50rpx;
 }
 
+.gameimage1 {
+  height: 30rpx;
+  width: 30rpx;
+  margin: 18rpx;
+  border-radius: 50%;
+}
+
 .gameimage {
-  height: 70rpx;
-  width: 70rpx;
-  margin-right: 10rpx;
+  height: 30rpx;
+  width: 30rpx;
+  margin: 30rpx 18rpx 18rpx 18rpx;
   border-radius: 50%;
 }
 
@@ -44,6 +51,8 @@ page {
   line-height: 35px;
   text-align: center;
   font-size: 24rpx;
+  height:46rpx;
+  overflow: hidden;
 }
 
 .btn_wrap {
@@ -85,7 +94,6 @@ page {
 
 .first_item {
   display: -webkit-flex;
-  justify-content: space-between;
   background-color: white;
   width: 690rpx;
   height: 90rpx;
