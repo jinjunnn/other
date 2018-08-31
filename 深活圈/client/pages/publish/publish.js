@@ -21,6 +21,7 @@ Page({
     title: '', //post的标题
     editDraft: null, //编辑的文件
     tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '手工圈', '跑步圈', '其他'],//tags
+    targetTag: ['5b87b4540b6160006226552e', '5b87b465d50eee0039100a52', '5b87b4f4ee920a003b987a3c', '5b87b4fca22b9d0037e43655', '5b87b504808ca4003d9bb25b', '5b87b50dee920a003b987b11', '5b87b516a22b9d0037e4372a', '5b87b51e570c35003843ce4f'],//TAG表
     tagIndex: null,//TAGS INDEX
     date:null,//如果没有显示选择日期，如果有，显示具体的日期
     time:null,//如果没有选择时间，如果有显示具体的时间
@@ -213,7 +214,7 @@ Page({
 
     console.log(location)
     post.set('title', this.data.title);
-    post.set('tag', this.data.tags[this.data.tagIndex]);
+    post.set('targetTag', AV.Object.createWithoutData('Tag', this.data.targetTag[this.data.tagIndex]));
     post.set('geo', geo);
     post.set('location', location);
     post.set('shopName', this.data.item.title);

@@ -103,18 +103,24 @@
 }
 
 .btn {
-    margin-top: 10px;
     width:400rpx;
     background-color: #F85B61;
-    border-color: #F85B61;
+    border:none;
     color: #FFF;
     height:100rpx;
     line-height:100rpx;
     vertical-align:middle;
 }
+.sharebtn {
+    background-color: #FFF;
+    border:none;
+    height:100rpx;
+    width:100rpx;
+    margin:0rpx;
+    padding:0rpx;
+}
 
 .btnbooked {
-    margin-top: 10px;
     width: 400rpx;
     background-color: #888;
     border-color: #888;

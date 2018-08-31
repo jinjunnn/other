@@ -7,7 +7,7 @@ var app = getApp()
 Page({
   data: {
     icons:{
-      qrcode: "../image/qrcode.png"
+      qrcode: "../../image/qrcode.jpeg"
     }
   },
   onLoad: function() {

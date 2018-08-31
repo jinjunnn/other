@@ -8,7 +8,7 @@
 
 <view class="title">
     <view style="margin:30rpx">
-        <image src="{{icons.tags.food}}"
+        <image src="{{post.targetTag.image.url}}"
                  style="height:120rpx; width:120rpx;border-radius: 50%; flex:210">
         </image>
     </view>
@@ -34,7 +34,7 @@
     <navigator class="author" url="../user/author/author?objectId={{post.targetUser.objectId}}">
         <view class="author_title">
             <view style="font-size:10pt;" class="text_mini_title" id="changecolor">
-                {{post.tag}}
+                {{post.targetTag.title}}
             </view>
             <view class="text_title_wrap" style="display: -webkit-flex;">
                 <view class="text_mini_title">发起人:</view>
@@ -105,6 +105,7 @@
     <navigator url="" class="navigator openinghour">
         <image style="width:30rpx; height:30rpx; margin:27rpx 10rpx 0rpx 0rpx;" src="{{icons.booking_fee}}"></image>
         <view class="son_1" style="font-size:24rpx;">活动定金</view>
+        <view bindtap="bindNotice"><image style="width:30rpx; height:30rpx; margin:27rpx 10rpx 0rpx 0rpx;" src="{{icons.question}}"></image></view>
         <view class="son_2" style="font-size:24rpx;text-align:right;margin:0rpx 30rpx 0rpx 0rpx;">{{post.booking_fee}}元</view>
     </navigator>
     <navigator url="" class="navigator openinghour">
@@ -116,27 +117,43 @@
     </navigator>
 </view>
 
-<view style="height:150rpx; display: -webkit-flex; margin:30rpx; justify-content:space-between;">
-    <view bindtap="bindBackHomePage">
-        <image style="width:80rpx; height:80rpx; margin:25rpx 40rpx 0rpx 0rpx;" src="{{icons.homepage}}"></image>
+<view style="height:150rpx; display: -webkit-flex; margin:10rpx; justify-content:space-around;">
+    <view>
+        <button class="sharebtn"  bindtap="bindBackHomePage">
+            <view style="width:30rpx; height:30rpx;">
+                <image style="width:30rpx; height:30rpx;margin:0rpx 35rpx 5rpx 35rpx " src="{{icons.homepage}}"></image>
+            </view>
+            <view style="font-size:24rpx; padding:0rpx; margin:10rpx 0rpx 0rpx 0rpx;">首页</view>
+        </button>
     </view>
-    <view  bindtap="bindShare">
-    <image style="width:80rpx; height:80rpx; margin:25rpx 40rpx 0rpx 0rpx;" src="{{icons.share}}"></image>
+
+    <view>
+        <button  open-type="share" class="sharebtn">
+        <view  style="width:30rpx; height:30rpx;">
+        <image style="width:30rpx; height:30rpx;margin:0rpx 35rpx 5rpx 35rpx" src="{{icons.share}}"></image>
+        </view>
+        <view style="font-size:24rpx; padding:0rpx;margin:10rpx 0rpx 0rpx 0rpx;">分享</view>
+        </button>
     </view>
-    <button size="default" wx:if="{{hasBooked}}" hover-class="other-button-hover" class="btnbooked">
+    <view>
+    <button wx:if="{{hadfinish}}" class="btnbooked">
+        <text>已完成</text>
+    </button>
+    <button wx:elif="{{deadlined}}" class="btnbooked">
+        <text>已截止报名</text>
+    </button>
+    <button  wx:elif="{{hasBooked}}" class="btnbooked">
         <text>已报名</text>
     </button>
-    <button size="default" 
-            wx:elif="{{!hasphonenumber}}"
-            hover-class="other-button-hover" 
+    <button wx:elif="{{!hasphonenumber}}"
             class="btn"
             open-type="getPhoneNumber" 
             bindgetphonenumber="bindGetPhoneNumber"
             bindgetuserinfo="bindGetUserInfo">
         <text>立即报名</text>
     </button>
-    <button  wx:elif="{{hasphonenumber}}" size="default" hover-class="other-button-hover" class="btn" bindtap="submit">
+    <button  wx:elif="{{hasphonenumber}}"  class="btn" bindtap="submit">
         <text>立即报名</text>
     </button>
-    <view style="height:30rpx"></view>
+    </view>
 </view>

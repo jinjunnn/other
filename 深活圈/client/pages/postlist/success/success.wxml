@@ -1,2 +1,22 @@
-<!--pages/postlist/success/success.wxml-->
-<text>pages/postlist/success/success.wxml</text>
+<icon type="success" size="50" style="margin:40rpx 350rpx 40rpx 350rpx"/>
+<view style="margin:30rpx">
+    <view style="text-align: center;margin:20rpx 0rpx 30rpx 0rpx">亲爱的{{options.username}}，您已经报名成功。</view>
+    <view  style="display: -webkit-flex;">
+        <view style="flex:3.5">活动时间:</view>
+        <view  style="flex:6">{{options.dating}}。</view>
+    </view>
+    <view  style="display: -webkit-flex;">
+        <view  style="flex:3.5">活动地址:</view>
+        <view  style="flex:6">{{options.address}}。</view>
+    </view>
+    <view style="display: -webkit-flex;">
+        <view  style="flex:3.5">发起人手机号:</view>
+        <view  style="flex:6">{{options.phone}}</view>
+    </view>
+</view>
+<view>
+    <button style="margin-top:100rpx" bindtap="bindSubmit">确定</button>
+</view>
+<view>
+    
+</view>

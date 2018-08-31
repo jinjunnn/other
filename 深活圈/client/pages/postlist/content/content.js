@@ -22,6 +22,7 @@ Page({
       share: '../../../image/分享.png',
       homepage: '../../../image/首页.png',
       budget: '../../../image/预算.png',
+      question: '../../../image/问号.png',
       deadline: '../../../image/截止.png',
       notification: '../../../image/喇叭.png',
       booking_fee: '../../../image/订金.png',
@@ -60,6 +61,8 @@ Page({
   //查询post
   parsePost(id){
     let that = this;
+    let now = new Date()
+    console.log(now)
     const query = new AV.Query('Post')
     // queryArticle.equalTo('objectId', options.articleObjectId);
     query.include('targetUser');
@@ -70,6 +73,8 @@ Page({
         post:post,
         deadline: post.attributes.deadline.toLocaleString(),
         dating: post.attributes.dating.toLocaleString(),
+        hadfinish: Boolean(now > post.attributes.dating),
+        deadlined: Boolean(now > post.attributes.deadline),
       })
     }, function (error) {});
   },
@@ -81,6 +86,7 @@ Page({
         let query = new AV.Query('Booking');
         query.equalTo('targetPost', AV.Object.createWithoutData('Post', id));
         query.include('targetUser');
+        query.include('targetTag');
         query.find().then(function (bookers) {
               that.setData({
                 bookers
@@ -133,13 +139,24 @@ Page({
   },
   //返回首页
   bindBackHomePage(){
+
         wx.reLaunch({
           url: '../postlist'
         })
   },
 
-  bindShare(){
 
+  //提交到云引擎  发送模板消息。
+  sendTemplateMessage(e) {
+    let that = this;
+    let paramsJson = {
+      dateToday: date,
+      lotterys: lottery,
+      lotterysNew: lotteryNew
+    };
+    AV.Cloud.run('sendTemplateMessage', paramsJson).then(function (data) {
+      console.log(data)
+      }).catch(console.error);
   },
 
   //提交到云引擎  解密换回手机号码。
@@ -176,7 +193,7 @@ Page({
       data.success = () => {
         //支付成功后的业务逻辑
         this.booking(objectId)
-        setTimeout(this.refreshOrders.bind(this), 1500);
+        // setTimeout(this.refreshOrders.bind(this), 2000);
       }
       data.fail = ({
         errMsg
@@ -202,13 +219,23 @@ Page({
     booking.save().then(function (todo) {
       let c = '报名成功';
       that.parseBooking(objectId);
-      common.showModal(c, '报名成功');
       that.setData({
         hasBooked : true
       })
-      // wx.navigateTo({
-      //   url: '../success/success'
-      // })
+
+      let dating = that.data.dating;
+      let address = that.data.post.attributes.shopName;
+      let phone = that.data.post.attributes.targetUser.attributes.phone;
+      let username = AV.User.current().attributes.wxname;
+      console.log(username)
+      console.log(dating)
+      console.log(address)
+      console.log(phone)
+      let params = 'username=' + AV.User.current().attributes.wxname + '&dating=' + that.data.dating + '&address=' + that.data.post.attributes.shopName + '&phone=' + that.data.post.attributes.targetUser.attributes.phone
+      console.log(params)
+      wx.navigateTo({
+        url: '../success/success?'+ params
+      })
     }, function (error) {
       console.error(error);
     });
@@ -237,7 +264,10 @@ Page({
          })
        }
   },
-
+  //用户点击问号按钮，提示用户活动定金是怎么收取
+  bindNotice(){
+        common.showModal('订金是深活圈平台收取的费用，点击参与付费后，不予退回，感谢。')
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
