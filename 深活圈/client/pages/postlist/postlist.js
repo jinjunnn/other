@@ -51,6 +51,7 @@ Page({
     query.limit(page_size);
     query.descending('createdAt');
     query.include('targetUser');
+    query.include('targetTag');
     query.skip(page_index * page_size);
     query.find().then(results => this.setData({
       postList: this.data.postList.concat(results)

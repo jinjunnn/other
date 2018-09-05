@@ -25,10 +25,7 @@ Page({
       question: '../../../image/问号.png',
       deadline: '../../../image/截止.png',
       notification: '../../../image/喇叭.png',
-      booking_fee: '../../../image/订金.png',
-      tags:{
-        food: 'https://wx.qlogo.cn/mmopen/vi_32/rG1ZplIRNqr0UW7F14jg6iaRpacxKKia91eA1m9ib21mvic9bf3WxqcHsfzYic2KBBRsjnibW1JjZjibn5RdhazV3oEzw/132'
-      },
+      booking_fee: '../../../image/订金.png'
     },
     summary:'报名成功后不可随意爽约，除了会扣信誉值，爽约1次将得到警告；爽约2次将暂停使用权限。聚会组队成功将以短信通知参与者。',
     hasphonenumber:null,
@@ -43,18 +40,16 @@ Page({
   },
   //进入到MAP页面
   bindMap(){
-      let routeInfo = {
-        startLat: 39.90469, //起点纬度 选填
-        startLng: 116.40717, //起点经度 选填
-        startName: "我的位置", // 起点名称 选填
-        endLat: 39.94055, // 终点纬度必传
-        endLng: 116.43207, //终点经度 必传
-        endName: "来福士购物中心", //终点名称 必传
-        mode: "car" //算路方式 选填
-      }
-      console.log(routeInfo)
+
+      let that = this;
+      let lat = that.data.post.attributes.geo.latitude;
+      let long = that.data.post.attributes.geo.longitude;
+      let shopName = that.data.post.attributes.shopName;
+      console.log(lat)
+      console.log(long)
+      console.log(shopName)
       wx.navigateTo({
-        url: '../map/map?routeInfo=' + routeInfo
+        url: '../map/map?endlat=' + lat + '&endlong=' + long + '&endtitle=' + shopName 
       })
   },
 
@@ -89,7 +84,8 @@ Page({
         query.include('targetTag');
         query.find().then(function (bookers) {
               that.setData({
-                bookers
+                bookers:bookers,
+                numberOfBookers: bookers.length,
               })
         })
   },
@@ -227,10 +223,7 @@ Page({
       let address = that.data.post.attributes.shopName;
       let phone = that.data.post.attributes.targetUser.attributes.phone;
       let username = AV.User.current().attributes.wxname;
-      console.log(username)
-      console.log(dating)
-      console.log(address)
-      console.log(phone)
+
       let params = 'username=' + AV.User.current().attributes.wxname + '&dating=' + that.data.dating + '&address=' + that.data.post.attributes.shopName + '&phone=' + that.data.post.attributes.targetUser.attributes.phone
       console.log(params)
       wx.navigateTo({

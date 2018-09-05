@@ -20,7 +20,7 @@ Page({
     images:[],//上传的照片
     title: '', //post的标题
     editDraft: null, //编辑的文件
-    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '手工圈', '跑步圈', '其他'],//tags
+    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '游戏圈', '健身圈', '其他'],//tags
     targetTag: ['5b87b4540b6160006226552e', '5b87b465d50eee0039100a52', '5b87b4f4ee920a003b987a3c', '5b87b4fca22b9d0037e43655', '5b87b504808ca4003d9bb25b', '5b87b50dee920a003b987b11', '5b87b516a22b9d0037e4372a', '5b87b51e570c35003843ce4f'],//TAG表
     tagIndex: null,//TAGS INDEX
     date:null,//如果没有显示选择日期，如果有，显示具体的日期
@@ -231,7 +231,7 @@ Page({
 
     post.save().then(function (todo) {
           common.showTip("报名成功", "success");
-          wx.switchTab({
+      wx.reLaunch({
             url: '../postlist/postlist'
           })
     }, function (error) {
@@ -290,13 +290,35 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**s
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    let that = this;
+    that.setData({
+      item: null,
+      selAddress: null,
+      height: 20,
+      images: [],//上传的照片
+      title: '', //post的标题
+      editDraft: null, //编辑的文件
+      tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '手工圈', '跑步圈', '其他'],//tags
+      targetTag: ['5b87b4540b6160006226552e', '5b87b465d50eee0039100a52', '5b87b4f4ee920a003b987a3c', '5b87b4fca22b9d0037e43655', '5b87b504808ca4003d9bb25b', '5b87b50dee920a003b987b11', '5b87b516a22b9d0037e4372a', '5b87b51e570c35003843ce4f'],//TAG表
+      tagIndex: null,//TAGS INDEX
+      date: null,//如果没有显示选择日期，如果有，显示具体的日期
+      time: null,//如果没有选择时间，如果有显示具体的时间
+      deadlineDate: null,//报名截止日期
+      deadlineTime: null,//报名截止时间
+      budget: null,
+      booking_fee: null,
+      miniPerson: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      miniPersonIndex: null,
+      maxiPerson: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 30, 40, 50, 100],
+      maxiPersonIndex: null,
+    })
   
   },
 

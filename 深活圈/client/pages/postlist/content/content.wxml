@@ -20,11 +20,18 @@
                     style="height:30rpx; width:30rpx; flex:20;margin:12rpx 30rpx 10rpx 10rpx"></image>
             <view  style="flex:300;  font-size: 27rpx; margin-top:9rpx">{{dating}}</view>
         </view>
+        <view style="display: -webkit-flex;">
+            <image src="{{icons.female}}" style="height:30rpx; width:30rpx; margin:12rpx 30rpx 10rpx 10rpx"></image>
+            <view style="  font-size: 27rpx; margin-top:9rpx">
+                限定人数:{{post.miniPersonIndex}}人~{{post.maxiPersonIndex}}人
+            </view>
+        </view>
         <view style="display: -webkit-flex;" bindtap="bindMap">
             <image src="{{icons.address}}" style="height:30rpx; width:30rpx; margin:12rpx 30rpx 10rpx 10rpx"></image>
             <view  style="  font-size: 27rpx; margin-top:9rpx">{{post.shopName}}</view>
             <view style="  font-size: 27rpx; margin:9rpx 0rpx 0rpx 30rpx; ">查看地图</view>
         </view>
+
     </view>
 </view>
 
@@ -137,13 +144,16 @@
     </view>
     <view>
     <button wx:if="{{hadfinish}}" class="btnbooked">
-        <text>已完成</text>
+        <text>已结束</text>
     </button>
     <button wx:elif="{{deadlined}}" class="btnbooked">
         <text>已截止报名</text>
     </button>
     <button  wx:elif="{{hasBooked}}" class="btnbooked">
         <text>已报名</text>
+    </button>
+    <button wx:elif="{{numberOfBookers >=  post.maxiPersonIndex}}" class="btnbooked">
+        <text>人数已满</text>
     </button>
     <button wx:elif="{{!hasphonenumber}}"
             class="btn"
