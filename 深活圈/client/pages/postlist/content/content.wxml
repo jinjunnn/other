@@ -87,7 +87,7 @@
 <view class="card">
     <view style="font-size:11pt;" class="card_content">
         <text style="font-weight:bold;">活动详情</text>
-        <view>{{post.content}}</view>
+        <view><text>{{post.content}}</text></view>
     </view>
 </view>
 

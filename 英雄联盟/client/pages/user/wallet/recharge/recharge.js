@@ -75,7 +75,7 @@ Page({
     })
       var paramsJson = {
       productDescription:'充值',
-      amount: cost * 1,
+      amount: cost * 100,
     }
     AV.Cloud.run('order' ,paramsJson).then((data) => {
       wx.hideToast();

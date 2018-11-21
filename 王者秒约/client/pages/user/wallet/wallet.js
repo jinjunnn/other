@@ -1,6 +1,7 @@
 const AV = require('../../../utils/av-live-query-weapp-min');
 var address = '';
-var coins= 7
+var coins= 7;
+var rechargeAppId = "wx6efbe0ee407317f0";
 
 Page({
 
@@ -31,9 +32,9 @@ Page({
       }
   },
   bindRecharge(e){
-    console.log(this.data.appId)
+    console.log(this.data.appId);
     wx.navigateToMiniProgram({
-      appId: this.data.appId,
+      appId: rechargeAppId,
       path: 'pages/user/wallet/recharge/recharge',
       success(res) {
         // 打开成功

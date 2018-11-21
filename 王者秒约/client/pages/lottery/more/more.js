@@ -1,5 +1,7 @@
 const AV = require('../../../utils/av-live-query-weapp-min');
 var page_index = 0;
+var page_size = 6;
+var d = new Date();
 Page({
 
   /**
@@ -13,15 +15,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var d = new Date()
+
     var query1 = new AV.Query('Lottery');
-    query1.equalTo('display', 1);
+    query1.equalTo('display', 0);
+    query1.lessThan('deadline', new Date(d.valueOf() + 24 * 60 * 60 * 1000));
     query1.descending('deadline');
-    query1.limit(6);
+    query1.include('targetProperty');
+    query1.limit(page_size);
     query1.find().then(list => this.setData({
       list,
       d,
-      options,
     })).catch(console.error);
   },
   /**
@@ -45,12 +48,14 @@ Page({
   onPullDownRefresh: function () {
   },
   reFrish: function () {
-    var page_size = 6;
+ 
     // 分页
     var query = new AV.Query('Lottery');
-    query.equalTo('display', 1);
+    query.equalTo('display', 0);
+    query.lessThan('deadline', new Date(d.valueOf() + 24 * 60 * 60 * 1000));
     query.descending('deadline');
     query.limit(page_size);
+    query.include('targetProperty');
     query.skip(page_index * page_size);
     query.find()
          .then(results => this.setData({
@@ -58,7 +63,9 @@ Page({
           })).catch(console.error);
   },
   onReachBottom: function () {
-      page_index = ++page_index
+      console.log(page_index);
+      page_index = ++page_index;
+      console.log(page_index);
       this.reFrish();
   },
 

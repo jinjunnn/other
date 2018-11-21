@@ -28,22 +28,20 @@ Page({
   },
 
   onLoad: function (options) {
-    common.querySetting( '皮肤抽奖','抽奖需获得您的昵称和头像信息，用以在中奖名单中公布。')
-    
     var that = this;
-    objectId = options.objectId
-    var query = new AV.Query('Lottery');
-    query.get(options.objectId).then(function (user) {
+    objectId = options.objectId;
+    var query = new AV.Query('Property');
+    query.get(options.objectId).then(function (property) {
     that.setData({
-      user
-    })
-    confi = user.attributes.confi ,
-    image = user.attributes.image.attributes.url,
-    title = user.attributes.title , 
-    content = user.attributes.content ,
-    price = user.attributes.price ,
+      property,
+    });
+    confi = property.attributes.confi ,
+    image = property.attributes.image.attributes.url,
+    title = property.attributes.title , 
+    content = property.attributes.content ,
+    price = property.attributes.price ,
     // objectId =user.attributes.objectId,
-    payFor =user.attributes.title+user.attributes.content+'皮肤抽奖'
+    payFor =property.attributes.title+property.attributes.content+'皮肤抽奖'
 
     }, function (error) {
     });

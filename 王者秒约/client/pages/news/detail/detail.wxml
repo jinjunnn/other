@@ -1,21 +1,18 @@
-<view style="margin:20rpx">
-    <view style="font-size:40rpx; font-weight: bold">{{news.title}}</view>
+<view>
+	<txv-video 
+	vid="{{vid}}"
+	playerid="txv1" 
+	width="100%"   
+	height="auto" 
+	autoplay="true"> 
+	</txv-video>
 </view>
-
-<image style="width: 750rpx"  mode="aspectFill"  src="{{news.profile}}" wx:if="{{news.type == 1}}"/>
-<video style="width: 750rpx"  mode="aspectFill"  src="{{news.video}}" 
-	   poster="{{news.profile}}" wx:elif="{{news.type == 2}}"/>
+<view style="margin:20rpx">
+    <view style="font-size:40rpx; font-weight: bold">{{title}}</view>
+	<view style="font-size:20rpx; color:#333;">{{content}}</view>
+</view>
 <view style="height:20rpx; background-color: #eee;"></view>
 
-
-<view wx:for="{{news.content}}" wx:key="item">
-	<image style="width: 750rpx"  mode="aspectFill"  src="{{news.images[index]}}"/>
-    <view style="font-size:24rpx; color:#333;margin:10rpx 20rpx 10rpx 20rpx">{{item}}</view>
-</view>
-
-<view style="height:10rpx; background-color: #eee;"></view>
-
-<!-- 免费抽奖 -->
 <view style="display:-webkit-flex; height:180rpx"
 	  bindtap="bindLottery">
 	<view style="flex:61;">
@@ -30,7 +27,7 @@
 </view>
 <view style="height:2rpx; background-color:#eee"></view>
 
-<!-- 积分抽奖 -->
+
 <view style="display:-webkit-flex; height:180rpx"
 	  bindtap="bindIntergal">
 
@@ -48,9 +45,7 @@
 <view style="height:20rpx; background-color:#eee"></view>
 
 
-<view style="display:-webkit-flex; flex-wrap:wrap"
-	  >
-	<!-- 社交立减金 -->
+<view style="display:-webkit-flex; flex-wrap:wrap">
 	<view style="width:374rpx; height:240rpx; text-align:center; border-bottom: 1rpx solid #eee; border-right: 1rpx solid #eee;"
 		  bindtap="bindShangfen">
 		<view style="font-size:28rpx; font-weight: bold; margin:30rpx 0rpx 0rpx 0rpx">职业上分</view>
@@ -81,8 +76,6 @@
 
 </view>
 <view style="height:20rpx; background-color:#eee"></view>
-<!-- 产品 -->
-<!-- 社交立减金 -->
 
 <view bindtap="bindtapAd">
     <ad unit-id="adunit-3a4305b0dc9dca7a"></ad>
@@ -104,7 +97,7 @@
 </view>
 
 <view style="height:2rpx; background-color:#eee"></view>
-<!-- 积分兑换 -->
+
 <view style="display:-webkit-flex; height:180rpx">
 	<view style="flex:61;">
 		<view style="font-size:32rpx; font-weight: bold; margin:50rpx 0rpx 0rpx 40rpx">
@@ -117,12 +110,3 @@
 	</view>
 </view>
 <view style="height:20rpx; background-color:#eee"></view>
-
-<view>
-	
-</view>
-
-
-<view>
-	
-</view>

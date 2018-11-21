@@ -149,7 +149,7 @@ var app = getApp();
               //调用失败
         });
   }
-
+  //弹出TOAST
   function showTip(sms, icon, fun, t) {
       if (!t) {
         t = 1000;
@@ -161,6 +161,13 @@ var app = getApp();
         success: fun
       })
   }
+  //到登录页面
+  function toLoginPage() {
+    wx.navigateTo({
+      url: '/pages/user/login/login'
+    });
+  }
+  //弹出模态弹窗
   function showModal(c, t, fun) {
     if (!t)
       t = '提示'
@@ -217,9 +224,6 @@ var app = getApp();
     })
   }
 
-
-
-
 module.exports.addHappyLot = addHappyLot;  
 module.exports.addHappyLotNotice = addHappyLotNotice;  
 module.exports.amendIntergal = amendIntergal;  
@@ -239,3 +243,4 @@ module.exports.addRecord = addRecord;
 module.exports.sendNotice = sendNotice;
 module.exports.showTip = showTip;
 module.exports.showModal = showModal;
+module.exports.toLoginPage = toLoginPage;

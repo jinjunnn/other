@@ -1,32 +1,20 @@
-<swiper indicator-dots="true" style="width:750rpx; height:350rpx"
-  autoplay="true" interval="5000" duration="500">
-    <block wx:for="{{confi.banner}}">
-        <swiper-item>
-            <image src="{{item}}" style="width:750rpx; height:150rpx"/>
-        </swiper-item>
-    </block>
-</swiper>
 
 
-    <view wx:for="{{news}}" wx:key="item">
-        <navigator url="/pages/news/detail/detail?objectId={{item.objectId}}&id={{index}}">
-            <image style="width: 750rpx; height: 420rpx" 
-	               mode="aspectFill" 
-	               src="{{item.profile}}"/>
-            <view style="margin:10rpx 20rpx 10rpx 20rpx">
-	            <view style="font-size:32rpx; font-weight: bold">{{item.title}}</view>
-	            <view style="font-size:20rpx; color:#333; height:60rpx;overflow:hidden">{{item.content[0]}}</view>
+<view wx:for="{{videos}}" wx:key="item">
+    <navigator url="/pages/news/detail/detail?objectId={{item.objectId}}&vid={{item.vid}}&title={{item.title}}&content={{item.content[0]}}">
+        <image style="width: 750rpx; height: 420rpx" 
+                src="{{item.profile}}"/>
+        <view style="margin:10rpx 20rpx 10rpx 20rpx">
+            <view style="font-size:32rpx; font-weight: bold">{{item.title}}</view>
+            <view style="font-size:20rpx; color:#333; height:60rpx;overflow:hidden">{{item.content[0]}}</view>
+        </view>
+
+        <view style="display: -webkit-flex; justify-content:space-between; margin:10rpx 20rpx 10rpx 20rpx">
+            <view style="font-size:20rpx; color:blue; border:1rpx solid blue; padding:0rpx 5rpx 0rpx 5rpx; border-radius: 5rpx">
+                {{item.tags}}
             </view>
-
-            <view style="display: -webkit-flex; justify-content:space-between; margin:10rpx 20rpx 10rpx 20rpx">
-            	<view style="font-size:20rpx; color:blue; border:1rpx solid blue; padding:0rpx 5rpx 0rpx 5rpx; border-radius: 5rpx">
-            		{{item.tags}}
-            	</view>
-            	<view style="font-size:20rpx; color:#333">
-            		{{item.views}}
-            	</view>
-            </view>
-      </navigator>
-      <view style="height:20rpx; background-color: #eee;"></view>
-    </view>
+        </view>
+    </navigator>
+    <view style="height:20rpx; background-color: #eee;"></view>
+</view>
 

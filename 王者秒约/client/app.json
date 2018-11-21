@@ -23,6 +23,7 @@
     "pages/news/news",
     "pages/news/detail/detail",
 
+
     "pages/index/index",
     "pages/index/index/index",
     "pages/index/login/login",
@@ -132,5 +133,15 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.2.0",
+      "provider": "wxa75efa648b60994b"
+    }
+  },
+	"navigateToMiniProgramAppIdList": [
+	  "wxe09a938fce8af998",
+	  "wx6efbe0ee407317f0"
+	]
 }

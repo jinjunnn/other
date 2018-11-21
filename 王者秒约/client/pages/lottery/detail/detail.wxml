@@ -1,5 +1,5 @@
 <image 
-    src="{{user.image1.url}}" 
+    src="{{property.image_l}}" 
     class="slide-image" 
     style="width:100%; height:85%"
     mode="widthFix">
@@ -12,12 +12,12 @@
     bindtap="bindLucky">
 </image>
 
-<navigator url="../get/get?objectId={{user.objectId}}" class="get">中奖名单</navigator>
+<navigator url="../get/get?objectId={{property.objectId}}" class="get">中奖名单</navigator>
 
 <view   wx:if="{{condition == 1}}"
         class="condition1">
-  <view style="color:#fff; font-size:40rpx; ">{{user.content}}皮肤</view>
-  <view style="color:#fff; font-size:24rpx; ">价值:{{user.price/10}}元</view>
+  <view style="color:#fff; font-size:40rpx; ">{{property.content}}皮肤</view>
+  <view style="color:#fff; font-size:24rpx; ">价值:{{property.price/10}}元</view>
   <image src="https://lc-WekN4hEa.cn-n1.lcfile.com/d1833d8f6ce6007a76d0.png" style="width:240rpx; height:240rpx; margin:20rpx 0rpx 20rpx 0rpx" mode="widthFix"></image>
   <view style="color:#fff; font-size:24rpx; ">1元起抽，超高中奖概率。</view>
   <view style="color:#fff; font-size:20rpx;  margin:10rpx">本产品由时代文化集团开发，经腾讯审核，确保公平公正,请放心抽奖。</view>
@@ -42,9 +42,13 @@
 </view>
 
 
-<view   class="condition2">
-  <view>1:抽奖概率:抽奖概率经腾讯审核按照皮肤价格的8折计算，本款皮肤抽奖概率为1：{{user.price/12.5}}。不离开本页面累计抽奖次数达到{{user.price/8}}次必中，关闭页面后抽奖次数将重新累计。</view>
+<view  wx:if="{{!property.limit}}" class="condition2">
+  <view>1:抽奖概率:抽奖概率经腾讯审核按照皮肤价格的8折计算，本款皮肤抽奖概率为1：{{property.price/12.5}}。不离开本页面累计抽奖次数达到{{property.price/8}}次必中，关闭页面后抽奖次数将重新累计。</view>
   <view>2:奖励发放形式:中奖后请根据通知提示添加客服人员微信或者QQ后向客服索要相应皮肤，有任何疑问请点击客服按钮进行咨询。</view>
   <view>3:隐私声明:皮肤抽奖需要获得您授权微信名称和微信头像信息，平台仅将您的名称与头像用于皮肤抽奖公示，以方便向用户公开中奖用户信息。</view>
+</view>
+<view  wx:else class="condition2">
+  <view>1:奖励发放形式:中奖后请根据通知提示添加客服人员微信或者QQ后向客服索要相应皮肤，有任何疑问请点击客服按钮进行咨询。</view>
+  <view>2:隐私声明:皮肤抽奖需要获得您授权微信名称和微信头像信息，平台仅将您的名称与头像用于皮肤抽奖公示，以方便向用户公开中奖用户信息。</view>
 </view>
 

@@ -1,5 +1,5 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
 	},
@@ -11,9 +11,12 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.98",
-	"appid": "wx4f93ecdfd7367530",
-	"projectname": "%E7%8E%8B%E8%80%85%E7%A7%92%E7%BA%A6",
+	"libVersion": "2.3.0",
+	"appid": "wxa40ae88e4a995c34",
+	"projectname": "%E4%B9%B0%E6%89%8B%E5%BA%97",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -33,5 +36,4 @@
 			"list": []
 		}
 	}
-
 }

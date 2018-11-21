@@ -20,8 +20,8 @@ Page({
     images:[],//上传的照片
     title: '', //post的标题
     editDraft: null, //编辑的文件
-    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '游戏圈', '健身圈', '其他'],//tags
-    targetTag: ['5b87b4540b6160006226552e', '5b87b465d50eee0039100a52', '5b87b4f4ee920a003b987a3c', '5b87b4fca22b9d0037e43655', '5b87b504808ca4003d9bb25b', '5b87b50dee920a003b987b11', '5b87b516a22b9d0037e4372a', '5b87b51e570c35003843ce4f'],//TAG表
+    tags: ['美食圈', 'K歌圈', '电影圈', '桌游圈', '户外圈', '游戏圈', '健身圈','旅行圈', '其它'],//tags
+    targetTag: ['5b87b4540b6160006226552e', '5b87b465d50eee0039100a52', '5b87b4f4ee920a003b987a3c', '5b87b4fca22b9d0037e43655', '5b87b504808ca4003d9bb25b', '5b8f884f67f35600349f2a6a', '5b87b50dee920a003b987b11', '5b87b516a22b9d0037e4372a', '5b87b51e570c35003843ce4f'], //TAG表
     tagIndex: null,//TAGS INDEX
     date:null,//如果没有显示选择日期，如果有，显示具体的日期
     time:null,//如果没有选择时间，如果有显示具体的时间
@@ -204,7 +204,7 @@ Page({
 
   } else if (d2 > d1) {
     common.showTip("报名截止时间超出", "loading");
-  } else if (this.data.miniPersonIndex > this.data.maxiPersonIndex) {
+  } else if (this.data.miniPerson[this.data.miniPersonIndex] > this.data.maxiPerson[this.data.maxiPersonIndex]) {
     common.showTip("最高报名人数过少", "loading");
   } else {
 

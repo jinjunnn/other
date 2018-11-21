@@ -15,9 +15,8 @@ var t1=0.2
 var t2=100000
 //消费方式
 var payFor;
-var image;
 var deadline;
-
+var objectId;
 
 Page({
 
@@ -37,26 +36,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(AV.User.current())
+    var d = new Date()
     wx.showShareMenu({
       withShareTicket: true
     })
-    deadline = new Date(options.deadline);
-    console.log(options)
-    var d = new Date();
-    console.log(d)
-    image = options.image;
-    this.setData({
-      options,
-      d
-    })
+    var that = this;
+    objectId = options.objectId;
+    var query = new AV.Query('Lottery');
+    query.include('targetProperty');
+    query.get(options.objectId)
+         .then(function (lottery) {
+              that.setData({
+                lottery,
+                d
+              })
+          })
+         .then(()=>{
+           console.log(123)
+           console.log(that.data.lottery.attributes.deadline)
+           that.setTime(that.data.lottery.attributes.deadline)
+         })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setTime(deadline)
     var that = this;
     var query = new AV.Query('_User');
     query.get(AV.User.current().id).then(function (results) {
@@ -72,21 +77,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.queryCount()
-    this.queryLotteryTimes()
-    this.queryLotteryGetTimes()
+    this.queryCount(objectId, AV.User.current().id)
+    this.queryLotteryTimes(objectId)
+    this.queryLotteryGetTimes(objectId)
   },
 
   bindtapAd(){
-      console.log(123)
+      console.log(125)
   },
   //查询用户是否有抽过奖
-  queryCount(){
+  queryCount(objectId,userid) {
      var that = this;
       var queryBuyer = new AV.Query('LotteryToday');
-      queryBuyer.equalTo('targetUser', AV.Object.createWithoutData('_User', AV.User.current().id));
+      queryBuyer.equalTo('targetUser', AV.Object.createWithoutData('_User', userid));
       var querySeller = new AV.Query('LotteryToday');
-      querySeller.equalTo('targetLottery', AV.Object.createWithoutData('Lottery', this.data.options.objectId));
+      querySeller.equalTo('targetLottery', AV.Object.createWithoutData('Lottery', objectId));
       var query = AV.Query.and(queryBuyer, querySeller);
       query.include('targetUser');
       query.include('targetLottery');
@@ -144,6 +149,8 @@ Page({
   bindgetuserinfo(){
     var that = this;
     //调用应用实例的方法获取全局数据
+    console.log(AV.User.current().attributes)
+    var user = AV.User.current().attributes
     app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
@@ -178,7 +185,7 @@ Page({
                   } 
                   else { 
                         that.lotteryToday()
-                        common.showModal('恭喜您获得50积分，积分可以兑换皮肤等好礼。获奖名单将在'+ that.data.options.deadlineTime +'公布，领取奖励时限为48小时,请您及时查收。','抽奖完成')
+                        common.showModal('恭喜您获得50积分，积分可以兑换皮肤等好礼。获奖名单将在'+ that.data.lottery.attributes.targetProperty.deadlineTime +'公布，领取奖励时限为48小时,请您及时查收。','抽奖完成')
                               that.setData({
                                   count:1
                               })
@@ -193,30 +200,35 @@ Page({
           common.addFormId(e.detail.formId)
           var that = this;
 
-            if (!AV.User.current().attributes.userImage) {
+            if (!AV.User.current()) {
+                  console.log("用户未登录");
+            } else if (!AV.User.current().attributes.userImage) {
                   common.showModal('您好，抽奖需要获得您（昵称、头像）信息。请设置访问权限后再参与抽奖。')
-
             } else {
-                      if (that.data.count > 0) {
-                            return false;
-                      } 
-                      else { 
-                        that.lotteryToday()
-                        common.showModal('恭喜您完成抽奖。获奖名单将在'+ that.data.options.deadlineTime +'公布，领取奖励时限为48小时,请您及时查收。','抽奖完成')
-                              that.setData({
-                                  count:1
-                              })
-                      }
+                if (that.data.count > 0) {
+                      return false;
+                } 
+                else { 
+                  that.lotteryToday()
+                  common.showModal('恭喜您完成抽奖。获奖名单将在'+ that.data.lottery.attributes.deadlineTime +'公布，领取奖励时限为48小时,请您及时查收。','抽奖完成')
+                        that.setData({
+                            count:1
+                        })
+                }
             }
   },
 
   lotteryToday(){
           var LotteryToday = AV.Object.extend('LotteryToday');
           var updateCoins = new LotteryToday();
-          updateCoins.set('product',this.data.options.title);
-          updateCoins.set('content',this.data.options.content);
+          console.log(this.data.lottery.attributes.targetProperty.attributes.title)
+          console.log(this.data.lottery.attributes.targetProperty.attributes.content)
+          console.log(AV.User.current().id)
+          console.log(this.data.lottery.id)
+          updateCoins.set('product',this.data.lottery.attributes.targetProperty.attributes.title);
+          updateCoins.set('content',this.data.lottery.attributes.targetProperty.attributes.content);
           updateCoins.set('targetUser',AV.Object.createWithoutData('_User', AV.User.current().id));
-          updateCoins.set('targetLottery',AV.Object.createWithoutData('Lottery', this.data.options.objectId));
+          updateCoins.set('targetLottery', AV.Object.createWithoutData('Lottery', this.data.lottery.id));
           updateCoins.save()   
   },
 
@@ -247,17 +259,14 @@ Page({
       this.refrish()
   },
 
-  queryLotteryTimes(){
-      console.log(this.data.options.objectId)
+  queryLotteryTimes(objectId) {
       var query = new AV.Query('LotteryToday');
-      query.equalTo('targetLottery', AV.Object.createWithoutData('Lottery', this.data.options.objectId));
+      query.equalTo('targetLottery', AV.Object.createWithoutData('Lottery',objectId));
       query.limit(page_size);
       query.include('targetUser');
       query.descending('createdAt')
       query.find()
             .then(comment => {
-                      console.log('我是comment')
-                      console.log(comment)
                       var comm = comment.filter(function (x) {
                         return x.attributes.targetUser.attributes.userImage !== undefined;
                       });
@@ -271,7 +280,7 @@ Page({
 
   refrish(){
       var query = new AV.Query('LotteryToday');
-      query.equalTo('targetLottery', AV.Object.createWithoutData('Lottery', this.data.options.objectId));
+      query.equalTo('targetLottery', AV.Object.createWithoutData('Lottery', objectId));
       query.limit(page_size);
       query.skip(page_index * page_size);
       query.include('targetUser');
@@ -292,9 +301,9 @@ Page({
            .catch(console.error);
   },
 
-  queryLotteryGetTimes(){
+  queryLotteryGetTimes(objectId) {
       var queryLottery = new AV.Query('LotteryToday');
-      var targetLottery = AV.Object.createWithoutData('Lottery', this.data.options.objectId);
+      var targetLottery = AV.Object.createWithoutData('Lottery', objectId);
       queryLottery.equalTo('targetLottery', targetLottery);
       var queryGet = new AV.Query('LotteryToday');
       queryGet.equalTo('get', true);

@@ -20,12 +20,19 @@ App({
   onLaunch: function (options) {
     console.log(options)
   },
+
   onHide: function () {
 
   },
 
   onShow: function () {
-    this.login()
+    var that = this;
+    if (that.globalData.userInfo) {
+      return;
+    } else {
+      this.login();
+    }
+    
   },
 
   //获取并记录用户来源
@@ -43,19 +50,20 @@ App({
       // 异常处理
     });
   },
+
   //初始化应用后，登录，如果用户没有注册过，则返回没有没有授权，app.hasLogin用户维护用户的登录状态。
   login: function () {
     var that = this;
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
-
           console.log('用户没有授权')
+          that.globalData.hasLogin =false;
         } else {
           wx.showToast({
             title: '授权登录中',
             icon: 'loading',
-            duration: 5000
+            duration: 1000
           })
           wx.login({
             success: res => {
@@ -71,7 +79,6 @@ App({
                     res: res,
                   }
                   AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
-
                     AV.User.loginWithAuthDataAndUnionId({
                       uid: data.openid,
                       access_token: data.token,
@@ -79,16 +86,13 @@ App({
                       unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
                       asMainAccount: false,
                     }).then(function (usr) {
-
                       that.globalData.userInfo = res.userInfo
                       typeof cb == "function" && cb(that.globalData.userInfo)
-
                       var nickName = res.userInfo.nickName;
                       var avatarUrl = res.userInfo.avatarUrl;
                       var city = res.userInfo.city;
                       var gender = res.userInfo.gender;
                       var province = res.userInfo.province;
-
                       var user = AV.Object.createWithoutData('_User', AV.User.current().id);
                       user.set('userName', nickName);
                       user.set('userImage', avatarUrl);
@@ -97,6 +101,7 @@ App({
                       user.set('gender', gender);
                       user.save().then(()=>{
                       that.globalData.hasLogin = true;
+                      wx.hideToast();
                       console.log('用户已登录')
                       }).catch(console.error);
                     }).catch(console.error);
@@ -106,7 +111,7 @@ App({
                   wx.showLoading({
                     title: '未登录',
                     mask: true,
-                  })
+                  });
                 }
               })
             }

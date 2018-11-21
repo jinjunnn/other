@@ -43,19 +43,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
       this.setData({
-        ad : this.data.adid[15]
-      })
-      this.queryNews(options.objectId)
-  },
-
-  queryNews(objectId){
-      var query = new AV.Query('News');
-      query.include('targetUser').get(objectId).then(news => 
-        this.setData({
-          news
-        })).catch(console.error);
+        ad : this.data.adid[15],
+        vid : options.vid,
+        title: options.title,
+        content: options.content,
+      });
   },
 
   bindtapAd(){

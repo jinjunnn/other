@@ -5,6 +5,7 @@
     "pages/groupon/groupon",
     "pages/shopcart/shopcart",
     "pages/shop/shop",
+    "pages/address/address",
     "pages/topic/topic",
     "pages/item/item",
     "pages/item/detail/detail",

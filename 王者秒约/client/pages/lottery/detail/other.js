@@ -35,9 +35,15 @@ Page({
    */
   onLoad: function (options) {
     console.log(AV.User.current())
-    price = Number(options.price)/10;
+
+    var that = this;
     objectId = options.objectId;
-    content = options.content;
+    var query = new AV.Query('Property');
+    query.get(options.objectId).then(function (property) {
+          that.setData({
+            property,
+          });
+        })
     this.queryConfi()
     wx.showShareMenu({
       withShareTicket: true

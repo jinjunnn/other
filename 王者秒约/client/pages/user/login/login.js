@@ -6,24 +6,26 @@ const AV = require('../../../utils/av-live-query-weapp-min');
 var app = getApp()
 
 Page({
+  data: {
+
+  },
   onLoad: function () {
     this.setData({
       hasLogin: app.globalData.hasLogin
-    })
+    });
   },
-  data: {},
+
   login: function () {
     var that = this;
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
-
           console.log('用户没有授权')
         } else {
           wx.showToast({
             title: '授权登录中',
             icon: 'loading',
-            duration: 5000
+            duration: 1000
           })
           wx.login({
             success: res => {
@@ -31,7 +33,7 @@ Page({
               that.setData({
                 hasLogin: true
               })
-              var code = res.code
+              var code = res.code;
               console.log(code)
               wx.getUserInfo({
                 withCredentials: true,
@@ -50,8 +52,8 @@ Page({
                       asMainAccount: false,
                     }).then(function (usr) {
 
-                      app.globalData.userInfo = res.userInfo
-                      typeof cb == "function" && cb(that.globalData.userInfo)
+                      app.globalData.userInfo = res.userInfo;
+                      typeof cb == "function" && cb(that.globalData.userInfo);
 
                       var nickName = res.userInfo.nickName;
                       var avatarUrl = res.userInfo.avatarUrl;
@@ -67,8 +69,7 @@ Page({
                       user.set('gender', gender);
                       user.save().then(() => {
                       app.globalData.hasLogin = true;
-                      wx.hideToast()
-                      
+                      wx.hideToast();
                       console.log('修改了登录状态为' + app.globalData.hasLogin)
                       wx.navigateBack({
                         delta: 1
@@ -89,6 +90,6 @@ Page({
           });
         }
       }
-    })
+    });
   }
-})
+});
