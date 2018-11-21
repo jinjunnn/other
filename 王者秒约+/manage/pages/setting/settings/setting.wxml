@@ -1,4 +1,0 @@
-<view class="body-view">
-    <text>抽奖开启</text>
-    <switch bindchange="switch1Change"/>
-</view>

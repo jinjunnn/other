@@ -1,2 +1,0 @@
-<button class="btn_submit_right"
-		        bindtap="bindUpdateOrderStatus">完成未评论的订单</button>

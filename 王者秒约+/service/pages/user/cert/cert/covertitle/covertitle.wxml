@@ -1,8 +1,0 @@
-<input placeholder="请输入一个10个字以内的封面标题" 
-	   auto-focus
-	   confirm-type="send"
-	   class="input"
-	   bindconfirm="setServiceText"
-	   maxlength="10"
-	   bindblur="setServiceText"
-	   />

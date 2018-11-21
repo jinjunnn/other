@@ -1,7 +1,0 @@
-<input placeholder="请输入手机号码" 
-	   auto-focus
-	   confirm-type="send"
-	   class="input"
-	   bindconfirm="setNickName"
-	   bindblur="setNickName"
-	   />
