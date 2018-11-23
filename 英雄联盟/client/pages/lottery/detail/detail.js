@@ -7,24 +7,19 @@ const {
 const common = require('../../../model/common');
 const Order = require('../../../model/order');
 var that = this;
-var coins;
-//抽奖的次数
-var times = 1;
-//固定的费用金额为1，购买点券时，将COST赋值为价格。
-var cost = 1;
-//微信现金支付抽奖
-var t1 = 0.003;
-//钱包余额抽奖
-var t2 = 10000;
-//消费方式
-var payFor;
-var title;
-var content;
-var price;
+var coins = 0;//用户的积分
+var times = 1; //抽奖的次数
+var cost = 1; //固定的费用金额为1，购买点券时，将COST赋值为价格。
+var t1 = 0.003; //微信现金支付抽奖
+var t2 = 10000; //钱包余额抽奖
+var payFor; //消费方式
+var title;//英雄名称
+var content;//皮肤名称
+var price;//商品点券的价格  = 人民币*10
 var objectId;
-var confi;
-var image;
-var probability;
+var confi;//配置信息，leancloud的displayConfi来配置这个信息。
+var image;//奖品的图片
+var probability;//设置的中奖概率  probability * t1 * 10 = 中奖的获奖概率。0.003 * 120 * 10 =3.6倍的中奖概率。 
 
 Page({
   data: {
@@ -33,46 +28,20 @@ Page({
   },
 
   onLoad: function (options) {
-    common.querySetting('皮肤抽奖', '抽奖需获得您的昵称和头像信息，用以在中奖名单中公布。')
-
-    var that = this;
-    objectId = options.objectId;
-    var query = new AV.Query('Property');
-    query.get(options.objectId).then(function (property) {
-          that.setData({
-            property,
-          });
-          console.log(property.attributes.price);
-    },
-    function (error) {}).then(() => {
-          console.log(1);
-          confi = that.data.property.attributes.confi;
-          probability = that.data.property.attributes.probability;
-          console.log(that.data.property.attributes.confi)
-          console.log(confi)
-          image = that.data.property.attributes.image_w;
-          title = that.data.property.attributes.title;
-          content = that.data.property.attributes.content;
-          price = that.data.property.attributes.price;
-          console.log(price);
-          // objectId =user.attributes.objectId,
-          payFor = that.data.property.attributes.title + that.data.property.attributes.content + '皮肤抽奖';
-    });
-
-
+        objectId = options.objectId;
   },
 
   onReady: function () {
     wx.setNavigationBarTitle({
       title: '皮肤抽奖'
     });
-    // console.log(title + content + price + payFor)
+  },
 
+  queryUserData(){
     var that = this;
     var query = new AV.Query('_User');
     query.get(AV.User.current().id).then(function (results) {
       coins = results.attributes.coins;
-
       that.setData({
         coins: results
       })
@@ -80,23 +49,71 @@ Page({
   },
 
   onShow: function () {
+      // if(AV.User.current().id){
+      //   console.log('userid' + AV.User.current().id);
+      // } else{
+      //   console.log('用户未登录');
+      // }
+      var that = this;
+      that.getLoginInfo();
+      that.queryProperty();
+      that.queryUserData();
 
+  },
+  getLoginInfo(){
+    wx.getSetting({
+      success(res) {
+        console.log(12)
+        console.log(objectId)
+        if ((!res.authSetting['scope.userInfo']) || (!AV.User.current().id)) {
+          //用户没有授权，所以先到登录页面进行授权登录。
+          console.log(123)
+          wx.navigateTo({
+            url: '/pages/user/login/login'
+          })
+          console.log('用户没有授权')
+        }
+      }
+    });
+  },
+
+  queryProperty(){
+    var that = this;
+    var query = new AV.Query('Property');
+    query.get(objectId).then(function (property) {
+        that.setData({
+          property,
+        });
+        console.log(property.attributes.price);
+      },
+      function (error) {}).then(() => {
+      console.log(1);
+      confi = that.data.property.attributes.confi;
+      probability = that.data.property.attributes.probability;
+      console.log(that.data.property.attributes.confi)
+      console.log(confi)
+      image = that.data.property.attributes.image_w;
+      title = that.data.property.attributes.title;
+      content = that.data.property.attributes.content;
+      price = that.data.property.attributes.price;
+      console.log(price);
+      // objectId =user.attributes.objectId,
+      payFor = that.data.property.attributes.title + that.data.property.attributes.content + '皮肤抽奖';
+    });
   },
   //点击抽奖
   bindLucky: function () {
-    console.log(objectId)
-    console.log(price)
+    var that = this;
     this.setData({
       condition: 1
     });
-    var that = this;
     if (cost <= coins) {
-      that.luckyDraw()
+      that.luckyDraw();
       return false;
     } else {
-      that.donate()
+      that.donate();
     }
-  },
+},
   //创建抽奖订单
   donate() {
     wx.showToast({

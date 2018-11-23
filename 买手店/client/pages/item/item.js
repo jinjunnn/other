@@ -12,7 +12,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    backgroundColor: ""
+    backgroundColor: "",
+    amount:1,
 
   },
   // 出现和隐藏弹出框
@@ -38,6 +39,22 @@ Page({
       })
     }.bind(this), 200);
   },
+
+  absAmount(){
+    var that = this;
+    if(that.data.amount > 1){
+      this.setData({
+        amount: that.data.amount - 1
+      });
+    }
+  },
+
+  addAmount(){
+      this.setData({
+        amount: this.data.amount + 1
+      })
+  },
+
   hideModal: function(){
     // 隐藏遮罩层
     var animation = wx.createAnimation({
@@ -55,7 +72,8 @@ Page({
       animation.translateY(0).step();
       this.setData({
         animationData: animation.export(),
-        showModalStatus: false
+        showModalStatus: false,
+        backgroundColor: "",
       });
     }.bind(this), 200);
   },
@@ -85,11 +103,10 @@ Page({
       backgroundColor: "",
     });
     var that = this;
-    console.log(this.data.item.attributes.name);
-    console.log(this.data.item.attributes.price2);
-    console.log(this.data.item.attributes.id);
-
-    that.donate(this.data.item.attributes.name, this.data.item.attributes.price2, this.data.item.attributes.id,1);
+        wx.navigateTo({
+          url: './detail/detail'
+        })
+    // that.donate(this.data.item.attributes.name, this.data.item.attributes.price2, this.data.item.attributes.id,1);
     // that.showModal()
   },
 

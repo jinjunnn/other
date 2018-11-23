@@ -1,2 +1,78 @@
-<!--pages/item/detail/detail.wxml-->
-<text>pages/item/detail/detail.wxml</text>
+<view style="height:2rpx ;background-color:#eee"></view>
+<view class="top" bindtap="chooseAddress">
+    <view style="width:45rpx">
+        <image style="width:30rpx; height:30rpx;margin:15rpx" src="/image/地址.png"></image>
+    </view>
+    <view style="width:660rpx">
+        <view style="font-size:24rpx; color:#111; margin:15rpx">{{userName}}  {{telNumber}}</view>
+        <view style="font-size:22rpx; color:#666; margin:15rpx">{{provinceName}}{{cityName}}{{detailInfo}}</view>
+    </view>
+    <view style="width:75rpx">
+        <image style="width:60rpx; height:60rpx; margin:30rpx 15rpx 30rpx 0rpx" src="/image/前进.png"></image>
+    </view>
+</view>
+
+<view style="height:12rpx ;"></view>
+
+<view style="background-color: #fff;display: -webkit-flex; border-bottom-style:solid; border-color:#eee; border-width:1rpx;">
+    <view style="width:45rpx">
+        <image style="width:30rpx; height:30rpx;margin:15rpx" src="/image/地址.png"></image>
+    </view>
+    <view style="width:510rpx">
+        <view style="font-size:24rpx; color:#111; margin:15rpx; ">{{userName}}</view>
+    </view>
+</view>
+
+<view style="display: -webkit-flex; background-color: #fff;">
+    <view style="width:150rpx">
+        <image style="width:120rpx; height:120rpx;margin:15rpx" src="/image/地址.png"></image>
+    </view>
+    <view style="width:510rpx">
+        <view style="font-size:24rpx; color:#111; margin:15rpx; ">{{userName}}  {{telNumber}}</view>
+        <view style="font-size:22rpx; color:#999; margin:15rpx 15rpx 15rpx 15rpx; ">
+            {{provinceName}}{{cityName}}{{detailInfo}}
+        </view>
+        <view style="display: -webkit-flex">
+            <image src="/image/地址.png" style="height:22rpx; width:22rpx; margin:3rpx 0rpx 12rpx 0rpx;"></image>
+            <view style="font-size:22rpx; color:#999; margin:0rpx 10rpx 15rpx 0rpx ">{{provinceName}}{{cityName}}{{detailInfo}}</view>
+        </view>
+    </view>
+    <view style="width:90rpx; margin:20rpx">
+        <view style="color:#333; text-align:right; margin:10rpx 20rpx 10rpx 0rpx; font-size:22rpx;">￥80.00</view>
+        <view style="color:#999; text-align:right; margin:10rpx 20rpx 10rpx 0rpx; font-size:22rpx;">*1</view>
+
+    </view>
+</view>
+<view style="height:12rpx ;"></view>
+<view style="background-color: #fff; border-bottom-style:solid; border-color:#eee; border-width:1rpx; padding:20rpx 10rpx 20rpx 10rpx;">
+    <view style="display: -webkit-flex;justify-content:space-between;">
+        <view style="font-size:24rpx; color:#999; margin:15rpx; ">{{totalname}}</view>
+        <view style="font-size:22rpx; color:#111; margin:15rpx; text-align: right">
+            ￥{{total}}
+        </view>
+    </view>
+    <view style="display: -webkit-flex;justify-content:space-between;">
+        <view style="font-size:24rpx; color:#999; margin:15rpx; ">{{feightname}}</view>
+        <view style="font-size:22rpx; color:#111; margin:15rpx; text-align: right">
+            ￥{{feight}}.00
+        </view>
+    </view>
+    <view style="display: -webkit-flex;justify-content:space-between;">
+        <view style="font-size:24rpx; color:#999; margin:15rpx; ">{{feename}}</view>
+        <view style="font-size:22rpx; color:#111; margin:15rpx; text-align: right">
+            ￥{{fee}}.00
+        </view>
+    </view>
+<view style="color:#999; padding:25rpx; font-size:22rpx; border-top-style:solid; border-color:#eee; border-width:1rpx;">{{agreement}}</view>
+</view>
+<view class="button_wrap">
+    <form bindsubmit="bindService" report-submit="true">
+        <view class="btn_submit">
+            <view style="margin:40rpx 30rpx 18rpx 30rpx;font-size:24rpx;">合计金额：￥</view>
+        </view>
+    </form>
+
+    <form bindsubmit="showModal" report-submit="true">
+        <button formType="submit" class="btn_submit_right" bindgetuserinfo="bindgetuserinfo" open-type="getUserInfo">微信支付</button>
+    </form>
+</view>

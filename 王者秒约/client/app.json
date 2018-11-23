@@ -136,12 +136,13 @@
   },
   "plugins": {
     "tencentvideo": {
-      "version": "1.2.0",
+      "version": "1.2.3",
       "provider": "wxa75efa648b60994b"
     }
   },
 	"navigateToMiniProgramAppIdList": [
 	  "wxe09a938fce8af998",
-	  "wx6efbe0ee407317f0"
+	  "wx6efbe0ee407317f0",
+    "wxc7569f6191eed045"
 	]
 }

@@ -44,8 +44,11 @@ App({
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
-
-          console.log('用户没有授权')
+            //用户没有授权，所以先到登录页面进行授权登录。放在这里存在的问题是，参数objectId没有传到lottery/detail页面
+            // wx.navigateTo({
+            //   url: '/pages/user/login/login'
+            // })
+            // console.log('用户没有授权')
         } else {
           wx.login({
             success: res => {

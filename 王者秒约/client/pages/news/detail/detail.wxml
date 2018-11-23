@@ -79,7 +79,7 @@
 
 <view bindtap="bindtapAd">
     <ad unit-id="adunit-3a4305b0dc9dca7a"></ad>
-<view style="text-align:right; font-size:24rpx;color:#1AA59a; font-weight:bold; padding:20rpx" wx:if="{{1}}">如果您喜欢广告内容，请点击广告支持我们，我们会随机赠送积分奖励，最高赠送8888积分可以直接兑换888点券的皮肤。</view>
+<view style="text-align:right; font-size:24rpx;color:#1AA59a; font-weight:bold; padding:20rpx" wx:if="{{1}}"></view>
 </view>
 <view style="height:20rpx; background-color: #eee;"></view>
 

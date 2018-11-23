@@ -66,7 +66,31 @@
 	</view>
 </view>
 <!-- 这里是微信底部弹出框的代码 -->
-<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+<view class="commodity_screen"  wx:if="{{showModalStatus}}">
+	<view style="height:80rpx; display: -webkit-flex; justify-content:space-between; border-bottom-style:solid; border-color:#eee; border-width:1rpx;">
+		<view style="margin:28rpx; font-size: 24rpx;">数量</view>
+		<view bindtap="hideModal">
+			<image src="/image/错号.png" style="width:48rpx; height:48rpx; margin:20rpx"></image>
+		</view>
+	</view>
+	<view style="height:200rpx; display: -webkit-flex;">
+		<view><image src="{{item.productGoods[0]}}" style="width:160rpx; height:160rpx; margin:20rpx"></image></view>
+		<view style="font-size:20rpx; color:red; margin:30rpx">￥{{item.price2}}元</view>
+	</view>
+
+	<view class="amount">
+		<view style="height:58rpx; width:58rpx; border-right-style:solid; border-color:#eee; border-width:1rpx;"
+		      bindtap="absAmount">
+			<image src="/image/减号.png" style="width:30rpx; height:30rpx; margin:15rpx"></image>
+		</view>
+		<view style="width:120rpx; height:58rpx; text-align:center; color:#111; font-size:24rpx; margin:14rpx;">
+		    <text>{{amount}}</text>
+		</view>
+		<view style="height:58rpx; width:58rpx; border-left-style:solid; border-color:#eee; border-width:1rpx;"
+			  bindtap="addAmount">
+			<image src="/image/加号.png" style="width:30rpx; height:30rpx; margin:15rpx"></image>
+		</view>
+	</view>
 	<button bindtap="bindBuy" class="btn_sure">立即购买</button>
 </view>
 

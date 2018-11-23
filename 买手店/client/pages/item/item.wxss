@@ -5,7 +5,7 @@
   color: #1AA59a;
   position: fixed;
   bottom: 0;
-  height:7%;
+  height:6.5%;
   width: 30%;
   text-align: center;
   text-decoration: none;
@@ -20,7 +20,7 @@
   position: fixed;
   bottom: 0;
   left:225rpx;
-  height:7%;
+  height:6.5%;
   width: 70%;
   text-align: center;
   text-decoration: none;
@@ -39,20 +39,20 @@
 */
 .commodity_screen {
   width: 100%;
-  height: 50%;
+  height: 65%;
   position: fixed;
   bottom: 0;
   left: 0;
   background: #fff;
   opacity: 1;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1001;
   color: #888888;
 }
 
 .btn_sure{
     width: 700rpx;
-    height: 7%;
+    height: 6.5%;
     position: fixed;
     bottom: 10rpx;
     left: 25rpx;
@@ -60,13 +60,28 @@
     opacity: 1;
     border: none;
     overflow: hidden;
-    z-index: 1;
+    z-index: 1002;
     color: #fff;
 }
 
 
 
 .bg_color {
-  opacity:0.4;
-  z-index: 0;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position:absolute;
+}
+
+.amount{
+  margin:30rpx 30rpx 30rpx 20rpx;
+  height:60rpx;
+  width:240rpx;
+  border-style:solid;
+  border-color:#eee;
+  border-width:1rpx;
+  border-radius:4rpx;
+  display: -webkit-flex;
 }

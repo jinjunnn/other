@@ -101,5 +101,9 @@
         "text": "我的"
       }
     ]
-  }
+  },
+	"navigateToMiniProgramAppIdList": [
+	  "wxe09a938fce8af998",
+	  "wx6efbe0ee407317f0"
+	]
 }

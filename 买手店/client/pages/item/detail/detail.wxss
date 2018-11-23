@@ -1,1 +1,43 @@
-/* pages/item/detail/detail.wxss */
+page {
+    background-color: #f2f2f2;
+}
+.top{
+    display: -webkit-flex;
+    height:120rpx;
+    background-color: #fff;
+}
+.btn_submit {
+    flex: 2;
+    background-color: #FFFFFF;
+    border: none;
+    color: #FD6C82;
+    position: fixed;
+    bottom: 0;
+    height: 8%;
+    width: 70%;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0px;
+    font-size:24rpx;
+}
+
+.btn_submit_right {
+    flex: 2;
+    background-color: #FD6C82;
+    border: none;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 525rpx;
+    height: 8%;
+    width: 30%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0px;
+}
+
+.button_wrap {
+    display: -webkit-flex;
+}
