@@ -118,29 +118,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: app.globalData.confi.lotterySharePage.title,
-      path: app.globalData.confi.lotterySharePage.path,
-      imageUrl:this.data.list[0].attributes.image.attributes.url,
-      success: function(res) {
-          var shareTickets = res.shareTickets;
-          if (shareTickets.length == 0) {
-            return false;
-          }
-          wx.getShareInfo({
-            shareTicket: shareTickets[0],
-            success: function(res){
-              var encryptedData = res.encryptedData;
-              var iv = res.iv;
-              var paramsJson = {
-                  user:AV.User.current().id,
-                  encryptedData: encryptedData,
-                  iv: iv,
-                  sessionKey:User.current().attributes.authData.lc_weapp.session_key,
-                  }
-              Cloud.run('groupId' ,paramsJson)
-            }
-          })
-      }
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
     }
   }
 })

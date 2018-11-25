@@ -16,26 +16,11 @@ Page({
   data: {
       adid:
         [
-             "adunit-86a4f45a84a32fb6",
-             "adunit-7da62929ab96330e",
-             "adunit-db85cdae1ddd3f47",
-             "adunit-69ff9d72f129116a",
-             "adunit-31353fa88f44154e",
-             "adunit-edd0ea12058866ee",
-             "adunit-0ec8aaa832eafb7b",
-             "adunit-c928ca5d75807d18",
-             "adunit-b8244d518e34e088",
-             "adunit-7e3aeb3ef839ad67",
-             "adunit-39c9eef96f356cea",
-             "adunit-1c997317d263264a",
-             "adunit-52a5303ae6e6e2bd",
-             "adunit-b952bbac06c9f42d",
-             "adunit-08082e6403fdfa85",
-             "adunit-9a1e1be0eae20e51",
-             "adunit-b5424c6694ad378d",
-             "adunit-f7b0f5fcd05cb461",
-             "adunit-3a4305b0dc9dca7a",
-             "adunit-0235c07f0d911bab"
+             "adunit-86a4f45a84a32fb6","adunit-7da62929ab96330e","adunit-db85cdae1ddd3f47","adunit-69ff9d72f129116a",
+             "adunit-31353fa88f44154e","adunit-edd0ea12058866ee","adunit-0ec8aaa832eafb7b","adunit-c928ca5d75807d18",
+             "adunit-b8244d518e34e088","adunit-7e3aeb3ef839ad67","adunit-39c9eef96f356cea","adunit-1c997317d263264a",
+             "adunit-52a5303ae6e6e2bd","adunit-b952bbac06c9f42d","adunit-08082e6403fdfa85","adunit-9a1e1be0eae20e51",
+             "adunit-b5424c6694ad378d","adunit-f7b0f5fcd05cb461","adunit-3a4305b0dc9dca7a","adunit-0235c07f0d911bab"
         ]
   },
 
@@ -48,6 +33,7 @@ Page({
         vid : options.vid,
         title: options.title,
         content: options.content,
+        img: options.img,
       });
   },
 
@@ -182,11 +168,9 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: this.data.news.attributes.title + "，点击广告赠送了我一个888点券皮肤",
-      imageUrl:this.data.news.attributes.profile,
-      success: function(res) {
-
-      }
+      title: this.data.title + "，点击广告赠送了我一个888点券皮肤",
+      imageUrl:this.data.img,
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
     }
   }
 })

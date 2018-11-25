@@ -392,6 +392,7 @@ Page({
     return{
       title:  title + content + '皮肤抽奖',
       imageUrl:image,
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
     }
   }
 })

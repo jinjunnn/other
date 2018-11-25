@@ -109,7 +109,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: app.globalData.confi.indexSharePage.title,
-      path: app.globalData.confi.indexSharePage.path,
+      path: app.globalData.confi.indexSharePage.path + AV.User.current().id,
       imageUrl:app.globalData.confi.indexSharePage.imageUrl,
       success: function(res) {
           var shareTickets = res.shareTickets;

@@ -1,7 +1,7 @@
 
 
 <view wx:for="{{videos}}" wx:key="item">
-    <navigator url="/pages/news/detail/detail?objectId={{item.objectId}}&vid={{item.vid}}&title={{item.title}}&content={{item.content[0]}}">
+    <navigator url="/pages/news/detail/detail?objectId={{item.objectId}}&vid={{item.vid}}&title={{item.title}}&content={{item.content[0]}}&img={{item.profile}}">
         <image style="width: 750rpx; height: 420rpx" 
                 src="{{item.profile}}"/>
         <view style="margin:10rpx 20rpx 10rpx 20rpx">

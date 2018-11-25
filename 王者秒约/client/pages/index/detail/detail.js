@@ -119,6 +119,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: app.globalData.confi.indexDetailSharePage.title,
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
     }
   }
 })

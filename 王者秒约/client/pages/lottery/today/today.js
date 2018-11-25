@@ -322,29 +322,9 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: app.globalData.confi.lotteryTodaySharePage.title,
-      path: app.globalData.confi.lotteryTodaySharePage.path,
-      imageUrl:image,
-      success: function(res) {
-          var shareTickets = res.shareTickets;
-          if (shareTickets.length == 0) {
-            return false;
-          }
-          wx.getShareInfo({
-            shareTicket: shareTickets[0],
-            success: function(res){
-              var encryptedData = res.encryptedData;
-              var iv = res.iv;
-              var paramsJson = {
-                  user:AV.User.current().id,
-                  encryptedData: encryptedData,
-                  iv: iv,
-                  sessionKey:User.current().attributes.authData.lc_weapp.session_key,
-                  }
-              Cloud.run('groupId' ,paramsJson)
-            }
-          })
-      }
+      title: this.data.lottery.attributes.targetProperty.attributes.title + this.data.lottery.attributes.targetProperty.attributes.content + "免费抽奖",
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
+      imageUrl: this.data.lottery.attributes.targetProperty.attributes.image_w
     }
   }
 })

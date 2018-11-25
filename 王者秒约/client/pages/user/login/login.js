@@ -45,11 +45,13 @@ Page({
                   }
                   AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
                     AV.User.loginWithAuthDataAndUnionId({
-                      uid: data.openid,
-                      access_token: data.token,
+                          access_token: data.token,
+                          expires_in: 7200,
+                          refresh_token: data.token,
+                          openid: data.openid,
                     }, 'weapp_old', data.unionid, {
                       unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
-                      asMainAccount: false,
+                      asMainAccount: true,
                     }).then(function (usr) {
 
                       app.globalData.userInfo = res.userInfo;

@@ -158,33 +158,55 @@ Page({
   onReachBottom: function () {
       page_index = ++page_index;
       this.reFrish();
+      console.log(AV.User.current())
   },
 
   onShareAppMessage: function () {
     return {
-      title: app.globalData.confi.lotterySharePage.title,
-      path: app.globalData.confi.lotterySharePage.path,
-      imageUrl:this.data.list[0].attributes.image.attributes.url,
+      title: this.data.list[0].attributes.targetProperty.attributes.title + this.data.list[0].attributes.targetProperty.attributes.content + "免费抽奖",
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id, 
+      imageUrl: this.data.list[0].attributes.targetProperty.attributes.image_w,
       success: function(res) {
-          var shareTickets = res.shareTickets;
-          if (shareTickets.length == 0) {
-            return false;
-          }
-          wx.getShareInfo({
-            shareTicket: shareTickets[0],
-            success: function(res){
-              var encryptedData = res.encryptedData;
-              var iv = res.iv;
-              var paramsJson = {
-                  user:AV.User.current().id,
-                  encryptedData: encryptedData,
-                  iv: iv,
-                  sessionKey:User.current().attributes.authData.lc_weapp.session_key,
-                  }
-              Cloud.run('groupId' ,paramsJson)
-            }
-          })
+          wx.updateShareMenu({
+              withShareTicket: true,
+              isUpdatableMessage: true,
+              activityId: '984_0I5p7Vb5DqimNBCYiroteq3uYedNG9xo9jWMLIpCkwe4GLMBnUgsW0ywJOk~',
+              templateInfo: {
+                parameterList: [{
+                  name: 'member_count',
+                  value: '1'
+                }, {
+                  name: 'room_limit',
+                  value: '3'
+                }]
+              },
+              success() {
+                console.log(123456)
+              }
+          });
+
       }
+      //返回成功在success中做一些事
+      // success: function(res) {
+      //     var shareTickets = res.shareTickets;
+      //     if (shareTickets.length == 0) {
+      //       return false;
+      //     }
+      //     wx.getShareInfo({
+      //       shareTicket: shareTickets[0],
+      //       success: function(res){
+      //         var encryptedData = res.encryptedData;
+      //         var iv = res.iv;
+      //         var paramsJson = {
+      //             user:AV.User.current().id,
+      //             encryptedData: encryptedData,
+      //             iv: iv,
+      //             sessionKey:User.current().attributes.authData.lc_weapp.session_key,
+      //             }
+      //         Cloud.run('groupId' ,paramsJson)
+      //       }
+      //     })
+      // }
     }
   }
 })

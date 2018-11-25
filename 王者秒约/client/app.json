@@ -26,7 +26,6 @@
 
     "pages/index/index",
     "pages/index/index/index",
-    "pages/index/login/login",
     "pages/index/detail/detail",
     "pages/index/detail/order/order",
     "pages/index/expert/expert",

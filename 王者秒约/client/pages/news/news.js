@@ -94,6 +94,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: this.data.videos[0].attributes.title,
+      path: 'pages/lottery/lottery?user=' + AV.User.current().id,
+      imageUrl: this.data.videos[0].attributes.profile,
+    }
   }
 })
