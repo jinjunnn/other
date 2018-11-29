@@ -1,6 +1,6 @@
 const AV = require('../../../utils/av-live-query-weapp-min');
 var address = '';
-var coins= 7;
+var coins= 2;
 var rechargeAppId = "wx6efbe0ee407317f0";
 
 Page({

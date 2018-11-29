@@ -1,5 +1,6 @@
 {
   "pages":[
+    
 
     
     "pages/lottery/lottery",
@@ -51,6 +52,8 @@
     "pages/user/setting/gamename/gamename",
     "pages/user/setting/cells/cells",
     "pages/user/setting/wechatId/wechatId",
+
+    "pages/user/referee/referee",
 
     "pages/user/cert/cert",
     "pages/user/cert/xieyi",

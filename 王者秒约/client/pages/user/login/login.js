@@ -64,6 +64,9 @@ Page({
                       var province = res.userInfo.province;
 
                       var user = AV.Object.createWithoutData('_User', AV.User.current().id);
+                      if (res.userInfo.createdAt == res.userInfo.updatedAt) {
+                        user.set('referee', app.globalData.referee);
+                      }
                       user.set('userName', nickName);
                       user.set('userImage', avatarUrl);
                       user.set('city', city);

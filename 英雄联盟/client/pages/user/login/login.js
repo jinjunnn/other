@@ -43,7 +43,7 @@ Page({
                             expires_in: 7200,
                             refresh_token: data.token,
                             openid: data.openid,
-                    }, 'weapp_moba', data.unionid, {
+                    }, 'weapp_mob', data.unionid, {
                       unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
                       asMainAccount: false,
                       }).then(function (usr) {

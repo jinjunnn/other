@@ -18,7 +18,13 @@ const realtime = new Realtime({
 
 App({
   onLaunch: function (options) {
-    console.log(options)
+    var that = this;
+    console.log(options);
+    console.log(options.query);
+    console.log(options.query.user);
+    if (options.query.user) {
+      that.globalData.referee = options.query.user;
+    }
   },
 
   onHide: function () {
@@ -26,12 +32,12 @@ App({
   },
 
   onShow: function () {
-    var that = this;
-    if (that.globalData.userInfo) {
-      return;
-    } else {
-      this.login();
-    }
+        wx.checkSession({
+          success() {},
+          fail() {
+            this.login();
+          }
+        });
     
   },
 
@@ -74,18 +80,21 @@ App({
                 withCredentials: true,
                 success: res => {
                   // 可以将 res 发送给后台解码出 unionId
+                  console.log(code)
+                  console.log(res)
                   var paramsJson = {
                     code: code,
                     res: res,
                   }
                   AV.Cloud.run('wxLogin', paramsJson).then(function (data) {
+                    console.log(data)
                     //这个是将authData放进去。
                     AV.User.loginWithAuthDataAndUnionId({
                         access_token: data.token,
                         expires_in: 7200,
                         refresh_token: data.token,
                         openid: data.openid,
-                    }, 'weapp_old', data.unionid, {
+                    }, 'miaoyue', data.unionid, {
                       unionIdPlatform: 'weixin', // 指定为 weixin 即可通过 unionid 与其他 weixin 平台的帐号打通
                       asMainAccount: true,
                     }).then(function (usr) {
@@ -96,7 +105,12 @@ App({
                       var city = res.userInfo.city;
                       var gender = res.userInfo.gender;
                       var province = res.userInfo.province;
+                      console.log(res.userInfo.createdAt);
+                      console.log(res.userInfo.updatedAt);
                       var user = AV.Object.createWithoutData('_User', AV.User.current().id);
+                      if ((res.userInfo.createdAt == res.userInfo.updatedAt) && that.globalData.referee) {
+                        user.set('referee', that.globalData.referee);
+                      }
                       user.set('userName', nickName);
                       user.set('userImage', avatarUrl);
                       user.set('city', city);
@@ -129,5 +143,6 @@ App({
     userInfo: null,
     confi:null,
     hasLogin: false,
+    referee:null,
   }
 })

@@ -1,0 +1,35 @@
+<view style="margin:20rpx">
+	<view style="margin:40rpx 0rpx 40rpx 20rpx; font-size:30rpx; font-weight: bold;">账户余额：{{coins}}.00元</view>
+
+	<view style="display: -webkit-flex; justify-content: space-between;">
+		<view style="margin:40rpx 0rpx 40rpx 20rpx; font-size:30rpx">充值金额</view>
+		<view style="margin:40rpx 40rpx 40rpx 20rpx; font-size:24rpx" bindtap="bindDisplayNotice">充值说明</view>
+	</view>
+
+	<view class="pricewrap">
+		<view wx:if="{{priceid==6}}" class="price">6元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="6">6元</view>
+		<view wx:if="{{priceid==18}}" class="price">18元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="18">18元</view>
+		<view wx:if="{{priceid==30}}" class="price">30元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="30">30元</view>
+		<view wx:if="{{priceid==68}}" class="price">68元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="68">68元</view>
+		<view wx:if="{{priceid==128}}" class="price">128元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="128">128元</view>
+		<view wx:if="{{priceid==648}}" class="price">648元</view>
+		<view wx:else class="price2" bindtap="bindChangePrice" data-price="648">648元</view>
+	</view>
+
+	<view style="font-size:30rpx; margin:20rpx; color: #666">充值{{priceid}}元可获赠：</view>
+	<view style="font-size:30rpx; margin:20rpx; color: #666">
+		<image style="height: 30rpx; width: 30rpx; margin-right: 30rpx"
+		       src="/image/积分.png"></image>
+		<text>{{priceid * 10}}积分</text>
+	</view>
+
+    <button bindtap="bindRecharge"
+            class="btn_submit_right">充值</button>
+
+
+</view>
